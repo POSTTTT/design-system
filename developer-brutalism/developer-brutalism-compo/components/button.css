@@ -26,11 +26,11 @@
 
 /* primary — solid white block, black text */
 .db-btn--primary {
-  background: var(--ds-color-fg-default);
-  color: var(--ds-color-fg-onInvert);
+  background: #ffffff;
+  color: var(--ds-color-fg-on-invert);
   border-color: transparent;
 }
-.db-btn--primary:hover { background: #fff; color: var(--ds-color-fg-onInvert); }
+.db-btn--primary:hover { background: #ffffff; color: var(--ds-color-fg-on-invert); border-color: transparent; filter: brightness(0.9); }
 
 /* accent — amber outline */
 .db-btn--accent { color: var(--ds-color-accent-primary); border-color: var(--ds-color-accent-primary); }
