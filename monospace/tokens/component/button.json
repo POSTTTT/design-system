@@ -1,0 +1,18 @@
+{
+  "button": {
+    "radius":      { "$type": "dimension", "$value": "{radius.lg}" },
+    "borderWidth": { "$type": "dimension", "$value": "{border.width.thin}" },
+    "borderColor": { "$type": "color",     "$value": "{color.border.default}" },
+    "bg":          { "$type": "color",     "$value": "{color.bg.code}",  "$description": "Default (secondary) button base" },
+    "fg":          { "$type": "color",     "$value": "{color.fg.default}" },
+    "padding": {
+      "$type": "dimension",
+      "x": { "$value": "1rem" },
+      "y": { "$value": "0.5625rem", "$description": "9px — matches source .btn" }
+    },
+    "font": {
+      "weight": { "$type": "fontWeight", "$value": "{font.weight.semibold}" },
+      "size":   { "$type": "dimension",  "$value": "{font.size.sm}" }
+    }
+  }
+}

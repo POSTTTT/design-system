@@ -1,0 +1,17 @@
+/* Tag / pill — mono, uppercase, outlined. */
+.nb-tag {
+  display: inline-block;
+  font-family: var(--ds-font-family-mono);
+  font-size: var(--ds-font-size-xs);
+  font-weight: var(--ds-font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--ds-font-letter-spacing-wide);
+  color: var(--ds-color-fg-on-accent);
+  background: var(--ds-color-accent-tertiary);
+  border: var(--ds-border-width-base) solid var(--ds-color-border-default);
+  border-radius: var(--ds-radius-full);
+  padding: var(--ds-space-1) var(--ds-space-3);
+}
+.nb-tag--primary { background: var(--ds-color-accent-primary); }
+.nb-tag--success { background: var(--ds-color-feedback-success); }
+.nb-tag--danger  { background: var(--ds-color-feedback-danger); color: var(--ds-color-fg-inverse); }

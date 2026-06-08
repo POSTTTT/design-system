@@ -1,0 +1,12 @@
+{
+  "shadow": {
+    "$type": "shadow",
+    "_comment": "Soft, deep, blurred shadows — the opposite of brutalist hard offsets. Colors carry alpha.",
+
+    "sm":   { "$value": { "offsetX": "0px", "offsetY": "6px",  "blur": "22px", "spread": "0px", "color": "#00000066" } },
+    "md":   { "$value": { "offsetX": "0px", "offsetY": "12px", "blur": "40px", "spread": "0px", "color": "#00000066" } },
+    "lg":   { "$value": { "offsetX": "0px", "offsetY": "24px", "blur": "60px", "spread": "0px", "color": "#00000066" } },
+    "glow": { "$value": { "offsetX": "0px", "offsetY": "4px",  "blur": "18px", "spread": "0px", "color": "#e06c7559" }, "$description": "Coral focus/hover glow" },
+    "none": { "$value": { "offsetX": "0px", "offsetY": "0px",  "blur": "0px",  "spread": "0px", "color": "transparent" } }
+  }
+}

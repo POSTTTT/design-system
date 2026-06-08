@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Monospace · Design System Catalog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<!-- One import: generated tokens + every ms- component. -->
+<link rel="stylesheet" href="../monospace-compo/components.css" />
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background:
+      radial-gradient(1100px 520px at 82% -10%, rgba(224,108,117,0.12), transparent 60%),
+      radial-gradient(900px 520px at 0% 0%, rgba(53,90,102,0.30), transparent 55%),
+      var(--ds-color-bg-canvas);
+    color: var(--ds-color-fg-default);
+    font-family: var(--ds-font-family-mono);
+    line-height: var(--ds-font-line-height-normal);
+    min-height: 100vh;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: var(--ds-space-7) var(--ds-space-5); }
+  code { color: var(--ds-color-fg-muted); }
+
+  .masthead { margin-bottom: var(--ds-space-7); }
+  .masthead h1 {
+    font-size: var(--ds-font-size-3xl);
+    font-weight: var(--ds-font-weight-bold);
+    letter-spacing: var(--ds-font-letter-spacing-tight);
+    color: var(--ds-color-fg-heading);
+    margin: var(--ds-space-3) 0 var(--ds-space-2);
+  }
+
+  section { margin-bottom: var(--ds-space-7); }
+  h2 {
+    font-size: var(--ds-font-size-xl);
+    font-weight: var(--ds-font-weight-bold);
+    color: var(--ds-color-fg-heading);
+    border-bottom: var(--ds-border-width-thin) solid var(--ds-color-border-default);
+    padding-bottom: var(--ds-space-2);
+    margin: 0 0 var(--ds-space-5);
+  }
+  .grid { display: grid; gap: var(--ds-space-4); grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+
+  .swatch {
+    border: var(--ds-border-width-thin) solid var(--ds-color-border-default);
+    border-radius: var(--ds-radius-md);
+    overflow: hidden;
+    background: var(--ds-color-bg-surface);
+  }
+  .swatch .chip { height: 56px; }
+  .swatch .meta { padding: var(--ds-space-2) var(--ds-space-3); }
+  .swatch .name { font-size: var(--ds-font-size-sm); font-weight: var(--ds-font-weight-semibold); }
+  .swatch code { font-size: var(--ds-font-size-xs); }
+
+  .row { display: flex; flex-wrap: wrap; gap: var(--ds-space-4); align-items: center; }
+  .scaleRow { display: flex; align-items: center; gap: var(--ds-space-4); margin-bottom: var(--ds-space-2); font-size: var(--ds-font-size-sm); }
+  .bar { background: var(--ds-color-accent-primary); height: 16px; border-radius: var(--ds-radius-sm); }
+  .radiusBox { width: 80px; height: 80px; background: var(--ds-color-bg-surface); border: var(--ds-border-width-thin) solid var(--ds-color-border-default); display: grid; place-items: end center; padding: var(--ds-space-1); font-size: var(--ds-font-size-xs); color: var(--ds-color-fg-muted); }
+  .shadowBox { width: 130px; height: 80px; background: var(--ds-color-bg-surface); border: var(--ds-border-width-thin) solid var(--ds-color-border-default); border-radius: var(--ds-radius-md); display: grid; place-items: center; font-size: var(--ds-font-size-xs); color: var(--ds-color-fg-muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <span class="ms-tag ms-tag--accent">design system · v0.1</span>
+    <h1>Monospace</h1>
+    <p style="color:var(--ds-color-fg-muted);margin:0">Atom One Dark–inspired terminal style. Tokens read live from <code>dist/css/tokens.css</code>; components from <code>monospace-compo/</code>.</p>
+  </header>
+
+  <section>
+    <h2>Colors</h2>
+    <div class="grid">
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-bg-canvas)"></div><div class="meta"><div class="name">bg.canvas</div><code>#282c34</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-bg-surface)"></div><div class="meta"><div class="name">bg.surface</div><code>#1e2228</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-bg-code)"></div><div class="meta"><div class="name">bg.code</div><code>#111111</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-fg-default)"></div><div class="meta"><div class="name">fg.default</div><code>#9cdef2</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-fg-muted)"></div><div class="meta"><div class="name">fg.muted</div><code>#6b8a94</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-border-default)"></div><div class="meta"><div class="name">border</div><code>#355a66</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-accent-primary)"></div><div class="meta"><div class="name">accent</div><code>#e06c75</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-feedback-success)"></div><div class="meta"><div class="name">success</div><code>#50fa7b</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-feedback-warning)"></div><div class="meta"><div class="name">warning</div><code>#f0ad4e</code></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Typography</h2>
+    <div class="ms-card">
+      <p style="font-size:var(--ds-font-size-4xl);font-weight:var(--ds-font-weight-bold);line-height:var(--ds-font-line-height-tight);color:var(--ds-color-fg-heading);margin:0 0 var(--ds-space-3)">Display 4xl / 700</p>
+      <p style="font-size:var(--ds-font-size-xl);font-weight:var(--ds-font-weight-semibold);color:var(--ds-color-fg-heading);margin:0 0 var(--ds-space-3)">Heading xl / 600</p>
+      <p style="font-size:var(--ds-font-size-base);margin:0 0 var(--ds-space-3)">Body base / 400 — the quick brown fox jumps over the lazy dog 0123456789.</p>
+      <p style="font-size:var(--ds-font-size-xs);text-transform:uppercase;letter-spacing:var(--ds-font-letter-spacing-wide);color:var(--ds-color-fg-muted);margin:0">Mono label · xs · wide tracking</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Spacing</h2>
+    <div class="ms-card">
+      <div class="scaleRow"><span style="width:72px;color:var(--ds-color-fg-muted)">space.2</span><div class="bar" style="width:var(--ds-space-2)"></div></div>
+      <div class="scaleRow"><span style="width:72px;color:var(--ds-color-fg-muted)">space.4</span><div class="bar" style="width:var(--ds-space-4)"></div></div>
+      <div class="scaleRow"><span style="width:72px;color:var(--ds-color-fg-muted)">space.6</span><div class="bar" style="width:var(--ds-space-6)"></div></div>
+      <div class="scaleRow"><span style="width:72px;color:var(--ds-color-fg-muted)">space.8</span><div class="bar" style="width:var(--ds-space-8)"></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Radius &amp; Shadow</h2>
+    <div class="row">
+      <div class="radiusBox" style="border-radius:var(--ds-radius-sm)">sm</div>
+      <div class="radiusBox" style="border-radius:var(--ds-radius-md)">md</div>
+      <div class="radiusBox" style="border-radius:var(--ds-radius-lg)">lg</div>
+      <div class="radiusBox" style="border-radius:var(--ds-radius-xl)">xl</div>
+    </div>
+    <div class="row" style="margin-top:var(--ds-space-6)">
+      <div class="shadowBox" style="box-shadow:var(--ds-shadow-sm)">sm</div>
+      <div class="shadowBox" style="box-shadow:var(--ds-shadow-md)">md</div>
+      <div class="shadowBox" style="box-shadow:var(--ds-shadow-lg)">lg</div>
+      <div class="shadowBox" style="box-shadow:var(--ds-shadow-glow)">glow</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Components</h2>
+
+    <div class="ms-card" style="margin-bottom:var(--ds-space-5)">
+      <p style="margin-top:0;color:var(--ds-color-fg-muted)">Buttons</p>
+      <div class="row" style="margin-bottom:var(--ds-space-4)">
+        <button class="ms-btn ms-btn--primary">Get started</button>
+        <button class="ms-btn">View on GitHub</button>
+        <button class="ms-btn ms-btn--ghost">Ghost</button>
+        <button class="ms-btn" disabled>Disabled</button>
+      </div>
+      <div class="row">
+        <button class="ms-btn ms-btn--sm">Small</button>
+        <button class="ms-btn">Default</button>
+        <button class="ms-btn ms-btn--lg ms-btn--primary">Large</button>
+      </div>
+    </div>
+
+    <div class="ms-card" style="margin-bottom:var(--ds-space-5)">
+      <p style="margin-top:0;color:var(--ds-color-fg-muted)">Tags</p>
+      <div class="row">
+        <span class="ms-tag">chat &amp; agents</span>
+        <span class="ms-tag ms-tag--accent">tools &amp; mcp</span>
+        <span class="ms-tag ms-tag--success">online</span>
+        <span class="ms-tag ms-tag--warning">beta</span>
+      </div>
+    </div>
+
+    <div class="row" style="align-items:stretch;margin-bottom:var(--ds-space-5)">
+      <div class="ms-card" style="flex:1;min-width:240px">
+        <h3 class="ms-card__title">Default panel</h3>
+        <p class="ms-card__body">Hairline teal border with a soft, deep shadow on a dark surface.</p>
+      </div>
+      <div class="ms-card ms-card--glow" style="flex:1;min-width:240px">
+        <h3 class="ms-card__title">Glow panel</h3>
+        <p class="ms-card__body">Coral edge + glow via <code>ms-card--glow</code>.</p>
+      </div>
+    </div>
+
+    <div class="ms-card" style="margin-bottom:var(--ds-space-5)">
+      <label class="ms-field">
+        <span class="ms-field__label">Repository URL</span>
+        <input class="ms-input" placeholder="https://github.com/you/project.git" />
+      </label>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:var(--ds-space-4);margin-bottom:var(--ds-space-5)">
+      <div class="ms-alert ms-alert--info"><div><p class="ms-alert__title">Heads up</p><p class="ms-alert__body">This is an info alert.</p></div></div>
+      <div class="ms-alert ms-alert--success"><div><p class="ms-alert__title">Build passed</p><p class="ms-alert__body">All 142 tests green.</p></div></div>
+      <div class="ms-alert ms-alert--danger"><div><p class="ms-alert__title">Error</p><p class="ms-alert__body">Connection refused on :8080.</p></div></div>
+    </div>
+
+    <div class="ms-term">
+      <div class="ms-term__bar">
+        <span class="ms-term__dot ms-term__dot--r"></span>
+        <span class="ms-term__dot ms-term__dot--y"></span>
+        <span class="ms-term__dot ms-term__dot--g"></span>
+        <span class="ms-term__title">user@monospace: ~</span>
+      </div>
+      <div class="ms-term__body"><span class="prompt">$</span> git clone https://github.com/you/project.git
+<span class="out">Cloning into 'project'...</span>
+<span class="ok">✓ done</span> in 1.2s</div>
+    </div>
+  </section>
+
+  <footer style="font-size:var(--ds-font-size-xs);color:var(--ds-color-fg-muted);text-align:center;padding:var(--ds-space-6) 0">
+    tokens/ → style-dictionary → dist/ → monospace-compo/ → this catalog
+  </footer>
+
+</div>
+
+<!-- Live theme setting (presets + custom colors, persisted). -->
+<script src="../palette-setting.js"></script>
+</body>
+</html>

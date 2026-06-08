@@ -1,0 +1,20 @@
+{
+  "name": "design-system",
+  "version": "0.1.0",
+  "description": "A cross-platform design system. Tokens are the single source of truth; platform outputs are generated.",
+  "type": "module",
+  "scripts": {
+    "build": "node build/build.js",
+    "catalog": "npm run build && node build/serve-catalog.js"
+  },
+  "keywords": [
+    "design-system",
+    "design-tokens",
+    "neo-brutalism",
+    "style-dictionary"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "style-dictionary": "^4.3.0"
+  }
+}

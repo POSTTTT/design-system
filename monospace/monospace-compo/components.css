@@ -1,0 +1,16 @@
+/*
+ * Monospace component library.
+ * Import THIS one file to get the tokens + every component class.
+ *
+ *   <link rel="stylesheet" href="monospace/monospace-compo/components.css" />
+ *
+ * Components are namespaced with `ms-` so multiple styles can coexist.
+ */
+@import url("../dist/css/tokens.css");
+
+@import url("./components/button.css");
+@import url("./components/card.css");
+@import url("./components/tag.css");
+@import url("./components/input.css");
+@import url("./components/alert.css");
+@import url("./components/terminal.css");

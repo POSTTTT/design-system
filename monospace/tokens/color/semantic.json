@@ -1,0 +1,38 @@
+{
+  "color": {
+    "bg": {
+      "$type": "color",
+      "canvas":  { "$value": "{color.palette.ink}",  "$description": "Page background" },
+      "surface": { "$value": "{color.palette.void}", "$description": "Panels, cards" },
+      "code":    { "$value": "{color.palette.black}", "$description": "Terminal / code blocks / button base" }
+    },
+
+    "fg": {
+      "$type": "color",
+      "default":  { "$value": "{color.palette.cyan}" },
+      "heading":  { "$value": "{color.palette.cyan}" },
+      "muted":    { "$value": "{color.palette.slate}" },
+      "onAccent": { "$value": "{color.palette.white}", "$description": "Text on the coral gradient" }
+    },
+
+    "accent": {
+      "$type": "color",
+      "primary":   { "$value": "{color.palette.coral}" },
+      "secondary": { "$value": "{color.palette.coralLight}", "$description": "Gradient end for primary buttons" }
+    },
+
+    "border": {
+      "$type": "color",
+      "default": { "$value": "{color.palette.border}" },
+      "strong":  { "$value": "{color.palette.coral}", "$description": "Hover / focus emphasis" }
+    },
+
+    "feedback": {
+      "$type": "color",
+      "success": { "$value": "{color.palette.green}" },
+      "warning": { "$value": "{color.palette.gold}" },
+      "danger":  { "$value": "{color.palette.coral}" },
+      "info":    { "$value": "{color.palette.cyan}" }
+    }
+  }
+}

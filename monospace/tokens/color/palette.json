@@ -1,0 +1,23 @@
+{
+  "color": {
+    "palette": {
+      "$type": "color",
+      "_comment": "Atom One Dark–inspired terminal palette. Primitives only — use semantic tokens in UI.",
+
+      "void":      { "$value": "#1e2228", "$description": "Deepest surface — panels, cards" },
+      "ink":       { "$value": "#282c34", "$description": "Main editor background (One Dark)" },
+      "black":     { "$value": "#111111", "$description": "Terminal / code surface" },
+
+      "cyan":      { "$value": "#9cdef2", "$description": "Primary text + headings" },
+      "slate":     { "$value": "#6b8a94", "$description": "Muted text" },
+      "border":    { "$value": "#355a66", "$description": "Teal hairline borders" },
+
+      "coral":     { "$value": "#e06c75", "$description": "Accent / danger (One Dark red)" },
+      "coralLight":{ "$value": "#f0989e", "$description": "Accent gradient end" },
+      "green":     { "$value": "#50fa7b", "$description": "Success" },
+      "gold":      { "$value": "#f0ad4e", "$description": "Warning" },
+
+      "white":     { "$value": "#ffffff" }
+    }
+  }
+}

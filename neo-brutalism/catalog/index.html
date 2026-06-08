@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Neo-Brutalism · Design System Catalog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<!-- One import: pulls in the generated tokens AND every nb- component. -->
+<link rel="stylesheet" href="../neo-brutalism-compo/components.css" />
+<style>
+  /* Catalog layout only — component styles live in neo-brutalism/. */
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ds-color-bg-canvas);
+    color: var(--ds-color-fg-default);
+    font-family: var(--ds-font-family-sans);
+    line-height: var(--ds-font-line-height-normal);
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: var(--ds-space-7) var(--ds-space-5); }
+
+  .masthead {
+    background: var(--ds-color-accent-primary);
+    border: var(--ds-border-width-heavy) solid var(--ds-color-border-default);
+    box-shadow: var(--ds-shadow-lg);
+    border-radius: var(--ds-radius-lg);
+    padding: var(--ds-space-6);
+    margin-bottom: var(--ds-space-7);
+  }
+  .masthead h1 {
+    font-weight: var(--ds-font-weight-black);
+    font-size: var(--ds-font-size-4xl);
+    line-height: var(--ds-font-line-height-tight);
+    letter-spacing: var(--ds-font-letter-spacing-tight);
+    margin: 0 0 var(--ds-space-2);
+  }
+  .kicker {
+    font-family: var(--ds-font-family-mono);
+    text-transform: uppercase;
+    letter-spacing: var(--ds-font-letter-spacing-wide);
+    font-size: var(--ds-font-size-sm);
+    margin: 0;
+  }
+  code { font-family: var(--ds-font-family-mono); }
+
+  section { margin-bottom: var(--ds-space-7); }
+  h2 {
+    font-weight: var(--ds-font-weight-black);
+    font-size: var(--ds-font-size-2xl);
+    border-bottom: var(--ds-border-width-heavy) solid var(--ds-color-border-default);
+    padding-bottom: var(--ds-space-2);
+    margin: 0 0 var(--ds-space-5);
+  }
+  .grid { display: grid; gap: var(--ds-space-4); grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+
+  .swatch {
+    border: var(--ds-border-width-thick) solid var(--ds-color-border-default);
+    border-radius: var(--ds-radius-md);
+    box-shadow: var(--ds-shadow-xs);
+    overflow: hidden;
+    background: var(--ds-color-bg-surface);
+  }
+  .swatch .chip { height: 64px; border-bottom: var(--ds-border-width-thick) solid var(--ds-color-border-default); }
+  .swatch .meta { padding: var(--ds-space-2) var(--ds-space-3); }
+  .swatch .name { font-weight: var(--ds-font-weight-bold); font-size: var(--ds-font-size-sm); }
+  .swatch code { font-size: var(--ds-font-size-xs); color: var(--ds-color-fg-muted); }
+
+  .row { display: flex; flex-wrap: wrap; gap: var(--ds-space-4); align-items: center; }
+  .scaleRow { display: flex; align-items: center; gap: var(--ds-space-4); margin-bottom: var(--ds-space-2); font-family: var(--ds-font-family-mono); font-size: var(--ds-font-size-sm); }
+  .bar { background: var(--ds-color-accent-secondary); border: var(--ds-border-width-base) solid var(--ds-color-border-default); height: 20px; }
+  .radiusBox { width: 80px; height: 80px; background: var(--ds-color-accent-tertiary); border: var(--ds-border-width-thick) solid var(--ds-color-border-default); display: grid; place-items: end center; padding: var(--ds-space-1); font-family: var(--ds-font-family-mono); font-size: var(--ds-font-size-xs); }
+  .shadowBox { width: 120px; height: 80px; background: var(--ds-color-bg-surface); border: var(--ds-border-width-thick) solid var(--ds-color-border-default); display: grid; place-items: center; font-family: var(--ds-font-family-mono); font-size: var(--ds-font-size-xs); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="kicker">Design System · v0.1</p>
+    <h1>NEO-BRUTALISM</h1>
+    <p style="margin:0;font-weight:var(--ds-font-weight-medium)">Tokens read live from <code>dist/css/tokens.css</code>; components from <code>neo-brutalism/</code>. Edit <code>tokens/</code>, run <code>npm run build</code>, refresh.</p>
+  </header>
+
+  <section>
+    <h2>Accent &amp; Semantic Colors</h2>
+    <div class="grid">
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-accent-primary)"></div><div class="meta"><div class="name">accent.primary</div><code>--ds-color-accent-primary</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-accent-secondary)"></div><div class="meta"><div class="name">accent.secondary</div><code>--ds-color-accent-secondary</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-accent-tertiary)"></div><div class="meta"><div class="name">accent.tertiary</div><code>--ds-color-accent-tertiary</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-feedback-danger)"></div><div class="meta"><div class="name">feedback.danger</div><code>--ds-color-feedback-danger</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-feedback-success)"></div><div class="meta"><div class="name">feedback.success</div><code>--ds-color-feedback-success</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-feedback-info)"></div><div class="meta"><div class="name">feedback.info</div><code>--ds-color-feedback-info</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-bg-canvas)"></div><div class="meta"><div class="name">bg.canvas</div><code>--ds-color-bg-canvas</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-bg-inverse)"></div><div class="meta"><div class="name">bg.inverse</div><code>--ds-color-bg-inverse</code></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Typography</h2>
+    <div class="nb-card">
+      <p style="font-size:var(--ds-font-size-4xl);font-weight:var(--ds-font-weight-black);line-height:var(--ds-font-line-height-tight);margin:0 0 var(--ds-space-3)">Display 4xl / 900</p>
+      <p style="font-size:var(--ds-font-size-2xl);font-weight:var(--ds-font-weight-bold);margin:0 0 var(--ds-space-3)">Heading 2xl / 800</p>
+      <p style="font-size:var(--ds-font-size-lg);font-weight:var(--ds-font-weight-medium);margin:0 0 var(--ds-space-3)">Subhead lg / 600</p>
+      <p style="font-size:var(--ds-font-size-base);margin:0 0 var(--ds-space-3)">Body base / 400 — the quick brown fox jumps over the lazy dog.</p>
+      <p style="font-family:var(--ds-font-family-mono);font-size:var(--ds-font-size-sm);text-transform:uppercase;letter-spacing:var(--ds-font-letter-spacing-wide);margin:0">Mono label · sm · wide tracking</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Spacing</h2>
+    <div class="nb-card">
+      <div class="scaleRow"><span style="width:64px">space.2</span><div class="bar" style="width:var(--ds-space-2)"></div></div>
+      <div class="scaleRow"><span style="width:64px">space.4</span><div class="bar" style="width:var(--ds-space-4)"></div></div>
+      <div class="scaleRow"><span style="width:64px">space.6</span><div class="bar" style="width:var(--ds-space-6)"></div></div>
+      <div class="scaleRow"><span style="width:64px">space.8</span><div class="bar" style="width:var(--ds-space-8)"></div></div>
+      <div class="scaleRow"><span style="width:64px">space.9</span><div class="bar" style="width:var(--ds-space-9)"></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Radius &amp; Shadow</h2>
+    <div class="row">
+      <div class="radiusBox" style="border-radius:var(--ds-radius-none)">none</div>
+      <div class="radiusBox" style="border-radius:var(--ds-radius-sm)">sm</div>
+      <div class="radiusBox" style="border-radius:var(--ds-radius-md)">md</div>
+      <div class="radiusBox" style="border-radius:var(--ds-radius-lg)">lg</div>
+    </div>
+    <div class="row" style="margin-top:var(--ds-space-6)">
+      <div class="shadowBox" style="box-shadow:var(--ds-shadow-xs)">xs</div>
+      <div class="shadowBox" style="box-shadow:var(--ds-shadow-sm)">sm</div>
+      <div class="shadowBox" style="box-shadow:var(--ds-shadow-md)">md</div>
+      <div class="shadowBox" style="box-shadow:var(--ds-shadow-lg)">lg</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Components</h2>
+
+    <div class="nb-card" style="margin-bottom:var(--ds-space-5)">
+      <p style="margin-top:0;font-weight:var(--ds-font-weight-bold)">Buttons — hover to lift, press to flatten</p>
+      <div class="row" style="margin-bottom:var(--ds-space-4)">
+        <button class="nb-btn">Primary</button>
+        <button class="nb-btn nb-btn--secondary">Secondary</button>
+        <button class="nb-btn nb-btn--tertiary">Tertiary</button>
+        <button class="nb-btn nb-btn--ghost">Ghost</button>
+        <button class="nb-btn nb-btn--danger">Danger</button>
+      </div>
+      <div class="row">
+        <button class="nb-btn nb-btn--sm">Small</button>
+        <button class="nb-btn">Default</button>
+        <button class="nb-btn nb-btn--lg">Large</button>
+        <button class="nb-btn" disabled>Disabled</button>
+      </div>
+    </div>
+
+    <div class="nb-card" style="margin-bottom:var(--ds-space-5)">
+      <p style="margin-top:0;font-weight:var(--ds-font-weight-bold)">Tags</p>
+      <div class="row">
+        <span class="nb-tag">new</span>
+        <span class="nb-tag nb-tag--primary">featured</span>
+        <span class="nb-tag nb-tag--success">shipped</span>
+        <span class="nb-tag nb-tag--danger">deprecated</span>
+      </div>
+    </div>
+
+    <div class="row" style="align-items:stretch;margin-bottom:var(--ds-space-5)">
+      <div class="nb-card" style="flex:1;min-width:240px">
+        <h3 class="nb-card__title">Default card</h3>
+        <p class="nb-card__body">A surface block with a thick border and a hard offset shadow.</p>
+      </div>
+      <div class="nb-card nb-card--accent" style="flex:1;min-width:240px">
+        <h3 class="nb-card__title">Accent card</h3>
+        <p class="nb-card__body">Same component, <code>nb-card--accent</code> modifier.</p>
+      </div>
+    </div>
+
+    <div class="nb-card" style="margin-bottom:var(--ds-space-5)">
+      <label class="nb-field" style="margin-bottom:var(--ds-space-4)">
+        <span class="nb-field__label">Email</span>
+        <input class="nb-input" placeholder="you@example.com" />
+      </label>
+      <label class="nb-field">
+        <span class="nb-field__label">Disabled</span>
+        <input class="nb-input" placeholder="Can't touch this" disabled />
+      </label>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:var(--ds-space-4)">
+      <div class="nb-alert nb-alert--info"><div><p class="nb-alert__title">Heads up</p><p class="nb-alert__body">This is an info alert.</p></div></div>
+      <div class="nb-alert nb-alert--success"><div><p class="nb-alert__title">Done</p><p class="nb-alert__body">Your changes were saved.</p></div></div>
+      <div class="nb-alert nb-alert--danger"><div><p class="nb-alert__title">Error</p><p class="nb-alert__body">Something went wrong.</p></div></div>
+    </div>
+
+  </section>
+
+  <footer style="font-family:var(--ds-font-family-mono);font-size:var(--ds-font-size-xs);color:var(--ds-color-fg-muted);text-align:center;padding:var(--ds-space-6) 0">
+    tokens/ → style-dictionary → dist/ → neo-brutalism/ → this catalog
+  </footer>
+
+</div>
+
+<!-- Live palette setting (presets + custom colors, persisted). -->
+<script src="../palette-setting.js"></script>
+</body>
+</html>

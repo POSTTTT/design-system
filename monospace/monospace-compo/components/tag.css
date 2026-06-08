@@ -1,0 +1,21 @@
+/* Tag — bracketed mono label, the signature [ LABEL ] look. */
+.ms-tag {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--ds-font-family-mono);
+  font-size: var(--ds-font-size-xs);
+  font-weight: var(--ds-font-weight-semibold);
+  letter-spacing: var(--ds-font-letter-spacing-wide);
+  text-transform: uppercase;
+  color: var(--ds-color-fg-muted);
+  background: var(--ds-color-bg-code);
+  border: var(--ds-border-width-thin) solid var(--ds-color-border-default);
+  border-radius: var(--ds-radius-sm);
+  padding: var(--ds-space-1) var(--ds-space-2);
+}
+.ms-tag::before { content: "["; margin-right: 0.4em; opacity: 0.55; }
+.ms-tag::after  { content: "]"; margin-left: 0.4em; opacity: 0.55; }
+
+.ms-tag--accent  { color: var(--ds-color-accent-primary);   border-color: var(--ds-color-accent-primary); }
+.ms-tag--success { color: var(--ds-color-feedback-success); border-color: var(--ds-color-feedback-success); }
+.ms-tag--warning { color: var(--ds-color-feedback-warning); border-color: var(--ds-color-feedback-warning); }

@@ -1,0 +1,22 @@
+{
+  "shadow": {
+    "$type": "shadow",
+    "_comment": "Hard, blur-less offset shadows in solid black — the brutalist 'sticker' look.",
+
+    "xs": {
+      "$value": { "offsetX": "2px", "offsetY": "2px", "blur": "0px", "spread": "0px", "color": "{color.palette.black}" }
+    },
+    "sm": {
+      "$value": { "offsetX": "4px", "offsetY": "4px", "blur": "0px", "spread": "0px", "color": "{color.palette.black}" }
+    },
+    "md": {
+      "$value": { "offsetX": "6px", "offsetY": "6px", "blur": "0px", "spread": "0px", "color": "{color.palette.black}" }
+    },
+    "lg": {
+      "$value": { "offsetX": "8px", "offsetY": "8px", "blur": "0px", "spread": "0px", "color": "{color.palette.black}" }
+    },
+    "none": {
+      "$value": { "offsetX": "0px", "offsetY": "0px", "blur": "0px", "spread": "0px", "color": "transparent" }
+    }
+  }
+}

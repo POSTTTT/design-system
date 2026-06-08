@@ -1,0 +1,24 @@
+{
+  "button": {
+    "radius":      { "$type": "dimension", "$value": "{radius.md}" },
+    "borderWidth": { "$type": "dimension", "$value": "{border.width.thick}" },
+    "borderColor": { "$type": "color",     "$value": "{color.border.default}" },
+    "shadow": {
+      "$type": "shadow",
+      "rest":  { "$value": "{shadow.sm}", "$description": "Sits raised off the page" },
+      "hover": { "$value": "{shadow.md}", "$description": "Lifts on hover" },
+      "press": { "$value": "{shadow.none}", "$description": "Collapses flat when pressed (pair with translate)" }
+    },
+    "padding": {
+      "$type": "dimension",
+      "x": { "$value": "{space.5}" },
+      "y": { "$value": "{space.3}" }
+    },
+    "fg":      { "$type": "color", "$value": "{color.fg.onAccent}" },
+    "bg":      { "$type": "color", "$value": "{color.accent.primary}" },
+    "font": {
+      "weight":  { "$type": "fontWeight", "$value": "{font.weight.bold}" },
+      "size":    { "$type": "dimension",  "$value": "{font.size.base}" }
+    }
+  }
+}

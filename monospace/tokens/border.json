@@ -1,0 +1,10 @@
+{
+  "border": {
+    "width": {
+      "$type": "dimension",
+      "_comment": "Hairline borders define this style — thin by default.",
+      "thin":  { "$value": "1px" },
+      "thick": { "$value": "2px" }
+    }
+  }
+}

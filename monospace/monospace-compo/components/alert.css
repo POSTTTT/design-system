@@ -1,0 +1,20 @@
+/* Alert / callout — panel with a colored left edge per status. */
+.ms-alert {
+  display: flex;
+  gap: var(--ds-space-3);
+  align-items: flex-start;
+  font-family: var(--ds-font-family-mono);
+  background: var(--ds-color-bg-surface);
+  color: var(--ds-color-fg-default);
+  border: var(--ds-border-width-thin) solid var(--ds-color-border-default);
+  border-left-width: var(--ds-border-width-thick);
+  border-radius: var(--ds-radius-md);
+  padding: var(--ds-space-4);
+}
+.ms-alert__title { font-weight: var(--ds-font-weight-bold); margin: 0 0 var(--ds-space-1); }
+.ms-alert__body  { margin: 0; color: var(--ds-color-fg-muted); }
+
+.ms-alert--success { border-left-color: var(--ds-color-feedback-success); }
+.ms-alert--warning { border-left-color: var(--ds-color-feedback-warning); }
+.ms-alert--danger  { border-left-color: var(--ds-color-feedback-danger); }
+.ms-alert--info    { border-left-color: var(--ds-color-feedback-info); }

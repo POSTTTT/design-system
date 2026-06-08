@@ -1,0 +1,40 @@
+{
+  "color": {
+    "bg": {
+      "$type": "color",
+      "canvas":  { "$value": "{color.palette.paper}",  "$description": "App/page background" },
+      "surface": { "$value": "{color.palette.white}",  "$description": "Cards, panels, raised content" },
+      "sunken":  { "$value": "{color.palette.cloud}",  "$description": "Inset / lower areas" },
+      "inverse": { "$value": "{color.palette.ink}",    "$description": "Dark blocks on light pages" }
+    },
+
+    "fg": {
+      "$type": "color",
+      "default": { "$value": "{color.palette.ink}" },
+      "muted":   { "$value": "{color.palette.gray.700}" },
+      "subtle":  { "$value": "{color.palette.gray.500}" },
+      "inverse": { "$value": "{color.palette.paper}", "$description": "Text on inverse/dark backgrounds" },
+      "onAccent":{ "$value": "{color.palette.black}", "$description": "Text on accent fills — black for brutalist contrast" }
+    },
+
+    "accent": {
+      "$type": "color",
+      "primary":   { "$value": "{color.palette.yellow}" },
+      "secondary": { "$value": "{color.palette.pink}" },
+      "tertiary":  { "$value": "{color.palette.cyan}" }
+    },
+
+    "border": {
+      "$type": "color",
+      "default": { "$value": "{color.palette.black}", "$description": "Signature thick black outline" },
+      "muted":   { "$value": "{color.palette.gray.300}" }
+    },
+
+    "feedback": {
+      "$type": "color",
+      "danger":  { "$value": "{color.palette.red}" },
+      "success": { "$value": "{color.palette.green}" },
+      "info":    { "$value": "{color.palette.blue}" }
+    }
+  }
+}

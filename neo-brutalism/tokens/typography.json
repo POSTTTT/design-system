@@ -1,0 +1,43 @@
+{
+  "font": {
+    "family": {
+      "$type": "fontFamily",
+      "sans": { "$value": ["Archivo", "Inter", "Helvetica Neue", "Arial", "sans-serif"], "$description": "Strong grotesque for UI + headings" },
+      "mono": { "$value": ["JetBrains Mono", "Space Mono", "ui-monospace", "monospace"], "$description": "Labels, tags, code — adds the raw brutalist edge" }
+    },
+
+    "weight": {
+      "$type": "fontWeight",
+      "regular": { "$value": 400 },
+      "medium":  { "$value": 600 },
+      "bold":    { "$value": 800 },
+      "black":   { "$value": 900, "$description": "Display headings" }
+    },
+
+    "size": {
+      "$type": "dimension",
+      "xs":   { "$value": "0.75rem" },
+      "sm":   { "$value": "0.875rem" },
+      "base": { "$value": "1rem" },
+      "lg":   { "$value": "1.25rem" },
+      "xl":   { "$value": "1.5rem" },
+      "2xl":  { "$value": "2rem" },
+      "3xl":  { "$value": "2.75rem" },
+      "4xl":  { "$value": "3.75rem" }
+    },
+
+    "lineHeight": {
+      "$type": "number",
+      "tight":   { "$value": 1.05, "$description": "Big display headings" },
+      "snug":    { "$value": 1.25 },
+      "normal":  { "$value": 1.5 }
+    },
+
+    "letterSpacing": {
+      "$type": "dimension",
+      "tight":  { "$value": "-0.02em" },
+      "normal": { "$value": "0em" },
+      "wide":   { "$value": "0.08em", "$description": "Uppercase mono labels" }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+/* Card — panel with hairline border + soft deep shadow. */
+.ms-card {
+  background: var(--ds-card-bg);
+  color: var(--ds-card-fg);
+  border: var(--ds-card-border-width) solid var(--ds-card-border-color);
+  border-radius: var(--ds-card-radius);
+  box-shadow: var(--ds-card-shadow);
+  padding: var(--ds-card-padding);
+}
+.ms-card__title {
+  font-weight: var(--ds-font-weight-bold);
+  font-size: var(--ds-font-size-lg);
+  color: var(--ds-color-fg-heading);
+  letter-spacing: var(--ds-font-letter-spacing-tight);
+  margin: 0 0 var(--ds-space-2);
+}
+.ms-card__body { margin: 0; color: var(--ds-color-fg-muted); }
+
+/* highlighted card — coral edge + glow */
+.ms-card--glow {
+  border-color: var(--ds-color-border-strong);
+  box-shadow: var(--ds-shadow-glow), var(--ds-card-shadow);
+}

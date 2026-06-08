@@ -1,0 +1,12 @@
+{
+  "border": {
+    "width": {
+      "$type": "dimension",
+      "_comment": "Thick outlines are the defining brutalist trait.",
+      "thin":  { "$value": "1px" },
+      "base":  { "$value": "2px" },
+      "thick": { "$value": "3px" },
+      "heavy": { "$value": "4px" }
+    }
+  }
+}

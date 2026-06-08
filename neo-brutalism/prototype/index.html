@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CONCRETE — the project tracker that doesn't whisper</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<!-- The whole prototype is styled by the design system: tokens + nb-* components. -->
+<link rel="stylesheet" href="../neo-brutalism-compo/components.css" />
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ds-color-bg-canvas);
+    color: var(--ds-color-fg-default);
+    font-family: var(--ds-font-family-sans);
+    line-height: var(--ds-font-line-height-normal);
+  }
+  a { color: inherit; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 var(--ds-space-5); }
+  .mono { font-family: var(--ds-font-family-mono); }
+  .eyebrow {
+    font-family: var(--ds-font-family-mono);
+    text-transform: uppercase;
+    letter-spacing: var(--ds-font-letter-spacing-wide);
+    font-size: var(--ds-font-size-sm);
+    font-weight: var(--ds-font-weight-bold);
+  }
+
+  /* ---------- nav ---------- */
+  .nav {
+    position: sticky; top: 0; z-index: 10;
+    display: flex; align-items: center; gap: var(--ds-space-5);
+    background: var(--ds-color-bg-surface);
+    border-bottom: var(--ds-border-width-heavy) solid var(--ds-color-border-default);
+    padding: var(--ds-space-3) var(--ds-space-5);
+  }
+  .brand { font-weight: var(--ds-font-weight-black); font-size: var(--ds-font-size-xl); letter-spacing: var(--ds-font-letter-spacing-tight); text-decoration: none; }
+  .nav__links { display: flex; gap: var(--ds-space-5); margin-left: auto; }
+  .nav__links a { font-weight: var(--ds-font-weight-bold); text-decoration: none; }
+  .nav__links a:hover { text-decoration: underline; text-decoration-thickness: 3px; }
+  @media (max-width: 720px) { .nav__links { display: none; } }
+
+  /* ---------- hero ---------- */
+  .hero { padding: var(--ds-space-9) 0 var(--ds-space-8); }
+  .hero__grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: var(--ds-space-7); align-items: center; }
+  @media (max-width: 860px) { .hero__grid { grid-template-columns: 1fr; } }
+  .hero h1 {
+    font-size: var(--ds-font-size-4xl);
+    font-weight: var(--ds-font-weight-black);
+    line-height: var(--ds-font-line-height-tight);
+    letter-spacing: var(--ds-font-letter-spacing-tight);
+    margin: var(--ds-space-4) 0 var(--ds-space-4);
+  }
+  .hero h1 mark { background: var(--ds-color-accent-primary); padding: 0 var(--ds-space-2); box-decoration-break: clone; }
+  .hero p.lead { font-size: var(--ds-font-size-lg); max-width: 42ch; margin: 0 0 var(--ds-space-6); }
+  .hero__cta { display: flex; gap: var(--ds-space-4); flex-wrap: wrap; align-items: center; }
+  .hero__note { font-size: var(--ds-font-size-sm); color: var(--ds-color-fg-muted); margin-top: var(--ds-space-4); }
+
+  /* fake app window as the hero visual */
+  .window {
+    background: var(--ds-color-bg-surface);
+    border: var(--ds-border-width-heavy) solid var(--ds-color-border-default);
+    border-radius: var(--ds-radius-lg);
+    box-shadow: var(--ds-shadow-lg);
+    overflow: hidden;
+    transform: rotate(2deg);
+  }
+  .window__bar { display: flex; align-items: center; gap: var(--ds-space-2); background: var(--ds-color-accent-secondary); border-bottom: var(--ds-border-width-thick) solid var(--ds-color-border-default); padding: var(--ds-space-3) var(--ds-space-4); }
+  .dot { width: 14px; height: 14px; border-radius: var(--ds-radius-full); border: var(--ds-border-width-base) solid var(--ds-color-border-default); }
+  .window__title { font-family: var(--ds-font-family-mono); font-weight: var(--ds-font-weight-bold); font-size: var(--ds-font-size-sm); margin-left: var(--ds-space-2); }
+  .window__body { padding: var(--ds-space-4); display: flex; flex-direction: column; gap: var(--ds-space-3); }
+  .task { display: flex; align-items: center; gap: var(--ds-space-3); border: var(--ds-border-width-thick) solid var(--ds-color-border-default); border-radius: var(--ds-radius-md); box-shadow: var(--ds-shadow-xs); padding: var(--ds-space-3); background: var(--ds-color-bg-surface); }
+  .task .box { width: 22px; height: 22px; border: var(--ds-border-width-thick) solid var(--ds-color-border-default); border-radius: var(--ds-radius-sm); display: flex; align-items: center; justify-content: center; line-height: 1; font-size: var(--ds-font-size-sm); font-weight: var(--ds-font-weight-black); }
+  .task .box.done { background: var(--ds-color-feedback-success); }
+  .task.done span.label { text-decoration: line-through; color: var(--ds-color-fg-muted); }
+  .task .label { font-weight: var(--ds-font-weight-bold); flex: 1; }
+
+  /* ---------- generic section ---------- */
+  section.band { padding: var(--ds-space-8) 0; border-bottom: var(--ds-border-width-heavy) solid var(--ds-color-border-default); }
+  .band--ink { background: var(--ds-color-bg-inverse); color: var(--ds-color-fg-inverse); }
+  .band--accent { background: var(--ds-color-accent-primary); }
+  .band--cyan { background: var(--ds-color-accent-tertiary); }
+  .section-head { max-width: 60ch; margin-bottom: var(--ds-space-7); }
+  .section-head h2 { font-size: var(--ds-font-size-3xl); font-weight: var(--ds-font-weight-black); line-height: var(--ds-font-line-height-tight); margin: var(--ds-space-3) 0 var(--ds-space-3); }
+  .section-head p { font-size: var(--ds-font-size-lg); margin: 0; }
+
+  /* marquee strip */
+  .strip { display: flex; gap: var(--ds-space-7); justify-content: center; flex-wrap: wrap; font-family: var(--ds-font-family-mono); font-weight: var(--ds-font-weight-bold); text-transform: uppercase; letter-spacing: var(--ds-font-letter-spacing-wide); }
+
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--ds-space-5); }
+  @media (max-width: 820px) { .grid-3 { grid-template-columns: 1fr; } }
+  .feature .ico { font-size: var(--ds-font-size-3xl); line-height: 1; display: inline-grid; place-items: center; width: 64px; height: 64px; background: var(--ds-color-accent-tertiary); border: var(--ds-border-width-thick) solid var(--ds-color-border-default); border-radius: var(--ds-radius-md); box-shadow: var(--ds-shadow-xs); margin-bottom: var(--ds-space-4); }
+
+  /* stats */
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--ds-space-5); text-align: center; }
+  @media (max-width: 820px) { .stats { grid-template-columns: 1fr; } }
+  .stats .n { font-size: var(--ds-font-size-4xl); font-weight: var(--ds-font-weight-black); line-height: 1; }
+  .stats .l { font-family: var(--ds-font-family-mono); text-transform: uppercase; letter-spacing: var(--ds-font-letter-spacing-wide); font-size: var(--ds-font-size-sm); }
+
+  /* pricing */
+  .pricing { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--ds-space-5); align-items: start; }
+  @media (max-width: 820px) { .pricing { grid-template-columns: 1fr; } }
+  .price { font-size: var(--ds-font-size-3xl); font-weight: var(--ds-font-weight-black); }
+  .price small { font-size: var(--ds-font-size-base); font-weight: var(--ds-font-weight-medium); color: var(--ds-color-fg-muted); }
+  .plan ul { list-style: none; padding: 0; margin: var(--ds-space-4) 0; display: flex; flex-direction: column; gap: var(--ds-space-2); }
+  .plan li::before { content: "▸ "; font-weight: var(--ds-font-weight-black); }
+  .plan--featured { transform: translateY(calc(-1 * var(--ds-space-3))); }
+
+  /* signup */
+  .signup { display: grid; grid-template-columns: 1fr 1fr; gap: var(--ds-space-7); align-items: center; }
+  @media (max-width: 820px) { .signup { grid-template-columns: 1fr; } }
+  .signup form { display: flex; gap: var(--ds-space-3); align-items: flex-end; flex-wrap: wrap; }
+  .signup .nb-field { flex: 1; min-width: 220px; }
+
+  /* footer */
+  footer { background: var(--ds-color-bg-inverse); color: var(--ds-color-fg-inverse); padding: var(--ds-space-8) 0 var(--ds-space-6); }
+  .foot-grid { display: flex; justify-content: space-between; gap: var(--ds-space-6); flex-wrap: wrap; margin-bottom: var(--ds-space-7); }
+  footer a { text-decoration: none; display: block; margin-bottom: var(--ds-space-2); opacity: 0.9; }
+  footer a:hover { text-decoration: underline; text-decoration-thickness: 3px; }
+  .foot-col h4 { font-family: var(--ds-font-family-mono); text-transform: uppercase; letter-spacing: var(--ds-font-letter-spacing-wide); font-size: var(--ds-font-size-sm); margin: 0 0 var(--ds-space-3); }
+  .foot-bottom { font-family: var(--ds-font-family-mono); font-size: var(--ds-font-size-sm); opacity: 0.8; border-top: var(--ds-border-width-base) solid var(--ds-color-fg-inverse); padding-top: var(--ds-space-4); }
+
+  .sticker { display: inline-block; transform: rotate(-4deg); }
+</style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <a class="brand" href="#">◼ CONCRETE</a>
+    <nav class="nav__links">
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">Docs</a>
+    </nav>
+    <a class="nb-btn nb-btn--sm" href="#signup">Get started</a>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <div>
+        <span class="nb-tag nb-tag--primary sticker">v2.0 — now louder</span>
+        <h1>Ship work that <mark>refuses</mark> to be ignored.</h1>
+        <p class="lead">CONCRETE is the project tracker with no soft edges. Plan, assign, and ship — in a workspace that actually has a backbone.</p>
+        <div class="hero__cta">
+          <a class="nb-btn nb-btn--lg" href="#signup">Start free →</a>
+          <a class="nb-btn nb-btn--ghost nb-btn--lg" href="#features">See features</a>
+        </div>
+        <p class="hero__note">No credit card · 14-day pro trial · cancel anytime</p>
+      </div>
+
+      <div class="window" aria-hidden="true">
+        <div class="window__bar">
+          <span class="dot" style="background:var(--ds-color-feedback-danger)"></span>
+          <span class="dot" style="background:var(--ds-color-accent-primary)"></span>
+          <span class="dot" style="background:var(--ds-color-feedback-success)"></span>
+          <span class="window__title">sprint-14.board</span>
+        </div>
+        <div class="window__body">
+          <div class="task done"><span class="box done">✓</span><span class="label">Design tokens</span><span class="nb-tag nb-tag--success">done</span></div>
+          <div class="task"><span class="box"></span><span class="label">Build component library</span><span class="nb-tag">doing</span></div>
+          <div class="task"><span class="box"></span><span class="label">Ship landing page</span><span class="nb-tag nb-tag--danger">todo</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUSTED STRIP -->
+  <section class="band band--ink">
+    <div class="wrap strip">
+      <span>NORTHWIND</span><span>BLOCK&amp;CO</span><span>HEAVYSET</span><span>PYLON</span><span>GRIDLOCK</span>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="band" id="features">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Features</span>
+        <h2>Everything you need. Nothing that mumbles.</h2>
+        <p>The essentials, built loud — so your team always knows what's next.</p>
+      </div>
+      <div class="grid-3">
+        <div class="nb-card feature">
+          <span class="ico">⛓</span>
+          <h3 class="nb-card__title">Boards that bite</h3>
+          <p class="nb-card__body">Drag, drop, done. Columns with real edges and zero ambiguity about status.</p>
+        </div>
+        <div class="nb-card feature">
+          <span class="ico">⚡</span>
+          <h3 class="nb-card__title">Loud automations</h3>
+          <p class="nb-card__body">Rules that move cards, ping owners, and never let a task quietly rot.</p>
+        </div>
+        <div class="nb-card feature">
+          <span class="ico">📐</span>
+          <h3 class="nb-card__title">Reports with weight</h3>
+          <p class="nb-card__body">Velocity, burndown, and who's blocked — in charts you can actually read.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="band band--accent">
+    <div class="wrap stats">
+      <div><div class="n">12k+</div><div class="l">teams shipping</div></div>
+      <div><div class="n">99.9%</div><div class="l">uptime</div></div>
+      <div><div class="n">4.9★</div><div class="l">average rating</div></div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="band" id="pricing">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Pricing</span>
+        <h2>Pick a tier. They all hit hard.</h2>
+      </div>
+      <div class="pricing">
+        <div class="nb-card plan">
+          <span class="eyebrow">Solo</span>
+          <p class="price">$0<small>/mo</small></p>
+          <ul>
+            <li>1 workspace</li>
+            <li>Unlimited tasks</li>
+            <li>Community support</li>
+          </ul>
+          <a class="nb-btn nb-btn--ghost" href="#signup" style="width:100%">Start free</a>
+        </div>
+
+        <div class="nb-card nb-card--accent plan plan--featured">
+          <span class="nb-tag nb-tag--danger sticker">most popular</span>
+          <p class="price">$12<small>/user/mo</small></p>
+          <ul>
+            <li>Everything in Solo</li>
+            <li>Automations &amp; reports</li>
+            <li>Priority support</li>
+          </ul>
+          <a class="nb-btn" href="#signup" style="width:100%">Start trial</a>
+        </div>
+
+        <div class="nb-card plan">
+          <span class="eyebrow">Company</span>
+          <p class="price">Let's talk</p>
+          <ul>
+            <li>SSO &amp; audit logs</li>
+            <li>Unlimited workspaces</li>
+            <li>Dedicated manager</li>
+          </ul>
+          <a class="nb-btn nb-btn--secondary" href="#signup" style="width:100%">Contact sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIGNUP -->
+  <section class="band band--cyan" id="signup">
+    <div class="wrap signup">
+      <div class="section-head" style="margin:0">
+        <span class="eyebrow">Get started</span>
+        <h2>Put your team on CONCRETE.</h2>
+        <p>Drop your email — we'll set up your workspace in seconds.</p>
+      </div>
+      <div>
+        <form id="signupForm" novalidate>
+          <label class="nb-field">
+            <span class="nb-field__label">Work email</span>
+            <input class="nb-input" type="email" name="email" placeholder="you@company.com" required />
+          </label>
+          <button class="nb-btn nb-btn--lg" type="submit">Claim workspace</button>
+        </form>
+        <div id="okMsg" class="nb-alert nb-alert--success" role="status" style="display:none; margin-top:var(--ds-space-4)">
+          <div><p class="nb-alert__title">You're in 🎉</p><p class="nb-alert__body">Check your inbox to finish setup.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="faq">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div style="max-width:28ch">
+          <a class="brand" href="#" style="color:var(--ds-color-fg-inverse)">◼ CONCRETE</a>
+          <p class="mono" style="font-size:var(--ds-font-size-sm);opacity:.85;margin-top:var(--ds-space-3)">The project tracker that doesn't whisper.</p>
+        </div>
+        <div class="foot-col"><h4>Product</h4><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#">Changelog</a></div>
+        <div class="foot-col"><h4>Company</h4><a href="#">About</a><a href="#">Blog</a><a href="#">Careers</a></div>
+        <div class="foot-col"><h4>Legal</h4><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Security</a></div>
+      </div>
+      <div class="foot-bottom">© 2026 CONCRETE, Inc. · Built with the neo-brutalism design system.</div>
+    </div>
+  </footer>
+
+  <!-- Live palette setting (presets + custom colors, persisted). -->
+  <script src="../palette-setting.js"></script>
+
+  <script>
+    // Tiny demo behavior: show the success alert on signup.
+    document.getElementById('signupForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = this.email.value.trim();
+      if (!email) { this.email.focus(); return; }
+      document.getElementById('okMsg').style.display = 'flex';
+      this.reset();
+    });
+  </script>
+</body>
+</html>

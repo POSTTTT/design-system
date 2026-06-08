@@ -1,0 +1,19 @@
+/* Card — surface block with thick border + hard shadow. */
+.nb-card {
+  background: var(--ds-card-bg);
+  color: var(--ds-card-fg);
+  border: var(--ds-card-border-width) solid var(--ds-card-border-color);
+  border-radius: var(--ds-card-radius);
+  box-shadow: var(--ds-card-shadow);
+  padding: var(--ds-card-padding);
+}
+.nb-card__title {
+  font-weight: var(--ds-font-weight-black);
+  font-size: var(--ds-font-size-xl);
+  line-height: var(--ds-font-line-height-snug);
+  margin: 0 0 var(--ds-space-3);
+}
+.nb-card__body { margin: 0; }
+
+/* accent fill variant — for highlighted/feature cards */
+.nb-card--accent { background: var(--ds-color-accent-primary); }

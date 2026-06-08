@@ -1,0 +1,37 @@
+/* Button — secondary (outlined) by default; primary is a coral gradient. */
+.ms-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ds-space-2);
+  font-family: var(--ds-font-family-mono);
+  font-weight: var(--ds-button-font-weight);
+  font-size: var(--ds-button-font-size);
+  line-height: 1;
+  color: var(--ds-button-fg);
+  background: var(--ds-button-bg);
+  border: var(--ds-button-border-width) solid var(--ds-button-border-color);
+  border-radius: var(--ds-button-radius);
+  padding: var(--ds-button-padding-y) var(--ds-button-padding-x);
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.12s ease, border-color 0.12s ease, background 0.12s ease, filter 0.12s ease;
+}
+.ms-btn:hover { transform: translateY(-1px); border-color: var(--ds-color-border-strong); }
+.ms-btn:focus-visible { outline: var(--ds-border-width-thick) solid var(--ds-color-accent-primary); outline-offset: 2px; }
+.ms-btn:disabled,
+.ms-btn[aria-disabled="true"] { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+/* primary — gradient fill, no border */
+.ms-btn--primary {
+  background: linear-gradient(135deg, var(--ds-color-accent-primary), var(--ds-color-accent-secondary));
+  color: var(--ds-color-fg-on-accent);
+  border: none;
+}
+.ms-btn--primary:hover { filter: brightness(1.07); transform: translateY(-1px); }
+
+.ms-btn--ghost { background: transparent; }
+
+/* sizes */
+.ms-btn--sm { font-size: var(--ds-font-size-xs); padding: var(--ds-space-2) var(--ds-space-3); }
+.ms-btn--lg { font-size: var(--ds-font-size-base); padding: var(--ds-space-3) var(--ds-space-5); }

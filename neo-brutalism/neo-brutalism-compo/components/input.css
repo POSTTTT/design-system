@@ -1,0 +1,25 @@
+/* Text input + labelled field. */
+.nb-input {
+  font-family: var(--ds-font-family-sans);
+  font-size: var(--ds-font-size-base);
+  color: var(--ds-color-fg-default);
+  background: var(--ds-color-bg-surface);
+  border: var(--ds-border-width-thick) solid var(--ds-color-border-default);
+  border-radius: var(--ds-radius-md);
+  box-shadow: var(--ds-shadow-xs);
+  padding: var(--ds-space-3) var(--ds-space-4);
+  width: 100%;
+}
+.nb-input::placeholder { color: var(--ds-color-fg-subtle); }
+.nb-input:focus { outline: none; box-shadow: var(--ds-shadow-sm); transform: translate(-1px, -1px); }
+.nb-input:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* labelled field wrapper */
+.nb-field { display: flex; flex-direction: column; gap: var(--ds-space-2); }
+.nb-field__label {
+  font-family: var(--ds-font-family-mono);
+  font-size: var(--ds-font-size-sm);
+  font-weight: var(--ds-font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--ds-font-letter-spacing-wide);
+}

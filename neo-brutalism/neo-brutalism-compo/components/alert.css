@@ -1,0 +1,19 @@
+/* Alert / callout — uses the feedback colors. */
+.nb-alert {
+  display: flex;
+  gap: var(--ds-space-3);
+  align-items: flex-start;
+  font-family: var(--ds-font-family-sans);
+  background: var(--ds-color-bg-surface);
+  color: var(--ds-color-fg-default);
+  border: var(--ds-border-width-thick) solid var(--ds-color-border-default);
+  border-radius: var(--ds-radius-md);
+  box-shadow: var(--ds-shadow-sm);
+  padding: var(--ds-space-4);
+}
+.nb-alert__title { font-weight: var(--ds-font-weight-bold); margin: 0 0 var(--ds-space-1); }
+.nb-alert__body  { margin: 0; }
+
+.nb-alert--info    { background: var(--ds-color-feedback-info); color: var(--ds-color-fg-inverse); }
+.nb-alert--success { background: var(--ds-color-feedback-success); }
+.nb-alert--danger  { background: var(--ds-color-feedback-danger); color: var(--ds-color-fg-inverse); }

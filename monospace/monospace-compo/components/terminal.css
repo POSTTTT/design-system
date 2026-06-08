@@ -1,0 +1,33 @@
+/* Terminal window — the signature chrome: title bar with traffic-light dots. */
+.ms-term {
+  background: var(--ds-color-bg-code);
+  border: var(--ds-border-width-thin) solid var(--ds-color-border-default);
+  border-radius: var(--ds-radius-lg);
+  box-shadow: var(--ds-shadow-lg);
+  overflow: hidden;
+  font-family: var(--ds-font-family-mono);
+}
+.ms-term__bar {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-space-2);
+  background: var(--ds-color-bg-surface);
+  border-bottom: var(--ds-border-width-thin) solid var(--ds-color-border-default);
+  padding: var(--ds-space-3) var(--ds-space-4);
+}
+.ms-term__dot { width: 12px; height: 12px; border-radius: var(--ds-radius-full); }
+.ms-term__dot--r { background: var(--ds-color-feedback-danger); }
+.ms-term__dot--y { background: var(--ds-color-feedback-warning); }
+.ms-term__dot--g { background: var(--ds-color-feedback-success); }
+.ms-term__title { color: var(--ds-color-fg-muted); font-size: var(--ds-font-size-xs); margin-left: var(--ds-space-2); }
+
+.ms-term__body {
+  padding: var(--ds-space-4);
+  color: var(--ds-color-fg-default);
+  font-size: var(--ds-font-size-sm);
+  line-height: var(--ds-font-line-height-normal);
+  white-space: pre-wrap;
+}
+.ms-term__body .prompt { color: var(--ds-color-accent-primary); }
+.ms-term__body .out    { color: var(--ds-color-fg-muted); }
+.ms-term__body .ok     { color: var(--ds-color-feedback-success); }

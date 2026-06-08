@@ -1,0 +1,11 @@
+{
+  "radius": {
+    "$type": "dimension",
+    "_comment": "Neo-brutalism leans sharp. Defaults are small; 'none' is a valid, on-brand choice.",
+    "none": { "$value": "0rem" },
+    "sm":   { "$value": "0.25rem" },
+    "md":   { "$value": "0.5rem" },
+    "lg":   { "$value": "0.75rem" },
+    "full": { "$value": "9999px" }
+  }
+}

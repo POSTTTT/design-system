@@ -1,0 +1,5 @@
+node_modules/
+
+# Generated token outputs are reproducible from tokens/ via `npm run build`.
+# Commit them only if a consumer needs to pull dist files directly without building.
+dist/

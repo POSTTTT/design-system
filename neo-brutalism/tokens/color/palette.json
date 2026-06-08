@@ -1,0 +1,33 @@
+{
+  "color": {
+    "palette": {
+      "$type": "color",
+      "_comment": "Primitive palette. Raw values only — never reference these directly in UI; use semantic tokens.",
+
+      "black":  { "$value": "#000000" },
+      "white":  { "$value": "#ffffff" },
+
+      "ink":    { "$value": "#111111", "$description": "Near-black for text, slightly softer than pure black" },
+      "paper":  { "$value": "#fdfbf3", "$description": "Warm off-white canvas typical of neo-brutalist UIs" },
+      "cloud":  { "$value": "#f4f1e8", "$description": "Slightly darker surface for layering on paper" },
+
+      "yellow": { "$value": "#ffdb00" },
+      "pink":   { "$value": "#ff5cab" },
+      "cyan":   { "$value": "#4dd0e1" },
+      "lime":   { "$value": "#a3e635" },
+      "violet": { "$value": "#9b5cff" },
+      "orange": { "$value": "#ff7a1a" },
+
+      "red":    { "$value": "#ff3b30", "$description": "Danger / destructive" },
+      "green":  { "$value": "#16c47f", "$description": "Success / positive" },
+      "blue":   { "$value": "#2f6bff", "$description": "Info / link" },
+
+      "gray": {
+        "100": { "$value": "#e7e4da" },
+        "300": { "$value": "#c4c0b4" },
+        "500": { "$value": "#8a8678" },
+        "700": { "$value": "#4d4a40" }
+      }
+    }
+  }
+}
