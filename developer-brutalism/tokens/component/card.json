@@ -1,0 +1,10 @@
+{
+  "card": {
+    "bg":          { "$type": "color",     "$value": "{color.bg.surface}" },
+    "fg":          { "$type": "color",     "$value": "{color.fg.default}" },
+    "radius":      { "$type": "dimension", "$value": "{radius.md}" },
+    "borderWidth": { "$type": "dimension", "$value": "{border.width.thin}" },
+    "borderColor": { "$type": "color",     "$value": "{color.border.default}" },
+    "padding":     { "$type": "dimension", "$value": "{space.5}" }
+  }
+}

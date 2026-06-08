@@ -1,0 +1,11 @@
+{
+  "radius": {
+    "$type": "dimension",
+    "_comment": "Sharp and small — terminal UIs barely round their corners.",
+    "none": { "$value": "0rem" },
+    "sm":   { "$value": "0.125rem" },
+    "md":   { "$value": "0.25rem" },
+    "lg":   { "$value": "0.375rem" },
+    "full": { "$value": "9999px" }
+  }
+}

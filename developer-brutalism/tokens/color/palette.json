@@ -1,0 +1,24 @@
+{
+  "color": {
+    "palette": {
+      "$type": "color",
+      "_comment": "Terminal / developer-brutalism palette: pure black, amber + green + red, white CTAs. Primitives only.",
+
+      "black":    { "$value": "#0a0a0a", "$description": "Page canvas" },
+      "panel":    { "$value": "#0e0e0f", "$description": "Panels / cards" },
+      "inset":    { "$value": "#141517", "$description": "Code / inset blocks" },
+      "line":     { "$value": "#262626", "$description": "Hairline borders" },
+      "lineSoft": { "$value": "#1a1a1c", "$description": "Faint dividers / dot grid" },
+
+      "white":    { "$value": "#ffffff" },
+      "fg":       { "$value": "#e6e6e6", "$description": "Primary text" },
+      "muted":    { "$value": "#8a8a8a", "$description": "Secondary text" },
+      "faint":    { "$value": "#5a5a5a", "$description": "Disabled / hints" },
+
+      "amber":    { "$value": "#e0a04a", "$description": "Primary accent — labels, badges" },
+      "orange":   { "$value": "#ff7a1a", "$description": "Bright highlight — key numbers" },
+      "green":    { "$value": "#3fd97f", "$description": "Status / success / additions" },
+      "red":      { "$value": "#ff5c5c", "$description": "Errors / deletions" }
+    }
+  }
+}

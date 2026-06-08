@@ -1,0 +1,43 @@
+{
+  "font": {
+    "family": {
+      "$type": "fontFamily",
+      "mono": { "$value": ["JetBrains Mono", "IBM Plex Mono", "ui-monospace", "SFMono-Regular", "Menlo", "Consolas", "monospace"], "$description": "Monospace everywhere — terminal aesthetic" }
+    },
+
+    "weight": {
+      "$type": "fontWeight",
+      "regular":  { "$value": 400 },
+      "medium":   { "$value": 500 },
+      "semibold": { "$value": 600 },
+      "bold":     { "$value": 700 }
+    },
+
+    "size": {
+      "$type": "dimension",
+      "xs":   { "$value": "0.6875rem" },
+      "sm":   { "$value": "0.8125rem" },
+      "base": { "$value": "0.9375rem" },
+      "lg":   { "$value": "1.125rem" },
+      "xl":   { "$value": "1.5rem" },
+      "2xl":  { "$value": "2rem" },
+      "3xl":  { "$value": "2.75rem" },
+      "4xl":  { "$value": "3.5rem" }
+    },
+
+    "lineHeight": {
+      "$type": "number",
+      "tight":  { "$value": 1.15 },
+      "snug":   { "$value": 1.35 },
+      "normal": { "$value": 1.6 }
+    },
+
+    "letterSpacing": {
+      "$type": "dimension",
+      "tight":  { "$value": "-0.01em" },
+      "normal": { "$value": "0em" },
+      "wide":   { "$value": "0.1em",  "$description": "Uppercase mono labels" },
+      "wider":  { "$value": "0.18em", "$description": "Section eyebrows" }
+    }
+  }
+}

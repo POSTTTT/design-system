@@ -1,0 +1,10 @@
+{
+  "border": {
+    "width": {
+      "$type": "dimension",
+      "_comment": "Hairline borders carry the structure (shadows stay flat).",
+      "thin":  { "$value": "1px" },
+      "thick": { "$value": "2px" }
+    }
+  }
+}

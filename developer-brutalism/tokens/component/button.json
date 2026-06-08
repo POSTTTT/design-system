@@ -1,0 +1,18 @@
+{
+  "button": {
+    "radius":      { "$type": "dimension", "$value": "{radius.md}" },
+    "borderWidth": { "$type": "dimension", "$value": "{border.width.thin}" },
+    "borderColor": { "$type": "color",     "$value": "{color.border.default}" },
+    "bg":          { "$type": "color",     "$value": "transparent", "$description": "Default = outlined ghost" },
+    "fg":          { "$type": "color",     "$value": "{color.fg.default}" },
+    "padding": {
+      "$type": "dimension",
+      "x": { "$value": "1rem" },
+      "y": { "$value": "0.625rem" }
+    },
+    "font": {
+      "weight": { "$type": "fontWeight", "$value": "{font.weight.semibold}" },
+      "size":   { "$type": "dimension",  "$value": "{font.size.sm}" }
+    }
+  }
+}

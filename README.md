@@ -32,3 +32,10 @@ charcoal `#282c34` canvas with cyan text, teal hairline borders, and a coral→p
 gradient as the single accent. Soft, deep, blurred shadows, gently rounded corners,
 and `Fira Code` monospace throughout, with bracketed `[ LABEL ]` tags and
 terminal-window chrome.
+
+### `developer-brutalism/`
+Raw and high-contrast — a pure-black `#0a0a0a` terminal console. Off-white text
+with an amber primary accent, plus terminal green and red, and solid-white CTAs.
+Flat surfaces with hairline borders and a subtle dot-grid texture, barely-rounded
+corners, uppercase wide-tracked mono labels, and `JetBrains Mono` throughout. Its
+prototype is a multi-agent orchestration console (status sidebar · chat · consensus).

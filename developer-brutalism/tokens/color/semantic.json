@@ -1,0 +1,38 @@
+{
+  "color": {
+    "bg": {
+      "$type": "color",
+      "canvas":  { "$value": "{color.palette.black}" },
+      "surface": { "$value": "{color.palette.panel}", "$description": "Panels, cards" },
+      "inset":   { "$value": "{color.palette.inset}", "$description": "Code / inset blocks" }
+    },
+
+    "fg": {
+      "$type": "color",
+      "default":  { "$value": "{color.palette.fg}" },
+      "muted":    { "$value": "{color.palette.muted}" },
+      "faint":    { "$value": "{color.palette.faint}" },
+      "onInvert": { "$value": "{color.palette.black}", "$description": "Text on white (primary) buttons" }
+    },
+
+    "accent": {
+      "$type": "color",
+      "primary": { "$value": "{color.palette.amber}",  "$description": "Labels, badges, key accents" },
+      "bright":  { "$value": "{color.palette.orange}", "$description": "Bright highlight numbers" }
+    },
+
+    "border": {
+      "$type": "color",
+      "default": { "$value": "{color.palette.line}" },
+      "soft":    { "$value": "{color.palette.lineSoft}" },
+      "strong":  { "$value": "{color.palette.amber}", "$description": "Hover / focus emphasis" }
+    },
+
+    "feedback": {
+      "$type": "color",
+      "success": { "$value": "{color.palette.green}" },
+      "warning": { "$value": "{color.palette.amber}" },
+      "danger":  { "$value": "{color.palette.red}" }
+    }
+  }
+}

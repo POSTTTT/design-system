@@ -1,0 +1,40 @@
+/* Button — outlined ghost by default; primary is a solid white block. Uppercase mono. */
+.db-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ds-space-2);
+  font-family: var(--ds-font-family-mono);
+  font-weight: var(--ds-button-font-weight);
+  font-size: var(--ds-button-font-size);
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: var(--ds-font-letter-spacing-wide);
+  color: var(--ds-button-fg);
+  background: var(--ds-button-bg);
+  border: var(--ds-button-border-width) solid var(--ds-button-border-color);
+  border-radius: var(--ds-button-radius);
+  padding: var(--ds-button-padding-y) var(--ds-button-padding-x);
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 0.12s ease, background 0.12s ease, color 0.12s ease;
+}
+.db-btn:hover { border-color: var(--ds-color-border-strong); color: var(--ds-color-fg-default); }
+.db-btn:focus-visible { outline: var(--ds-border-width-thick) solid var(--ds-color-accent-primary); outline-offset: 2px; }
+.db-btn:disabled,
+.db-btn[aria-disabled="true"] { opacity: 0.45; cursor: not-allowed; }
+
+/* primary — solid white block, black text */
+.db-btn--primary {
+  background: var(--ds-color-fg-default);
+  color: var(--ds-color-fg-onInvert);
+  border-color: transparent;
+}
+.db-btn--primary:hover { background: #fff; color: var(--ds-color-fg-onInvert); }
+
+/* accent — amber outline */
+.db-btn--accent { color: var(--ds-color-accent-primary); border-color: var(--ds-color-accent-primary); }
+
+/* sizes */
+.db-btn--sm { font-size: var(--ds-font-size-xs); padding: var(--ds-space-2) var(--ds-space-3); }
+.db-btn--lg { font-size: var(--ds-font-size-base); padding: var(--ds-space-3) var(--ds-space-5); }

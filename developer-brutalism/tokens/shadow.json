@@ -1,0 +1,9 @@
+{
+  "shadow": {
+    "$type": "shadow",
+    "_comment": "Mostly flat — borders define structure. Only overlays get a subtle drop.",
+    "none": { "$value": { "offsetX": "0px", "offsetY": "0px",  "blur": "0px",  "spread": "0px", "color": "transparent" } },
+    "sm":   { "$value": { "offsetX": "0px", "offsetY": "4px",  "blur": "12px", "spread": "0px", "color": "#00000080" } },
+    "md":   { "$value": { "offsetX": "0px", "offsetY": "10px", "blur": "30px", "spread": "0px", "color": "#000000a6" } }
+  }
+}

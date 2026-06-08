@@ -1,0 +1,23 @@
+/* Card / panel — flat, hairline border. Optional dot-grid texture. */
+.db-card {
+  background: var(--ds-card-bg);
+  color: var(--ds-card-fg);
+  border: var(--ds-card-border-width) solid var(--ds-card-border-color);
+  border-radius: var(--ds-card-radius);
+  padding: var(--ds-card-padding);
+}
+.db-card__title {
+  font-weight: var(--ds-font-weight-semibold);
+  font-size: var(--ds-font-size-base);
+  color: var(--ds-color-fg-default);
+  margin: 0 0 var(--ds-space-2);
+}
+.db-card__body { margin: 0; color: var(--ds-color-fg-muted); }
+
+/* subtle dot-grid background — the signature panel texture */
+.db-card--grid {
+  background-image: radial-gradient(var(--ds-color-border-soft) 1px, transparent 1px);
+  background-size: 10px 10px;
+}
+/* darker inset surface */
+.db-card--inset { background-color: var(--ds-color-bg-inset); }

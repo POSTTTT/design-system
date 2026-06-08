@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Developer Brutalism · Design System Catalog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<!-- One import: generated tokens + every db- component. -->
+<link rel="stylesheet" href="../developer-brutalism-compo/components.css" />
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ds-color-bg-canvas);
+    color: var(--ds-color-fg-default);
+    font-family: var(--ds-font-family-mono);
+    line-height: var(--ds-font-line-height-normal);
+    min-height: 100vh;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: var(--ds-space-7) var(--ds-space-5); }
+  code { color: var(--ds-color-fg-muted); }
+
+  .masthead { margin-bottom: var(--ds-space-7); }
+  .masthead h1 { font-size: var(--ds-font-size-2xl); font-weight: var(--ds-font-weight-bold); color: var(--ds-color-fg-default); margin: var(--ds-space-3) 0 var(--ds-space-2); }
+
+  section { margin-bottom: var(--ds-space-7); }
+  h2 { font-size: var(--ds-font-size-lg); font-weight: var(--ds-font-weight-semibold); border-bottom: var(--ds-border-width-thin) solid var(--ds-color-border-default); padding-bottom: var(--ds-space-2); margin: 0 0 var(--ds-space-5); }
+  .grid { display: grid; gap: var(--ds-space-4); grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+
+  .swatch { border: var(--ds-border-width-thin) solid var(--ds-color-border-default); border-radius: var(--ds-radius-md); overflow: hidden; }
+  .swatch .chip { height: 52px; }
+  .swatch .meta { padding: var(--ds-space-2) var(--ds-space-3); }
+  .swatch .name { font-size: var(--ds-font-size-sm); }
+  .swatch code { font-size: var(--ds-font-size-xs); }
+
+  .row { display: flex; flex-wrap: wrap; gap: var(--ds-space-4); align-items: center; }
+  .scaleRow { display: flex; align-items: center; gap: var(--ds-space-4); margin-bottom: var(--ds-space-2); font-size: var(--ds-font-size-sm); color: var(--ds-color-fg-muted); }
+  .bar { background: var(--ds-color-accent-primary); height: 14px; }
+  .radiusBox { width: 76px; height: 76px; border: var(--ds-border-width-thin) solid var(--ds-color-border-default); display: grid; place-items: end center; padding: var(--ds-space-1); font-size: var(--ds-font-size-xs); color: var(--ds-color-fg-muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <span class="db-label">design system · v0.1</span>
+    <h1>Developer Brutalism</h1>
+    <p style="color:var(--ds-color-fg-muted);margin:0">Terminal aesthetic — black canvas, amber/green/red accents, monospace. Tokens from <code>dist/css/tokens.css</code>; components from <code>developer-brutalism-compo/</code>.</p>
+  </header>
+
+  <section>
+    <h2>Colors</h2>
+    <div class="grid">
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-bg-canvas)"></div><div class="meta"><div class="name">bg.canvas</div><code>#0a0a0a</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-bg-surface)"></div><div class="meta"><div class="name">bg.surface</div><code>#0e0e0f</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-bg-inset)"></div><div class="meta"><div class="name">bg.inset</div><code>#141517</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-border-default)"></div><div class="meta"><div class="name">border</div><code>#262626</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-fg-default)"></div><div class="meta"><div class="name">fg.default</div><code>#e6e6e6</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-accent-primary)"></div><div class="meta"><div class="name">accent (amber)</div><code>#e0a04a</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-accent-bright)"></div><div class="meta"><div class="name">bright (orange)</div><code>#ff7a1a</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-feedback-success)"></div><div class="meta"><div class="name">success</div><code>#3fd97f</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-feedback-danger)"></div><div class="meta"><div class="name">danger</div><code>#ff5c5c</code></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Typography</h2>
+    <div class="db-card">
+      <p style="font-size:var(--ds-font-size-3xl);font-weight:var(--ds-font-weight-bold);margin:0 0 var(--ds-space-3)">Display 3xl / 700</p>
+      <p style="font-size:var(--ds-font-size-lg);font-weight:var(--ds-font-weight-semibold);margin:0 0 var(--ds-space-3)">Heading lg / 600</p>
+      <p style="font-size:var(--ds-font-size-base);margin:0 0 var(--ds-space-3)">Body base / 400 — the quick brown fox jumps over the lazy dog 0123456789.</p>
+      <p class="db-label">Section label · amber · wider tracking</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Spacing &amp; Radius</h2>
+    <div class="db-card" style="margin-bottom:var(--ds-space-4)">
+      <div class="scaleRow"><span style="width:72px">space.2</span><div class="bar" style="width:var(--ds-space-2)"></div></div>
+      <div class="scaleRow"><span style="width:72px">space.4</span><div class="bar" style="width:var(--ds-space-4)"></div></div>
+      <div class="scaleRow"><span style="width:72px">space.6</span><div class="bar" style="width:var(--ds-space-6)"></div></div>
+      <div class="scaleRow"><span style="width:72px">space.8</span><div class="bar" style="width:var(--ds-space-8)"></div></div>
+    </div>
+    <div class="row">
+      <div class="radiusBox" style="border-radius:var(--ds-radius-none)">none</div>
+      <div class="radiusBox" style="border-radius:var(--ds-radius-sm)">sm</div>
+      <div class="radiusBox" style="border-radius:var(--ds-radius-md)">md</div>
+      <div class="radiusBox" style="border-radius:var(--ds-radius-lg)">lg</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Components</h2>
+
+    <div class="db-card" style="margin-bottom:var(--ds-space-4)">
+      <p class="db-label" style="margin:0 0 var(--ds-space-3)">Buttons</p>
+      <div class="row">
+        <button class="db-btn db-btn--primary">Get access</button>
+        <button class="db-btn">Read docs</button>
+        <button class="db-btn db-btn--accent">Deploy</button>
+        <button class="db-btn db-btn--sm">Send</button>
+        <button class="db-btn" disabled>Disabled</button>
+      </div>
+    </div>
+
+    <div class="db-card" style="margin-bottom:var(--ds-space-4)">
+      <p class="db-label" style="margin:0 0 var(--ds-space-3)">Tags · dots</p>
+      <div class="row">
+        <span class="db-tag">default</span>
+        <span class="db-tag db-tag--amber">evaluating</span>
+        <span class="db-tag db-tag--green">complete</span>
+        <span class="db-tag db-tag--red">failed</span>
+        <span style="display:inline-flex;align-items:center;gap:var(--ds-space-2)"><span class="db-dot db-dot--green"></span>online</span>
+      </div>
+    </div>
+
+    <div class="row" style="align-items:stretch;margin-bottom:var(--ds-space-4)">
+      <div class="db-card" style="flex:1;min-width:240px">
+        <h3 class="db-card__title">Default panel</h3>
+        <p class="db-card__body">Flat surface, single hairline border. Shadows stay off.</p>
+      </div>
+      <div class="db-card db-card--grid" style="flex:1;min-width:240px">
+        <h3 class="db-card__title">Dot-grid panel</h3>
+        <p class="db-card__body">The signature texture via <code>db-card--grid</code>.</p>
+      </div>
+    </div>
+
+    <div class="db-card" style="margin-bottom:var(--ds-space-4)">
+      <div class="db-list">
+        <div class="db-list__row"><span class="db-list__label"><span class="db-dot db-dot--green"></span>orion</span><span class="db-list__value db-list__value--amber">complete</span></div>
+        <div class="db-list__row"><span class="db-list__label"><span class="db-dot db-dot--green"></span>vega</span><span class="db-list__value db-list__value--amber">complete</span></div>
+        <div class="db-list__row"><span class="db-list__label">sequential</span><span class="db-list__value db-list__value--strike">~18 min</span></div>
+        <div class="db-list__row"><span class="db-list__label">parallel</span><span class="db-list__value db-list__value--amber">~6 min</span></div>
+      </div>
+    </div>
+
+    <div class="db-card" style="margin-bottom:var(--ds-space-4)">
+      <label class="db-field"><span class="db-field__label">Instruction</span><input class="db-input" placeholder="ask questions, or give new instructions…" /></label>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:var(--ds-space-3)">
+      <div class="db-alert db-alert--success"><div><p class="db-alert__title">Winner selected</p><p class="db-alert__body">orion · confidence 0.94 · 46/46 tests.</p></div></div>
+      <div class="db-alert db-alert--warning"><div><p class="db-alert__title">Evaluating</p><p class="db-alert__body">Scoring 3 candidates across correctness, performance, risk.</p></div></div>
+      <div class="db-alert db-alert--danger"><div><p class="db-alert__title">Build failed</p><p class="db-alert__body">2 tests red in src/limiter.</p></div></div>
+    </div>
+  </section>
+
+  <footer style="font-size:var(--ds-font-size-xs);color:var(--ds-color-fg-faint);text-align:center;padding:var(--ds-space-6) 0">
+    tokens/ → style-dictionary → dist/ → developer-brutalism-compo/ → this catalog
+  </footer>
+
+</div>
+
+<!-- Live theme setting (presets + custom colors, persisted). -->
+<script src="../palette-setting.js"></script>
+</body>
+</html>

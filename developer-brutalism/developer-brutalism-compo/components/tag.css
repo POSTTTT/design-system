@@ -1,0 +1,35 @@
+/* Tag / badge + status dot + section label. */
+.db-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-family: var(--ds-font-family-mono);
+  font-size: var(--ds-font-size-xs);
+  font-weight: var(--ds-font-weight-semibold);
+  letter-spacing: var(--ds-font-letter-spacing-wide);
+  text-transform: uppercase;
+  color: var(--ds-color-fg-muted);
+  background: transparent;
+  border: var(--ds-border-width-thin) solid var(--ds-color-border-default);
+  border-radius: var(--ds-radius-sm);
+  padding: 0.15em 0.5em;
+}
+.db-tag--amber { color: var(--ds-color-accent-primary);   border-color: var(--ds-color-accent-primary); }
+.db-tag--green { color: var(--ds-color-feedback-success);  border-color: var(--ds-color-feedback-success); }
+.db-tag--red   { color: var(--ds-color-feedback-danger);   border-color: var(--ds-color-feedback-danger); }
+
+/* status dot */
+.db-dot { display: inline-block; width: 7px; height: 7px; border-radius: var(--ds-radius-full); background: var(--ds-color-fg-muted); }
+.db-dot--green { background: var(--ds-color-feedback-success); }
+.db-dot--amber { background: var(--ds-color-accent-primary); }
+.db-dot--red   { background: var(--ds-color-feedback-danger); }
+
+/* section label / eyebrow — the amber uppercase headers */
+.db-label {
+  font-family: var(--ds-font-family-mono);
+  font-size: var(--ds-font-size-xs);
+  font-weight: var(--ds-font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--ds-font-letter-spacing-wider);
+  color: var(--ds-color-accent-primary);
+}

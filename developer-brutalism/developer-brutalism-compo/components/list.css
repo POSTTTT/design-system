@@ -1,0 +1,15 @@
+/* Status list — label/value rows, e.g. an agent status sidebar. */
+.db-list { display: flex; flex-direction: column; gap: var(--ds-space-2); }
+.db-list__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ds-space-3);
+  font-family: var(--ds-font-family-mono);
+  font-size: var(--ds-font-size-sm);
+}
+.db-list__label { display: inline-flex; align-items: center; gap: var(--ds-space-2); color: var(--ds-color-fg-default); }
+.db-list__value { color: var(--ds-color-fg-muted); }
+.db-list__value--amber { color: var(--ds-color-accent-primary); }
+.db-list__value--green { color: var(--ds-color-feedback-success); }
+.db-list__value--strike { text-decoration: line-through; color: var(--ds-color-fg-faint); }

@@ -1,0 +1,20 @@
+/* Alert / callout — colored left edge per status. */
+.db-alert {
+  display: flex;
+  gap: var(--ds-space-3);
+  align-items: flex-start;
+  font-family: var(--ds-font-family-mono);
+  font-size: var(--ds-font-size-sm);
+  background: var(--ds-color-bg-surface);
+  color: var(--ds-color-fg-default);
+  border: var(--ds-border-width-thin) solid var(--ds-color-border-default);
+  border-left-width: var(--ds-border-width-thick);
+  border-radius: var(--ds-radius-md);
+  padding: var(--ds-space-4);
+}
+.db-alert__title { font-weight: var(--ds-font-weight-semibold); margin: 0 0 var(--ds-space-1); }
+.db-alert__body  { margin: 0; color: var(--ds-color-fg-muted); }
+
+.db-alert--success { border-left-color: var(--ds-color-feedback-success); }
+.db-alert--warning { border-left-color: var(--ds-color-feedback-warning); }
+.db-alert--danger  { border-left-color: var(--ds-color-feedback-danger); }
