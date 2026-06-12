@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ANVIL — build, test, ship from one command</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<!-- Styled by the developer-brutalism design system: tokens + db- components. -->
+<link rel="stylesheet" href="../developer-brutalism-compo/components.css" />
+<style>
+  * { box-sizing: border-box; }
+  html { scrollbar-gutter: stable both-edges; }
+  body {
+    margin: 0;
+    background: var(--ds-color-bg-canvas);
+    color: var(--ds-color-fg-default);
+    font-family: var(--ds-font-family-mono);
+    line-height: var(--ds-font-line-height-normal);
+    font-size: var(--ds-font-size-sm);
+  }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 var(--ds-space-5); }
+  .muted { color: var(--ds-color-fg-muted); }
+  .amber { color: var(--ds-color-accent-primary); }
+  .green { color: var(--ds-color-feedback-success); }
+
+  /* nav */
+  .navbar { border-bottom: var(--ds-border-width-thin) solid var(--ds-color-border-default); position: sticky; top: 0; background: color-mix(in srgb, var(--ds-color-bg-canvas) 88%, transparent); backdrop-filter: blur(8px); z-index: 10; }
+  .nav { display: flex; align-items: center; gap: var(--ds-space-5); padding-top: var(--ds-space-4); padding-bottom: var(--ds-space-4); }
+  .brand { font-weight: var(--ds-font-weight-bold); font-size: var(--ds-font-size-base); letter-spacing: var(--ds-font-letter-spacing-wide); }
+  .nav__links { display: flex; gap: var(--ds-space-5); margin-left: auto; text-transform: uppercase; letter-spacing: var(--ds-font-letter-spacing-wide); font-size: var(--ds-font-size-xs); }
+  .nav__links a { color: var(--ds-color-fg-muted); }
+  .nav__links a:hover { color: var(--ds-color-fg-default); }
+  @media (max-width: 760px) { .nav__links { display: none; } }
+
+  section { padding: var(--ds-space-8) 0; }
+  .center { text-align: center; }
+  h2.h { font-size: var(--ds-font-size-2xl); font-weight: var(--ds-font-weight-bold); color: var(--ds-color-fg-default); margin: var(--ds-space-3) 0; letter-spacing: var(--ds-font-letter-spacing-tight); }
+  .lead { color: var(--ds-color-fg-muted); font-size: var(--ds-font-size-base); max-width: 60ch; margin-left: auto; margin-right: auto; }
+
+  /* hero */
+  .hero { text-align: center; padding: var(--ds-space-9) 0 var(--ds-space-7); }
+  .hero h1 { font-size: clamp(2.25rem, 6vw, 4rem); font-weight: var(--ds-font-weight-bold); line-height: var(--ds-font-line-height-tight); letter-spacing: var(--ds-font-letter-spacing-tight); margin: var(--ds-space-4) 0; }
+  .hero h1 .amber { color: var(--ds-color-accent-bright); }
+  .hero__cta { display: flex; gap: var(--ds-space-3); justify-content: center; flex-wrap: wrap; margin-top: var(--ds-space-5); }
+
+  /* terminal window */
+  .term { max-width: 720px; margin: var(--ds-space-7) auto 0; text-align: left; border: var(--ds-border-width-thin) solid var(--ds-color-border-default); border-radius: var(--ds-radius-lg); overflow: hidden; background: var(--ds-color-bg-inset); }
+  .term__bar { display: flex; align-items: center; gap: var(--ds-space-2); padding: var(--ds-space-3) var(--ds-space-4); border-bottom: var(--ds-border-width-thin) solid var(--ds-color-border-default); background: var(--ds-color-bg-surface); }
+  .tdot { width: 11px; height: 11px; border-radius: var(--ds-radius-full); }
+  .term__title { color: var(--ds-color-fg-faint); font-size: var(--ds-font-size-xs); margin-left: var(--ds-space-2); }
+  .term__body { padding: var(--ds-space-4); font-size: var(--ds-font-size-sm); line-height: 1.7; white-space: pre-wrap; }
+  .term__body .p { color: var(--ds-color-accent-primary); }
+  .term__body .c { color: var(--ds-color-fg-default); }
+  .term__body .o { color: var(--ds-color-fg-muted); }
+  .term__body .ok { color: var(--ds-color-feedback-success); }
+
+  /* logos */
+  .logos { display: flex; gap: var(--ds-space-7); justify-content: center; flex-wrap: wrap; color: var(--ds-color-fg-faint); text-transform: uppercase; letter-spacing: var(--ds-font-letter-spacing-wide); font-size: var(--ds-font-size-xs); border-top: var(--ds-border-width-thin) solid var(--ds-color-border-default); border-bottom: var(--ds-border-width-thin) solid var(--ds-color-border-default); padding: var(--ds-space-5) 0; }
+
+  /* feature grid */
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--ds-space-4); }
+  @media (max-width: 820px) { .grid3 { grid-template-columns: 1fr; } }
+  .feat .db-card__title { font-size: var(--ds-font-size-base); }
+
+  /* steps */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--ds-space-6); }
+  @media (max-width: 820px) { .steps { grid-template-columns: 1fr; } }
+  .step__n { font-size: var(--ds-font-size-3xl); font-weight: var(--ds-font-weight-bold); color: var(--ds-color-accent-bright); line-height: 1; }
+  .step h3 { font-size: var(--ds-font-size-base); text-transform: uppercase; letter-spacing: var(--ds-font-letter-spacing-wide); margin: var(--ds-space-3) 0 var(--ds-space-2); }
+  .step p { color: var(--ds-color-fg-muted); margin: 0; }
+
+  /* install block */
+  .install { max-width: 760px; margin: 0 auto; }
+  .install__head { display: flex; align-items: center; justify-content: space-between; gap: var(--ds-space-3); margin-bottom: var(--ds-space-3); }
+
+  /* stats */
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--ds-space-5); text-align: center; border-top: var(--ds-border-width-thin) solid var(--ds-color-border-default); border-bottom: var(--ds-border-width-thin) solid var(--ds-color-border-default); padding: var(--ds-space-7) 0; }
+  @media (max-width: 760px) { .stats { grid-template-columns: 1fr; gap: var(--ds-space-5); } }
+  .stats .n { font-size: var(--ds-font-size-2xl); font-weight: var(--ds-font-weight-bold); color: var(--ds-color-fg-default); }
+  .stats .l { font-size: var(--ds-font-size-xs); text-transform: uppercase; letter-spacing: var(--ds-font-letter-spacing-wide); color: var(--ds-color-fg-muted); }
+
+  /* pricing */
+  .pricing { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--ds-space-4); align-items: start; }
+  @media (max-width: 820px) { .pricing { grid-template-columns: 1fr; } }
+  .plan { display: flex; flex-direction: column; gap: var(--ds-space-3); }
+  .plan--featured { border-color: var(--ds-color-accent-primary); }
+  .price { font-size: var(--ds-font-size-2xl); font-weight: var(--ds-font-weight-bold); }
+  .price small { font-size: var(--ds-font-size-sm); font-weight: var(--ds-font-weight-regular); color: var(--ds-color-fg-muted); }
+
+  /* quote */
+  .quote { max-width: 760px; margin: 0 auto; }
+  .quote p { font-size: var(--ds-font-size-lg); color: var(--ds-color-fg-default); margin: 0 0 var(--ds-space-4); line-height: 1.5; }
+  .quote .who { color: var(--ds-color-fg-muted); font-size: var(--ds-font-size-sm); }
+
+  .finalcta .hero__cta { margin-top: var(--ds-space-5); }
+
+  footer { border-top: var(--ds-border-width-thin) solid var(--ds-color-border-default); padding: var(--ds-space-7) 0 var(--ds-space-6); }
+  .foot { display: flex; justify-content: space-between; gap: var(--ds-space-6); flex-wrap: wrap; }
+  .foot__col h4 { text-transform: uppercase; letter-spacing: var(--ds-font-letter-spacing-wide); font-size: var(--ds-font-size-xs); color: var(--ds-color-accent-primary); margin: 0 0 var(--ds-space-3); }
+  .foot__col a { display: block; color: var(--ds-color-fg-muted); margin-bottom: var(--ds-space-2); }
+  .foot__col a:hover { color: var(--ds-color-fg-default); }
+  .foot__bottom { color: var(--ds-color-fg-faint); font-size: var(--ds-font-size-xs); margin-top: var(--ds-space-6); }
+</style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="wrap nav">
+      <a class="brand" href="#">◣ ANVIL</a>
+      <nav class="nav__links">
+        <a href="#features">Features</a><a href="#install">Install</a><a href="#pricing">Pricing</a><a href="#">Docs</a>
+      </nav>
+      <a class="db-btn db-btn--sm" href="#">Login</a>
+      <a class="db-btn db-btn--sm db-btn--primary" href="#install">Get started</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <span class="db-label">zero-config ci/cd</span>
+      <h1>Build, test, ship.<br /><span class="amber">From one command.</span></h1>
+      <p class="lead">ANVIL turns any repo into a fast, reproducible pipeline — no YAML to babysit. Commit, and your code is built, tested, and live on the edge before the coffee's poured.</p>
+      <div class="hero__cta">
+        <a class="db-btn db-btn--primary db-btn--lg" href="#install">Install ANVIL ↗</a>
+        <a class="db-btn db-btn--lg" href="#">Read docs</a>
+      </div>
+
+      <div class="term">
+        <div class="term__bar">
+          <span class="tdot" style="background:var(--ds-color-feedback-danger)"></span>
+          <span class="tdot" style="background:var(--ds-color-accent-primary)"></span>
+          <span class="tdot" style="background:var(--ds-color-feedback-success)"></span>
+          <span class="term__title">~/projects/api — anvil</span>
+        </div>
+        <div class="term__body"><span class="p">$</span> <span class="c">anvil deploy</span>
+<span class="o">▸ detected: node 20 · pnpm · 142 tests</span>
+<span class="o">▸ build    cached 11/14 steps        2.1s</span>
+<span class="o">▸ test     142 passed               4.8s</span>
+<span class="o">▸ deploy   12 edges · canary 10%     1.3s</span>
+<span class="ok">✓ live</span> <span class="o">at https://api.example.dev  ·  8.2s total</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGOS -->
+  <div class="wrap"><div class="logos"><span>northwind</span><span>blockco</span><span>heavyset</span><span>gridlock</span><span>pylon</span><span>vantage</span></div></div>
+
+  <!-- FEATURES -->
+  <section id="features">
+    <div class="wrap">
+      <div class="center" style="margin-bottom:var(--ds-space-6)">
+        <span class="db-label">features</span>
+        <h2 class="h">Everything between commit and production.</h2>
+      </div>
+      <div class="grid3">
+        <div class="db-card feat"><h3 class="db-card__title">[ Zero config ]</h3><p class="db-card__body">Detects your stack and writes the pipeline for you. Override only what you need.</p></div>
+        <div class="db-card feat"><h3 class="db-card__title">[ Parallel builds ]</h3><p class="db-card__body">Content-addressed cache and a remote build farm. Cold builds are the exception.</p></div>
+        <div class="db-card feat"><h3 class="db-card__title">[ Instant rollback ]</h3><p class="db-card__body">Every deploy is immutable and addressable. Roll back a bad ship in one command.</p></div>
+        <div class="db-card feat"><h3 class="db-card__title">[ Edge deploys ]</h3><p class="db-card__body">Push artifacts to dozens of regions with canary and blue-green built in.</p></div>
+        <div class="db-card feat"><h3 class="db-card__title">[ Secrets vault ]</h3><p class="db-card__body">Encrypted at rest, injected at runtime, never printed in a log line.</p></div>
+        <div class="db-card feat"><h3 class="db-card__title">[ Audit logs ]</h3><p class="db-card__body">Every build, deploy, and rollback is signed and queryable. Own the trail.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEPS -->
+  <section>
+    <div class="wrap">
+      <div class="center" style="margin-bottom:var(--ds-space-6)">
+        <span class="db-label">how it works</span>
+        <h2 class="h">Three commands. No control plane to babysit.</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="step__n">01</div><h3>Install</h3><p>One script, no daemon. Works on your laptop and in CI unchanged.</p></div>
+        <div class="step"><div class="step__n">02</div><h3>Init</h3><p>Point ANVIL at a repo. It infers the build, test, and deploy graph.</p></div>
+        <div class="step"><div class="step__n">03</div><h3>Deploy</h3><p>Ship to the edge with canaries. Watch it, and roll back if it blinks.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTALL -->
+  <section id="install">
+    <div class="wrap install">
+      <div class="install__head">
+        <span class="db-label">get started</span>
+        <span class="db-tag db-tag--green">no signup required</span>
+      </div>
+      <div class="db-card db-card--inset" style="padding:var(--ds-space-4)">
+        <div class="term__body" style="padding:0"><span class="p">$</span> <span class="c">curl -fsSL https://get.anvil.sh | sh</span>
+<span class="p">$</span> <span class="c">anvil init</span>
+<span class="p">$</span> <span class="c">anvil deploy</span>
+<span class="ok">✓ deployed</span> <span class="o">to 12 edges in 8.2s</span></div>
+      </div>
+      <div style="display:flex;gap:var(--ds-space-3);margin-top:var(--ds-space-4);flex-wrap:wrap">
+        <button class="db-btn db-btn--primary">Copy install ⧉</button>
+        <a class="db-btn" href="#">Read the quickstart ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section style="padding-top:0">
+    <div class="wrap stats">
+      <div><div class="n">1.2M</div><div class="l">deploys / day</div></div>
+      <div><div class="n">8s</div><div class="l">median build</div></div>
+      <div><div class="n">34</div><div class="l">edge regions</div></div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="wrap">
+      <div class="center" style="margin-bottom:var(--ds-space-6)">
+        <span class="db-label">pricing</span>
+        <h2 class="h">Free to start. Honest at scale.</h2>
+      </div>
+      <div class="pricing">
+        <div class="db-card plan">
+          <span class="db-label" style="color:var(--ds-color-fg-muted)">Hobby</span>
+          <div class="price">$0<small>/mo</small></div>
+          <div class="db-list">
+            <div class="db-list__row"><span class="db-list__label">1 project</span><span class="green">✓</span></div>
+            <div class="db-list__row"><span class="db-list__label">3 edge regions</span><span class="green">✓</span></div>
+            <div class="db-list__row"><span class="db-list__label">Community support</span><span class="green">✓</span></div>
+          </div>
+          <a class="db-btn" href="#install" style="margin-top:auto">Start free</a>
+        </div>
+
+        <div class="db-card plan plan--featured">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <span class="db-label">Pro</span><span class="db-tag db-tag--amber">popular</span>
+          </div>
+          <div class="price">$20<small>/mo</small></div>
+          <div class="db-list">
+            <div class="db-list__row"><span class="db-list__label">Unlimited projects</span><span class="green">✓</span></div>
+            <div class="db-list__row"><span class="db-list__label">All 34 regions</span><span class="green">✓</span></div>
+            <div class="db-list__row"><span class="db-list__label">Secrets vault + audit</span><span class="green">✓</span></div>
+          </div>
+          <a class="db-btn db-btn--primary" href="#install" style="margin-top:auto">Start trial</a>
+        </div>
+
+        <div class="db-card plan">
+          <span class="db-label" style="color:var(--ds-color-fg-muted)">Team</span>
+          <div class="price">Let's talk</div>
+          <div class="db-list">
+            <div class="db-list__row"><span class="db-list__label">SSO + RBAC</span><span class="green">✓</span></div>
+            <div class="db-list__row"><span class="db-list__label">On-prem build farm</span><span class="green">✓</span></div>
+            <div class="db-list__row"><span class="db-list__label">Dedicated support</span><span class="green">✓</span></div>
+          </div>
+          <a class="db-btn db-btn--accent" href="#" style="margin-top:auto">Contact sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <section>
+    <div class="wrap quote">
+      <div class="db-card">
+        <p>"We deleted 2,000 lines of pipeline YAML and replaced it with <span class="amber">anvil deploy</span>. Builds went from nine minutes to under one, and nobody misses the dashboard."</p>
+        <div class="who">— staff engineer, infrastructure team</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="finalcta center">
+    <div class="wrap">
+      <span class="db-label">ship today</span>
+      <h2 class="h">Your next deploy is one command away.</h2>
+      <div class="hero__cta">
+        <a class="db-btn db-btn--primary db-btn--lg" href="#install">Get started free ↗</a>
+        <a class="db-btn db-btn--lg" href="#">Talk to us</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot">
+        <div style="max-width:30ch">
+          <a class="brand" href="#">◣ ANVIL</a>
+          <p class="muted" style="margin-top:var(--ds-space-3)">Build, test, ship — from one command.</p>
+        </div>
+        <div class="foot__col"><h4>Product</h4><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#">Changelog</a></div>
+        <div class="foot__col"><h4>Developers</h4><a href="#install">Install</a><a href="#">Docs</a><a href="#">CLI reference</a></div>
+        <div class="foot__col"><h4>Company</h4><a href="#">About</a><a href="#">Blog</a><a href="#">Careers</a></div>
+      </div>
+      <div class="foot__bottom">© 2026 ANVIL · Built with the developer-brutalism design system.</div>
+    </div>
+  </footer>
+
+  <!-- Live theme setting (presets + custom colors, persisted). -->
+  <script src="../palette-setting.js"></script>
+</body>
+</html>
