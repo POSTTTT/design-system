@@ -62,7 +62,8 @@
   .bubble { border: var(--ds-border-width-thin) solid var(--ds-color-border-default); border-radius: var(--ds-radius-md); padding: var(--ds-space-3) var(--ds-space-4); color: var(--ds-color-fg-default); }
   .bubble.amberedge { border-color: rgba(224,160,74,0.4); }
   .scoreline { display: flex; justify-content: space-between; gap: var(--ds-space-4); color: var(--ds-color-fg-muted); margin-top: var(--ds-space-1); }
-  .scoreline b { color: var(--ds-color-feedback-success); font-weight: var(--ds-font-weight-semibold); }
+  .scoreline > span:first-child { min-width: 0; overflow-wrap: anywhere; }
+  .scoreline b { color: var(--ds-color-feedback-success); font-weight: var(--ds-font-weight-semibold); flex-shrink: 0; white-space: nowrap; }
 
   /* input bar */
   .inputbar { border: var(--ds-border-width-thin) solid var(--ds-color-border-default); border-radius: var(--ds-radius-md); padding: var(--ds-space-3); background: var(--ds-color-bg-inset); }
@@ -74,6 +75,8 @@
   .winner { border: var(--ds-border-width-thin) solid rgba(63,217,127,0.45); border-radius: var(--ds-radius-md); padding: var(--ds-space-4); }
   .winner .big { font-size: var(--ds-font-size-lg); font-weight: var(--ds-font-weight-bold); color: var(--ds-color-feedback-success); margin: var(--ds-space-2) 0; }
   .diffrow { display: flex; justify-content: space-between; gap: var(--ds-space-3); margin-top: var(--ds-space-1); color: var(--ds-color-fg-muted); }
+  .diffrow > span:first-child { min-width: 0; overflow-wrap: anywhere; }
+  .diffrow .nums { flex-shrink: 0; white-space: nowrap; }
   .diffrow .nums b { color: var(--ds-color-feedback-success); }
   .diffrow .nums i { color: var(--ds-color-feedback-danger); font-style: normal; }
 
