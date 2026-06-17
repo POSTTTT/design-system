@@ -1,0 +1,18 @@
+{
+  "button": {
+    "radius":  { "$type": "dimension", "$value": "{radius.lg}" },
+    "bg":      { "$type": "color",     "$value": "{color.bg.surface}", "$description": "Default = raised neutral, same color as page" },
+    "fg":      { "$type": "color",     "$value": "{color.fg.default}" },
+    "shadow":  { "$value": "{shadow.raised}",   "$description": "Resting extrusion" },
+    "shadowActive": { "$value": "{shadow.inset}", "$description": "Pressed = pushed in" },
+    "padding": {
+      "$type": "dimension",
+      "x": { "$value": "1.5rem" },
+      "y": { "$value": "0.75rem" }
+    },
+    "font": {
+      "weight": { "$type": "fontWeight", "$value": "{font.weight.semibold}" },
+      "size":   { "$type": "dimension",  "$value": "{font.size.sm}" }
+    }
+  }
+}

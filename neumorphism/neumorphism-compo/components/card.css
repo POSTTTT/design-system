@@ -1,0 +1,22 @@
+/* Card / panel — extruded soft surface, same color as the page. Depth = shadow only. */
+.nm-card {
+  background: var(--ds-card-bg);
+  color: var(--ds-card-fg);
+  border: none;
+  border-radius: var(--ds-card-radius);
+  padding: var(--ds-card-padding);
+  box-shadow: var(--ds-card-shadow);
+}
+.nm-card__title {
+  font-weight: var(--ds-font-weight-semibold);
+  font-size: var(--ds-font-size-lg);
+  color: var(--ds-color-fg-default);
+  margin: 0 0 var(--ds-space-3);
+}
+.nm-card__body { margin: 0; color: var(--ds-color-fg-muted); line-height: var(--ds-font-line-height-normal); }
+
+/* pressed-in well instead of extruded */
+.nm-card--inset { box-shadow: var(--ds-shadow-inset); }
+
+/* flat (no shadow) — for grouping without depth */
+.nm-card--flat { box-shadow: var(--ds-shadow-none); }

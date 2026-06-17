@@ -1,0 +1,10 @@
+{
+  "border": {
+    "width": {
+      "$type": "dimension",
+      "_comment": "Borders are rare here — shadow carries the structure. Kept for focus rings / dividers.",
+      "thin":  { "$value": "1px" },
+      "thick": { "$value": "2px" }
+    }
+  }
+}

@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Neumorphism · Design System Catalog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<!-- One import: generated tokens + every nm- component. -->
+<link rel="stylesheet" href="../neumorphism-compo/components.css" />
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--ds-color-bg-canvas);
+    color: var(--ds-color-fg-default);
+    font-family: var(--ds-font-family-sans);
+    line-height: var(--ds-font-line-height-normal);
+    min-height: 100vh;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: var(--ds-space-8) var(--ds-space-5); }
+  code { color: var(--ds-color-fg-muted); font-family: ui-monospace, Consolas, monospace; }
+
+  .masthead { margin-bottom: var(--ds-space-8); }
+  .masthead h1 { font-size: var(--ds-font-size-3xl); font-weight: var(--ds-font-weight-bold); color: var(--ds-color-fg-default); margin: var(--ds-space-3) 0 var(--ds-space-2); letter-spacing: var(--ds-font-letter-spacing-tight); }
+  .masthead p { color: var(--ds-color-fg-muted); margin: 0; max-width: 60ch; }
+
+  section { margin-bottom: var(--ds-space-8); }
+  h2 { font-size: var(--ds-font-size-lg); font-weight: var(--ds-font-weight-semibold); margin: 0 0 var(--ds-space-5); }
+  .grid { display: grid; gap: var(--ds-space-5); grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+
+  .swatch { border-radius: var(--ds-radius-lg); padding: var(--ds-space-3); box-shadow: var(--ds-shadow-raised-sm); }
+  .swatch .chip { height: 52px; border-radius: var(--ds-radius-md); box-shadow: var(--ds-shadow-inset-sm); }
+  .swatch .name { font-size: var(--ds-font-size-sm); font-weight: var(--ds-font-weight-semibold); margin-top: var(--ds-space-3); }
+  .swatch code { font-size: var(--ds-font-size-xs); }
+
+  .row { display: flex; flex-wrap: wrap; gap: var(--ds-space-5); align-items: center; }
+  .scaleRow { display: flex; align-items: center; gap: var(--ds-space-4); margin-bottom: var(--ds-space-3); font-size: var(--ds-font-size-sm); color: var(--ds-color-fg-muted); }
+  .bar { background: var(--ds-color-accent-primary); height: 14px; border-radius: var(--ds-radius-full); }
+  .radiusBox { width: 76px; height: 76px; display: grid; place-items: end center; padding: var(--ds-space-2); font-size: var(--ds-font-size-xs); color: var(--ds-color-fg-muted); box-shadow: var(--ds-shadow-raised-sm); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <span class="nm-label">design system · v0.1</span>
+    <h1>Neumorphism</h1>
+    <p>Soft UI — one light surface, dual shadows for depth, pillowy radii and a soft indigo accent. Tokens from <code>dist/css/tokens.css</code>; components from <code>neumorphism-compo/</code>.</p>
+  </header>
+
+  <section>
+    <h2>Colors</h2>
+    <div class="grid">
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-bg-canvas)"></div><div class="name">surface</div><code>#e0e5ec</code></div>
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-shadow-dark)"></div><div class="name">shadow.dark</div><code>#a3b1c6</code></div>
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-shadow-light)"></div><div class="name">shadow.light</div><code>#ffffff</code></div>
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-fg-default)"></div><div class="name">fg.default</div><code>#4d5b7c</code></div>
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-fg-muted)"></div><div class="name">fg.muted</div><code>#6b7a99</code></div>
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-accent-primary)"></div><div class="name">accent (indigo)</div><code>#6d5dfc</code></div>
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-accent-bright)"></div><div class="name">bright</div><code>#8b7cff</code></div>
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-feedback-success)"></div><div class="name">success</div><code>#4caf94</code></div>
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-feedback-danger)"></div><div class="name">danger</div><code>#e76f6f</code></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Elevation</h2>
+    <div class="row">
+      <div class="nm-card" style="box-shadow:var(--ds-shadow-raised-sm)">raised.sm</div>
+      <div class="nm-card">raised</div>
+      <div class="nm-card" style="box-shadow:var(--ds-shadow-raised-lg)">raised.lg</div>
+      <div class="nm-card nm-card--inset">inset</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Typography</h2>
+    <div class="nm-card">
+      <p style="font-size:var(--ds-font-size-3xl);font-weight:var(--ds-font-weight-bold);margin:0 0 var(--ds-space-3);letter-spacing:var(--ds-font-letter-spacing-tight)">Display 3xl / 700</p>
+      <p style="font-size:var(--ds-font-size-lg);font-weight:var(--ds-font-weight-semibold);margin:0 0 var(--ds-space-3)">Heading lg / 600</p>
+      <p style="font-size:var(--ds-font-size-base);margin:0 0 var(--ds-space-3);color:var(--ds-color-fg-muted)">Body base / 400 — the quick brown fox jumps over the lazy dog 0123456789.</p>
+      <p class="nm-label">Section label · indigo · wider tracking</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Spacing &amp; Radius</h2>
+    <div class="nm-card" style="margin-bottom:var(--ds-space-5)">
+      <div class="scaleRow"><span style="width:72px">space.2</span><div class="bar" style="width:var(--ds-space-2)"></div></div>
+      <div class="scaleRow"><span style="width:72px">space.4</span><div class="bar" style="width:var(--ds-space-4)"></div></div>
+      <div class="scaleRow"><span style="width:72px">space.6</span><div class="bar" style="width:var(--ds-space-6)"></div></div>
+      <div class="scaleRow"><span style="width:72px">space.8</span><div class="bar" style="width:var(--ds-space-8)"></div></div>
+    </div>
+    <div class="row">
+      <div class="radiusBox" style="border-radius:var(--ds-radius-sm)">sm</div>
+      <div class="radiusBox" style="border-radius:var(--ds-radius-md)">md</div>
+      <div class="radiusBox" style="border-radius:var(--ds-radius-lg)">lg</div>
+      <div class="radiusBox" style="border-radius:var(--ds-radius-xl)">xl</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Components</h2>
+
+    <div class="nm-card" style="margin-bottom:var(--ds-space-5)">
+      <p class="nm-label" style="margin:0 0 var(--ds-space-4)">Buttons</p>
+      <div class="row">
+        <button class="nm-btn nm-btn--primary">Get started</button>
+        <button class="nm-btn">Learn more</button>
+        <button class="nm-btn nm-btn--sm">Small</button>
+        <button class="nm-btn nm-btn--lg">Large</button>
+        <button class="nm-btn nm-btn--circle" aria-label="Add">+</button>
+        <button class="nm-btn" disabled>Disabled</button>
+      </div>
+    </div>
+
+    <div class="nm-card" style="margin-bottom:var(--ds-space-5)">
+      <p class="nm-label" style="margin:0 0 var(--ds-space-4)">Tags · dots · toggle</p>
+      <div class="row">
+        <span class="nm-tag">default</span>
+        <span class="nm-tag nm-tag--indigo">active</span>
+        <span class="nm-tag nm-tag--green">online</span>
+        <span class="nm-tag nm-tag--red">offline</span>
+        <span style="display:inline-flex;align-items:center;gap:var(--ds-space-2)"><span class="nm-dot nm-dot--green"></span>live</span>
+        <label class="nm-toggle"><input type="checkbox" checked /><span class="nm-toggle__track"><span class="nm-toggle__knob"></span></span></label>
+        <label class="nm-toggle"><input type="checkbox" /><span class="nm-toggle__track"><span class="nm-toggle__knob"></span></span></label>
+      </div>
+    </div>
+
+    <div class="row" style="align-items:stretch;margin-bottom:var(--ds-space-5)">
+      <div class="nm-card" style="flex:1;min-width:240px">
+        <h3 class="nm-card__title">Raised panel</h3>
+        <p class="nm-card__body">Extruded from the surface by a dual shadow — the default depth.</p>
+      </div>
+      <div class="nm-card nm-card--inset" style="flex:1;min-width:240px">
+        <h3 class="nm-card__title">Inset panel</h3>
+        <p class="nm-card__body">Pressed into the surface with <code>nm-card--inset</code>.</p>
+      </div>
+    </div>
+
+    <div class="nm-card" style="margin-bottom:var(--ds-space-5)">
+      <div class="nm-list">
+        <div class="nm-list__row"><span class="nm-list__label"><span class="nm-dot nm-dot--green"></span>Storage</span><span class="nm-list__value nm-list__value--green">healthy</span></div>
+        <div class="nm-list__row"><span class="nm-list__label"><span class="nm-dot nm-dot--indigo"></span>Sync</span><span class="nm-list__value nm-list__value--indigo">running</span></div>
+        <div class="nm-list__row"><span class="nm-list__label">Last backup</span><span class="nm-list__value">6 min ago</span></div>
+      </div>
+    </div>
+
+    <div class="nm-card" style="margin-bottom:var(--ds-space-5)">
+      <label class="nm-field"><span class="nm-field__label">Email</span><input class="nm-input" placeholder="you@example.com" /></label>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:var(--ds-space-4)">
+      <div class="nm-alert nm-alert--success"><span class="nm-alert__icon">✓</span><div><p class="nm-alert__title">Saved</p><p class="nm-alert__body">Your changes are synced across devices.</p></div></div>
+      <div class="nm-alert nm-alert--warning"><span class="nm-alert__icon">!</span><div><p class="nm-alert__title">Almost full</p><p class="nm-alert__body">Storage is at 92% of your plan.</p></div></div>
+      <div class="nm-alert nm-alert--danger"><span class="nm-alert__icon">✕</span><div><p class="nm-alert__title">Sync failed</p><p class="nm-alert__body">Could not reach the server. Retrying…</p></div></div>
+    </div>
+  </section>
+
+  <footer style="font-size:var(--ds-font-size-xs);color:var(--ds-color-fg-faint);text-align:center;padding:var(--ds-space-6) 0">
+    tokens/ → style-dictionary → dist/ → neumorphism-compo/ → this catalog
+  </footer>
+
+</div>
+
+<!-- Live theme setting (presets + custom colors, persisted). -->
+<script src="../palette-setting.js"></script>
+</body>
+</html>

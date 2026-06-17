@@ -1,0 +1,43 @@
+{
+  "color": {
+    "bg": {
+      "$type": "color",
+      "canvas":  { "$value": "{color.palette.base}" },
+      "surface": { "$value": "{color.palette.base}",       "$description": "Cards share the canvas color — depth comes from shadow, not fill" },
+      "raised":  { "$value": "{color.palette.baseRaised}", "$description": "Top of an extruded element" }
+    },
+
+    "shadow": {
+      "$type": "color",
+      "dark":  { "$value": "{color.palette.shadowDark}" },
+      "light": { "$value": "{color.palette.shadowLight}" }
+    },
+
+    "fg": {
+      "$type": "color",
+      "default":  { "$value": "{color.palette.ink}" },
+      "muted":    { "$value": "{color.palette.inkMuted}" },
+      "faint":    { "$value": "{color.palette.inkFaint}" },
+      "onAccent": { "$value": "{color.palette.white}", "$description": "Text on a filled accent surface" }
+    },
+
+    "accent": {
+      "$type": "color",
+      "primary": { "$value": "{color.palette.indigo}" },
+      "bright":  { "$value": "{color.palette.indigoBright}" }
+    },
+
+    "border": {
+      "$type": "color",
+      "default": { "$value": "{color.palette.line}" },
+      "strong":  { "$value": "{color.palette.indigo}", "$description": "Focus emphasis" }
+    },
+
+    "feedback": {
+      "$type": "color",
+      "success": { "$value": "{color.palette.green}" },
+      "warning": { "$value": "{color.palette.amber}" },
+      "danger":  { "$value": "{color.palette.red}" }
+    }
+  }
+}

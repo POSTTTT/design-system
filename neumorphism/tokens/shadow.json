@@ -1,0 +1,15 @@
+{
+  "shadow": {
+    "_comment": "Neumorphism lives or dies on dual shadows: a dark drop bottom-right + a light highlight top-left, same surface color. Raised = both outside. Inset = both inside (pressed). Strings are emitted verbatim.",
+
+    "raisedSm": { "$value": "4px 4px 8px #a3b1c6, -4px -4px 8px #ffffff" },
+    "raised":   { "$value": "7px 7px 14px #a3b1c6, -7px -7px 14px #ffffff" },
+    "raisedLg": { "$value": "12px 12px 24px #a3b1c6, -12px -12px 24px #ffffff" },
+
+    "insetSm":  { "$value": "inset 2px 2px 5px #a3b1c6, inset -2px -2px 5px #ffffff" },
+    "inset":    { "$value": "inset 5px 5px 10px #a3b1c6, inset -5px -5px 10px #ffffff" },
+
+    "accent":   { "$value": "6px 6px 12px #5648c9, -6px -6px 12px #9587ff", "$description": "Colored dual shadow for a filled indigo button" },
+    "none":     { "$value": "none" }
+  }
+}

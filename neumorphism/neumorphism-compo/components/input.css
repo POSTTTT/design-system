@@ -1,0 +1,27 @@
+/* Text input + labelled field — pressed-in well, indigo text caret on focus. */
+.nm-input {
+  font-family: var(--ds-font-family-sans);
+  font-size: var(--ds-font-size-sm);
+  color: var(--ds-color-fg-default);
+  background: var(--ds-color-bg-surface);
+  border: none;
+  border-radius: var(--ds-radius-lg);
+  padding: var(--ds-space-3) var(--ds-space-4);
+  width: 100%;
+  box-shadow: var(--ds-shadow-inset);
+  transition: box-shadow 0.18s ease;
+}
+.nm-input::placeholder { color: var(--ds-color-fg-faint); }
+.nm-input:focus { outline: none; box-shadow: var(--ds-shadow-inset-sm); color: var(--ds-color-accent-primary); }
+.nm-input:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.nm-field { display: flex; flex-direction: column; gap: var(--ds-space-2); }
+.nm-field__label {
+  font-family: var(--ds-font-family-sans);
+  font-size: var(--ds-font-size-xs);
+  font-weight: var(--ds-font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--ds-font-letter-spacing-wide);
+  color: var(--ds-color-fg-muted);
+  padding-left: var(--ds-space-2);
+}

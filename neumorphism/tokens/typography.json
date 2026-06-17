@@ -1,0 +1,43 @@
+{
+  "font": {
+    "family": {
+      "$type": "fontFamily",
+      "sans": { "$value": ["Poppins", "Nunito", "ui-rounded", "-apple-system", "Segoe UI", "Roboto", "sans-serif"], "$description": "Rounded geometric sans — soft like the surfaces" }
+    },
+
+    "weight": {
+      "$type": "fontWeight",
+      "regular":  { "$value": 400 },
+      "medium":   { "$value": 500 },
+      "semibold": { "$value": 600 },
+      "bold":     { "$value": 700 }
+    },
+
+    "size": {
+      "$type": "dimension",
+      "xs":   { "$value": "0.75rem" },
+      "sm":   { "$value": "0.875rem" },
+      "base": { "$value": "1rem" },
+      "lg":   { "$value": "1.25rem" },
+      "xl":   { "$value": "1.75rem" },
+      "2xl":  { "$value": "2.25rem" },
+      "3xl":  { "$value": "3rem" },
+      "4xl":  { "$value": "3.75rem" }
+    },
+
+    "lineHeight": {
+      "$type": "number",
+      "tight":  { "$value": 1.15 },
+      "snug":   { "$value": 1.35 },
+      "normal": { "$value": 1.6 }
+    },
+
+    "letterSpacing": {
+      "$type": "dimension",
+      "tight":  { "$value": "-0.02em" },
+      "normal": { "$value": "0em" },
+      "wide":   { "$value": "0.08em", "$description": "Uppercase labels" },
+      "wider":  { "$value": "0.15em", "$description": "Section eyebrows" }
+    }
+  }
+}

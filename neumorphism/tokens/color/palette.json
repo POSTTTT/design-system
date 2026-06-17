@@ -1,0 +1,25 @@
+{
+  "color": {
+    "palette": {
+      "$type": "color",
+      "_comment": "Neumorphism / soft-UI palette: one light surface, dual shadow colors (dark + light), soft indigo accent. Primitives only.",
+
+      "base":        { "$value": "#e0e5ec", "$description": "The single surface color — canvas AND cards share it" },
+      "baseRaised":  { "$value": "#e6ebf2", "$description": "Very slightly lighter top of an extruded element" },
+      "shadowDark":  { "$value": "#a3b1c6", "$description": "Bottom-right drop shadow" },
+      "shadowLight": { "$value": "#ffffff", "$description": "Top-left highlight" },
+      "line":        { "$value": "#c8d0e7", "$description": "Faint hairline when a border is needed at all" },
+
+      "white":   { "$value": "#ffffff" },
+      "ink":     { "$value": "#4d5b7c", "$description": "Primary text — soft slate, never pure black" },
+      "inkMuted":{ "$value": "#6b7a99", "$description": "Secondary text" },
+      "inkFaint":{ "$value": "#9aa7bf", "$description": "Hints / disabled" },
+
+      "indigo":       { "$value": "#6d5dfc", "$description": "Primary accent" },
+      "indigoBright": { "$value": "#8b7cff", "$description": "Lighter accent highlight" },
+      "green":        { "$value": "#4caf94", "$description": "Success" },
+      "amber":        { "$value": "#e0a955", "$description": "Warning" },
+      "red":          { "$value": "#e76f6f", "$description": "Danger" }
+    }
+  }
+}

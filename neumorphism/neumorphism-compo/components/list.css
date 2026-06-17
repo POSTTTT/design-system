@@ -1,0 +1,16 @@
+/* Status list — label/value rows separated by soft inset grooves. */
+.nm-list { display: flex; flex-direction: column; }
+.nm-list__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ds-space-3);
+  font-family: var(--ds-font-family-sans);
+  font-size: var(--ds-font-size-sm);
+  padding: var(--ds-space-3) 0;
+}
+.nm-list__row + .nm-list__row { border-top: var(--ds-border-width-thin) solid var(--ds-color-border-default); }
+.nm-list__label { display: inline-flex; align-items: center; gap: var(--ds-space-2); color: var(--ds-color-fg-default); }
+.nm-list__value { color: var(--ds-color-fg-muted); font-weight: var(--ds-font-weight-medium); }
+.nm-list__value--indigo { color: var(--ds-color-accent-primary); }
+.nm-list__value--green  { color: var(--ds-color-feedback-success); }

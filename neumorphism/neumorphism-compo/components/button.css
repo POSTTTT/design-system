@@ -1,0 +1,41 @@
+/* Button — extruded by default, pushes IN when pressed. Primary is a filled indigo pill. */
+.nm-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ds-space-2);
+  font-family: var(--ds-font-family-sans);
+  font-weight: var(--ds-button-font-weight);
+  font-size: var(--ds-button-font-size);
+  line-height: 1;
+  color: var(--ds-button-fg);
+  background: var(--ds-button-bg);
+  border: none;
+  border-radius: var(--ds-button-radius);
+  padding: var(--ds-button-padding-y) var(--ds-button-padding-x);
+  box-shadow: var(--ds-button-shadow);
+  cursor: pointer;
+  text-decoration: none;
+  transition: box-shadow 0.18s ease, color 0.18s ease, transform 0.05s ease;
+}
+.nm-btn:hover { color: var(--ds-color-accent-primary); }
+.nm-btn:active { box-shadow: var(--ds-button-shadow-active); color: var(--ds-color-fg-muted); }
+.nm-btn:focus-visible { outline: var(--ds-border-width-thick) solid var(--ds-color-accent-primary); outline-offset: 4px; }
+.nm-btn:disabled,
+.nm-btn[aria-disabled="true"] { opacity: 0.5; cursor: not-allowed; box-shadow: var(--ds-shadow-raised-sm); }
+
+/* primary — filled indigo with a colored dual shadow */
+.nm-btn--primary {
+  background: var(--ds-color-accent-primary);
+  color: var(--ds-color-fg-on-accent);
+  box-shadow: var(--ds-shadow-accent);
+}
+.nm-btn--primary:hover { color: var(--ds-color-fg-on-accent); background: var(--ds-color-accent-bright); }
+.nm-btn--primary:active { box-shadow: var(--ds-shadow-inset); color: var(--ds-color-fg-on-accent); }
+
+/* circular icon button */
+.nm-btn--circle { padding: var(--ds-space-3); border-radius: var(--ds-radius-full); width: 2.75rem; height: 2.75rem; }
+
+/* sizes */
+.nm-btn--sm { font-size: var(--ds-font-size-xs); padding: var(--ds-space-2) var(--ds-space-4); }
+.nm-btn--lg { font-size: var(--ds-font-size-base); padding: var(--ds-space-4) var(--ds-space-6); }

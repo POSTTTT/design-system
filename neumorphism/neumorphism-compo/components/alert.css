@@ -1,0 +1,31 @@
+/* Alert / callout — extruded panel with a colored status icon chip. */
+.nm-alert {
+  display: flex;
+  gap: var(--ds-space-4);
+  align-items: flex-start;
+  font-family: var(--ds-font-family-sans);
+  font-size: var(--ds-font-size-sm);
+  background: var(--ds-color-bg-surface);
+  color: var(--ds-color-fg-default);
+  border: none;
+  border-radius: var(--ds-radius-lg);
+  padding: var(--ds-space-4) var(--ds-space-5);
+  box-shadow: var(--ds-shadow-raised-sm);
+}
+.nm-alert__icon {
+  flex-shrink: 0;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: grid;
+  place-items: center;
+  border-radius: var(--ds-radius-full);
+  background: var(--ds-color-bg-surface);
+  box-shadow: var(--ds-shadow-inset-sm);
+  font-weight: var(--ds-font-weight-bold);
+}
+.nm-alert__title { font-weight: var(--ds-font-weight-semibold); margin: 0 0 var(--ds-space-1); }
+.nm-alert__body  { margin: 0; color: var(--ds-color-fg-muted); }
+
+.nm-alert--success .nm-alert__icon { color: var(--ds-color-feedback-success); }
+.nm-alert--warning .nm-alert__icon { color: var(--ds-color-feedback-warning); }
+.nm-alert--danger  .nm-alert__icon { color: var(--ds-color-feedback-danger); }

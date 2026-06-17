@@ -1,0 +1,12 @@
+{
+  "radius": {
+    "$type": "dimension",
+    "_comment": "Soft and generous — neumorphic elements are pillowy, never sharp.",
+    "none": { "$value": "0rem" },
+    "sm":   { "$value": "0.5rem" },
+    "md":   { "$value": "0.875rem" },
+    "lg":   { "$value": "1.25rem" },
+    "xl":   { "$value": "1.75rem" },
+    "full": { "$value": "9999px" }
+  }
+}

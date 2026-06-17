@@ -39,3 +39,11 @@ with an amber primary accent, plus terminal green and red, and solid-white CTAs.
 Flat surfaces with hairline borders and a subtle dot-grid texture, barely-rounded
 corners, uppercase wide-tracked mono labels, and `JetBrains Mono` throughout. Its
 prototype is a multi-agent orchestration console (status sidebar · chat · consensus).
+
+### `neumorphism/`
+Soft and tactile. A single light `#e0e5ec` surface where everything — cards, buttons,
+inputs — is the *same* color as the page, with depth carved purely by **dual shadows**:
+a dark drop at the bottom-right and a white highlight at the top-left. Elements look
+extruded, and press *into* the surface when active. Pillowy large radii, low-contrast
+slate text, a soft indigo accent, and rounded `Poppins` type. Includes a signature soft
+toggle. Its prototype is a calm wellness dashboard (AURA — player · stats · preferences).
