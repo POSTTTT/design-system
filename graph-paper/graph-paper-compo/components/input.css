@@ -1,0 +1,24 @@
+/* Text input + labelled field — white box ruled in ink, orange pen on focus. */
+.gp-input {
+  font-family: var(--ds-font-family-serif);
+  font-size: var(--ds-font-size-sm);
+  color: var(--ds-color-fg-default);
+  background: var(--ds-color-bg-surface);
+  border: var(--ds-border-width-base) solid var(--ds-color-border-default);
+  border-radius: var(--ds-radius-md);
+  padding: var(--ds-space-2) var(--ds-space-3);
+  width: 100%;
+}
+.gp-input::placeholder { color: var(--ds-color-fg-faint); }
+.gp-input:focus { outline: none; border-color: var(--ds-color-accent-control); }
+.gp-input:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.gp-field { display: flex; flex-direction: column; gap: var(--ds-space-2); }
+.gp-field__label {
+  font-family: var(--ds-font-family-serif);
+  font-size: var(--ds-font-size-xs);
+  font-weight: var(--ds-font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--ds-font-letter-spacing-wide);
+  color: var(--ds-color-fg-muted);
+}

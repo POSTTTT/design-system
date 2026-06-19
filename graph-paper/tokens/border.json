@@ -1,0 +1,12 @@
+{
+  "border": {
+    "width": {
+      "$type": "dimension",
+      "_comment": "Inked strokes carry the structure. Heavy = the accent edge bar on note cards.",
+      "thin":  { "$value": "1.5px" },
+      "base":  { "$value": "2px" },
+      "thick": { "$value": "2.5px" },
+      "heavy": { "$value": "7px" }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+/*
+ * Graph Paper component library.
+ * Import THIS one file to get the tokens + every component class.
+ *
+ *   <link rel="stylesheet" href="graph-paper/graph-paper-compo/components.css" />
+ *
+ * Components are namespaced with `gp-` so multiple styles can coexist.
+ */
+@import url("../dist/css/tokens.css");
+
+@import url("./components/button.css");
+@import url("./components/card.css");
+@import url("./components/tag.css");
+@import url("./components/input.css");
+@import url("./components/alert.css");
+@import url("./components/list.css");
+@import url("./components/tabs.css");

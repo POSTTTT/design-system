@@ -1,0 +1,42 @@
+{
+  "font": {
+    "family": {
+      "$type": "fontFamily",
+      "serif": { "$value": ["Georgia", "Times New Roman", "Times", "serif"], "$description": "Serif everywhere — reads like an engineering textbook" }
+    },
+
+    "weight": {
+      "$type": "fontWeight",
+      "regular":  { "$value": 400 },
+      "semibold": { "$value": 600 },
+      "bold":     { "$value": 700 }
+    },
+
+    "size": {
+      "$type": "dimension",
+      "xs":   { "$value": "0.8125rem" },
+      "sm":   { "$value": "0.875rem" },
+      "base": { "$value": "0.9688rem" },
+      "lg":   { "$value": "1.1875rem" },
+      "xl":   { "$value": "1.375rem" },
+      "2xl":  { "$value": "1.5rem" },
+      "3xl":  { "$value": "2rem" },
+      "4xl":  { "$value": "2.75rem" }
+    },
+
+    "lineHeight": {
+      "$type": "number",
+      "tight":  { "$value": 1.2 },
+      "snug":   { "$value": 1.4 },
+      "normal": { "$value": 1.65 }
+    },
+
+    "letterSpacing": {
+      "$type": "dimension",
+      "tight":  { "$value": "-0.005em" },
+      "normal": { "$value": "0em" },
+      "wide":   { "$value": "0.1em",  "$description": "Uppercase eyebrow labels" },
+      "wider":  { "$value": "0.16em", "$description": "Tab / section eyebrows" }
+    }
+  }
+}

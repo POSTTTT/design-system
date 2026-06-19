@@ -1,0 +1,20 @@
+/* List / legend — label-value rows split by dashed pen rules. */
+.gp-list { display: flex; flex-direction: column; }
+.gp-list__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ds-space-3);
+  font-family: var(--ds-font-family-serif);
+  font-size: var(--ds-font-size-sm);
+  padding: var(--ds-space-3) 0;
+}
+.gp-list__row + .gp-list__row { border-top: var(--ds-border-width-thin) dashed var(--ds-color-border-soft); }
+.gp-list__label { display: inline-flex; align-items: center; gap: var(--ds-space-2); color: var(--ds-color-fg-default); }
+.gp-list__value { color: var(--ds-color-fg-muted); font-weight: var(--ds-font-weight-semibold); }
+.gp-list__value--control { color: var(--ds-color-accent-control); }
+.gp-list__value--rust    { color: var(--ds-color-marker-rust); }
+.gp-list__value--green   { color: var(--ds-color-marker-green); }
+
+/* legend symbol cell — fixed-width glyph like the diagram key */
+.gp-list__sym { width: 1.6em; text-align: center; font-weight: var(--ds-font-weight-bold); }

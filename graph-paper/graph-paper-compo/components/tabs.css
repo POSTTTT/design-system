@@ -1,0 +1,23 @@
+/* Tabs — ruled outline boxes; the active tab is filled with ink (the signature
+   control from the migration roadmap). Apply .gp-tab--active to the current tab. */
+.gp-tabs { display: flex; flex-wrap: wrap; gap: var(--ds-space-2); }
+.gp-tab {
+  cursor: pointer;
+  font-family: var(--ds-font-family-serif);
+  font-size: var(--ds-font-size-sm);
+  font-weight: var(--ds-font-weight-semibold);
+  color: var(--ds-color-fg-default);
+  background: transparent;
+  border: var(--ds-border-width-base) solid var(--ds-color-border-default);
+  border-radius: var(--ds-radius-md);
+  padding: var(--ds-space-2) var(--ds-space-4);
+  transition: background 0.12s ease, color 0.12s ease;
+}
+.gp-tab:hover { background: rgba(31, 58, 147, 0.07); }
+.gp-tab:focus-visible { outline: var(--ds-border-width-base) solid var(--ds-color-accent-control); outline-offset: 2px; }
+.gp-tab--active,
+.gp-tab[aria-selected="true"] {
+  background: var(--ds-color-accent-primary);
+  color: var(--ds-color-fg-on-ink);
+}
+.gp-tab--active:hover { background: var(--ds-color-accent-primary); }

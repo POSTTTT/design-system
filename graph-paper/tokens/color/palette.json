@@ -1,0 +1,20 @@
+{
+  "color": {
+    "palette": {
+      "$type": "color",
+      "_comment": "Graph Paper: cobalt pen ink on engineering graph paper. Cream paper, faint green grid, two marker colors (rust + green) and an orange control accent. Primitives only.",
+
+      "paper":   { "$value": "#f7f4e4", "$description": "Graph-paper cream — page canvas" },
+      "grid":    { "$value": "#d9e2c8", "$description": "Faint grid lines" },
+      "white":   { "$value": "#ffffff", "$description": "Node / card fill drawn on top of the paper" },
+
+      "ink":     { "$value": "#1f3a93", "$description": "Cobalt pen blue — primary line + text" },
+      "inkSoft": { "$value": "#5a6fb5", "$description": "Secondary ink — captions" },
+      "inkFaint":{ "$value": "#8a93b8", "$description": "Hints / disabled" },
+
+      "orange":  { "$value": "#e8730c", "$description": "Control-plane accent — the dashed second pen" },
+      "rust":    { "$value": "#c0392b", "$description": "Warm marker — e.g. legacy / 4G elements" },
+      "green":   { "$value": "#16895a", "$description": "Cool marker — e.g. new / 5G elements" }
+    }
+  }
+}

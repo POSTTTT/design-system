@@ -1,0 +1,35 @@
+/* Tag / chip + node dot + section label (eyebrow). */
+.gp-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  font-family: var(--ds-font-family-serif);
+  font-size: var(--ds-font-size-xs);
+  font-weight: var(--ds-font-weight-semibold);
+  letter-spacing: var(--ds-font-letter-spacing-wide);
+  text-transform: uppercase;
+  color: var(--ds-color-fg-muted);
+  background: var(--ds-color-bg-surface);
+  border: var(--ds-border-width-thin) solid var(--ds-color-border-default);
+  border-radius: var(--ds-radius-sm);
+  padding: 0.2em 0.6em;
+}
+.gp-tag--control { color: var(--ds-color-accent-control); border-color: var(--ds-color-accent-control); }
+.gp-tag--rust    { color: var(--ds-color-marker-rust);    border-color: var(--ds-color-marker-rust); }
+.gp-tag--green   { color: var(--ds-color-marker-green);   border-color: var(--ds-color-marker-green); }
+
+/* node dot */
+.gp-dot { display: inline-block; width: 9px; height: 9px; border-radius: var(--ds-radius-full); border: var(--ds-border-width-thin) solid var(--ds-color-border-default); background: var(--ds-color-bg-surface); }
+.gp-dot--rust  { border-color: var(--ds-color-marker-rust); }
+.gp-dot--green { border-color: var(--ds-color-marker-green); }
+.gp-dot--ctrl  { border-color: var(--ds-color-accent-control); }
+
+/* eyebrow / section label */
+.gp-label {
+  font-family: var(--ds-font-family-serif);
+  font-size: var(--ds-font-size-xs);
+  font-weight: var(--ds-font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--ds-font-letter-spacing-wider);
+  color: var(--ds-color-fg-muted);
+}

@@ -1,0 +1,15 @@
+{
+  "name": "graph-paper-design-system",
+  "version": "0.1.0",
+  "description": "A pen-on-graph-paper engineering / graph-paper design style. Tokens are the single source of truth.",
+  "type": "module",
+  "scripts": {
+    "build": "node build/build.js",
+    "catalog": "npm run build && node build/serve-catalog.js"
+  },
+  "keywords": ["design-system", "design-tokens", "graph-paper", "engineering", "graph-paper", "style-dictionary"],
+  "license": "MIT",
+  "devDependencies": {
+    "style-dictionary": "^4.3.0"
+  }
+}

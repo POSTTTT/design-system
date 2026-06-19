@@ -1,0 +1,28 @@
+/* Card / panel — a white node-box ruled in ink on the paper. */
+.gp-card {
+  background: var(--ds-card-bg);
+  color: var(--ds-card-fg);
+  border: var(--ds-card-border-width) solid var(--ds-card-border-color);
+  border-radius: var(--ds-card-radius);
+  padding: var(--ds-card-padding);
+}
+.gp-card__title {
+  font-weight: var(--ds-font-weight-bold);
+  font-size: var(--ds-font-size-lg);
+  color: var(--ds-color-fg-default);
+  margin: 0 0 var(--ds-space-2);
+}
+.gp-card__body { margin: 0; color: var(--ds-color-fg-default); line-height: var(--ds-font-line-height-normal); }
+
+/* note card — a heavy colored edge bar, like a margin annotation */
+.gp-card--note      { border-left-width: var(--ds-border-width-heavy); border-left-color: var(--ds-color-marker-green); }
+.gp-card--note-rust { border-left-width: var(--ds-border-width-heavy); border-left-color: var(--ds-color-marker-rust); }
+.gp-card--note-ctrl { border-left-width: var(--ds-border-width-heavy); border-left-color: var(--ds-color-accent-control); }
+
+/* graph-paper texture inside the card */
+.gp-card--grid {
+  background-image:
+    linear-gradient(to right, var(--ds-color-bg-grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--ds-color-bg-grid) 1px, transparent 1px);
+  background-size: 22px 22px;
+}

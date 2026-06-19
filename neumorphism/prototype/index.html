@@ -12,16 +12,24 @@
 <style>
   * { box-sizing: border-box; }
   /* Reserve the scrollbar on both sides so centered content stays centered. */
-  html { scrollbar-gutter: stable both-edges; }
+  html { scrollbar-gutter: stable both-edges; overflow-x: hidden; }
   body {
     margin: 0;
     background: var(--ds-color-bg-canvas);
     color: var(--ds-color-fg-default);
     font-family: var(--ds-font-family-sans);
     line-height: var(--ds-font-line-height-normal);
+    /* Outset neumorphic shadows extend past the wrap; clip them so they don't
+       create a horizontal scroll that shifts the centered layout left, and
+       center every .wrap explicitly so it can't drift to one side. */
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
+  .wrap { width: 100%; }
   a { color: inherit; text-decoration: none; }
-  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 var(--ds-space-5); }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 var(--ds-space-6); }
   .muted { color: var(--ds-color-fg-muted); }
 
   /* nav */

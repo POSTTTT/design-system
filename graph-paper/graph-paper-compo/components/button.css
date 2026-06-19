@@ -1,0 +1,39 @@
+/* Button — a ruled outline box by default; primary is filled with ink. Serif. */
+.gp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ds-space-2);
+  font-family: var(--ds-font-family-serif);
+  font-weight: var(--ds-button-font-weight);
+  font-size: var(--ds-button-font-size);
+  line-height: 1.1;
+  color: var(--ds-button-fg);
+  background: var(--ds-button-bg);
+  border: var(--ds-button-border-width) solid var(--ds-button-border-color);
+  border-radius: var(--ds-button-radius);
+  padding: var(--ds-button-padding-y) var(--ds-button-padding-x);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.12s ease, color 0.12s ease, border-color 0.12s ease;
+}
+.gp-btn:hover { background: rgba(31, 58, 147, 0.07); }
+.gp-btn:focus-visible { outline: var(--ds-border-width-base) solid var(--ds-color-accent-control); outline-offset: 2px; }
+.gp-btn:disabled,
+.gp-btn[aria-disabled="true"] { opacity: 0.45; cursor: not-allowed; }
+
+/* primary — filled cobalt, paper-colored text */
+.gp-btn--primary {
+  background: var(--ds-color-accent-primary);
+  color: var(--ds-color-fg-on-ink);
+  border-color: var(--ds-color-accent-primary);
+}
+.gp-btn--primary:hover { background: #18306f; }
+
+/* control — orange pen, the dashed-plane accent */
+.gp-btn--control { color: var(--ds-color-accent-control); border-color: var(--ds-color-accent-control); }
+.gp-btn--control:hover { background: rgba(232, 115, 12, 0.08); }
+
+/* sizes */
+.gp-btn--sm { font-size: var(--ds-font-size-xs); padding: var(--ds-space-1) var(--ds-space-3); }
+.gp-btn--lg { font-size: var(--ds-font-size-base); padding: var(--ds-space-3) var(--ds-space-5); }

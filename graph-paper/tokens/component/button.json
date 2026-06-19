@@ -1,0 +1,18 @@
+{
+  "button": {
+    "radius":      { "$type": "dimension", "$value": "{radius.md}" },
+    "borderWidth": { "$type": "dimension", "$value": "{border.width.base}" },
+    "borderColor": { "$type": "color",     "$value": "{color.border.default}" },
+    "bg":          { "$type": "color",     "$value": "transparent", "$description": "Default = ruled outline box" },
+    "fg":          { "$type": "color",     "$value": "{color.fg.default}" },
+    "padding": {
+      "$type": "dimension",
+      "x": { "$value": "0.875rem" },
+      "y": { "$value": "0.5rem" }
+    },
+    "font": {
+      "weight": { "$type": "fontWeight", "$value": "{font.weight.semibold}" },
+      "size":   { "$type": "dimension",  "$value": "{font.size.sm}" }
+    }
+  }
+}

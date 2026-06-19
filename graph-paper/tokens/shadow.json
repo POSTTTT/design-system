@@ -1,0 +1,7 @@
+{
+  "shadow": {
+    "_comment": "Paper is flat — ink, not depth, defines structure. Only a faint lift is offered. Strings emitted verbatim.",
+    "none": { "$value": "none" },
+    "sm":   { "$value": "2px 2px 0 rgba(31,58,147,0.12)", "$description": "A faint offset, like paper lifting off the desk" }
+  }
+}

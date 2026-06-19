@@ -47,3 +47,12 @@ a dark drop at the bottom-right and a white highlight at the top-left. Elements 
 extruded, and press *into* the surface when active. Pillowy large radii, low-contrast
 slate text, a soft indigo accent, and rounded `Poppins` type. Includes a signature soft
 toggle. Its prototype is a calm wellness dashboard (AURA — player · stats · preferences).
+
+### `graph-paper/`
+Pen-on-graph-paper engineering aesthetic. Cobalt ink `#1f3a93` ruled on a cream
+`#f7f4e4` paper canvas with a faint green grid, an orange `#e8730c` control accent,
+and rust / green markers — like a hand-drawn 3GPP or circuit schematic. Georgia serif
+throughout, thick inked borders, small radii, uppercase letter-spaced eyebrows, dashed
+divider rules, and white node-boxes. Includes a filled-ink tab control. Its prototype
+is a tabbed rainwater-harvesting schematic with an inline pen-style SVG diagram that
+recolors with the theme (flow plane vs. dashed control plane).

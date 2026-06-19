@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Graph Paper · Design System Catalog</title>
+<!-- One import: generated tokens + every gp- component. -->
+<link rel="stylesheet" href="../graph-paper-compo/components.css" />
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background-color: var(--ds-color-bg-canvas);
+    /* the signature: faint graph-paper grid on the page itself */
+    background-image:
+      linear-gradient(to right, var(--ds-color-bg-grid) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--ds-color-bg-grid) 1px, transparent 1px);
+    background-size: 22px 22px;
+    color: var(--ds-color-fg-default);
+    font-family: var(--ds-font-family-serif);
+    line-height: var(--ds-font-line-height-normal);
+    min-height: 100vh;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: var(--ds-space-7) var(--ds-space-5); }
+  code { color: var(--ds-color-fg-muted); }
+
+  .masthead { border-bottom: var(--ds-border-width-thick) solid var(--ds-color-fg-default); padding-bottom: var(--ds-space-4); margin-bottom: var(--ds-space-7); }
+  .masthead h1 { font-size: var(--ds-font-size-3xl); font-weight: var(--ds-font-weight-bold); margin: var(--ds-space-2) 0; }
+  .masthead p { color: var(--ds-color-fg-muted); margin: 0; max-width: 60ch; }
+
+  section { margin-bottom: var(--ds-space-7); }
+  h2 { font-size: var(--ds-font-size-xl); font-weight: var(--ds-font-weight-bold); border-bottom: var(--ds-border-width-base) solid var(--ds-color-fg-default); padding-bottom: var(--ds-space-2); margin: 0 0 var(--ds-space-5); }
+  .grid { display: grid; gap: var(--ds-space-4); grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+
+  .swatch { background: var(--ds-color-bg-surface); border: var(--ds-border-width-base) solid var(--ds-color-border-default); border-radius: var(--ds-radius-md); overflow: hidden; }
+  .swatch .chip { height: 50px; border-bottom: var(--ds-border-width-base) solid var(--ds-color-border-default); }
+  .swatch .meta { padding: var(--ds-space-2) var(--ds-space-3); }
+  .swatch .name { font-size: var(--ds-font-size-sm); font-weight: var(--ds-font-weight-semibold); }
+  .swatch code { font-size: var(--ds-font-size-xs); }
+
+  .row { display: flex; flex-wrap: wrap; gap: var(--ds-space-4); align-items: center; }
+  .scaleRow { display: flex; align-items: center; gap: var(--ds-space-4); margin-bottom: var(--ds-space-2); font-size: var(--ds-font-size-sm); color: var(--ds-color-fg-muted); }
+  .bar { background: var(--ds-color-accent-primary); height: 13px; }
+  .radiusBox { width: 76px; height: 76px; background: var(--ds-color-bg-surface); border: var(--ds-border-width-base) solid var(--ds-color-border-default); display: grid; place-items: end center; padding: var(--ds-space-1); font-size: var(--ds-font-size-xs); color: var(--ds-color-fg-muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <span class="gp-label">design system · v0.1</span>
+    <h1>Graph Paper</h1>
+    <p>Pen-on-graph-paper engineering aesthetic — cobalt ink ruled on cream paper, an orange control accent, rust + green markers, Georgia serif. Tokens from <code>dist/css/tokens.css</code>; components from <code>graph-paper-compo/</code>.</p>
+  </header>
+
+  <section>
+    <h2>Colors</h2>
+    <div class="grid">
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-bg-canvas)"></div><div class="meta"><div class="name">paper</div><code>#f7f4e4</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-bg-grid)"></div><div class="meta"><div class="name">grid</div><code>#d9e2c8</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-accent-primary)"></div><div class="meta"><div class="name">ink (cobalt)</div><code>#1f3a93</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-fg-muted)"></div><div class="meta"><div class="name">ink.soft</div><code>#5a6fb5</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-accent-control)"></div><div class="meta"><div class="name">control</div><code>#e8730c</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-marker-rust)"></div><div class="meta"><div class="name">marker.rust</div><code>#c0392b</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-marker-green)"></div><div class="meta"><div class="name">marker.green</div><code>#16895a</code></div></div>
+      <div class="swatch"><div class="chip" style="background:var(--ds-color-bg-surface)"></div><div class="meta"><div class="name">surface</div><code>#ffffff</code></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Typography</h2>
+    <div class="gp-card">
+      <p style="font-size:var(--ds-font-size-3xl);font-weight:var(--ds-font-weight-bold);margin:0 0 var(--ds-space-3)">Display 3xl / 700</p>
+      <p style="font-size:var(--ds-font-size-lg);font-weight:var(--ds-font-weight-semibold);margin:0 0 var(--ds-space-3)">Heading lg / 600</p>
+      <p style="font-size:var(--ds-font-size-base);margin:0 0 var(--ds-space-3);color:var(--ds-color-fg-muted)">Body base / 400 — the quick brown fox jumps over the lazy dog 0123456789.</p>
+      <p class="gp-label">Section label · uppercase · wider tracking</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Spacing &amp; Radius</h2>
+    <div class="gp-card" style="margin-bottom:var(--ds-space-4)">
+      <div class="scaleRow"><span style="width:72px">space.2</span><div class="bar" style="width:var(--ds-space-2)"></div></div>
+      <div class="scaleRow"><span style="width:72px">space.4</span><div class="bar" style="width:var(--ds-space-4)"></div></div>
+      <div class="scaleRow"><span style="width:72px">space.6</span><div class="bar" style="width:var(--ds-space-6)"></div></div>
+      <div class="scaleRow"><span style="width:72px">space.8</span><div class="bar" style="width:var(--ds-space-8)"></div></div>
+    </div>
+    <div class="row">
+      <div class="radiusBox" style="border-radius:var(--ds-radius-sm)">sm</div>
+      <div class="radiusBox" style="border-radius:var(--ds-radius-md)">md</div>
+      <div class="radiusBox" style="border-radius:var(--ds-radius-lg)">lg</div>
+      <div class="radiusBox" style="border-radius:var(--ds-radius-xl)">xl</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Components</h2>
+
+    <div class="gp-card" style="margin-bottom:var(--ds-space-4)">
+      <p class="gp-label" style="margin:0 0 var(--ds-space-3)">Tabs</p>
+      <div class="gp-tabs">
+        <button class="gp-tab gp-tab--active">Trial</button>
+        <button class="gp-tab">Phase 1</button>
+        <button class="gp-tab">Phase 2</button>
+        <button class="gp-tab">Phase 3</button>
+      </div>
+    </div>
+
+    <div class="gp-card" style="margin-bottom:var(--ds-space-4)">
+      <p class="gp-label" style="margin:0 0 var(--ds-space-3)">Buttons</p>
+      <div class="row">
+        <button class="gp-btn gp-btn--primary">Plot</button>
+        <button class="gp-btn">Outline</button>
+        <button class="gp-btn gp-btn--control">Control</button>
+        <button class="gp-btn gp-btn--sm">Small</button>
+        <button class="gp-btn" disabled>Disabled</button>
+      </div>
+    </div>
+
+    <div class="gp-card" style="margin-bottom:var(--ds-space-4)">
+      <p class="gp-label" style="margin:0 0 var(--ds-space-3)">Tags · dots</p>
+      <div class="row">
+        <span class="gp-tag">node</span>
+        <span class="gp-tag gp-tag--control">control</span>
+        <span class="gp-tag gp-tag--rust">4G</span>
+        <span class="gp-tag gp-tag--green">5G</span>
+        <span style="display:inline-flex;align-items:center;gap:var(--ds-space-2)"><span class="gp-dot gp-dot--green"></span>active</span>
+      </div>
+    </div>
+
+    <div class="row" style="align-items:stretch;margin-bottom:var(--ds-space-4)">
+      <div class="gp-card" style="flex:1;min-width:240px">
+        <h3 class="gp-card__title">Plain node-box</h3>
+        <p class="gp-card__body">White fill, ruled in ink — the base panel.</p>
+      </div>
+      <div class="gp-card gp-card--grid" style="flex:1;min-width:240px">
+        <h3 class="gp-card__title">Graph-paper panel</h3>
+        <p class="gp-card__body">The grid texture via <code>gp-card--grid</code>.</p>
+      </div>
+    </div>
+
+    <div class="gp-card gp-card--note" style="margin-bottom:var(--ds-space-4)">
+      <div class="gp-label" style="margin-bottom:var(--ds-space-1)">Trial · Option 2 &nbsp;→&nbsp; Phase 1 · Option 3</div>
+      <strong style="font-size:var(--ds-font-size-lg)">Collapse the two islands onto the 4G core.</strong>
+      <p style="margin:var(--ds-space-2) 0 0">A note card uses a heavy colored edge bar — <code>gp-card--note</code> (green), <code>--note-rust</code>, <code>--note-ctrl</code>.</p>
+    </div>
+
+    <div class="gp-card" style="margin-bottom:var(--ds-space-4)">
+      <p class="gp-label" style="margin:0 0 var(--ds-space-2)">Legend (list + dashed rules)</p>
+      <div class="gp-list">
+        <div class="gp-list__row"><span class="gp-list__label"><span class="gp-list__sym" style="color:var(--ds-color-accent-primary)">━</span>User plane (u)</span><span class="gp-list__value">data traffic</span></div>
+        <div class="gp-list__row"><span class="gp-list__label"><span class="gp-list__sym" style="color:var(--ds-color-accent-control)">┅</span>Control plane (c)</span><span class="gp-list__value gp-list__value--control">signalling</span></div>
+        <div class="gp-list__row"><span class="gp-list__label"><span class="gp-list__sym" style="color:var(--ds-color-marker-rust)">●</span>4G element</span><span class="gp-list__value gp-list__value--rust">legacy</span></div>
+        <div class="gp-list__row"><span class="gp-list__label"><span class="gp-list__sym" style="color:var(--ds-color-marker-green)">●</span>5G element</span><span class="gp-list__value gp-list__value--green">new</span></div>
+      </div>
+    </div>
+
+    <div class="gp-card" style="margin-bottom:var(--ds-space-4)">
+      <label class="gp-field"><span class="gp-field__label">Label</span><input class="gp-input" placeholder="annotate this node…" /></label>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:var(--ds-space-3)">
+      <div class="gp-alert gp-alert--success"><div><p class="gp-alert__title">Verified</p><p class="gp-alert__body">Topology matches the 3GPP reference for Option 3.</p></div></div>
+      <div class="gp-alert gp-alert--warning"><div><p class="gp-alert__title">Check anchor</p><p class="gp-alert__body">Control plane still terminates on the eNB.</p></div></div>
+      <div class="gp-alert gp-alert--danger"><div><p class="gp-alert__title">Mismatch</p><p class="gp-alert__body">gNB has no direct c-plane to the UE.</p></div></div>
+    </div>
+  </section>
+
+  <footer style="font-size:var(--ds-font-size-xs);color:var(--ds-color-fg-faint);text-align:center;padding:var(--ds-space-6) 0">
+    tokens/ → style-dictionary → dist/ → graph-paper-compo/ → this catalog
+  </footer>
+
+</div>
+
+<!-- Live theme setting (presets + custom colors, persisted). -->
+<script src="../palette-setting.js"></script>
+</body>
+</html>

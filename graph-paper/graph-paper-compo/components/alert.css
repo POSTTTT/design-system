@@ -1,0 +1,20 @@
+/* Alert / annotation — a ruled note with a heavy colored edge per status. */
+.gp-alert {
+  display: flex;
+  gap: var(--ds-space-3);
+  align-items: flex-start;
+  font-family: var(--ds-font-family-serif);
+  font-size: var(--ds-font-size-sm);
+  background: var(--ds-color-bg-surface);
+  color: var(--ds-color-fg-default);
+  border: var(--ds-border-width-base) solid var(--ds-color-border-default);
+  border-left-width: var(--ds-border-width-heavy);
+  border-radius: var(--ds-radius-md);
+  padding: var(--ds-space-4) var(--ds-space-5);
+}
+.gp-alert__title { font-weight: var(--ds-font-weight-bold); margin: 0 0 var(--ds-space-1); }
+.gp-alert__body  { margin: 0; color: var(--ds-color-fg-default); line-height: var(--ds-font-line-height-snug); }
+
+.gp-alert--success { border-left-color: var(--ds-color-feedback-success); }
+.gp-alert--warning { border-left-color: var(--ds-color-feedback-warning); }
+.gp-alert--danger  { border-left-color: var(--ds-color-feedback-danger); }

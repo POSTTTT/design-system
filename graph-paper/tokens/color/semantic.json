@@ -1,0 +1,43 @@
+{
+  "color": {
+    "bg": {
+      "$type": "color",
+      "canvas":  { "$value": "{color.palette.paper}" },
+      "surface": { "$value": "{color.palette.white}", "$description": "Cards / nodes drawn on the paper" },
+      "grid":    { "$value": "{color.palette.grid}",  "$description": "Graph-paper grid line color" }
+    },
+
+    "fg": {
+      "$type": "color",
+      "default":  { "$value": "{color.palette.ink}" },
+      "muted":    { "$value": "{color.palette.inkSoft}" },
+      "faint":    { "$value": "{color.palette.inkFaint}" },
+      "onInk":    { "$value": "{color.palette.paper}", "$description": "Text on a filled ink surface" }
+    },
+
+    "accent": {
+      "$type": "color",
+      "primary": { "$value": "{color.palette.ink}",    "$description": "Cobalt — the main pen" },
+      "control": { "$value": "{color.palette.orange}", "$description": "Orange — the dashed control pen" }
+    },
+
+    "marker": {
+      "$type": "color",
+      "rust":  { "$value": "{color.palette.rust}",  "$description": "Warm / legacy" },
+      "green": { "$value": "{color.palette.green}", "$description": "Cool / new" }
+    },
+
+    "border": {
+      "$type": "color",
+      "default": { "$value": "{color.palette.ink}" },
+      "soft":    { "$value": "{color.palette.inkSoft}" }
+    },
+
+    "feedback": {
+      "$type": "color",
+      "success": { "$value": "{color.palette.green}" },
+      "warning": { "$value": "{color.palette.orange}" },
+      "danger":  { "$value": "{color.palette.rust}" }
+    }
+  }
+}

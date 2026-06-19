@@ -72,8 +72,7 @@
       b.type = 'button';
       b.innerHTML =
         '<span class="nmset__sw"><i style="background:' + p.accent + '"></i>' +
-        '<i style="background:' + p.bright + '"></i>' +
-        '<i style="background:' + p.surface + '"></i></span>' + name;
+        '<i style="background:' + p.bright + '"></i></span>' + name;
       b.addEventListener('click', function () {
         current = Object.assign({}, p);
         apply(current); save(current); syncInputs();
@@ -141,14 +140,14 @@
       'min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;' +
       'font-family:var(--ds-font-family-sans);font-size:var(--ds-font-size-xs);font-weight:var(--ds-font-weight-semibold);' +
       'color:var(--ds-color-fg-default);background:var(--ds-color-bg-surface);' +
-      'border:none;border-radius:var(--ds-radius-md);padding:var(--ds-space-2) var(--ds-space-3);box-shadow:var(--ds-shadow-raised-sm)}' +
+      'border:none;border-radius:var(--ds-radius-md);padding:var(--ds-space-2);box-shadow:var(--ds-shadow-raised-sm)}' +
     '.nmset__preset:active{box-shadow:var(--ds-shadow-inset-sm)}' +
     '.nmset__sw{display:inline-flex;flex-shrink:0;border-radius:var(--ds-radius-full);overflow:hidden}' +
-    '.nmset__sw i{width:8px;height:16px}' +
+    '.nmset__sw i{width:10px;height:15px}' +
     '.nmset__row{display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--ds-space-3);font-size:var(--ds-font-size-sm)}' +
-    '.nmset__color{width:88px;height:30px;margin:0;cursor:pointer;background:none;' +
-      'border:none;border-radius:var(--ds-radius-md);padding:0;box-shadow:var(--ds-shadow-inset-sm)}' +
-    '.nmset__color::-webkit-color-swatch-wrapper{padding:3px}' +
+    '.nmset__color{width:88px;height:32px;margin:0;cursor:pointer;background:var(--ds-color-bg-surface);' +
+      'border:none;border-radius:var(--ds-radius-md);padding:5px;box-shadow:var(--ds-shadow-inset)}' +
+    '.nmset__color::-webkit-color-swatch-wrapper{padding:0}' +
     '.nmset__color::-webkit-color-swatch{border:none;border-radius:var(--ds-radius-sm)}' +
     '.nmset__color::-moz-color-swatch{border:none;border-radius:var(--ds-radius-sm)}' +
     '.nmset__reset{margin-top:var(--ds-space-4);width:100%;cursor:pointer;font-family:var(--ds-font-family-sans);' +
