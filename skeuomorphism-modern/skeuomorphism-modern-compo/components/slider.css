@@ -1,0 +1,68 @@
+/* Slider — a native range input restyled as a fader: a groove cut into the
+   housing and a ribbed plastic cap. Add --vertical for a mixing-desk fader. */
+.skm-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 2rem;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.skm-slider::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: var(--ds-radius-full);
+  background: color-mix(in srgb, var(--ds-color-bg-plastic) 80%, black);
+  box-shadow: var(--ds-shadow-well);
+}
+.skm-slider::-moz-range-track {
+  height: 6px;
+  border-radius: var(--ds-radius-full);
+  background: color-mix(in srgb, var(--ds-color-bg-plastic) 80%, black);
+  box-shadow: var(--ds-shadow-well);
+}
+.skm-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 1.25rem; height: 1.75rem;
+  margin-top: calc(3px - 0.875rem);
+  border-radius: var(--ds-radius-sm);
+  background:
+    linear-gradient(to bottom, transparent 44%, var(--ds-color-accent-primary) 44% 56%, transparent 56%),
+    linear-gradient(to bottom, #ffffff, #ecebe6);
+  box-shadow: var(--ds-shadow-key);
+}
+.skm-slider::-moz-range-thumb {
+  width: 1.25rem; height: 1.75rem;
+  border: none;
+  border-radius: var(--ds-radius-sm);
+  background:
+    linear-gradient(to bottom, transparent 44%, var(--ds-color-accent-primary) 44% 56%, transparent 56%),
+    linear-gradient(to bottom, #ffffff, #ecebe6);
+  box-shadow: var(--ds-shadow-key);
+}
+.skm-slider:focus-visible { outline: none; }
+.skm-slider:focus-visible::-webkit-slider-thumb { outline: var(--ds-border-width-focus) solid var(--ds-color-accent-primary); outline-offset: 3px; }
+.skm-slider:focus-visible::-moz-range-thumb { outline: var(--ds-border-width-focus) solid var(--ds-color-accent-primary); outline-offset: 3px; }
+
+/* vertical fader — bottom is minimum */
+.skm-slider--vertical {
+  writing-mode: vertical-lr;
+  direction: rtl;
+  width: 2rem;
+  height: 9rem;
+}
+.skm-slider--vertical::-webkit-slider-runnable-track { width: 6px; height: auto; }
+.skm-slider--vertical::-moz-range-track { width: 6px; height: auto; }
+.skm-slider--vertical::-webkit-slider-thumb {
+  width: 1.75rem; height: 1.25rem;
+  margin-top: 0; margin-left: calc(3px - 0.875rem);
+  background:
+    linear-gradient(to right, transparent 44%, var(--ds-color-accent-primary) 44% 56%, transparent 56%),
+    linear-gradient(to bottom, #ffffff, #ecebe6);
+}
+.skm-slider--vertical::-moz-range-thumb {
+  width: 1.75rem; height: 1.25rem;
+  background:
+    linear-gradient(to right, transparent 44%, var(--ds-color-accent-primary) 44% 56%, transparent 56%),
+    linear-gradient(to bottom, #ffffff, #ecebe6);
+}

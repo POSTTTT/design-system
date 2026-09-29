@@ -1,0 +1,22 @@
+/*
+ * Modern skeuomorphism component library.
+ * Import THIS one file to get the tokens + every component class.
+ *
+ *   <link rel="stylesheet" href="skeuomorphism-modern/skeuomorphism-modern-compo/components.css" />
+ *
+ * Components are namespaced with `skm-` so multiple styles can coexist.
+ * Put `.skm-studio` on <body> for the soft-lit studio backdrop.
+ */
+@import url("../dist/css/tokens.css");
+
+@import url("./components/studio.css");
+@import url("./components/device.css");
+@import url("./components/key.css");
+@import url("./components/display.css");
+@import url("./components/knob.css");
+@import url("./components/slider.css");
+@import url("./components/toggle.css");
+@import url("./components/tag.css");
+@import url("./components/input.css");
+@import url("./components/alert.css");
+@import url("./components/list.css");

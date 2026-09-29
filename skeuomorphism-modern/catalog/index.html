@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Skeuomorphism Modern · Design System Catalog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<!-- One import: generated tokens + every skm- component. -->
+<link rel="stylesheet" href="../skeuomorphism-modern-compo/components.css" />
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; line-height: var(--ds-font-line-height-normal); overflow-x: hidden; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: var(--ds-space-7) var(--ds-space-4); }
+  code { font-family: var(--ds-font-family-mono); font-size: 0.85em; color: var(--ds-color-fg-muted); }
+
+  .masthead { margin-bottom: var(--ds-space-7); }
+  .masthead h1 { font-size: clamp(2.25rem, 7vw, var(--ds-font-size-4xl)); font-weight: var(--ds-font-weight-semibold); letter-spacing: var(--ds-font-letter-spacing-tight); line-height: var(--ds-font-line-height-tight); margin: var(--ds-space-3) 0; }
+  .masthead p { color: var(--ds-color-fg-muted); margin: 0; max-width: 62ch; }
+
+  section { margin-bottom: var(--ds-space-8); }
+  h2 { font-size: var(--ds-font-size-xl); font-weight: var(--ds-font-weight-semibold); letter-spacing: -0.02em; margin: 0 0 var(--ds-space-5); }
+  .grid { display: grid; gap: var(--ds-space-4); grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+  .stack { display: flex; flex-direction: column; gap: var(--ds-space-5); }
+  .row { display: flex; flex-wrap: wrap; gap: var(--ds-space-4); align-items: center; }
+  .two { display: grid; gap: var(--ds-space-5); grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+
+  .swatch { padding: var(--ds-space-2); border-radius: var(--ds-radius-lg); }
+  .swatch .chip { height: 56px; border-radius: var(--ds-radius-md); box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06); }
+  .swatch .meta { padding: var(--ds-space-2) var(--ds-space-1) var(--ds-space-1); }
+  .swatch .name { font-size: var(--ds-font-size-sm); font-weight: var(--ds-font-weight-medium); }
+  .swatch code { font-size: var(--ds-font-size-2xs); }
+
+  .scaleRow { display: flex; align-items: center; gap: var(--ds-space-4); margin-bottom: var(--ds-space-2); }
+  .scaleRow code { width: 4.5rem; flex-shrink: 0; }
+  .bar { height: 8px; border-radius: var(--ds-radius-full); background: var(--ds-color-accent-primary); box-shadow: inset 0 1px 0 rgba(255,255,255,0.4); }
+  .radiusBox { width: 76px; height: 76px; display: grid; place-items: end center; padding: var(--ds-space-2); font-family: var(--ds-font-family-mono); font-size: var(--ds-font-size-2xs); color: var(--ds-color-fg-muted);
+    background: linear-gradient(to bottom, color-mix(in srgb, var(--ds-color-bg-plastic) 82%, white), var(--ds-color-bg-plastic)); box-shadow: var(--ds-shadow-key); }
+  .knobs { display: flex; align-items: flex-end; gap: var(--ds-space-6); flex-wrap: wrap; }
+  .knobs figure { margin: 0; display: flex; flex-direction: column; align-items: center; gap: var(--ds-space-2); }
+</style>
+</head>
+<body class="skm-studio">
+<div class="wrap">
+
+  <header class="masthead">
+    <span class="skm-tag"><span class="skm-led skm-led--on"></span>design system · v0.1</span>
+    <h1>Skeuomorphism, modern</h1>
+    <p>Tactile product-hardware UI: matte moulded plastic, keys with real travel, turned-aluminium knobs, faders in grooves and glowing glass displays, all under soft studio light. Tokens from <code>dist/css/tokens.css</code>; components from <code>skeuomorphism-modern-compo/</code>.</p>
+  </header>
+
+  <section>
+    <h2>Colors</h2>
+    <div class="grid">
+      <div class="skm-device swatch"><div class="chip" style="background:var(--ds-color-bg-canvas)"></div><div class="meta"><div class="name">studio</div><code>#e9e8e4</code></div></div>
+      <div class="skm-device swatch"><div class="chip" style="background:var(--ds-color-bg-plastic)"></div><div class="meta"><div class="name">plastic</div><code>#f5f4f0</code></div></div>
+      <div class="skm-device swatch"><div class="chip" style="background:var(--ds-color-bg-dark)"></div><div class="meta"><div class="name">graphite</div><code>#1c1c1e</code></div></div>
+      <div class="skm-device swatch"><div class="chip" style="background:var(--ds-color-accent-primary)"></div><div class="meta"><div class="name">signal orange</div><code>#ff5a1f</code></div></div>
+      <div class="skm-device swatch"><div class="chip" style="background:var(--ds-color-bg-display)"></div><div class="meta"><div class="name">display glass</div><code>#0f1211</code></div></div>
+      <div class="skm-device swatch"><div class="chip" style="background:var(--ds-color-fg-readout)"></div><div class="meta"><div class="name">readout</div><code>#ffb454</code></div></div>
+      <div class="skm-device swatch"><div class="chip" style="background:var(--ds-color-feedback-success)"></div><div class="meta"><div class="name">success</div><code>#1f7a45</code></div></div>
+      <div class="skm-device swatch"><div class="chip" style="background:var(--ds-color-feedback-warning)"></div><div class="meta"><div class="name">warning</div><code>#a86400</code></div></div>
+      <div class="skm-device swatch"><div class="chip" style="background:var(--ds-color-feedback-danger)"></div><div class="meta"><div class="name">danger</div><code>#cc3322</code></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Typography</h2>
+    <div class="skm-device">
+      <p style="font-size:var(--ds-font-size-4xl);font-weight:var(--ds-font-weight-semibold);letter-spacing:var(--ds-font-letter-spacing-tight);line-height:var(--ds-font-line-height-tight);margin:0 0 var(--ds-space-3)">Built to be touched</p>
+      <p style="font-size:var(--ds-font-size-xl);font-weight:var(--ds-font-weight-semibold);letter-spacing:-0.02em;margin:0 0 var(--ds-space-3)">Heading · Geist 600</p>
+      <p style="margin:0 0 var(--ds-space-3)">Body: Geist 400 at 1rem. A neutral grotesk that reads like a product manual.</p>
+      <p style="font-family:var(--ds-font-family-mono);font-size:var(--ds-font-size-sm);color:var(--ds-color-fg-muted);margin:0 0 var(--ds-space-3)">Geist Mono: readouts, values, 104.3 MHz</p>
+      <span class="skm-label">Printed legend · mono uppercase</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Spacing · radius</h2>
+    <div class="skm-device" style="margin-bottom:var(--ds-space-5)">
+      <div class="scaleRow"><code>space-2</code><div class="bar" style="width:var(--ds-space-2)"></div></div>
+      <div class="scaleRow"><code>space-4</code><div class="bar" style="width:var(--ds-space-4)"></div></div>
+      <div class="scaleRow"><code>space-6</code><div class="bar" style="width:var(--ds-space-6)"></div></div>
+      <div class="scaleRow"><code>space-8</code><div class="bar" style="width:var(--ds-space-8)"></div></div>
+      <div class="scaleRow"><code>space-9</code><div class="bar" style="width:var(--ds-space-9)"></div></div>
+    </div>
+    <div class="row" style="gap:var(--ds-space-5)">
+      <div class="radiusBox" style="border-radius:var(--ds-radius-sm)">sm</div>
+      <div class="radiusBox" style="border-radius:var(--ds-radius-md)">md</div>
+      <div class="radiusBox" style="border-radius:var(--ds-radius-lg)">lg</div>
+      <div class="radiusBox" style="border-radius:var(--ds-radius-xl)">xl</div>
+      <div class="radiusBox" style="border-radius:var(--ds-radius-2xl)">2xl</div>
+      <div class="radiusBox" style="border-radius:var(--ds-radius-full);place-items:center">full</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Components</h2>
+    <div class="stack">
+
+      <div class="skm-device">
+        <p class="skm-label" style="margin:0 0 var(--ds-space-4)">Keys</p>
+        <div class="row">
+          <button class="skm-key skm-key--accent">Record</button>
+          <button class="skm-key">Default</button>
+          <button class="skm-key skm-key--dark">Graphite</button>
+          <button class="skm-key" aria-pressed="true">Latched</button>
+          <button class="skm-key skm-key--sm">Small</button>
+          <button class="skm-key skm-key--square"><span class="skm-key__legend">fn</span>A</button>
+          <button class="skm-key skm-key--round skm-key--dark" aria-label="Play">▶</button>
+          <button class="skm-key" disabled>Disabled</button>
+        </div>
+        <p class="skm-label" style="margin:var(--ds-space-5) 0 var(--ds-space-3)">Segment</p>
+        <div class="skm-segment" role="group" aria-label="Band">
+          <button class="skm-key skm-key--sm" aria-pressed="true">FM</button>
+          <button class="skm-key skm-key--sm" aria-pressed="false">AM</button>
+          <button class="skm-key skm-key--sm" aria-pressed="false">DAB</button>
+          <button class="skm-key skm-key--sm" aria-pressed="false">BT</button>
+        </div>
+      </div>
+
+      <div class="two">
+        <div class="skm-device">
+          <p class="skm-label" style="margin:0 0 var(--ds-space-4)">Display</p>
+          <div class="skm-display">
+            <span class="skm-display__label">FM · stereo</span>
+            <span class="skm-display__value"><span class="skm-display__dim">0</span>98.7<small style="font-size:0.4em"> MHz</small></span>
+          </div>
+        </div>
+        <div class="skm-device">
+          <p class="skm-label" style="margin:0 0 var(--ds-space-4)">Knobs</p>
+          <div class="knobs">
+            <figure><div class="skm-knob skm-knob--sm" style="--angle:-90deg" role="img" aria-label="Small knob"></div><figcaption class="skm-label">sm</figcaption></figure>
+            <figure><div class="skm-knob" style="--angle:30deg" role="img" aria-label="Knob"></div><figcaption class="skm-label">base</figcaption></figure>
+            <figure><div class="skm-knob skm-knob--lg" style="--angle:120deg" role="img" aria-label="Large knob"></div><figcaption class="skm-label">lg</figcaption></figure>
+          </div>
+        </div>
+      </div>
+
+      <div class="two">
+        <div class="skm-device">
+          <p class="skm-label" style="margin:0 0 var(--ds-space-3)">Fader</p>
+          <input type="range" class="skm-slider" min="0" max="100" value="62" aria-label="Horizontal fader" />
+          <div class="row" style="gap:var(--ds-space-5);margin-top:var(--ds-space-4)">
+            <input type="range" class="skm-slider skm-slider--vertical" min="0" max="100" value="30" aria-label="Low" />
+            <input type="range" class="skm-slider skm-slider--vertical" min="0" max="100" value="70" aria-label="Mid" />
+            <input type="range" class="skm-slider skm-slider--vertical" min="0" max="100" value="50" aria-label="High" />
+          </div>
+        </div>
+        <div class="skm-device">
+          <p class="skm-label" style="margin:0 0 var(--ds-space-4)">Switches</p>
+          <div class="stack" style="gap:var(--ds-space-4)">
+            <label class="skm-toggle"><input type="checkbox" class="skm-toggle__input" checked /><span class="skm-toggle__track"></span>Power</label>
+            <label class="skm-toggle"><input type="checkbox" class="skm-toggle__input" /><span class="skm-toggle__track"></span>Loudness</label>
+            <label class="skm-toggle"><input type="checkbox" class="skm-toggle__input" disabled /><span class="skm-toggle__track"></span>Locked</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="skm-device">
+        <p class="skm-label" style="margin:0 0 var(--ds-space-3)">Tags · LEDs</p>
+        <div class="row">
+          <span class="skm-tag">Idle</span>
+          <span class="skm-tag skm-tag--accent">Live</span>
+          <span class="skm-tag skm-tag--dark">Pro</span>
+          <span class="skm-tag"><span class="skm-led skm-led--success"></span>Paired</span>
+          <span class="skm-tag"><span class="skm-led skm-led--warning"></span>Charging</span>
+          <span class="skm-tag"><span class="skm-led skm-led--danger"></span>Rec</span>
+          <span class="skm-tag"><span class="skm-led"></span>Off</span>
+        </div>
+      </div>
+
+      <div class="two">
+        <div class="skm-device">
+          <p class="skm-label" style="margin:0 0 var(--ds-space-1)">List</p>
+          <div class="skm-list">
+            <div class="skm-list__row"><span class="skm-list__label"><span class="skm-led skm-led--success"></span>Battery</span><span class="skm-list__value skm-list__value--success">84%</span></div>
+            <div class="skm-list__row"><span class="skm-list__label"><span class="skm-led"></span>Signal</span><span class="skm-list__value">−62 dBm</span></div>
+            <div class="skm-list__row"><span class="skm-list__label"><span class="skm-led skm-led--warning"></span>Storage</span><span class="skm-list__value skm-list__value--warning">88% full</span></div>
+            <div class="skm-list__row"><span class="skm-list__label"><span class="skm-led skm-led--danger"></span>Firmware</span><span class="skm-list__value skm-list__value--danger">update</span></div>
+          </div>
+        </div>
+        <div class="skm-device">
+          <label class="skm-field"><span class="skm-field__label">Device name</span><input class="skm-input" placeholder="Kitchen radio" /></label>
+          <div class="skm-device skm-device--recess" style="margin-top:var(--ds-space-5);padding:var(--ds-space-4)">
+            <span class="skm-device__legend">Recessed panel · skm-device--recess</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="two">
+        <div class="skm-device"><h3 class="skm-device__title">Housing</h3><p class="skm-device__body">Matte moulded plastic, <code>.skm-device</code>.</p></div>
+        <div class="skm-device skm-device--dark"><h3 class="skm-device__title">Graphite housing</h3><p class="skm-device__body">Anodised dark shell, <code style="color:inherit">--dark</code>.</p></div>
+      </div>
+
+      <div class="skm-alert"><div><p class="skm-alert__title">Recording</p><p class="skm-alert__body">Input level peaked at −3 dB.</p></div></div>
+      <div class="skm-alert skm-alert--success"><div><p class="skm-alert__title">Paired</p><p class="skm-alert__body">Connected to “Studio monitors”.</p></div></div>
+      <div class="skm-alert skm-alert--warning"><div><p class="skm-alert__title">Battery low</p><p class="skm-alert__body">About 40 minutes of playback left.</p></div></div>
+      <div class="skm-alert skm-alert--danger"><div><p class="skm-alert__title">Clipping</p><p class="skm-alert__body">Lower the gain on channel 2.</p></div></div>
+    </div>
+  </section>
+
+  <footer style="font-family:var(--ds-font-family-mono);font-size:var(--ds-font-size-2xs);color:var(--ds-color-fg-faint);text-align:center;padding:var(--ds-space-6) 0">
+    tokens/ → style-dictionary → dist/ → skeuomorphism-modern-compo/ → this catalog
+  </footer>
+
+</div>
+
+<!-- Live theme setting (presets + custom colors, persisted). -->
+<script src="../palette-setting.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+/* Display — a dark glass screen set into the housing: glowing amber readout,
+   faint scanlines, and a diagonal reflection on the glass. */
+.skm-display {
+  position: relative;
+  overflow: hidden;
+  font-family: var(--ds-font-family-mono);
+  color: var(--ds-color-fg-readout);
+  text-shadow: 0 0 8px color-mix(in srgb, var(--ds-color-fg-readout) 55%, transparent);
+  background: radial-gradient(ellipse 120% 90% at 50% 0%, color-mix(in srgb, var(--ds-color-bg-display) 86%, white), var(--ds-color-bg-display) 70%);
+  border-radius: var(--ds-radius-md);
+  padding: var(--ds-space-4) var(--ds-space-5);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.7), inset 0 0 0 1px rgba(0, 0, 0, 0.8), 0 1px 0 var(--ds-color-edge-highlight);
+}
+.skm-display::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0.22) 0 1px, transparent 1px 3px);
+  pointer-events: none;
+}
+.skm-display::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(155deg, rgba(255, 255, 255, 0.08) 0 32%, transparent 32.5%);
+  pointer-events: none;
+}
+.skm-display__label {
+  display: block;
+  font-size: var(--ds-font-size-2xs);
+  text-transform: uppercase;
+  letter-spacing: var(--ds-font-letter-spacing-wide);
+  opacity: 0.65;
+}
+.skm-display__value {
+  display: block;
+  font-size: var(--ds-font-size-3xl);
+  font-weight: var(--ds-font-weight-medium);
+  line-height: var(--ds-font-line-height-tight);
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.skm-display__dim { opacity: 0.28; }

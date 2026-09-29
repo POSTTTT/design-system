@@ -1,0 +1,30 @@
+/* Alert — a status strip on the housing: a lit LED and a short message.
+   Tone variants light the LED; the strip itself stays plastic. */
+.skm-alert {
+  --skm-tone: var(--ds-color-accent-primary);
+  display: flex;
+  gap: var(--ds-space-3);
+  align-items: flex-start;
+  font-family: var(--ds-font-family-sans);
+  font-size: var(--ds-font-size-sm);
+  color: var(--ds-color-fg-default);
+  background: linear-gradient(to bottom, color-mix(in srgb, var(--ds-color-bg-plastic) 85%, white), var(--ds-color-bg-plastic));
+  border-radius: var(--ds-radius-lg);
+  padding: var(--ds-space-4) var(--ds-space-5);
+  box-shadow: var(--ds-shadow-key);
+}
+.skm-alert::before {
+  content: "";
+  flex-shrink: 0;
+  width: 7px; height: 7px;
+  margin-top: 0.45em;
+  border-radius: var(--ds-radius-full);
+  background: var(--skm-tone);
+  box-shadow: 0 0 6px var(--skm-tone), 0 0 14px color-mix(in srgb, var(--skm-tone) 50%, transparent);
+}
+.skm-alert__title { font-weight: var(--ds-font-weight-semibold); margin: 0 0 var(--ds-space-1); }
+.skm-alert__body  { margin: 0; color: var(--ds-color-fg-muted); line-height: var(--ds-font-line-height-snug); }
+
+.skm-alert--success { --skm-tone: #35d07f; }
+.skm-alert--warning { --skm-tone: #ffb020; }
+.skm-alert--danger  { --skm-tone: #ff3b2f; }

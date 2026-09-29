@@ -75,3 +75,13 @@ domed LED lamps. Textures are pure CSS / inline SVG noise. Source Sans 3 UI,
 Libre Baskerville titles, Caveat handwriting. Includes a recessed ON/OFF toggle.
 Its prototype is a notes-and-records desk (FOLIO: leather notebook cover, ruled
 notepad, hi-fi deck with VU meters and a draggable volume knob).
+
+### `skeuomorphism-modern/`
+Skeuomorphism rebuilt from modern consumer hardware instead of leather and linen.
+Matte off-white `#f5f4f0` moulded plastic under soft studio light, graphite keys,
+and one signal-orange `#ff5a1f` accent. Keys have real travel and latch down,
+aluminium knobs turn, faders sit in grooves, and slide switches have ribbed caps.
+A dark glass display glows with an amber readout and faint scanlines, and pinhole
+LEDs show status. `Geist` + `Geist Mono`. Light and dark colorways flip the edge
+lighting. Its prototype is a product page for a desktop radio (FIELD 01) whose
+tuning dial, presets, volume, band selector and EQ all work.

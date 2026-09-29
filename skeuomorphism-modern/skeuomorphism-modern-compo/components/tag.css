@@ -1,0 +1,47 @@
+/* Tag — a small moulded badge. LED — a pinhole indicator lamp.
+   Label — mono legend printed on the housing. */
+.skm-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-family: var(--ds-font-family-mono);
+  font-size: var(--ds-font-size-2xs);
+  font-weight: var(--ds-font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--ds-font-letter-spacing-wide);
+  color: var(--ds-color-fg-muted);
+  background: linear-gradient(to bottom, color-mix(in srgb, var(--ds-color-bg-plastic) 80%, white), var(--ds-color-bg-plastic));
+  border-radius: var(--ds-radius-full);
+  padding: 0.35em 0.85em;
+  box-shadow: inset 0 1px 0 var(--ds-color-edge-highlight), 0 0 0 1px var(--ds-color-edge-line), 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+.skm-tag--accent { color: var(--ds-color-fg-on-accent); background: var(--ds-color-accent-primary); }
+.skm-tag--dark   { color: var(--ds-color-fg-on-dark);   background: var(--ds-color-bg-dark); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14); }
+
+/* LED — off by default; tones light it with a halo */
+.skm-led {
+  --skm-led: color-mix(in srgb, var(--ds-color-bg-plastic) 78%, black);
+  display: inline-block;
+  flex-shrink: 0;
+  width: 7px; height: 7px;
+  border-radius: var(--ds-radius-full);
+  background: var(--skm-led);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.3), 0 1px 0 var(--ds-color-edge-highlight);
+}
+.skm-led--on      { --skm-led: var(--ds-color-accent-primary); }
+.skm-led--success { --skm-led: #35d07f; }
+.skm-led--warning { --skm-led: #ffb020; }
+.skm-led--danger  { --skm-led: #ff3b2f; }
+.skm-led--on, .skm-led--success, .skm-led--warning, .skm-led--danger {
+  background: radial-gradient(circle at 40% 35%, color-mix(in srgb, var(--skm-led) 40%, white), var(--skm-led) 60%);
+  box-shadow: 0 0 6px var(--skm-led), 0 0 14px color-mix(in srgb, var(--skm-led) 50%, transparent);
+}
+
+.skm-label {
+  font-family: var(--ds-font-family-mono);
+  font-size: var(--ds-font-size-2xs);
+  font-weight: var(--ds-font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--ds-font-letter-spacing-wide);
+  color: var(--ds-color-fg-muted);
+}

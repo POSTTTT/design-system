@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>FIELD 01 — desktop radio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<!-- Styled by the modern skeuomorphism design system: tokens + skm- components. -->
+<link rel="stylesheet" href="../skeuomorphism-modern-compo/components.css" />
+<style>
+  * { box-sizing: border-box; }
+  html { scrollbar-gutter: stable; }
+  body { margin: 0; line-height: var(--ds-font-line-height-normal); overflow-x: hidden; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 var(--ds-space-4); }
+  .muted { color: var(--ds-color-fg-muted); }
+  .mono { font-family: var(--ds-font-family-mono); }
+
+  /* nav */
+  .nav { display: flex; align-items: center; gap: var(--ds-space-5); padding: var(--ds-space-5) 0; }
+  .brand { display: inline-flex; align-items: center; gap: var(--ds-space-2); font-weight: var(--ds-font-weight-bold); letter-spacing: -0.02em; font-size: var(--ds-font-size-lg); }
+  .brand .skm-led { width: 9px; height: 9px; }
+  .nav__links { display: flex; gap: var(--ds-space-5); margin-left: auto; }
+  .nav__links a { font-family: var(--ds-font-family-mono); font-size: var(--ds-font-size-2xs); text-transform: uppercase; letter-spacing: var(--ds-font-letter-spacing-wide); color: var(--ds-color-fg-muted); }
+  .nav__links a:hover { color: var(--ds-color-fg-default); }
+  @media (max-width: 720px) { .nav__links { display: none; } .nav .skm-key { margin-left: auto; } }
+
+  /* hero */
+  .hero { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: var(--ds-space-7); align-items: center; padding: var(--ds-space-7) 0 var(--ds-space-8); }
+  @media (max-width: 960px) { .hero { grid-template-columns: 1fr; gap: var(--ds-space-6); } }
+  .hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: var(--ds-font-weight-semibold); letter-spacing: var(--ds-font-letter-spacing-tight); line-height: var(--ds-font-line-height-tight); margin: var(--ds-space-4) 0; }
+  .hero p { margin: 0 0 var(--ds-space-5); max-width: 42ch; }
+  .hero .cta { display: flex; gap: var(--ds-space-3); flex-wrap: wrap; align-items: center; }
+  .price { font-family: var(--ds-font-family-mono); font-size: var(--ds-font-size-sm); color: var(--ds-color-fg-muted); margin-left: var(--ds-space-2); }
+
+  /* the radio */
+  .radio { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--ds-space-5); padding: var(--ds-space-6); }
+  @media (max-width: 560px) { .radio { grid-template-columns: 1fr; padding: var(--ds-space-5); } }
+  .radio__top { display: flex; justify-content: space-between; align-items: center; gap: var(--ds-space-3); grid-column: 1 / -1; }
+  .grille { border-radius: var(--ds-radius-lg); min-height: 150px;
+    background: radial-gradient(circle, color-mix(in srgb, var(--ds-color-bg-plastic) 55%, black) 1.6px, transparent 2.2px) 0 0 / 11px 11px, color-mix(in srgb, var(--ds-color-bg-plastic) 94%, black);
+    box-shadow: var(--ds-shadow-well); }
+  .left { display: flex; flex-direction: column; gap: var(--ds-space-4); min-width: 0; }
+  .presets { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: var(--ds-space-2); }
+  .presets .skm-key { width: 100%; height: 3rem; font-family: var(--ds-font-family-mono); }
+  .right { display: flex; flex-direction: column; align-items: center; justify-content: space-between; gap: var(--ds-space-4); }
+  @media (max-width: 560px) { .right { flex-direction: row; justify-content: space-around; } }
+  .dial { display: flex; flex-direction: column; align-items: center; gap: var(--ds-space-2); }
+  .radio .skm-display__value small { font-size: 0.38em; letter-spacing: 0; }
+  .station { display: flex; justify-content: space-between; gap: var(--ds-space-3); margin-top: var(--ds-space-2); font-size: var(--ds-font-size-xs); }
+
+  /* below */
+  .details { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--ds-space-5); padding-bottom: var(--ds-space-9); }
+  @media (max-width: 960px) { .details { grid-template-columns: 1fr; } }
+  .eq { display: flex; justify-content: space-around; align-items: flex-end; margin-top: var(--ds-space-3); }
+  .eq label { display: flex; flex-direction: column; align-items: center; gap: var(--ds-space-2); }
+  .alarm { font-family: var(--ds-font-family-mono); }
+  .alarm .skm-display__value { font-size: var(--ds-font-size-2xl); }
+  .stack { display: flex; flex-direction: column; gap: var(--ds-space-4); }
+  .head { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--ds-space-3); }
+  .head h2 { font-size: var(--ds-font-size-base); font-weight: var(--ds-font-weight-semibold); margin: 0; }
+  footer { font-family: var(--ds-font-family-mono); font-size: var(--ds-font-size-2xs); text-transform: uppercase; letter-spacing: var(--ds-font-letter-spacing-wide); color: var(--ds-color-fg-faint); text-align: center; padding-bottom: var(--ds-space-7); }
+</style>
+</head>
+<body class="skm-studio">
+<div class="wrap">
+
+  <nav class="nav" aria-label="Main">
+    <a class="brand" href="#"><span class="skm-led skm-led--on"></span>FIELD</a>
+    <div class="nav__links"><a href="#">Radio</a><a href="#">Speaker</a><a href="#">Accessories</a><a href="#">Support</a></div>
+    <button class="skm-key skm-key--sm skm-key--dark">Bag · 0</button>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div>
+        <span class="skm-tag skm-tag--accent">New · FIELD 01</span>
+        <h1>A radio you want to touch.</h1>
+        <p class="muted">Six real preset keys, a weighted aluminium tuning dial and an amber glass display. No app, no account, no menus. Try it: every control on the right works.</p>
+        <div class="cta">
+          <button class="skm-key skm-key--accent skm-key--lg">Pre-order</button>
+          <button class="skm-key skm-key--lg">Listen to a demo</button>
+          <span class="price">$349 · ships Nov</span>
+        </div>
+      </div>
+
+      <!-- the product -->
+      <div class="skm-device radio" aria-label="FIELD 01 radio controls">
+        <div class="radio__top">
+          <span class="skm-device__legend">FIELD 01 · desktop radio</span>
+          <label class="skm-toggle"><input type="checkbox" class="skm-toggle__input" id="power" checked /><span class="skm-toggle__track"></span><span class="skm-label">Power</span></label>
+        </div>
+
+        <div class="left">
+          <div class="skm-display" id="screen" aria-live="polite">
+            <span class="skm-display__label"><span id="band">FM</span> · stereo · preset <span id="pnum">2</span></span>
+            <span class="skm-display__value"><span class="skm-display__dim" id="lead"></span><span id="freq">98.7</span><small id="unit"> MHz</small></span>
+            <div class="station"><span id="station">KXLU · Indie</span><span>VOL <span id="volv">5</span></span></div>
+          </div>
+          <div class="presets" role="group" aria-label="Presets">
+            <button class="skm-key" aria-pressed="false" data-f="88.1">1</button>
+            <button class="skm-key" aria-pressed="true"  data-f="98.7">2</button>
+            <button class="skm-key" aria-pressed="false" data-f="101.9">3</button>
+            <button class="skm-key" aria-pressed="false" data-f="104.3">4</button>
+            <button class="skm-key" aria-pressed="false" data-f="106.7">5</button>
+            <button class="skm-key skm-key--accent" aria-pressed="false" data-f="91.5">6</button>
+          </div>
+          <div class="grille" aria-hidden="true"></div>
+        </div>
+
+        <div class="right">
+          <div class="dial">
+            <div class="skm-knob skm-knob--lg" id="tune" role="slider" tabindex="0" aria-label="Tuning" aria-valuemin="87.5" aria-valuemax="108" aria-valuenow="98.7"></div>
+            <span class="skm-label">Tune</span>
+          </div>
+          <div class="dial">
+            <div class="skm-knob" id="vol" role="slider" tabindex="0" aria-label="Volume" aria-valuemin="0" aria-valuemax="10" aria-valuenow="5"></div>
+            <span class="skm-label">Volume</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="details">
+      <div class="skm-device">
+        <div class="head"><h2>Sound</h2><div class="skm-segment" role="group" aria-label="Band">
+          <button class="skm-key skm-key--sm band" aria-pressed="true">FM</button>
+          <button class="skm-key skm-key--sm band" aria-pressed="false">DAB</button>
+          <button class="skm-key skm-key--sm band" aria-pressed="false">BT</button>
+        </div></div>
+        <div class="eq">
+          <label><input type="range" class="skm-slider skm-slider--vertical" min="-6" max="6" value="2" /><span class="skm-label">Bass</span></label>
+          <label><input type="range" class="skm-slider skm-slider--vertical" min="-6" max="6" value="0" /><span class="skm-label">Mid</span></label>
+          <label><input type="range" class="skm-slider skm-slider--vertical" min="-6" max="6" value="-1" /><span class="skm-label">Treble</span></label>
+        </div>
+      </div>
+
+      <div class="skm-device">
+        <div class="head"><h2>Wake up</h2><span class="skm-tag"><span class="skm-led skm-led--on"></span>Armed</span></div>
+        <div class="skm-display alarm"><span class="skm-display__label">Alarm · weekdays</span><span class="skm-display__value">06:45</span></div>
+        <div class="stack" style="margin-top:var(--ds-space-4)">
+          <label class="skm-toggle"><input type="checkbox" class="skm-toggle__input" checked /><span class="skm-toggle__track"></span>Fade in over 10 min</label>
+          <label class="skm-toggle"><input type="checkbox" class="skm-toggle__input" /><span class="skm-toggle__track"></span>Weekends too</label>
+        </div>
+      </div>
+
+      <div class="stack">
+        <div class="skm-device skm-device--dark">
+          <span class="skm-device__legend">In the box</span>
+          <div class="skm-list" style="margin-top:var(--ds-space-2)">
+            <div class="skm-list__row"><span class="skm-list__label">Speaker</span><span class="skm-list__value">20 W · 3″</span></div>
+            <div class="skm-list__row"><span class="skm-list__label">Battery</span><span class="skm-list__value">14 h</span></div>
+            <div class="skm-list__row"><span class="skm-list__label">Weight</span><span class="skm-list__value">1.2 kg</span></div>
+          </div>
+        </div>
+        <div class="skm-alert skm-alert--success"><div><p class="skm-alert__title">Firmware 1.4 ready</p><p class="skm-alert__body">Adds DAB+ station logos on the display.</p></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>FIELD 01 · a modern skeuomorphism design-system prototype</footer>
+</div>
+
+<script>
+  (function () {
+    var STATIONS = { '88.1': 'KDVS · Jazz', '91.5': 'KUSC · Classical', '98.7': 'KXLU · Indie', '101.9': 'KSWD · Soft rock', '104.3': 'KBIG · Pop', '106.7': 'KROQ · Alt' };
+    var $ = function (id) { return document.getElementById(id); };
+    var f = 98.7, v = 5;
+
+    // Knob helper: vertical drag, wheel, or arrow keys call step(±1).
+    function knob(el, step) {
+      el.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowUp' || e.key === 'ArrowRight') { step(1); e.preventDefault(); }
+        if (e.key === 'ArrowDown' || e.key === 'ArrowLeft') { step(-1); e.preventDefault(); }
+      });
+      el.addEventListener('wheel', function (e) { step(e.deltaY < 0 ? 1 : -1); e.preventDefault(); }, { passive: false });
+      el.addEventListener('pointerdown', function (e) {
+        var last = e.clientY;
+        el.setPointerCapture(e.pointerId);
+        function move(ev) { var d = Math.trunc((last - ev.clientY) / 6); if (d) { step(d); last -= d * 6; } }
+        function up() { el.removeEventListener('pointermove', move); el.removeEventListener('pointerup', up); }
+        el.addEventListener('pointermove', move);
+        el.addEventListener('pointerup', up);
+      });
+    }
+
+    function tune(n) {
+      f = Math.round(Math.min(108, Math.max(87.5, n)) * 10) / 10;
+      var s = f.toFixed(1);
+      $('freq').textContent = s;
+      $('lead').textContent = s.length < 5 ? '0' : '';
+      $('station').textContent = STATIONS[s] || 'Scanning…';
+      $('tune').style.setProperty('--angle', ((f - 87.5) / 20.5 * 300 - 150) + 'deg');
+      $('tune').setAttribute('aria-valuenow', s);
+      var hit = null;
+      document.querySelectorAll('.presets .skm-key').forEach(function (k, i) {
+        var on = k.dataset.f === s; k.setAttribute('aria-pressed', on); if (on) hit = i + 1;
+      });
+      $('pnum').textContent = hit || '–';
+    }
+    function volume(n) {
+      v = Math.min(10, Math.max(0, n));
+      $('volv').textContent = v;
+      $('vol').style.setProperty('--angle', (v / 10 * 300 - 150) + 'deg');
+      $('vol').setAttribute('aria-valuenow', v);
+    }
+
+    knob($('tune'), function (d) { tune(f + d * 0.1); });
+    knob($('vol'), function (d) { volume(v + d); });
+    document.querySelectorAll('.presets .skm-key').forEach(function (k) {
+      k.addEventListener('click', function () { tune(parseFloat(k.dataset.f)); });
+    });
+    document.querySelectorAll('.band').forEach(function (b, _, all) {
+      b.addEventListener('click', function () {
+        all.forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
+        $('band').textContent = b.textContent;
+      });
+    });
+    $('power').addEventListener('change', function () { $('screen').style.opacity = this.checked ? '' : '0.15'; });
+
+    tune(f); volume(v);
+  })();
+</script>
+<script src="../palette-setting.js"></script>
+</body>
+</html>

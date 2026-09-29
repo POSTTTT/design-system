@@ -1,0 +1,4 @@
+node_modules/
+
+# dist/ is COMMITTED so prototypes/catalog open straight from a clone with no build step.
+# Regenerate after editing tokens/: npm run build

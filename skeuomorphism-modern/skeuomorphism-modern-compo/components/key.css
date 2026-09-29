@@ -1,0 +1,75 @@
+/* Key — a physical key cap with real travel. Off-white by default; --accent
+   is signal orange, --dark is graphite. aria-pressed="true" latches it down.
+   Group keys in .skm-segment for a latching selector. */
+.skm-key {
+  --skm-cap: var(--ds-button-bg);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ds-space-2);
+  font-family: var(--ds-font-family-sans);
+  font-weight: var(--ds-button-font-weight);
+  font-size: var(--ds-button-font-size);
+  line-height: 1.1;
+  color: var(--ds-button-fg);
+  background: linear-gradient(to bottom,
+    color-mix(in srgb, var(--skm-cap) 82%, white),
+    var(--skm-cap) 40%,
+    color-mix(in srgb, var(--skm-cap) 93%, black));
+  border: none;
+  border-radius: var(--ds-button-radius);
+  padding: var(--ds-button-padding-y) var(--ds-button-padding-x);
+  box-shadow: var(--ds-shadow-key);
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.08s ease, box-shadow 0.08s ease, filter 0.15s ease;
+}
+.skm-key:hover { filter: brightness(1.025); }
+.skm-key:active,
+.skm-key[aria-pressed="true"] {
+  transform: translateY(1px);
+  background: color-mix(in srgb, var(--skm-cap) 95%, black);
+  box-shadow: var(--ds-shadow-pressed);
+}
+.skm-key:focus-visible { outline: var(--ds-border-width-focus) solid var(--ds-color-accent-primary); outline-offset: 3px; }
+.skm-key:disabled,
+.skm-key[aria-disabled="true"] { opacity: 0.45; cursor: not-allowed; transform: none; filter: none; }
+
+.skm-key--accent { --skm-cap: var(--ds-color-accent-primary); color: var(--ds-color-fg-on-accent); }
+.skm-key--dark {
+  --skm-cap: var(--ds-color-bg-dark);
+  color: var(--ds-color-fg-on-dark);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), inset 0 -2px 0 rgba(0, 0, 0, 0.3), 0 1px 1px rgba(0, 0, 0, 0.2), 0 3px 6px -1px rgba(0, 0, 0, 0.2), 0 10px 18px -6px rgba(0, 0, 0, 0.3);
+}
+.skm-key--dark:active,
+.skm-key--dark[aria-pressed="true"] { box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.6), 0 1px 0 rgba(255, 255, 255, 0.08); }
+
+/* sizes + shapes */
+.skm-key--sm { font-size: var(--ds-font-size-xs); padding: var(--ds-space-2) var(--ds-space-3); border-radius: var(--ds-radius-sm); }
+.skm-key--lg { font-size: var(--ds-font-size-base); padding: var(--ds-space-4) var(--ds-space-6); border-radius: var(--ds-radius-lg); }
+.skm-key--square { padding: 0; width: 3.5rem; height: 3.5rem; border-radius: var(--ds-radius-lg); }
+.skm-key--round  { padding: 0; width: 3rem; height: 3rem; border-radius: var(--ds-radius-full); }
+
+/* printed legend in the key's top-left corner */
+.skm-key__legend {
+  position: absolute;
+  top: 0.45rem; left: 0.55rem;
+  font-family: var(--ds-font-family-mono);
+  font-size: 0.5625rem;
+  letter-spacing: var(--ds-font-letter-spacing-wide);
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+/* segment — keys sunk into one shared well */
+.skm-segment {
+  display: inline-flex;
+  gap: var(--ds-space-1);
+  padding: var(--ds-space-1);
+  border-radius: calc(var(--ds-button-radius) + 4px);
+  background: color-mix(in srgb, var(--ds-color-bg-plastic) 92%, black);
+  box-shadow: var(--ds-shadow-well);
+}
+
+@media (prefers-reduced-motion: reduce) { .skm-key { transition: none; } }

@@ -1,0 +1,8 @@
+{
+  "device": {
+    "bg":      { "$type": "color",     "$value": "{color.bg.plastic}" },
+    "fg":      { "$type": "color",     "$value": "{color.fg.default}" },
+    "radius":  { "$type": "dimension", "$value": "{radius.2xl}" },
+    "padding": { "$type": "dimension", "$value": "{space.5}" }
+  }
+}

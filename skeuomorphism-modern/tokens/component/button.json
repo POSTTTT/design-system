@@ -1,0 +1,16 @@
+{
+  "button": {
+    "radius":  { "$type": "dimension", "$value": "{radius.md}" },
+    "bg":      { "$type": "color",     "$value": "{color.bg.plastic}", "$description": "Default = off-white key cap" },
+    "fg":      { "$type": "color",     "$value": "{color.fg.default}" },
+    "padding": {
+      "$type": "dimension",
+      "x": { "$value": "1.125rem" },
+      "y": { "$value": "0.625rem" }
+    },
+    "font": {
+      "weight": { "$type": "fontWeight", "$value": "{font.weight.medium}" },
+      "size":   { "$type": "dimension",  "$value": "{font.size.sm}" }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+/* Studio — a seamless product-photo backdrop: a soft key light from above
+   fading to a slightly darker floor. Put .skm-studio on <body>. */
+.skm-studio {
+  min-height: 100vh;
+  color: var(--ds-color-fg-default);
+  font-family: var(--ds-font-family-sans);
+  background-color: var(--ds-color-bg-canvas);
+  background-image:
+    radial-gradient(ellipse 90% 55% at 50% -8%, color-mix(in srgb, var(--ds-color-bg-canvas) 70%, white), transparent 70%),
+    linear-gradient(to bottom, transparent 55%, color-mix(in srgb, var(--ds-color-bg-canvas) 93%, black));
+  background-attachment: fixed;
+}

@@ -1,0 +1,37 @@
+/* Knob — a turned-aluminium dial. The lighting is fixed (conic sheen); only
+   the orange indicator rotates, via --angle. Drive it from JS and pair it with
+   role="slider" + aria-value* for accessibility. */
+.skm-knob {
+  --angle: 0deg;
+  position: relative;
+  flex-shrink: 0;
+  width: 4.5rem;
+  aspect-ratio: 1;
+  border-radius: var(--ds-radius-full);
+  background: conic-gradient(from 210deg, #fdfdfb, #cfcdc6 22%, #fbfaf7 48%, #c8c6bf 74%, #fdfdfb);
+  box-shadow: var(--ds-shadow-key), 0 0 0 1px rgba(0, 0, 0, 0.06);
+  cursor: grab;
+  touch-action: none;
+}
+.skm-knob:active { cursor: grabbing; }
+/* the flat top face */
+.skm-knob::before {
+  content: "";
+  position: absolute;
+  inset: 14%;
+  border-radius: var(--ds-radius-full);
+  background: radial-gradient(circle at 50% 30%, #ffffff, #ecebe6 70%);
+  box-shadow: inset 0 1px 0 #ffffff, 0 1px 2px rgba(0, 0, 0, 0.18);
+}
+/* the indicator dot, rotated around the centre */
+.skm-knob::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--ds-radius-full);
+  background: radial-gradient(circle at 50% 24%, var(--ds-color-accent-primary) 0 3px, transparent 3.5px);
+  transform: rotate(var(--angle));
+}
+.skm-knob:focus-visible { outline: var(--ds-border-width-focus) solid var(--ds-color-accent-primary); outline-offset: 4px; }
+.skm-knob--sm { width: 3rem; }
+.skm-knob--lg { width: 6.5rem; }

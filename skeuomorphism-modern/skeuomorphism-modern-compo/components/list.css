@@ -1,0 +1,22 @@
+/* List — rows split by moulded part lines (a dark seam over a catchlight). */
+.skm-list { display: flex; flex-direction: column; }
+.skm-list__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ds-space-3);
+  font-family: var(--ds-font-family-sans);
+  font-size: var(--ds-font-size-sm);
+  padding: var(--ds-space-3) 0;
+}
+.skm-list__row + .skm-list__row { border-top: 1px solid var(--ds-color-edge-line); box-shadow: inset 0 1px 0 var(--ds-color-edge-highlight); }
+.skm-list__label { display: inline-flex; align-items: center; gap: var(--ds-space-3); font-weight: var(--ds-font-weight-medium); color: var(--ds-color-fg-default); }
+.skm-list__value {
+  font-family: var(--ds-font-family-mono);
+  font-size: var(--ds-font-size-xs);
+  color: var(--ds-color-fg-muted);
+  font-variant-numeric: tabular-nums;
+}
+.skm-list__value--success { color: var(--ds-color-feedback-success); }
+.skm-list__value--warning { color: var(--ds-color-feedback-warning); }
+.skm-list__value--danger  { color: var(--ds-color-feedback-danger); }

@@ -1,0 +1,28 @@
+/* Text input — a shallow recess in the housing; orange ring on focus. */
+.skm-input {
+  font-family: var(--ds-font-family-sans);
+  font-size: var(--ds-font-size-sm);
+  color: var(--ds-color-fg-default);
+  background: color-mix(in srgb, var(--ds-color-bg-plastic) 95%, black);
+  border: none;
+  border-radius: var(--ds-radius-md);
+  padding: var(--ds-space-3) var(--ds-space-4);
+  box-shadow: var(--ds-shadow-well);
+  width: 100%;
+}
+.skm-input::placeholder { color: var(--ds-color-fg-faint); }
+.skm-input:focus {
+  outline: none;
+  box-shadow: var(--ds-shadow-well), 0 0 0 2px var(--ds-color-accent-primary);
+}
+.skm-input:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.skm-field { display: flex; flex-direction: column; gap: var(--ds-space-2); }
+.skm-field__label {
+  font-family: var(--ds-font-family-mono);
+  font-size: var(--ds-font-size-2xs);
+  font-weight: var(--ds-font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--ds-font-letter-spacing-wide);
+  color: var(--ds-color-fg-muted);
+}

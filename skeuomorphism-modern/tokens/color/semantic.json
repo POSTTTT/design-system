@@ -1,0 +1,40 @@
+{
+  "color": {
+    "bg": {
+      "$type": "color",
+      "canvas":  { "$value": "{color.palette.studio}" },
+      "plastic": { "$value": "{color.palette.plastic}",  "$description": "Device housing / key cap" },
+      "dark":    { "$value": "{color.palette.graphite}", "$description": "Graphite key / dark housing" },
+      "display": { "$value": "{color.palette.glass}",    "$description": "Display glass" }
+    },
+
+    "fg": {
+      "$type": "color",
+      "default":   { "$value": "{color.palette.text}" },
+      "muted":     { "$value": "{color.palette.textSoft}" },
+      "faint":     { "$value": "{color.palette.textFaint}" },
+      "onAccent":  { "$value": "{color.palette.graphite}", "$description": "Graphite on orange — white would fail contrast" },
+      "onDark":    { "$value": "{color.palette.plastic}" },
+      "readout":   { "$value": "{color.palette.readout}",  "$description": "Lit display text" }
+    },
+
+    "accent": {
+      "$type": "color",
+      "primary": { "$value": "{color.palette.orange}" }
+    },
+
+    "edge": {
+      "$type": "color",
+      "_comment": "Light-dependent edges. Themes flip these for dark housings.",
+      "highlight": { "$value": "rgba(255, 255, 255, 0.9)",  "$description": "Top-edge catchlight" },
+      "line":      { "$value": "rgba(28, 28, 30, 0.09)",    "$description": "Part line between two pieces of plastic" }
+    },
+
+    "feedback": {
+      "$type": "color",
+      "success": { "$value": "{color.palette.green}" },
+      "warning": { "$value": "{color.palette.amber}" },
+      "danger":  { "$value": "{color.palette.red}" }
+    }
+  }
+}

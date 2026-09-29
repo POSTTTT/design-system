@@ -1,0 +1,24 @@
+{
+  "color": {
+    "palette": {
+      "$type": "color",
+      "_comment": "Modern skeuomorphism: consumer hardware under soft studio light. Warm-grey backdrop, matte off-white plastic, graphite keys, a dark glass display with an amber readout, and one signal-orange accent. Primitives only.",
+
+      "studio":    { "$value": "#e9e8e4", "$description": "Studio backdrop — page canvas" },
+      "plastic":   { "$value": "#f5f4f0", "$description": "Matte off-white housing" },
+      "graphite":  { "$value": "#1c1c1e", "$description": "Graphite keys + primary text" },
+      "glass":     { "$value": "#0f1211", "$description": "Display glass, powered off" },
+      "readout":   { "$value": "#ffb454", "$description": "Amber display segments" },
+
+      "text":      { "$value": "#1c1c1e" },
+      "textSoft":  { "$value": "#5f5e5a", "$description": "Secondary text" },
+      "textFaint": { "$value": "#8f8d87", "$description": "Printed legends / hints" },
+      "white":     { "$value": "#ffffff" },
+
+      "orange":    { "$value": "#ff5a1f", "$description": "Signal orange — the one accent. Pair with graphite text." },
+      "green":     { "$value": "#1f7a45" },
+      "amber":     { "$value": "#a86400" },
+      "red":       { "$value": "#cc3322" }
+    }
+  }
+}
