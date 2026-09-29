@@ -56,3 +56,22 @@ throughout, thick inked borders, small radii, uppercase letter-spaced eyebrows, 
 divider rules, and white node-boxes. Includes a filled-ink tab control. Its prototype
 is a tabbed rainwater-harvesting schematic with an inline pen-style SVG diagram that
 recolors with the theme (flow plane vs. dashed control plane).
+
+### `glassmorphism/`
+Frosted glass floating over light. A deep night `#0b1026` canvas lit by three soft
+color orbs (violet / magenta / cyan), with every surface a translucent pane:
+white-alpha fills, `backdrop-filter` blur, hairline light-catching edges and an
+inset top shine. Pill buttons with an accent glow, generous radii, and `Manrope`
+throughout. Falls back to near-opaque panes without blur support or under
+*reduce transparency*. Includes a glossy glass toggle. Its prototype is a smart-home
+dashboard (HALO — climate dial · rooms · energy · scenes).
+
+### `skeuomorphism/`
+Interfaces made of things. A linen tablecloth `#e6ddcc` canvas holding cream grained
+paper cards, tan leather panels with dashed cream stitching, brushed-aluminium
+plates, and glossy candy-glass keys with a split highlight. Everything is lit from
+above: top-edge highlights, soft drop shadows, inset wells, letterpress text, and
+domed LED lamps. Textures are pure CSS / inline SVG noise. Source Sans 3 UI,
+Libre Baskerville titles, Caveat handwriting. Includes a recessed ON/OFF toggle.
+Its prototype is a notes-and-records desk (FOLIO: leather notebook cover, ruled
+notepad, hi-fi deck with VU meters and a draggable volume knob).

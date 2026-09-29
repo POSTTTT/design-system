@@ -1,0 +1,37 @@
+{
+  "blur": {
+    "$type": "dimension",
+    "_comment": "backdrop-filter radii. Bigger surfaces take more blur so the backdrop reads as light, not detail.",
+    "sm": { "$value": "8px",  "$description": "Chips, buttons" },
+    "md": { "$value": "18px", "$description": "Cards, inputs" },
+    "lg": { "$value": "32px", "$description": "Large sheets, nav bars" }
+  },
+
+  "shadow": {
+    "_comment": "Glass floats: a wide soft drop plus an inset top shine. Strings emitted verbatim.",
+    "none":  { "$value": "none" },
+    "glass": { "$value": "0 8px 32px rgba(4, 6, 24, 0.36), inset 0 1px 0 rgba(255, 255, 255, 0.35)", "$description": "Floating panel" },
+    "lift":  { "$value": "0 16px 48px rgba(4, 6, 24, 0.46), inset 0 1px 0 rgba(255, 255, 255, 0.45)", "$description": "Hovered / raised panel" },
+    "glow":  { "$value": "0 0 0 1px rgba(255, 255, 255, 0.18), 0 8px 28px color-mix(in srgb, var(--ds-color-accent-primary) 55%, transparent)", "$description": "Accent CTA glow — follows the live accent" }
+  },
+
+  "border": {
+    "width": {
+      "$type": "dimension",
+      "_comment": "Glass edges are hairlines — the light catching the pane, not a stroke.",
+      "hairline": { "$value": "1px" },
+      "base":     { "$value": "1.5px" },
+      "focus":    { "$value": "2px" }
+    }
+  },
+
+  "radius": {
+    "$type": "dimension",
+    "_comment": "Generous, smooth rounding — polished glass has no sharp corners.",
+    "sm":   { "$value": "0.5rem" },
+    "md":   { "$value": "0.875rem" },
+    "lg":   { "$value": "1.25rem" },
+    "xl":   { "$value": "1.75rem" },
+    "full": { "$value": "9999px" }
+  }
+}

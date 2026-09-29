@@ -1,0 +1,42 @@
+{
+  "color": {
+    "bg": {
+      "$type": "color",
+      "canvas":      { "$value": "{color.palette.night}" },
+      "glass":       { "$value": "{color.palette.frost}",       "$description": "Frosted panel fill" },
+      "glassStrong": { "$value": "{color.palette.frostStrong}", "$description": "Raised / hover panel fill" },
+      "orb": {
+        "a": { "$value": "{color.palette.violet}",  "$description": "Backdrop orb, top-left" },
+        "b": { "$value": "{color.palette.magenta}", "$description": "Backdrop orb, top-right" },
+        "c": { "$value": "{color.palette.cyan}",    "$description": "Backdrop orb, bottom" }
+      }
+    },
+
+    "fg": {
+      "$type": "color",
+      "default":  { "$value": "{color.palette.text}" },
+      "muted":    { "$value": "{color.palette.textSoft}" },
+      "faint":    { "$value": "{color.palette.textFaint}" },
+      "onAccent": { "$value": "{color.palette.white}", "$description": "Text on a solid accent fill" }
+    },
+
+    "accent": {
+      "$type": "color",
+      "primary":   { "$value": "{color.palette.violet}", "$description": "Solid CTA fill" },
+      "secondary": { "$value": "{color.palette.cyan}",   "$description": "Glow / focus / active indicator" }
+    },
+
+    "border": {
+      "$type": "color",
+      "glass": { "$value": "{color.palette.frostEdge}" },
+      "shine": { "$value": "{color.palette.frostShine}" }
+    },
+
+    "feedback": {
+      "$type": "color",
+      "success": { "$value": "{color.palette.mint}" },
+      "warning": { "$value": "{color.palette.amber}" },
+      "danger":  { "$value": "{color.palette.rose}" }
+    }
+  }
+}

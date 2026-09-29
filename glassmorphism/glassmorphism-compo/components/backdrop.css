@@ -1,0 +1,28 @@
+/* Backdrop — the night canvas lit by three soft color orbs. Glass is only glass
+   when there is light behind it, so put .gl-backdrop on <body>. */
+.gl-backdrop {
+  min-height: 100vh;
+  color: var(--ds-color-fg-default);
+  font-family: var(--ds-font-family-sans);
+  background-color: var(--ds-color-bg-canvas);
+  background-image:
+    radial-gradient(circle 42vmax at 8% 12%,  color-mix(in srgb, var(--ds-color-bg-orb-a) 62%, transparent), transparent 70%),
+    radial-gradient(circle 36vmax at 92% 6%,  color-mix(in srgb, var(--ds-color-bg-orb-b) 52%, transparent), transparent 70%),
+    radial-gradient(circle 46vmax at 72% 96%, color-mix(in srgb, var(--ds-color-bg-orb-c) 46%, transparent), transparent 70%);
+  background-attachment: fixed;
+}
+
+/* No blur support, or the user asked for less transparency: make the panes
+   near-opaque so text keeps its contrast. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  :root {
+    --ds-color-bg-glass: rgba(22, 26, 58, 0.9);
+    --ds-color-bg-glass-strong: rgba(34, 38, 74, 0.94);
+  }
+}
+@media (prefers-reduced-transparency: reduce) {
+  :root {
+    --ds-color-bg-glass: rgba(22, 26, 58, 0.94);
+    --ds-color-bg-glass-strong: rgba(34, 38, 74, 0.97);
+  }
+}

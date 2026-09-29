@@ -1,0 +1,26 @@
+/* List — label/value rows split by faint light-catching hairlines. */
+.gl-list { display: flex; flex-direction: column; }
+.gl-list__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ds-space-3);
+  font-family: var(--ds-font-family-sans);
+  font-size: var(--ds-font-size-sm);
+  padding: var(--ds-space-3) 0;
+}
+.gl-list__row + .gl-list__row { border-top: var(--ds-border-width-hairline) solid rgba(255, 255, 255, 0.1); }
+.gl-list__label { display: inline-flex; align-items: center; gap: var(--ds-space-3); color: var(--ds-color-fg-default); }
+.gl-list__value { color: var(--ds-color-fg-muted); font-weight: var(--ds-font-weight-semibold); font-variant-numeric: tabular-nums; }
+.gl-list__value--success { color: var(--ds-color-feedback-success); }
+.gl-list__value--warning { color: var(--ds-color-feedback-warning); }
+.gl-list__value--danger  { color: var(--ds-color-feedback-danger); }
+
+/* icon well — a small frosted square for a row's glyph */
+.gl-list__icon {
+  display: grid; place-items: center;
+  width: 2rem; height: 2rem;
+  border-radius: var(--ds-radius-sm);
+  background: var(--ds-color-bg-glass-strong);
+  border: var(--ds-border-width-hairline) solid var(--ds-color-border-glass);
+}

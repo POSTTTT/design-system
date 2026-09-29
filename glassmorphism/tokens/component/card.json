@@ -1,0 +1,11 @@
+{
+  "card": {
+    "bg":          { "$type": "color",     "$value": "{color.bg.glass}" },
+    "fg":          { "$type": "color",     "$value": "{color.fg.default}" },
+    "radius":      { "$type": "dimension", "$value": "{radius.xl}" },
+    "borderWidth": { "$type": "dimension", "$value": "{border.width.hairline}" },
+    "borderColor": { "$type": "color",     "$value": "{color.border.glass}" },
+    "blur":        { "$type": "dimension", "$value": "{blur.md}" },
+    "padding":     { "$type": "dimension", "$value": "{space.5}" }
+  }
+}

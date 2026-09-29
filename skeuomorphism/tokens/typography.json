@@ -1,0 +1,44 @@
+{
+  "font": {
+    "family": {
+      "$type": "fontFamily",
+      "sans":  { "$value": ["Source Sans 3", "Helvetica Neue", "Helvetica", "Arial", "sans-serif"], "$description": "UI text — the Helvetica-era interface voice" },
+      "serif": { "$value": ["Libre Baskerville", "Baskerville", "Georgia", "serif"], "$description": "Embossed titles, like foil-stamped book covers" },
+      "hand":  { "$value": ["Caveat", "Marker Felt", "Bradley Hand", "cursive"], "$description": "Handwriting on notepad paper" }
+    },
+
+    "weight": {
+      "$type": "fontWeight",
+      "regular":  { "$value": 400 },
+      "semibold": { "$value": 600 },
+      "bold":     { "$value": 700 }
+    },
+
+    "size": {
+      "$type": "dimension",
+      "xs":   { "$value": "0.75rem" },
+      "sm":   { "$value": "0.875rem" },
+      "base": { "$value": "1rem" },
+      "lg":   { "$value": "1.125rem" },
+      "xl":   { "$value": "1.375rem" },
+      "2xl":  { "$value": "1.75rem" },
+      "3xl":  { "$value": "2.25rem" },
+      "4xl":  { "$value": "3rem" }
+    },
+
+    "lineHeight": {
+      "$type": "number",
+      "tight":  { "$value": 1.15 },
+      "snug":   { "$value": 1.35 },
+      "normal": { "$value": 1.55 },
+      "ruled":  { "$value": 1.75, "$description": "Matches the notepad rule spacing" }
+    },
+
+    "letterSpacing": {
+      "$type": "dimension",
+      "tight":  { "$value": "-0.01em" },
+      "normal": { "$value": "0em" },
+      "wide":   { "$value": "0.1em", "$description": "Engraved uppercase labels" }
+    }
+  }
+}

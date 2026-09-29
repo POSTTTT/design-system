@@ -1,0 +1,60 @@
+/* Toggle — the signature control: a recessed ON/OFF switch with a
+   domed aluminium knob. Native checkbox underneath.
+
+   <label class="sk-toggle"><input type="checkbox" class="sk-toggle__input" /><span class="sk-toggle__track"></span>Label</label>
+*/
+.sk-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-space-3);
+  font-family: var(--ds-font-family-sans);
+  font-size: var(--ds-font-size-base);
+  font-weight: var(--ds-font-weight-semibold);
+  color: var(--ds-color-fg-default);
+  cursor: pointer;
+}
+.sk-toggle__input { position: absolute; opacity: 0; width: 1px; height: 1px; margin: 0; }
+.sk-toggle__track {
+  position: relative;
+  flex-shrink: 0;
+  width: 4.75rem; height: 1.75rem;
+  border-radius: var(--ds-radius-full);
+  border: var(--ds-border-width-hairline) solid var(--ds-color-border-strong);
+  background: linear-gradient(to bottom, #d9d6d0, #f6f4f0);
+  box-shadow: var(--ds-shadow-inset);
+  transition: background 0.2s ease;
+}
+/* the OFF / ON caption printed on the track */
+.sk-toggle__track::before {
+  content: "OFF";
+  position: absolute;
+  top: 50%; right: 0.7rem;
+  transform: translateY(-50%);
+  font-size: var(--ds-font-size-xs);
+  font-weight: var(--ds-font-weight-bold);
+  letter-spacing: 0.04em;
+  color: #7d756a;
+  text-shadow: var(--ds-text-shadow-emboss);
+}
+/* domed aluminium knob */
+.sk-toggle__track::after {
+  content: "";
+  position: absolute;
+  top: -1px; left: -1px;
+  width: 1.75rem; height: 1.75rem;
+  border-radius: var(--ds-radius-full);
+  border: var(--ds-border-width-hairline) solid rgba(0, 0, 0, 0.35);
+  background: radial-gradient(circle at 50% 30%, #ffffff, var(--ds-color-bg-metal-light) 45%, var(--ds-color-bg-metal-dark));
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), inset 0 1px 0 #ffffff;
+  transition: transform 0.2s ease;
+}
+.sk-toggle__input:checked + .sk-toggle__track {
+  border-color: color-mix(in srgb, var(--ds-color-accent-primary) 55%, black);
+  background: linear-gradient(to bottom, color-mix(in srgb, var(--ds-color-accent-primary) 80%, black), color-mix(in srgb, var(--ds-color-accent-primary) 80%, white));
+}
+.sk-toggle__input:checked + .sk-toggle__track::before { content: "ON"; right: auto; left: 0.85rem; color: #ffffff; text-shadow: var(--ds-text-shadow-deboss); }
+.sk-toggle__input:checked + .sk-toggle__track::after { transform: translateX(3rem); }
+.sk-toggle__input:focus-visible + .sk-toggle__track { outline: var(--ds-border-width-focus) solid var(--ds-color-accent-primary); outline-offset: 3px; }
+.sk-toggle__input:disabled + .sk-toggle__track { opacity: 0.5; cursor: not-allowed; }
+
+@media (prefers-reduced-motion: reduce) { .sk-toggle__track, .sk-toggle__track::after { transition: none; } }

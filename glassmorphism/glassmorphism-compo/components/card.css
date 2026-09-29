@@ -1,0 +1,32 @@
+/* Card / panel — a frosted pane: translucent fill, backdrop blur, hairline
+   edge, and a top-edge shine from the inset shadow. */
+.gl-card {
+  background: var(--ds-card-bg);
+  color: var(--ds-card-fg);
+  -webkit-backdrop-filter: blur(var(--ds-card-blur)) saturate(160%);
+  backdrop-filter: blur(var(--ds-card-blur)) saturate(160%);
+  border: var(--ds-card-border-width) solid var(--ds-card-border-color);
+  border-radius: var(--ds-card-radius);
+  padding: var(--ds-card-padding);
+  box-shadow: var(--ds-shadow-glass);
+}
+.gl-card__title {
+  font-weight: var(--ds-font-weight-bold);
+  font-size: var(--ds-font-size-lg);
+  letter-spacing: var(--ds-font-letter-spacing-tight);
+  color: var(--ds-color-fg-default);
+  margin: 0 0 var(--ds-space-2);
+}
+.gl-card__body { margin: 0; color: var(--ds-color-fg-muted); line-height: var(--ds-font-line-height-normal); }
+
+/* strong — thicker frost, for panes stacked on other panes */
+.gl-card--strong { background: var(--ds-color-bg-glass-strong); -webkit-backdrop-filter: blur(var(--ds-blur-lg)) saturate(170%); backdrop-filter: blur(var(--ds-blur-lg)) saturate(170%); }
+
+/* interactive — lifts and brightens on hover */
+.gl-card--interactive { transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease; }
+.gl-card--interactive:hover { transform: translateY(-3px); box-shadow: var(--ds-shadow-lift); background: var(--ds-color-bg-glass-strong); }
+
+/* tinted — the accent bleeding through the frost */
+.gl-card--tinted { background: linear-gradient(135deg, color-mix(in srgb, var(--ds-color-accent-primary) 30%, transparent), var(--ds-color-bg-glass) 70%); }
+
+@media (prefers-reduced-motion: reduce) { .gl-card--interactive, .gl-card--interactive:hover { transition: none; transform: none; } }

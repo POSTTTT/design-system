@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Glassmorphism · Design System Catalog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<!-- One import: generated tokens + every gl- component. -->
+<link rel="stylesheet" href="../glassmorphism-compo/components.css" />
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; line-height: var(--ds-font-line-height-normal); overflow-x: hidden; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: var(--ds-space-7) var(--ds-space-4); }
+  code { color: var(--ds-color-fg-muted); font-size: 0.92em; }
+
+  .masthead { margin-bottom: var(--ds-space-7); }
+  .masthead h1 { font-size: clamp(2.25rem, 7vw, var(--ds-font-size-4xl)); font-weight: var(--ds-font-weight-black); letter-spacing: var(--ds-font-letter-spacing-tight); line-height: var(--ds-font-line-height-tight); margin: var(--ds-space-3) 0; }
+  .masthead p { color: var(--ds-color-fg-muted); margin: 0; max-width: 62ch; }
+
+  section { margin-bottom: var(--ds-space-7); }
+  h2 { font-size: var(--ds-font-size-xl); font-weight: var(--ds-font-weight-bold); letter-spacing: var(--ds-font-letter-spacing-tight); margin: 0 0 var(--ds-space-4); }
+  .grid { display: grid; gap: var(--ds-space-4); grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+  .stack { display: flex; flex-direction: column; gap: var(--ds-space-4); }
+
+  .swatch { padding: 0; overflow: hidden; }
+  .swatch .chip { height: 56px; }
+  .swatch .meta { padding: var(--ds-space-2) var(--ds-space-3) var(--ds-space-3); }
+  .swatch .name { font-size: var(--ds-font-size-sm); font-weight: var(--ds-font-weight-semibold); }
+  .swatch code { font-size: var(--ds-font-size-xs); }
+
+  .row { display: flex; flex-wrap: wrap; gap: var(--ds-space-4); align-items: center; }
+  .scaleRow { display: flex; align-items: center; gap: var(--ds-space-4); margin-bottom: var(--ds-space-2); font-size: var(--ds-font-size-sm); color: var(--ds-color-fg-muted); }
+  .scaleRow code { width: 4.5rem; flex-shrink: 0; }
+  .bar { background: linear-gradient(90deg, var(--ds-color-accent-primary), var(--ds-color-accent-secondary)); height: 10px; border-radius: var(--ds-radius-full); }
+  .radiusBox { width: 76px; height: 76px; background: var(--ds-color-bg-glass-strong); border: var(--ds-border-width-hairline) solid var(--ds-color-border-glass); display: grid; place-items: end center; padding: var(--ds-space-2); font-size: var(--ds-font-size-xs); color: var(--ds-color-fg-muted); }
+
+  /* blur demo — a striped strip seen through panes of rising blur */
+  .blurDemo { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--ds-space-3); padding: var(--ds-space-4); border-radius: var(--ds-radius-lg); overflow: hidden;
+    background: repeating-linear-gradient(90deg, var(--ds-color-bg-orb-a) 0 14px, var(--ds-color-bg-orb-b) 14px 28px, var(--ds-color-bg-orb-c) 28px 42px); }
+  .blurDemo div { height: 88px; border-radius: var(--ds-radius-md); background: var(--ds-color-bg-glass); border: var(--ds-border-width-hairline) solid var(--ds-color-border-glass); display: grid; place-items: center; font-size: var(--ds-font-size-xs); font-weight: var(--ds-font-weight-bold); text-shadow: 0 1px 4px rgba(0,0,0,0.5); }
+  @media (max-width: 520px) { .blurDemo { grid-template-columns: repeat(2, 1fr); } }
+</style>
+</head>
+<body class="gl-backdrop">
+<div class="wrap">
+
+  <header class="masthead">
+    <span class="gl-tag"><span class="gl-dot"></span>design system · v0.1</span>
+    <h1>Glassmorphism</h1>
+    <p>Frosted panes floating over light — translucent fills, backdrop blur, hairline edges that catch a top-edge shine, and three soft color orbs glowing on a night canvas. Tokens from <code>dist/css/tokens.css</code>; components from <code>glassmorphism-compo/</code>.</p>
+  </header>
+
+  <section>
+    <h2>Colors</h2>
+    <div class="grid">
+      <div class="gl-card swatch"><div class="chip" style="background:var(--ds-color-bg-canvas)"></div><div class="meta"><div class="name">canvas</div><code>#0b1026</code></div></div>
+      <div class="gl-card swatch"><div class="chip" style="background:var(--ds-color-bg-orb-a)"></div><div class="meta"><div class="name">orb.a / accent</div><code>#7c3aed</code></div></div>
+      <div class="gl-card swatch"><div class="chip" style="background:var(--ds-color-bg-orb-b)"></div><div class="meta"><div class="name">orb.b</div><code>#ec4899</code></div></div>
+      <div class="gl-card swatch"><div class="chip" style="background:var(--ds-color-bg-orb-c)"></div><div class="meta"><div class="name">orb.c / secondary</div><code>#22d3ee</code></div></div>
+      <div class="gl-card swatch"><div class="chip" style="background:var(--ds-color-bg-glass)"></div><div class="meta"><div class="name">glass</div><code>white 8%</code></div></div>
+      <div class="gl-card swatch"><div class="chip" style="background:var(--ds-color-bg-glass-strong)"></div><div class="meta"><div class="name">glass.strong</div><code>white 14%</code></div></div>
+      <div class="gl-card swatch"><div class="chip" style="background:var(--ds-color-feedback-success)"></div><div class="meta"><div class="name">success</div><code>#34d399</code></div></div>
+      <div class="gl-card swatch"><div class="chip" style="background:var(--ds-color-feedback-warning)"></div><div class="meta"><div class="name">warning</div><code>#fbbf24</code></div></div>
+      <div class="gl-card swatch"><div class="chip" style="background:var(--ds-color-feedback-danger)"></div><div class="meta"><div class="name">danger</div><code>#fb7185</code></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Typography</h2>
+    <div class="gl-card">
+      <p style="font-size:var(--ds-font-size-4xl);font-weight:var(--ds-font-weight-black);letter-spacing:var(--ds-font-letter-spacing-tight);line-height:var(--ds-font-line-height-tight);margin:0 0 var(--ds-space-3)">Light through glass</p>
+      <p style="font-size:var(--ds-font-size-2xl);font-weight:var(--ds-font-weight-bold);letter-spacing:var(--ds-font-letter-spacing-tight);margin:0 0 var(--ds-space-3)">Heading · Manrope 700</p>
+      <p style="font-size:var(--ds-font-size-base);margin:0 0 var(--ds-space-3)">Body — Manrope 400 at 1rem. Crisp geometric letterforms stay legible over a blurred, moving backdrop.</p>
+      <p style="font-size:var(--ds-font-size-sm);color:var(--ds-color-fg-muted);margin:0 0 var(--ds-space-3)">Muted — secondary text at 74% white.</p>
+      <span class="gl-label">Eyebrow label · 0.12em tracking</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Blur</h2>
+    <div class="blurDemo">
+      <div>none</div>
+      <div style="-webkit-backdrop-filter:blur(var(--ds-blur-sm));backdrop-filter:blur(var(--ds-blur-sm))">sm · 8px</div>
+      <div style="-webkit-backdrop-filter:blur(var(--ds-blur-md));backdrop-filter:blur(var(--ds-blur-md))">md · 18px</div>
+      <div style="-webkit-backdrop-filter:blur(var(--ds-blur-lg));backdrop-filter:blur(var(--ds-blur-lg))">lg · 32px</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Spacing · radius</h2>
+    <div class="gl-card" style="margin-bottom:var(--ds-space-4)">
+      <div class="scaleRow"><code>space-2</code><div class="bar" style="width:var(--ds-space-2)"></div></div>
+      <div class="scaleRow"><code>space-4</code><div class="bar" style="width:var(--ds-space-4)"></div></div>
+      <div class="scaleRow"><code>space-6</code><div class="bar" style="width:var(--ds-space-6)"></div></div>
+      <div class="scaleRow"><code>space-8</code><div class="bar" style="width:var(--ds-space-8)"></div></div>
+      <div class="scaleRow"><code>space-9</code><div class="bar" style="width:var(--ds-space-9)"></div></div>
+    </div>
+    <div class="row">
+      <div class="radiusBox" style="border-radius:var(--ds-radius-sm)">sm</div>
+      <div class="radiusBox" style="border-radius:var(--ds-radius-md)">md</div>
+      <div class="radiusBox" style="border-radius:var(--ds-radius-lg)">lg</div>
+      <div class="radiusBox" style="border-radius:var(--ds-radius-xl)">xl</div>
+      <div class="radiusBox" style="border-radius:var(--ds-radius-full);place-items:center">full</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Components</h2>
+    <div class="stack">
+
+      <div class="gl-card">
+        <p class="gl-label" style="margin:0 0 var(--ds-space-3)">Buttons</p>
+        <div class="row">
+          <button class="gl-btn gl-btn--primary">Get started</button>
+          <button class="gl-btn">Frosted</button>
+          <button class="gl-btn gl-btn--ghost">Ghost</button>
+          <button class="gl-btn gl-btn--sm">Small</button>
+          <button class="gl-btn gl-btn--icon" aria-label="Add">＋</button>
+          <button class="gl-btn" disabled>Disabled</button>
+        </div>
+      </div>
+
+      <div class="gl-card">
+        <p class="gl-label" style="margin:0 0 var(--ds-space-3)">Toggles</p>
+        <div class="row" style="gap:var(--ds-space-6)">
+          <label class="gl-toggle"><input type="checkbox" class="gl-toggle__input" checked /><span class="gl-toggle__track"></span>Ambient light</label>
+          <label class="gl-toggle"><input type="checkbox" class="gl-toggle__input" /><span class="gl-toggle__track"></span>Do not disturb</label>
+          <label class="gl-toggle"><input type="checkbox" class="gl-toggle__input" disabled /><span class="gl-toggle__track"></span>Unavailable</label>
+        </div>
+      </div>
+
+      <div class="gl-card">
+        <p class="gl-label" style="margin:0 0 var(--ds-space-3)">Tags · dots</p>
+        <div class="row">
+          <span class="gl-tag">Default</span>
+          <span class="gl-tag gl-tag--accent">Accent</span>
+          <span class="gl-tag gl-tag--success"><span class="gl-dot gl-dot--success"></span>Online</span>
+          <span class="gl-tag gl-tag--warning"><span class="gl-dot gl-dot--warning"></span>Idle</span>
+          <span class="gl-tag gl-tag--danger"><span class="gl-dot gl-dot--danger"></span>Offline</span>
+        </div>
+      </div>
+
+      <div class="row" style="align-items:stretch">
+        <div class="gl-card gl-card--interactive" style="flex:1;min-width:220px">
+          <h3 class="gl-card__title">Interactive pane</h3>
+          <p class="gl-card__body">Hover — it lifts and the frost thickens. <code>gl-card--interactive</code></p>
+        </div>
+        <div class="gl-card gl-card--tinted" style="flex:1;min-width:220px">
+          <h3 class="gl-card__title">Tinted pane</h3>
+          <p class="gl-card__body">The accent bleeding through the glass. <code>gl-card--tinted</code></p>
+        </div>
+        <div class="gl-card gl-card--strong" style="flex:1;min-width:220px">
+          <h3 class="gl-card__title">Strong pane</h3>
+          <p class="gl-card__body">Thicker frost for panes stacked on panes. <code>gl-card--strong</code></p>
+        </div>
+      </div>
+
+      <div class="gl-card">
+        <p class="gl-label" style="margin:0 0 var(--ds-space-2)">List</p>
+        <div class="gl-list">
+          <div class="gl-list__row"><span class="gl-list__label"><span class="gl-list__icon">☀</span>Living room</span><span class="gl-list__value">22.5°</span></div>
+          <div class="gl-list__row"><span class="gl-list__label"><span class="gl-list__icon">⚡</span>Solar today</span><span class="gl-list__value gl-list__value--success">+8.4 kWh</span></div>
+          <div class="gl-list__row"><span class="gl-list__label"><span class="gl-list__icon">💧</span>Humidity</span><span class="gl-list__value gl-list__value--warning">68%</span></div>
+          <div class="gl-list__row"><span class="gl-list__label"><span class="gl-list__icon">🔒</span>Back door</span><span class="gl-list__value gl-list__value--danger">Unlocked</span></div>
+        </div>
+      </div>
+
+      <div class="gl-card">
+        <label class="gl-field"><span class="gl-field__label">Room name</span><input class="gl-input" placeholder="e.g. Reading nook" /></label>
+      </div>
+
+      <div class="gl-alert"><div><p class="gl-alert__title">Scene ready</p><p class="gl-alert__body">“Evening” will dim the lights to 30% at sunset.</p></div></div>
+      <div class="gl-alert gl-alert--success"><div><p class="gl-alert__title">All sensors online</p><p class="gl-alert__body">12 of 12 devices reported in the last minute.</p></div></div>
+      <div class="gl-alert gl-alert--warning"><div><p class="gl-alert__title">Filter due</p><p class="gl-alert__body">Air purifier filter is at 9% life.</p></div></div>
+      <div class="gl-alert gl-alert--danger"><div><p class="gl-alert__title">Door left open</p><p class="gl-alert__body">The back door has been unlocked for 20 minutes.</p></div></div>
+    </div>
+  </section>
+
+  <footer style="font-size:var(--ds-font-size-xs);color:var(--ds-color-fg-faint);text-align:center;padding:var(--ds-space-6) 0">
+    tokens/ → style-dictionary → dist/ → glassmorphism-compo/ → this catalog
+  </footer>
+
+</div>
+
+<!-- Live theme setting (presets + custom colors, persisted). -->
+<script src="../palette-setting.js"></script>
+</body>
+</html>

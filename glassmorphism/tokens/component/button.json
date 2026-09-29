@@ -1,0 +1,18 @@
+{
+  "button": {
+    "radius":      { "$type": "dimension", "$value": "{radius.full}" },
+    "borderWidth": { "$type": "dimension", "$value": "{border.width.hairline}" },
+    "borderColor": { "$type": "color",     "$value": "{color.border.glass}" },
+    "bg":          { "$type": "color",     "$value": "{color.bg.glass}", "$description": "Default = frosted pill" },
+    "fg":          { "$type": "color",     "$value": "{color.fg.default}" },
+    "padding": {
+      "$type": "dimension",
+      "x": { "$value": "1.25rem" },
+      "y": { "$value": "0.625rem" }
+    },
+    "font": {
+      "weight": { "$type": "fontWeight", "$value": "{font.weight.semibold}" },
+      "size":   { "$type": "dimension",  "$value": "{font.size.sm}" }
+    }
+  }
+}

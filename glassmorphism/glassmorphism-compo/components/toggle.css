@@ -1,0 +1,46 @@
+/* Toggle — the signature control: a frosted track with a glossy bead that
+   slides over and lights the track with the accent. Native checkbox underneath.
+
+   <label class="gl-toggle"><input type="checkbox" class="gl-toggle__input" /><span class="gl-toggle__track"></span>Label</label>
+*/
+.gl-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-space-3);
+  font-family: var(--ds-font-family-sans);
+  font-size: var(--ds-font-size-sm);
+  color: var(--ds-color-fg-default);
+  cursor: pointer;
+}
+.gl-toggle__input { position: absolute; opacity: 0; width: 1px; height: 1px; margin: 0; }
+.gl-toggle__track {
+  position: relative;
+  flex-shrink: 0;
+  width: 2.75rem; height: 1.5rem;
+  border-radius: var(--ds-radius-full);
+  background: rgba(255, 255, 255, 0.1);
+  border: var(--ds-border-width-hairline) solid var(--ds-color-border-glass);
+  box-shadow: inset 0 2px 6px rgba(4, 6, 24, 0.3);
+  transition: background 0.22s ease, border-color 0.22s ease;
+}
+.gl-toggle__track::after {
+  content: "";
+  position: absolute;
+  top: 50%; left: 3px;
+  width: 1.125rem; height: 1.125rem;
+  border-radius: var(--ds-radius-full);
+  background: linear-gradient(160deg, #ffffff, rgba(255, 255, 255, 0.75));
+  box-shadow: 0 2px 6px rgba(4, 6, 24, 0.35);
+  transform: translate(0, -50%);
+  transition: transform 0.22s cubic-bezier(0.3, 1.4, 0.5, 1);
+}
+.gl-toggle__input:checked + .gl-toggle__track {
+  background: var(--ds-color-accent-primary);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 0 16px color-mix(in srgb, var(--ds-color-accent-primary) 60%, transparent);
+}
+.gl-toggle__input:checked + .gl-toggle__track::after { transform: translate(1.25rem, -50%); }
+.gl-toggle__input:focus-visible + .gl-toggle__track { outline: var(--ds-border-width-focus) solid var(--ds-color-accent-secondary); outline-offset: 3px; }
+.gl-toggle__input:disabled + .gl-toggle__track { opacity: 0.45; cursor: not-allowed; }
+
+@media (prefers-reduced-motion: reduce) { .gl-toggle__track, .gl-toggle__track::after { transition: none; } }

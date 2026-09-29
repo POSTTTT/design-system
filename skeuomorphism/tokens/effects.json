@@ -1,0 +1,35 @@
+{
+  "shadow": {
+    "_comment": "Everything is lit from above: a white top-edge highlight plus a soft drop below. Strings emitted verbatim.",
+    "none":   { "$value": "none" },
+    "raised": { "$value": "inset 0 1px 0 rgba(255, 255, 255, 0.55), 0 1px 2px rgba(40, 25, 10, 0.35), 0 2px 5px rgba(40, 25, 10, 0.18)", "$description": "Button / chip sitting on a surface" },
+    "object": { "$value": "0 1px 1px rgba(40, 25, 10, 0.25), 0 6px 14px rgba(40, 25, 10, 0.22), 0 18px 36px rgba(40, 25, 10, 0.18)", "$description": "A physical object resting on the desk" },
+    "inset":  { "$value": "inset 0 2px 4px rgba(40, 25, 10, 0.3), inset 0 1px 1px rgba(40, 25, 10, 0.25), 0 1px 0 rgba(255, 255, 255, 0.6)", "$description": "A well cut into the surface" },
+    "pressed":{ "$value": "inset 0 2px 5px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(0, 0, 0, 0.3)", "$description": "Button held down" }
+  },
+
+  "textShadow": {
+    "_comment": "Letterpress: embossed text catches light below; debossed text is shaded above.",
+    "emboss": { "$value": "0 1px 0 rgba(255, 255, 255, 0.75)" },
+    "deboss": { "$value": "0 -1px 0 rgba(0, 0, 0, 0.45)" }
+  },
+
+  "border": {
+    "width": {
+      "$type": "dimension",
+      "hairline": { "$value": "1px" },
+      "stitch":   { "$value": "2px",  "$description": "Dashed stitching thread" },
+      "focus":    { "$value": "2px" }
+    }
+  },
+
+  "radius": {
+    "$type": "dimension",
+    "_comment": "Manufactured objects: softly machined corners, never sharp, never pill-soft (except switches).",
+    "sm":   { "$value": "0.3125rem" },
+    "md":   { "$value": "0.5rem" },
+    "lg":   { "$value": "0.75rem" },
+    "xl":   { "$value": "1rem" },
+    "full": { "$value": "9999px" }
+  }
+}

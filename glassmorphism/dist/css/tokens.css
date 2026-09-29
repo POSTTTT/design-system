@@ -1,0 +1,99 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --ds-color-palette-night: #0b1026; /** Deep indigo night — page canvas behind the orbs */
+  --ds-color-palette-violet: #7c3aed; /** Orb A + primary accent */
+  --ds-color-palette-magenta: #ec4899; /** Orb B */
+  --ds-color-palette-cyan: #22d3ee; /** Orb C + secondary accent */
+  --ds-color-palette-white: #ffffff;
+  --ds-color-palette-frost: rgba(255, 255, 255, 0.08); /** Default glass fill */
+  --ds-color-palette-frost-strong: rgba(255, 255, 255, 0.14); /** Raised / hovered glass fill */
+  --ds-color-palette-frost-edge: rgba(255, 255, 255, 0.22); /** Hairline glass edge */
+  --ds-color-palette-frost-shine: rgba(255, 255, 255, 0.45); /** Top-edge specular highlight */
+  --ds-color-palette-text: #f8fafc; /** Primary text on glass */
+  --ds-color-palette-text-soft: rgba(248, 250, 252, 0.74); /** Secondary text */
+  --ds-color-palette-text-faint: rgba(248, 250, 252, 0.52); /** Hints / placeholders */
+  --ds-color-palette-mint: #34d399;
+  --ds-color-palette-amber: #fbbf24;
+  --ds-color-palette-rose: #fb7185;
+  --ds-button-padding-x: 1.25rem;
+  --ds-button-padding-y: 0.625rem;
+  --ds-blur-sm: 8px; /** Chips, buttons */
+  --ds-blur-md: 18px; /** Cards, inputs */
+  --ds-blur-lg: 32px; /** Large sheets, nav bars */
+  --ds-shadow-none: none;
+  --ds-shadow-glass: 0 8px 32px rgba(4, 6, 24, 0.36), inset 0 1px 0 rgba(255, 255, 255, 0.35); /** Floating panel */
+  --ds-shadow-lift: 0 16px 48px rgba(4, 6, 24, 0.46), inset 0 1px 0 rgba(255, 255, 255, 0.45); /** Hovered / raised panel */
+  --ds-shadow-glow: 0 0 0 1px rgba(255, 255, 255, 0.18), 0 8px 28px color-mix(in srgb, var(--ds-color-accent-primary) 55%, transparent); /** Accent CTA glow — follows the live accent */
+  --ds-border-width-hairline: 1px;
+  --ds-border-width-base: 1.5px;
+  --ds-border-width-focus: 2px;
+  --ds-radius-sm: 0.5rem;
+  --ds-radius-md: 0.875rem;
+  --ds-radius-lg: 1.25rem;
+  --ds-radius-xl: 1.75rem;
+  --ds-radius-full: 9999px;
+  --ds-space-0: 0rem;
+  --ds-space-1: 0.25rem;
+  --ds-space-2: 0.5rem;
+  --ds-space-3: 0.75rem;
+  --ds-space-4: 1rem;
+  --ds-space-5: 1.5rem;
+  --ds-space-6: 2rem;
+  --ds-space-7: 3rem;
+  --ds-space-8: 4rem;
+  --ds-space-9: 6rem;
+  --ds-font-family-sans: Manrope, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif; /** Clean geometric sans — crisp over blur */
+  --ds-font-weight-regular: 400;
+  --ds-font-weight-medium: 500;
+  --ds-font-weight-semibold: 600;
+  --ds-font-weight-bold: 700;
+  --ds-font-weight-black: 800;
+  --ds-font-size-xs: 0.75rem;
+  --ds-font-size-sm: 0.875rem;
+  --ds-font-size-base: 1rem;
+  --ds-font-size-lg: 1.125rem;
+  --ds-font-size-xl: 1.375rem;
+  --ds-font-size-2xl: 1.75rem;
+  --ds-font-size-3xl: 2.25rem;
+  --ds-font-size-4xl: 3.25rem;
+  --ds-font-line-height-tight: 1.1;
+  --ds-font-line-height-snug: 1.35;
+  --ds-font-line-height-normal: 1.6;
+  --ds-font-letter-spacing-tight: -0.025em; /** Display headings */
+  --ds-font-letter-spacing-normal: 0em;
+  --ds-font-letter-spacing-wide: 0.12em; /** Uppercase eyebrow labels */
+  --ds-color-bg-canvas: var(--ds-color-palette-night);
+  --ds-color-bg-glass: var(--ds-color-palette-frost); /** Frosted panel fill */
+  --ds-color-bg-glass-strong: var(--ds-color-palette-frost-strong); /** Raised / hover panel fill */
+  --ds-color-bg-orb-a: var(--ds-color-palette-violet); /** Backdrop orb, top-left */
+  --ds-color-bg-orb-b: var(--ds-color-palette-magenta); /** Backdrop orb, top-right */
+  --ds-color-bg-orb-c: var(--ds-color-palette-cyan); /** Backdrop orb, bottom */
+  --ds-color-fg-default: var(--ds-color-palette-text);
+  --ds-color-fg-muted: var(--ds-color-palette-text-soft);
+  --ds-color-fg-faint: var(--ds-color-palette-text-faint);
+  --ds-color-fg-on-accent: var(--ds-color-palette-white); /** Text on a solid accent fill */
+  --ds-color-accent-primary: var(--ds-color-palette-violet); /** Solid CTA fill */
+  --ds-color-accent-secondary: var(--ds-color-palette-cyan); /** Glow / focus / active indicator */
+  --ds-color-border-glass: var(--ds-color-palette-frost-edge);
+  --ds-color-border-shine: var(--ds-color-palette-frost-shine);
+  --ds-color-feedback-success: var(--ds-color-palette-mint);
+  --ds-color-feedback-warning: var(--ds-color-palette-amber);
+  --ds-color-feedback-danger: var(--ds-color-palette-rose);
+  --ds-button-radius: var(--ds-radius-full);
+  --ds-button-border-width: var(--ds-border-width-hairline);
+  --ds-button-font-weight: var(--ds-font-weight-semibold);
+  --ds-button-font-size: var(--ds-font-size-sm);
+  --ds-card-radius: var(--ds-radius-xl);
+  --ds-card-border-width: var(--ds-border-width-hairline);
+  --ds-card-blur: var(--ds-blur-md);
+  --ds-card-padding: var(--ds-space-5);
+  --ds-button-border-color: var(--ds-color-border-glass);
+  --ds-button-bg: var(--ds-color-bg-glass); /** Default = frosted pill */
+  --ds-button-fg: var(--ds-color-fg-default);
+  --ds-card-bg: var(--ds-color-bg-glass);
+  --ds-card-fg: var(--ds-color-fg-default);
+  --ds-card-border-color: var(--ds-color-border-glass);
+}

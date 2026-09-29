@@ -1,0 +1,36 @@
+/* Tag / chip + status dot + eyebrow label. */
+.gl-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  font-family: var(--ds-font-family-sans);
+  font-size: var(--ds-font-size-xs);
+  font-weight: var(--ds-font-weight-semibold);
+  color: var(--ds-color-fg-default);
+  background: var(--ds-color-bg-glass);
+  -webkit-backdrop-filter: blur(var(--ds-blur-sm));
+  backdrop-filter: blur(var(--ds-blur-sm));
+  border: var(--ds-border-width-hairline) solid var(--ds-color-border-glass);
+  border-radius: var(--ds-radius-full);
+  padding: 0.3em 0.8em;
+}
+.gl-tag--accent  { background: color-mix(in srgb, var(--ds-color-accent-primary) 35%, transparent); border-color: color-mix(in srgb, var(--ds-color-accent-primary) 70%, white); }
+.gl-tag--success { color: var(--ds-color-feedback-success); border-color: color-mix(in srgb, var(--ds-color-feedback-success) 50%, transparent); }
+.gl-tag--warning { color: var(--ds-color-feedback-warning); border-color: color-mix(in srgb, var(--ds-color-feedback-warning) 50%, transparent); }
+.gl-tag--danger  { color: var(--ds-color-feedback-danger);  border-color: color-mix(in srgb, var(--ds-color-feedback-danger) 50%, transparent); }
+
+/* status dot — a small glowing bead */
+.gl-dot { display: inline-block; width: 8px; height: 8px; border-radius: var(--ds-radius-full); background: var(--ds-color-accent-secondary); box-shadow: 0 0 10px var(--ds-color-accent-secondary); }
+.gl-dot--success { background: var(--ds-color-feedback-success); box-shadow: 0 0 10px var(--ds-color-feedback-success); }
+.gl-dot--warning { background: var(--ds-color-feedback-warning); box-shadow: 0 0 10px var(--ds-color-feedback-warning); }
+.gl-dot--danger  { background: var(--ds-color-feedback-danger);  box-shadow: 0 0 10px var(--ds-color-feedback-danger); }
+
+/* eyebrow / section label */
+.gl-label {
+  font-family: var(--ds-font-family-sans);
+  font-size: var(--ds-font-size-xs);
+  font-weight: var(--ds-font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--ds-font-letter-spacing-wide);
+  color: var(--ds-color-fg-muted);
+}

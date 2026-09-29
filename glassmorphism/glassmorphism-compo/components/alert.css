@@ -1,0 +1,32 @@
+/* Alert — a frosted pane tinted by its status, with a glowing status bead. */
+.gl-alert {
+  display: flex;
+  gap: var(--ds-space-3);
+  align-items: flex-start;
+  font-family: var(--ds-font-family-sans);
+  font-size: var(--ds-font-size-sm);
+  color: var(--ds-color-fg-default);
+  --gl-alert-tone: var(--ds-color-accent-secondary);
+  background: linear-gradient(120deg, color-mix(in srgb, var(--gl-alert-tone) 18%, transparent), var(--ds-color-bg-glass) 60%);
+  -webkit-backdrop-filter: blur(var(--ds-blur-md));
+  backdrop-filter: blur(var(--ds-blur-md));
+  border: var(--ds-border-width-hairline) solid color-mix(in srgb, var(--gl-alert-tone) 40%, transparent);
+  border-radius: var(--ds-radius-lg);
+  padding: var(--ds-space-4) var(--ds-space-5);
+  box-shadow: var(--ds-shadow-glass);
+}
+.gl-alert::before {
+  content: "";
+  flex-shrink: 0;
+  width: 8px; height: 8px;
+  margin-top: 0.4em;
+  border-radius: var(--ds-radius-full);
+  background: var(--gl-alert-tone);
+  box-shadow: 0 0 10px var(--gl-alert-tone);
+}
+.gl-alert__title { font-weight: var(--ds-font-weight-bold); margin: 0 0 var(--ds-space-1); }
+.gl-alert__body  { margin: 0; color: var(--ds-color-fg-muted); line-height: var(--ds-font-line-height-snug); }
+
+.gl-alert--success { --gl-alert-tone: var(--ds-color-feedback-success); }
+.gl-alert--warning { --gl-alert-tone: var(--ds-color-feedback-warning); }
+.gl-alert--danger  { --gl-alert-tone: var(--ds-color-feedback-danger); }

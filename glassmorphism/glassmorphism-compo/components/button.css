@@ -1,0 +1,46 @@
+/* Button — a frosted pill by default; primary is a solid accent that glows. */
+.gl-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ds-space-2);
+  font-family: var(--ds-font-family-sans);
+  font-weight: var(--ds-button-font-weight);
+  font-size: var(--ds-button-font-size);
+  line-height: 1.1;
+  color: var(--ds-button-fg);
+  background: var(--ds-button-bg);
+  -webkit-backdrop-filter: blur(var(--ds-blur-sm)) saturate(160%);
+  backdrop-filter: blur(var(--ds-blur-sm)) saturate(160%);
+  border: var(--ds-button-border-width) solid var(--ds-button-border-color);
+  border-radius: var(--ds-button-radius);
+  padding: var(--ds-button-padding-y) var(--ds-button-padding-x);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+}
+.gl-btn:hover { background: var(--ds-color-bg-glass-strong); border-color: var(--ds-color-border-shine); }
+.gl-btn:active { transform: scale(0.97); }
+.gl-btn:focus-visible { outline: var(--ds-border-width-focus) solid var(--ds-color-accent-secondary); outline-offset: 3px; }
+.gl-btn:disabled,
+.gl-btn[aria-disabled="true"] { opacity: 0.45; cursor: not-allowed; transform: none; }
+
+/* primary — solid accent with a colored glow */
+.gl-btn--primary {
+  background: var(--ds-color-accent-primary);
+  color: var(--ds-color-fg-on-accent);
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow: var(--ds-shadow-glow);
+}
+.gl-btn--primary:hover { background: color-mix(in srgb, var(--ds-color-accent-primary) 86%, white); border-color: rgba(255, 255, 255, 0.4); }
+
+/* ghost — no pane, just text that frosts on hover */
+.gl-btn--ghost { background: transparent; border-color: transparent; box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none; }
+
+/* sizes */
+.gl-btn--sm { font-size: var(--ds-font-size-xs); padding: var(--ds-space-2) var(--ds-space-4); }
+.gl-btn--lg { font-size: var(--ds-font-size-base); padding: var(--ds-space-3) var(--ds-space-6); }
+.gl-btn--icon { padding: 0; width: 2.5rem; height: 2.5rem; }
+
+@media (prefers-reduced-motion: reduce) { .gl-btn { transition: none; } .gl-btn:active { transform: none; } }

@@ -1,0 +1,21 @@
+/* Materials — the textures every component is cut from. All CSS/SVG, no images.
+   --sk-grain        fine paper grain
+   --sk-grain-strong pebbled leather grain
+   --sk-brushed      brushed-metal streaks (layer over a metal gradient) */
+:root {
+  --sk-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --sk-grain-strong: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.55' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .32 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --sk-brushed: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.18) 0 1px, rgba(0, 0, 0, 0.03) 1px 2px, transparent 2px 4px);
+}
+
+/* Linen tablecloth — a fine cross-weave under a paper grain. Put on <body>. */
+.sk-linen {
+  min-height: 100vh;
+  color: var(--ds-color-fg-default);
+  font-family: var(--ds-font-family-sans);
+  background-color: var(--ds-color-bg-canvas);
+  background-image:
+    var(--sk-grain),
+    repeating-linear-gradient(0deg,  color-mix(in srgb, var(--ds-color-bg-canvas-shade) 70%, transparent) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, color-mix(in srgb, var(--ds-color-bg-canvas-shade) 55%, transparent) 0 1px, transparent 1px 3px);
+}

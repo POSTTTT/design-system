@@ -1,0 +1,66 @@
+/* Card — a sheet of cream paper resting on the desk. Material variants:
+   --leather (stitched), --metal (brushed plate), --notepad (ruled paper). */
+.sk-card {
+  position: relative;
+  background: var(--sk-grain), var(--ds-card-bg);
+  color: var(--ds-card-fg);
+  border: var(--ds-card-border-width) solid var(--ds-card-border-color);
+  border-radius: var(--ds-card-radius);
+  padding: var(--ds-card-padding);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), var(--ds-shadow-object);
+}
+.sk-card__title {
+  font-family: var(--ds-font-family-serif);
+  font-weight: var(--ds-font-weight-bold);
+  font-size: var(--ds-font-size-lg);
+  letter-spacing: var(--ds-font-letter-spacing-tight);
+  text-shadow: var(--ds-text-shadow-emboss);
+  margin: 0 0 var(--ds-space-2);
+}
+.sk-card__body { margin: 0; color: var(--ds-color-fg-muted); line-height: var(--ds-font-line-height-normal); }
+
+/* leather — pebbled hide, darker at the edges, with a stitched inner seam */
+.sk-card--leather {
+  color: var(--ds-color-fg-on-leather);
+  border-color: color-mix(in srgb, var(--ds-color-bg-leather) 45%, black);
+  background:
+    var(--sk-grain-strong),
+    radial-gradient(ellipse at 50% 35%, transparent 40%, color-mix(in srgb, var(--ds-color-bg-leather) 55%, black) 100%),
+    var(--ds-color-bg-leather);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), var(--ds-shadow-object);
+  padding: calc(var(--ds-card-padding) + 6px);
+}
+.sk-card--leather::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: var(--ds-border-width-stitch) dashed var(--ds-color-detail-stitch);
+  border-radius: calc(var(--ds-card-radius) - 4px);
+  opacity: 0.85;
+  filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.45));
+  pointer-events: none;
+}
+.sk-card--leather .sk-card__title { text-shadow: var(--ds-text-shadow-deboss); }
+.sk-card--leather .sk-card__body  { color: color-mix(in srgb, var(--ds-color-fg-on-leather) 85%, transparent); }
+
+/* metal — a brushed aluminium faceplate */
+.sk-card--metal {
+  background: var(--sk-brushed), linear-gradient(to bottom, var(--ds-color-bg-metal-light), color-mix(in srgb, var(--ds-color-bg-metal-dark) 60%, var(--ds-color-bg-metal-light)));
+  border-color: color-mix(in srgb, var(--ds-color-bg-metal-dark) 70%, black);
+}
+
+/* notepad — ruled lines, red margin, handwriting */
+.sk-card--notepad {
+  --sk-line: 1.75rem;
+  font-family: var(--ds-font-family-hand);
+  font-size: var(--ds-font-size-xl);
+  line-height: var(--sk-line);
+  padding: var(--sk-line) var(--ds-space-5) var(--sk-line) calc(var(--ds-space-7) + var(--ds-space-2));
+  background:
+    linear-gradient(90deg, transparent calc(var(--ds-space-7) - 1px), var(--ds-color-detail-margin) calc(var(--ds-space-7) - 1px) var(--ds-space-7), transparent var(--ds-space-7)),
+    repeating-linear-gradient(to bottom, transparent 0 calc(var(--sk-line) - 1px), var(--ds-color-detail-rule) calc(var(--sk-line) - 1px) var(--sk-line)),
+    var(--sk-grain),
+    var(--ds-card-bg);
+  background-position: 0 0, 0 calc(var(--sk-line) * 0.75), 0 0, 0 0;
+}
+.sk-card--notepad p { margin: 0; }

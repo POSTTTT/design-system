@@ -1,0 +1,19 @@
+/*
+ * Skeuomorphism component library.
+ * Import THIS one file to get the tokens + every component class.
+ *
+ *   <link rel="stylesheet" href="skeuomorphism/skeuomorphism-compo/components.css" />
+ *
+ * Components are namespaced with `sk-` so multiple styles can coexist.
+ * Put `.sk-linen` on <body> for the linen tablecloth canvas.
+ */
+@import url("../dist/css/tokens.css");
+
+@import url("./components/materials.css");
+@import url("./components/button.css");
+@import url("./components/card.css");
+@import url("./components/tag.css");
+@import url("./components/input.css");
+@import url("./components/alert.css");
+@import url("./components/list.css");
+@import url("./components/toggle.css");

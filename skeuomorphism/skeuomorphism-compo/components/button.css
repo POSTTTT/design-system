@@ -1,0 +1,56 @@
+/* Button — a physical key. Default is an ivory key; tone variants are glossy
+   candy glass with the classic split highlight. Presses into the surface. */
+.sk-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ds-space-2);
+  font-family: var(--ds-font-family-sans);
+  font-weight: var(--ds-button-font-weight);
+  font-size: var(--ds-button-font-size);
+  line-height: 1.1;
+  color: var(--ds-button-fg);
+  text-shadow: var(--ds-text-shadow-emboss);
+  background: linear-gradient(to bottom, #ffffff, #f1ebdf 55%, #e2d9c8);
+  border: var(--ds-button-border-width) solid var(--ds-button-border-color);
+  border-radius: var(--ds-button-radius);
+  padding: var(--ds-button-padding-y) var(--ds-button-padding-x);
+  box-shadow: var(--ds-shadow-raised);
+  cursor: pointer;
+  text-decoration: none;
+}
+.sk-btn:hover { background: linear-gradient(to bottom, #ffffff, #f6f1e7 55%, #e9e1d2); }
+.sk-btn:active { background: linear-gradient(to bottom, #ddd3c1, #ece5d8); box-shadow: var(--ds-shadow-pressed); }
+.sk-btn:focus-visible { outline: var(--ds-border-width-focus) solid var(--ds-color-accent-primary); outline-offset: 2px; }
+.sk-btn:disabled,
+.sk-btn[aria-disabled="true"] { opacity: 0.5; cursor: not-allowed; box-shadow: var(--ds-shadow-raised); }
+
+/* glossy tone buttons — set --sk-tone */
+.sk-btn--primary { --sk-tone: var(--ds-color-accent-primary); }
+.sk-btn--success { --sk-tone: var(--ds-color-feedback-success); }
+.sk-btn--danger  { --sk-tone: var(--ds-color-feedback-danger); }
+.sk-btn--primary, .sk-btn--success, .sk-btn--danger {
+  color: var(--ds-color-fg-on-accent);
+  text-shadow: var(--ds-text-shadow-deboss);
+  border-color: color-mix(in srgb, var(--sk-tone) 55%, black);
+  background: linear-gradient(to bottom,
+    color-mix(in srgb, var(--sk-tone) 55%, white) 0%,
+    color-mix(in srgb, var(--sk-tone) 82%, white) 49%,
+    var(--sk-tone) 50%,
+    color-mix(in srgb, var(--sk-tone) 88%, black) 100%);
+}
+.sk-btn--primary:hover, .sk-btn--success:hover, .sk-btn--danger:hover { filter: brightness(1.06); }
+.sk-btn--primary:active, .sk-btn--success:active, .sk-btn--danger:active {
+  background: linear-gradient(to bottom, color-mix(in srgb, var(--sk-tone) 80%, black), var(--sk-tone));
+  filter: none;
+}
+
+/* metal — brushed aluminium key */
+.sk-btn--metal { background: var(--sk-brushed), linear-gradient(to bottom, var(--ds-color-bg-metal-light), var(--ds-color-bg-metal-dark)); }
+.sk-btn--metal:hover { background: var(--sk-brushed), linear-gradient(to bottom, #f7f8f9, #b3b9c0); }
+.sk-btn--metal:active { background: var(--sk-brushed), linear-gradient(to bottom, var(--ds-color-bg-metal-dark), var(--ds-color-bg-metal-light)); }
+
+/* sizes */
+.sk-btn--sm { font-size: var(--ds-font-size-xs); padding: var(--ds-space-1) var(--ds-space-3); }
+.sk-btn--lg { font-size: var(--ds-font-size-base); padding: var(--ds-space-3) var(--ds-space-5); }
+.sk-btn--round { padding: 0; width: 2.75rem; height: 2.75rem; border-radius: var(--ds-radius-full); }

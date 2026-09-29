@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Skeuomorphism · Design System Catalog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Libre+Baskerville:wght@400;700&family=Caveat:wght@500&display=swap" rel="stylesheet" />
+<!-- One import: generated tokens + every sk- component. -->
+<link rel="stylesheet" href="../skeuomorphism-compo/components.css" />
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; line-height: var(--ds-font-line-height-normal); overflow-x: hidden; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: var(--ds-space-7) var(--ds-space-4); }
+  code { color: var(--ds-color-fg-muted); font-size: 0.9em; }
+
+  .masthead { margin-bottom: var(--ds-space-7); }
+  .masthead h1 { font-family: var(--ds-font-family-serif); font-size: clamp(2.25rem, 7vw, var(--ds-font-size-4xl)); line-height: var(--ds-font-line-height-tight); margin: var(--ds-space-2) 0 var(--ds-space-3); color: var(--ds-color-fg-default); text-shadow: var(--ds-text-shadow-emboss); }
+  .masthead p { color: var(--ds-color-fg-muted); margin: 0; max-width: 62ch; }
+
+  section { margin-bottom: var(--ds-space-7); }
+  h2 { font-family: var(--ds-font-family-serif); font-size: var(--ds-font-size-xl); margin: 0 0 var(--ds-space-4); text-shadow: var(--ds-text-shadow-emboss); }
+  .grid { display: grid; gap: var(--ds-space-4); grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+  .stack { display: flex; flex-direction: column; gap: var(--ds-space-5); }
+  .row { display: flex; flex-wrap: wrap; gap: var(--ds-space-4); align-items: center; }
+
+  .swatch { padding: 0; overflow: hidden; }
+  .swatch .chip { height: 56px; border-bottom: var(--ds-border-width-hairline) solid var(--ds-color-border-default); }
+  .swatch .meta { padding: var(--ds-space-2) var(--ds-space-3) var(--ds-space-3); }
+  .swatch .name { font-size: var(--ds-font-size-sm); font-weight: var(--ds-font-weight-bold); }
+  .swatch code { font-size: var(--ds-font-size-xs); }
+
+  .scaleRow { display: flex; align-items: center; gap: var(--ds-space-4); margin-bottom: var(--ds-space-2); font-size: var(--ds-font-size-sm); }
+  .scaleRow code { width: 4.5rem; flex-shrink: 0; }
+  .bar { height: 10px; border-radius: var(--ds-radius-full); box-shadow: var(--ds-shadow-inset); background: linear-gradient(to bottom, color-mix(in srgb, var(--ds-color-accent-primary) 60%, white), var(--ds-color-accent-primary)); }
+  .radiusBox { width: 76px; height: 76px; background: linear-gradient(#fff, #ebe3d4); border: var(--ds-border-width-hairline) solid var(--ds-color-border-strong); box-shadow: var(--ds-shadow-raised); display: grid; place-items: end center; padding: var(--ds-space-2); font-size: var(--ds-font-size-xs); font-weight: var(--ds-font-weight-bold); color: var(--ds-color-fg-muted); }
+  .materials { display: grid; gap: var(--ds-space-4); grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+  .materials .sk-card { min-height: 130px; }
+</style>
+</head>
+<body class="sk-linen">
+<div class="wrap">
+
+  <header class="masthead">
+    <span class="sk-tag"><span class="sk-led sk-led--on"></span>design system · v0.1</span>
+    <h1>Skeuomorphism</h1>
+    <p>Interfaces made of things — linen, stitched leather, cream paper, brushed aluminium and glossy glass keys, all lit from above. Tokens from <code>dist/css/tokens.css</code>; components from <code>skeuomorphism-compo/</code>.</p>
+  </header>
+
+  <section>
+    <h2>Materials</h2>
+    <div class="materials">
+      <div class="sk-card"><h3 class="sk-card__title">Paper</h3><p class="sk-card__body"><code>.sk-card</code> — grained cream stock.</p></div>
+      <div class="sk-card sk-card--leather"><h3 class="sk-card__title">Leather</h3><p class="sk-card__body">Pebbled hide, stitched seam. <code style="color:inherit">--leather</code></p></div>
+      <div class="sk-card sk-card--metal"><h3 class="sk-card__title">Aluminium</h3><p class="sk-card__body">Brushed plate. <code>--metal</code></p></div>
+      <div class="sk-card sk-card--notepad"><p>Ruled notepad —</p><p>handwritten. <span style="font-family:var(--ds-font-family-sans);font-size:var(--ds-font-size-xs)"><code>--notepad</code></span></p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Colors</h2>
+    <div class="grid">
+      <div class="sk-card swatch"><div class="chip" style="background:var(--ds-color-bg-canvas)"></div><div class="meta"><div class="name">linen</div><code>#e6ddcc</code></div></div>
+      <div class="sk-card swatch"><div class="chip" style="background:var(--ds-color-bg-leather)"></div><div class="meta"><div class="name">leather</div><code>#8a5a36</code></div></div>
+      <div class="sk-card swatch"><div class="chip" style="background:var(--ds-color-detail-stitch)"></div><div class="meta"><div class="name">stitch</div><code>#f0dfbd</code></div></div>
+      <div class="sk-card swatch"><div class="chip" style="background:var(--ds-color-bg-paper)"></div><div class="meta"><div class="name">paper</div><code>#fdf8ea</code></div></div>
+      <div class="sk-card swatch"><div class="chip" style="background:linear-gradient(var(--ds-color-bg-metal-light),var(--ds-color-bg-metal-dark))"></div><div class="meta"><div class="name">aluminium</div><code>#eef0f2 → #a4aab2</code></div></div>
+      <div class="sk-card swatch"><div class="chip" style="background:var(--ds-color-fg-default)"></div><div class="meta"><div class="name">ink</div><code>#2e241b</code></div></div>
+      <div class="sk-card swatch"><div class="chip" style="background:var(--ds-color-accent-primary)"></div><div class="meta"><div class="name">sapphire</div><code>#2b64c8</code></div></div>
+      <div class="sk-card swatch"><div class="chip" style="background:var(--ds-color-feedback-success)"></div><div class="meta"><div class="name">moss</div><code>#33782e</code></div></div>
+      <div class="sk-card swatch"><div class="chip" style="background:var(--ds-color-feedback-warning)"></div><div class="meta"><div class="name">amber</div><code>#9a6212</code></div></div>
+      <div class="sk-card swatch"><div class="chip" style="background:var(--ds-color-feedback-danger)"></div><div class="meta"><div class="name">brick</div><code>#b83a2e</code></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Typography</h2>
+    <div class="sk-card">
+      <p style="font-family:var(--ds-font-family-serif);font-size:var(--ds-font-size-4xl);line-height:var(--ds-font-line-height-tight);text-shadow:var(--ds-text-shadow-emboss);margin:0 0 var(--ds-space-3)">Made of things</p>
+      <p style="font-family:var(--ds-font-family-serif);font-size:var(--ds-font-size-2xl);font-weight:var(--ds-font-weight-bold);margin:0 0 var(--ds-space-3)">Title · Libre Baskerville</p>
+      <p style="margin:0 0 var(--ds-space-3)">Body — Source Sans 3 at 1rem. The plain Helvetica-era interface voice, letting the materials do the talking.</p>
+      <p style="font-family:var(--ds-font-family-hand);font-size:var(--ds-font-size-2xl);margin:0 0 var(--ds-space-3);color:var(--ds-color-fg-muted)">Handwriting — Caveat, for notes.</p>
+      <span class="sk-label">Engraved label · 0.1em tracking</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Spacing · radius</h2>
+    <div class="sk-card" style="margin-bottom:var(--ds-space-4)">
+      <div class="scaleRow"><code>space-2</code><div class="bar" style="width:var(--ds-space-2)"></div></div>
+      <div class="scaleRow"><code>space-4</code><div class="bar" style="width:var(--ds-space-4)"></div></div>
+      <div class="scaleRow"><code>space-6</code><div class="bar" style="width:var(--ds-space-6)"></div></div>
+      <div class="scaleRow"><code>space-8</code><div class="bar" style="width:var(--ds-space-8)"></div></div>
+      <div class="scaleRow"><code>space-9</code><div class="bar" style="width:var(--ds-space-9)"></div></div>
+    </div>
+    <div class="row">
+      <div class="radiusBox" style="border-radius:var(--ds-radius-sm)">sm</div>
+      <div class="radiusBox" style="border-radius:var(--ds-radius-md)">md</div>
+      <div class="radiusBox" style="border-radius:var(--ds-radius-lg)">lg</div>
+      <div class="radiusBox" style="border-radius:var(--ds-radius-xl)">xl</div>
+      <div class="radiusBox" style="border-radius:var(--ds-radius-full);place-items:center">full</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Components</h2>
+    <div class="stack">
+
+      <div class="sk-card">
+        <p class="sk-label" style="margin:0 0 var(--ds-space-3)">Buttons</p>
+        <div class="row">
+          <button class="sk-btn sk-btn--primary">Save</button>
+          <button class="sk-btn">Cancel</button>
+          <button class="sk-btn sk-btn--metal">Metal</button>
+          <button class="sk-btn sk-btn--success">Confirm</button>
+          <button class="sk-btn sk-btn--danger">Delete</button>
+          <button class="sk-btn sk-btn--sm">Small</button>
+          <button class="sk-btn sk-btn--metal sk-btn--round" aria-label="Play">▶</button>
+          <button class="sk-btn" disabled>Disabled</button>
+        </div>
+      </div>
+
+      <div class="sk-card">
+        <p class="sk-label" style="margin:0 0 var(--ds-space-3)">Toggles</p>
+        <div class="row" style="gap:var(--ds-space-6)">
+          <label class="sk-toggle"><input type="checkbox" class="sk-toggle__input" checked /><span class="sk-toggle__track"></span>Wi-Fi</label>
+          <label class="sk-toggle"><input type="checkbox" class="sk-toggle__input" /><span class="sk-toggle__track"></span>Airplane mode</label>
+          <label class="sk-toggle"><input type="checkbox" class="sk-toggle__input" disabled /><span class="sk-toggle__track"></span>Locked</label>
+        </div>
+      </div>
+
+      <div class="sk-card">
+        <p class="sk-label" style="margin:0 0 var(--ds-space-3)">Tags · LEDs</p>
+        <div class="row">
+          <span class="sk-tag">Draft</span>
+          <span class="sk-tag sk-tag--accent">New</span>
+          <span class="sk-tag sk-tag--success"><span class="sk-led sk-led--success"></span>Synced</span>
+          <span class="sk-tag sk-tag--warning"><span class="sk-led sk-led--warning"></span>Pending</span>
+          <span class="sk-tag sk-tag--danger"><span class="sk-led sk-led--danger"></span>Error</span>
+          <span class="sk-tag"><span class="sk-led"></span>Off</span>
+        </div>
+      </div>
+
+      <div>
+        <p class="sk-label" style="margin:0 0 var(--ds-space-2) var(--ds-space-3)">Grouped list</p>
+        <div class="sk-list">
+          <a class="sk-list__row" href="#"><span class="sk-list__label">General</span><span class="sk-list__value--muted sk-list__chevron"></span></a>
+          <a class="sk-list__row" href="#"><span class="sk-list__label">Wallpaper</span><span class="sk-list__value sk-list__chevron">Linen</span></a>
+          <div class="sk-list__row"><span class="sk-list__label"><span class="sk-led sk-led--success"></span>Backup</span><span class="sk-list__value sk-list__value--success">Today, 09:14</span></div>
+          <div class="sk-list__row"><span class="sk-list__label"><span class="sk-led sk-led--danger"></span>Storage</span><span class="sk-list__value sk-list__value--danger">96% full</span></div>
+        </div>
+      </div>
+
+      <div class="sk-card">
+        <label class="sk-field"><span class="sk-field__label">Title</span><input class="sk-input" placeholder="Untitled note" /></label>
+      </div>
+
+      <div class="sk-alert"><span class="sk-led sk-led--on"></span><div><p class="sk-alert__title">Reminder</p><p class="sk-alert__body">Pick up the bound proofs from the printer at 4 pm.</p></div></div>
+      <div class="sk-alert sk-alert--success"><span class="sk-led sk-led--success"></span><div><p class="sk-alert__title">Saved</p><p class="sk-alert__body">Your notebook was saved to the cabinet.</p></div></div>
+      <div class="sk-alert sk-alert--warning"><span class="sk-led sk-led--warning"></span><div><p class="sk-alert__title">Low ink</p><p class="sk-alert__body">The fountain pen has about two pages left.</p></div></div>
+      <div class="sk-alert sk-alert--danger"><span class="sk-led sk-led--danger"></span><div><p class="sk-alert__title">Torn page</p><p class="sk-alert__body">Page 14 could not be recovered.</p></div></div>
+    </div>
+  </section>
+
+  <footer style="font-size:var(--ds-font-size-xs);color:var(--ds-color-fg-muted);text-align:center;padding:var(--ds-space-6) 0;text-shadow:var(--ds-text-shadow-emboss)">
+    tokens/ → style-dictionary → dist/ → skeuomorphism-compo/ → this catalog
+  </footer>
+
+</div>
+
+<!-- Live theme setting (presets + custom colors, persisted). -->
+<script src="../palette-setting.js"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --ds-color-palette-linen: #e6ddcc; /** Linen tablecloth — page canvas */
+  --ds-color-palette-linen-shade: #d6cab4; /** Linen weave threads */
+  --ds-color-palette-leather: #8a5a36; /** Tan saddle leather */
+  --ds-color-palette-leather-deep: #5a3820; /** Leather in shadow / edge dye */
+  --ds-color-palette-stitch: #f0dfbd; /** Cream waxed thread */
+  --ds-color-palette-paper: #fdf8ea; /** Cream writing paper */
+  --ds-color-palette-rule: #b9d2e8; /** Blue notebook rule */
+  --ds-color-palette-margin: #e7a3a3; /** Red notebook margin line */
+  --ds-color-palette-metal-light: #eef0f2; /** Brushed aluminium, lit */
+  --ds-color-palette-metal-dark: #a4aab2; /** Brushed aluminium, shaded */
+  --ds-color-palette-ink: #2e241b; /** Dark walnut ink — primary text */
+  --ds-color-palette-ink-soft: #665545; /** Secondary text */
+  --ds-color-palette-ink-faint: #9a8a78; /** Hints / placeholders */
+  --ds-color-palette-white: #ffffff;
+  --ds-color-palette-sapphire: #2b64c8; /** Glossy primary button */
+  --ds-color-palette-moss: #33782e;
+  --ds-color-palette-amber: #9a6212;
+  --ds-color-palette-brick: #b83a2e;
+  --ds-color-border-default: rgba(46, 36, 27, 0.28); /** Physical edge where two materials meet */
+  --ds-color-border-strong: rgba(46, 36, 27, 0.5);
+  --ds-button-padding-x: 1.125rem;
+  --ds-button-padding-y: 0.5rem;
+  --ds-shadow-none: none;
+  --ds-shadow-raised: inset 0 1px 0 rgba(255, 255, 255, 0.55), 0 1px 2px rgba(40, 25, 10, 0.35), 0 2px 5px rgba(40, 25, 10, 0.18); /** Button / chip sitting on a surface */
+  --ds-shadow-object: 0 1px 1px rgba(40, 25, 10, 0.25), 0 6px 14px rgba(40, 25, 10, 0.22), 0 18px 36px rgba(40, 25, 10, 0.18); /** A physical object resting on the desk */
+  --ds-shadow-inset: inset 0 2px 4px rgba(40, 25, 10, 0.3), inset 0 1px 1px rgba(40, 25, 10, 0.25), 0 1px 0 rgba(255, 255, 255, 0.6); /** A well cut into the surface */
+  --ds-shadow-pressed: inset 0 2px 5px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(0, 0, 0, 0.3); /** Button held down */
+  --ds-text-shadow-emboss: 0 1px 0 rgba(255, 255, 255, 0.75);
+  --ds-text-shadow-deboss: 0 -1px 0 rgba(0, 0, 0, 0.45);
+  --ds-border-width-hairline: 1px;
+  --ds-border-width-stitch: 2px; /** Dashed stitching thread */
+  --ds-border-width-focus: 2px;
+  --ds-radius-sm: 0.3125rem;
+  --ds-radius-md: 0.5rem;
+  --ds-radius-lg: 0.75rem;
+  --ds-radius-xl: 1rem;
+  --ds-radius-full: 9999px;
+  --ds-space-0: 0rem;
+  --ds-space-1: 0.25rem;
+  --ds-space-2: 0.5rem;
+  --ds-space-3: 0.75rem;
+  --ds-space-4: 1rem;
+  --ds-space-5: 1.5rem;
+  --ds-space-6: 2rem;
+  --ds-space-7: 3rem;
+  --ds-space-8: 4rem;
+  --ds-space-9: 6rem;
+  --ds-font-family-sans: 'Source Sans 3', 'Helvetica Neue', Helvetica, Arial, sans-serif; /** UI text — the Helvetica-era interface voice */
+  --ds-font-family-serif: 'Libre Baskerville', Baskerville, Georgia, serif; /** Embossed titles, like foil-stamped book covers */
+  --ds-font-family-hand: Caveat, 'Marker Felt', 'Bradley Hand', cursive; /** Handwriting on notepad paper */
+  --ds-font-weight-regular: 400;
+  --ds-font-weight-semibold: 600;
+  --ds-font-weight-bold: 700;
+  --ds-font-size-xs: 0.75rem;
+  --ds-font-size-sm: 0.875rem;
+  --ds-font-size-base: 1rem;
+  --ds-font-size-lg: 1.125rem;
+  --ds-font-size-xl: 1.375rem;
+  --ds-font-size-2xl: 1.75rem;
+  --ds-font-size-3xl: 2.25rem;
+  --ds-font-size-4xl: 3rem;
+  --ds-font-line-height-tight: 1.15;
+  --ds-font-line-height-snug: 1.35;
+  --ds-font-line-height-normal: 1.55;
+  --ds-font-line-height-ruled: 1.75; /** Matches the notepad rule spacing */
+  --ds-font-letter-spacing-tight: -0.01em;
+  --ds-font-letter-spacing-normal: 0em;
+  --ds-font-letter-spacing-wide: 0.1em; /** Engraved uppercase labels */
+  --ds-color-bg-canvas: var(--ds-color-palette-linen);
+  --ds-color-bg-canvas-shade: var(--ds-color-palette-linen-shade); /** Linen weave thread color */
+  --ds-color-bg-paper: var(--ds-color-palette-paper); /** Default card surface */
+  --ds-color-bg-leather: var(--ds-color-palette-leather);
+  --ds-color-bg-metal-light: var(--ds-color-palette-metal-light);
+  --ds-color-bg-metal-dark: var(--ds-color-palette-metal-dark);
+  --ds-color-fg-default: var(--ds-color-palette-ink);
+  --ds-color-fg-muted: var(--ds-color-palette-ink-soft);
+  --ds-color-fg-faint: var(--ds-color-palette-ink-faint);
+  --ds-color-fg-on-accent: var(--ds-color-palette-white); /** Text on glossy accent */
+  --ds-color-fg-on-leather: var(--ds-color-palette-stitch); /** Text debossed into leather */
+  --ds-color-accent-primary: var(--ds-color-palette-sapphire); /** Glossy CTA */
+  --ds-color-detail-stitch: var(--ds-color-palette-stitch);
+  --ds-color-detail-rule: var(--ds-color-palette-rule);
+  --ds-color-detail-margin: var(--ds-color-palette-margin);
+  --ds-color-feedback-success: var(--ds-color-palette-moss);
+  --ds-color-feedback-warning: var(--ds-color-palette-amber);
+  --ds-color-feedback-danger: var(--ds-color-palette-brick);
+  --ds-button-radius: var(--ds-radius-md);
+  --ds-button-border-width: var(--ds-border-width-hairline);
+  --ds-button-border-color: var(--ds-color-border-strong);
+  --ds-button-font-weight: var(--ds-font-weight-bold);
+  --ds-button-font-size: var(--ds-font-size-sm);
+  --ds-card-radius: var(--ds-radius-lg);
+  --ds-card-border-width: var(--ds-border-width-hairline);
+  --ds-card-border-color: var(--ds-color-border-default);
+  --ds-card-padding: var(--ds-space-5);
+  --ds-button-fg: var(--ds-color-fg-default);
+  --ds-card-bg: var(--ds-color-bg-paper);
+  --ds-card-fg: var(--ds-color-fg-default);
+}

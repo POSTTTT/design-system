@@ -1,0 +1,47 @@
+{
+  "color": {
+    "bg": {
+      "$type": "color",
+      "canvas":      { "$value": "{color.palette.linen}" },
+      "canvasShade": { "$value": "{color.palette.linenShade}", "$description": "Linen weave thread color" },
+      "paper":       { "$value": "{color.palette.paper}",      "$description": "Default card surface" },
+      "leather":     { "$value": "{color.palette.leather}" },
+      "metalLight":  { "$value": "{color.palette.metalLight}" },
+      "metalDark":   { "$value": "{color.palette.metalDark}" }
+    },
+
+    "fg": {
+      "$type": "color",
+      "default":   { "$value": "{color.palette.ink}" },
+      "muted":     { "$value": "{color.palette.inkSoft}" },
+      "faint":     { "$value": "{color.palette.inkFaint}" },
+      "onAccent":  { "$value": "{color.palette.white}",  "$description": "Text on glossy accent" },
+      "onLeather": { "$value": "{color.palette.stitch}", "$description": "Text debossed into leather" }
+    },
+
+    "accent": {
+      "$type": "color",
+      "primary": { "$value": "{color.palette.sapphire}", "$description": "Glossy CTA" }
+    },
+
+    "detail": {
+      "$type": "color",
+      "stitch": { "$value": "{color.palette.stitch}" },
+      "rule":   { "$value": "{color.palette.rule}" },
+      "margin": { "$value": "{color.palette.margin}" }
+    },
+
+    "border": {
+      "$type": "color",
+      "default": { "$value": "rgba(46, 36, 27, 0.28)", "$description": "Physical edge where two materials meet" },
+      "strong":  { "$value": "rgba(46, 36, 27, 0.5)" }
+    },
+
+    "feedback": {
+      "$type": "color",
+      "success": { "$value": "{color.palette.moss}" },
+      "warning": { "$value": "{color.palette.amber}" },
+      "danger":  { "$value": "{color.palette.brick}" }
+    }
+  }
+}

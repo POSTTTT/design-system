@@ -1,0 +1,36 @@
+/* Alert — a paper note taped to the desk, with a status lamp. */
+.sk-alert {
+  --sk-tone: var(--ds-color-accent-primary);
+  position: relative;
+  display: flex;
+  gap: var(--ds-space-3);
+  align-items: flex-start;
+  font-family: var(--ds-font-family-sans);
+  font-size: var(--ds-font-size-sm);
+  color: var(--ds-color-fg-default);
+  background: var(--sk-grain), linear-gradient(to bottom, color-mix(in srgb, var(--sk-tone) 7%, var(--ds-color-bg-paper)), var(--ds-color-bg-paper));
+  border: var(--ds-border-width-hairline) solid var(--ds-color-border-default);
+  border-left: 4px solid var(--sk-tone);
+  border-radius: var(--ds-radius-sm);
+  padding: var(--ds-space-4) var(--ds-space-5);
+  box-shadow: 0 1px 1px rgba(40, 25, 10, 0.2), 0 4px 10px rgba(40, 25, 10, 0.16);
+}
+/* strip of translucent tape across the top edge */
+.sk-alert::after {
+  content: "";
+  position: absolute;
+  top: -9px; left: 50%;
+  width: 72px; height: 18px;
+  transform: translateX(-50%) rotate(-2deg);
+  background: rgba(250, 244, 222, 0.7);
+  border-left: 1px dashed rgba(0, 0, 0, 0.08);
+  border-right: 1px dashed rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 2px rgba(40, 25, 10, 0.15);
+}
+.sk-alert .sk-led { margin-top: 0.3em; }
+.sk-alert__title { font-weight: var(--ds-font-weight-bold); margin: 0 0 var(--ds-space-1); }
+.sk-alert__body  { margin: 0; color: var(--ds-color-fg-muted); line-height: var(--ds-font-line-height-snug); }
+
+.sk-alert--success { --sk-tone: var(--ds-color-feedback-success); }
+.sk-alert--warning { --sk-tone: var(--ds-color-feedback-warning); }
+.sk-alert--danger  { --sk-tone: var(--ds-color-feedback-danger); }

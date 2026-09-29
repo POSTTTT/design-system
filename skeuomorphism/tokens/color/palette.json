@@ -1,0 +1,29 @@
+{
+  "color": {
+    "palette": {
+      "$type": "color",
+      "_comment": "Skeuomorphism: a desk of real materials. Linen canvas, tan leather with cream stitching, cream paper with blue rules, brushed aluminium, and a glossy sapphire button. Primitives only.",
+
+      "linen":       { "$value": "#e6ddcc", "$description": "Linen tablecloth — page canvas" },
+      "linenShade":  { "$value": "#d6cab4", "$description": "Linen weave threads" },
+      "leather":     { "$value": "#8a5a36", "$description": "Tan saddle leather" },
+      "leatherDeep": { "$value": "#5a3820", "$description": "Leather in shadow / edge dye" },
+      "stitch":      { "$value": "#f0dfbd", "$description": "Cream waxed thread" },
+      "paper":       { "$value": "#fdf8ea", "$description": "Cream writing paper" },
+      "rule":        { "$value": "#b9d2e8", "$description": "Blue notebook rule" },
+      "margin":      { "$value": "#e7a3a3", "$description": "Red notebook margin line" },
+      "metalLight":  { "$value": "#eef0f2", "$description": "Brushed aluminium, lit" },
+      "metalDark":   { "$value": "#a4aab2", "$description": "Brushed aluminium, shaded" },
+
+      "ink":         { "$value": "#2e241b", "$description": "Dark walnut ink — primary text" },
+      "inkSoft":     { "$value": "#665545", "$description": "Secondary text" },
+      "inkFaint":    { "$value": "#9a8a78", "$description": "Hints / placeholders" },
+      "white":       { "$value": "#ffffff" },
+
+      "sapphire":    { "$value": "#2b64c8", "$description": "Glossy primary button" },
+      "moss":        { "$value": "#33782e" },
+      "amber":       { "$value": "#9a6212" },
+      "brick":       { "$value": "#b83a2e" }
+    }
+  }
+}

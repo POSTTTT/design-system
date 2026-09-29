@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>FOLIO — notes &amp; records</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Libre+Baskerville:wght@400;700&family=Caveat:wght@500&display=swap" rel="stylesheet" />
+<!-- Styled by the skeuomorphism design system: tokens + sk- components. -->
+<link rel="stylesheet" href="../skeuomorphism-compo/components.css" />
+<style>
+  * { box-sizing: border-box; }
+  html { scrollbar-gutter: stable; }
+  body { margin: 0; line-height: var(--ds-font-line-height-normal); overflow-x: hidden; }
+  a { color: inherit; }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 var(--ds-space-4); }
+  .serif { font-family: var(--ds-font-family-serif); }
+
+  /* toolbar — a brushed aluminium bar */
+  .toolbar { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; gap: var(--ds-space-4); padding: var(--ds-space-3) var(--ds-space-4);
+    border-radius: 0 0 var(--ds-radius-lg) var(--ds-radius-lg); border-top: none; }
+  .toolbar h1 { font-family: var(--ds-font-family-serif); font-size: var(--ds-font-size-lg); margin: 0; letter-spacing: 0.14em; text-shadow: var(--ds-text-shadow-emboss); }
+  .seg { display: inline-flex; margin-left: auto; }
+  .seg .sk-btn { border-radius: 0; }
+  .seg .sk-btn + .sk-btn { border-left: none; }
+  .seg .sk-btn:first-child { border-radius: var(--ds-radius-md) 0 0 var(--ds-radius-md); }
+  .seg .sk-btn:last-child  { border-radius: 0 var(--ds-radius-md) var(--ds-radius-md) 0; }
+  .seg .sk-btn[aria-pressed="true"] { background: linear-gradient(to bottom, #cfd3d8, #e6e8eb); box-shadow: var(--ds-shadow-pressed); }
+  @media (max-width: 640px) { .seg { display: none; } .toolbar .sk-btn--primary { margin-left: auto; } }
+
+  /* desk layout */
+  .desk { display: grid; grid-template-columns: 260px minmax(0, 1fr) 320px; gap: var(--ds-space-5); padding: var(--ds-space-6) 0 var(--ds-space-9); align-items: start; }
+  @media (max-width: 1060px) { .desk { grid-template-columns: 240px minmax(0, 1fr); } .deck { grid-column: 1 / -1; } }
+  @media (max-width: 760px)  { .desk { grid-template-columns: 1fr; } }
+
+  /* leather cover — notebooks */
+  .cover h2 { font-family: var(--ds-font-family-serif); font-size: var(--ds-font-size-lg); margin: 0 0 var(--ds-space-4); text-shadow: var(--ds-text-shadow-deboss); }
+  .books { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--ds-space-1); }
+  .books a { display: flex; align-items: center; justify-content: space-between; gap: var(--ds-space-2); padding: var(--ds-space-2) var(--ds-space-3); border-radius: var(--ds-radius-sm); text-decoration: none; font-weight: var(--ds-font-weight-semibold); text-shadow: var(--ds-text-shadow-deboss); }
+  .books a:hover { background: rgba(0, 0, 0, 0.15); }
+  .books a[aria-current="page"] { background: rgba(0, 0, 0, 0.28); box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4), 0 1px 0 rgba(255, 255, 255, 0.12); }
+  .books .n { font-size: var(--ds-font-size-xs); opacity: 0.8; }
+  .cover .sk-btn { margin-top: var(--ds-space-4); width: 100%; }
+
+  /* note */
+  .note-head { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--ds-space-3); flex-wrap: wrap; margin-bottom: var(--ds-space-3); }
+  .note-head h2 { font-family: var(--ds-font-family-serif); font-size: var(--ds-font-size-2xl); margin: 0; text-shadow: var(--ds-text-shadow-emboss); }
+  .note-head .meta { font-size: var(--ds-font-size-sm); color: var(--ds-color-fg-muted); }
+  .notepad { min-height: 420px; }
+  .notepad s { text-decoration-thickness: 2px; color: var(--ds-color-fg-muted); }
+  .notepad .hl { background: linear-gradient(transparent 55%, rgba(255, 221, 87, 0.7) 55% 90%, transparent 90%); }
+  .notepad .ink-blue { color: #1f4b9a; }
+  .note-foot { display: flex; gap: var(--ds-space-3); flex-wrap: wrap; margin-top: var(--ds-space-4); }
+
+  /* deck — the hi-fi faceplate */
+  .deck { display: flex; flex-direction: column; gap: var(--ds-space-5); }
+  .player .screw { position: absolute; width: 10px; height: 10px; border-radius: 50%; background: radial-gradient(circle at 40% 35%, #fff, #a4aab2); box-shadow: inset 0 0 0 1px rgba(0,0,0,0.35); }
+  .player .screw::after { content: ""; position: absolute; left: 2px; right: 2px; top: 4px; height: 1.5px; background: rgba(0,0,0,0.45); transform: rotate(35deg); }
+  .player .s1 { top: 8px; left: 8px; } .player .s2 { top: 8px; right: 8px; } .player .s3 { bottom: 8px; left: 8px; } .player .s4 { bottom: 8px; right: 8px; }
+  .meters { display: grid; grid-template-columns: 1fr 1fr; gap: var(--ds-space-3); margin: var(--ds-space-2) 0 var(--ds-space-4); }
+  .vu { position: relative; aspect-ratio: 5 / 3; border-radius: var(--ds-radius-sm); border: var(--ds-border-width-hairline) solid rgba(0,0,0,0.45);
+    background: radial-gradient(ellipse at 50% 120%, #fff6d8, #f1dfa8 70%); box-shadow: var(--ds-shadow-inset); overflow: hidden; }
+  .vu svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .vu .needle { transform-origin: 50px 58px; animation: swing 1.6s ease-in-out infinite alternate; }
+  .vu:nth-child(2) .needle { animation-duration: 1.25s; animation-delay: -0.4s; }
+  @keyframes swing { 0% { transform: rotate(-38deg); } 40% { transform: rotate(-8deg); } 70% { transform: rotate(-22deg); } 100% { transform: rotate(14deg); } }
+  @media (prefers-reduced-motion: reduce) { .vu .needle { animation: none; transform: rotate(-12deg); } }
+  .track { text-align: center; margin-bottom: var(--ds-space-4); }
+  .track strong { display: block; font-family: var(--ds-font-family-serif); font-size: var(--ds-font-size-base); text-shadow: var(--ds-text-shadow-emboss); }
+  .track span { font-size: var(--ds-font-size-sm); color: var(--ds-color-fg-muted); }
+  .controls { display: flex; align-items: center; justify-content: space-between; gap: var(--ds-space-3); }
+  .transport { display: flex; gap: var(--ds-space-2); }
+
+  /* knob */
+  .knobWrap { display: flex; flex-direction: column; align-items: center; gap: var(--ds-space-1); }
+  .knob { --a: -40deg; position: relative; width: 64px; height: 64px; border-radius: 50%; cursor: grab; touch-action: none;
+    background: radial-gradient(circle at 50% 35%, #ffffff 0 12%, transparent 60%), repeating-conic-gradient(from 0deg, #c9cdd2 0 4deg, #9aa0a8 4deg 8deg);
+    border: var(--ds-border-width-hairline) solid rgba(0,0,0,0.45);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.35), 0 8px 18px rgba(40,25,10,0.25), inset 0 1px 0 #fff; transform: rotate(var(--a)); }
+  .knob::before { content: ""; position: absolute; inset: 9px; border-radius: 50%; background: linear-gradient(to bottom, #f4f5f6, #b8bdc3); box-shadow: inset 0 1px 0 #fff, 0 1px 2px rgba(0,0,0,0.3); }
+  .knob::after { content: ""; position: absolute; left: 50%; top: 12px; width: 3px; height: 12px; margin-left: -1.5px; border-radius: 2px; background: var(--ds-color-feedback-danger); box-shadow: 0 0 0 1px rgba(0,0,0,0.2); }
+  .knob:focus-visible { outline: var(--ds-border-width-focus) solid var(--ds-color-accent-primary); outline-offset: 4px; }
+  .knobWrap output { font-size: var(--ds-font-size-xs); font-weight: var(--ds-font-weight-bold); color: var(--ds-color-fg-muted); text-shadow: var(--ds-text-shadow-emboss); font-variant-numeric: tabular-nums; }
+
+  .settings .sk-list__row { font-size: var(--ds-font-size-sm); }
+</style>
+</head>
+<body class="sk-linen">
+
+<div class="wrap">
+  <header class="toolbar sk-card sk-card--metal">
+    <h1>FOLIO</h1>
+    <div class="seg" role="group" aria-label="View">
+      <button class="sk-btn sk-btn--metal sk-btn--sm" aria-pressed="true">Notes</button>
+      <button class="sk-btn sk-btn--metal sk-btn--sm" aria-pressed="false">Records</button>
+      <button class="sk-btn sk-btn--metal sk-btn--sm" aria-pressed="false">Calendar</button>
+    </div>
+    <button class="sk-btn sk-btn--primary sk-btn--sm">＋ New note</button>
+  </header>
+
+  <main class="desk">
+
+    <!-- leather notebook cover -->
+    <nav class="sk-card sk-card--leather cover" aria-label="Notebooks">
+      <h2>Notebooks</h2>
+      <ul class="books">
+        <li><a href="#" aria-current="page">Studio journal <span class="n">24</span></a></li>
+        <li><a href="#">Record crate <span class="n">112</span></a></li>
+        <li><a href="#">Recipes <span class="n">38</span></a></li>
+        <li><a href="#">Garden log <span class="n">17</span></a></li>
+        <li><a href="#">Letters <span class="n">6</span></a></li>
+      </ul>
+      <button class="sk-btn sk-btn--sm">Bind a new notebook</button>
+    </nav>
+
+    <!-- today's page -->
+    <section aria-labelledby="note-h">
+      <div class="note-head">
+        <div><span class="sk-label">Studio journal · p. 24</span><h2 id="note-h">Sunday session</h2></div>
+        <span class="meta">Written 28 Sep · 3 min read</span>
+      </div>
+      <article class="sk-card sk-card--notepad notepad">
+        <p>Things to get done before Friday:</p>
+        <p><s>Re-string the old Yamaha</s> ✓</p>
+        <p><s>Order 2 reels of tape</s> ✓</p>
+        <p>Re-record the bridge — <span class="hl">slower, 84 bpm</span></p>
+        <p>Ask Ines about the upright piano</p>
+        <p>&nbsp;</p>
+        <p class="ink-blue">Idea: open side B with the rain</p>
+        <p class="ink-blue">recording from the balcony →</p>
+        <p class="ink-blue">then the cello comes in soft.</p>
+      </article>
+      <div class="note-foot">
+        <button class="sk-btn sk-btn--primary">Save page</button>
+        <button class="sk-btn">Share…</button>
+        <button class="sk-btn sk-btn--danger" style="margin-left:auto">Tear out</button>
+      </div>
+    </section>
+
+    <!-- hi-fi deck + settings -->
+    <aside class="deck">
+      <section class="sk-card sk-card--metal player" aria-label="Now playing">
+        <span class="screw s1"></span><span class="screw s2"></span><span class="screw s3"></span><span class="screw s4"></span>
+        <div class="meters" aria-hidden="true">
+          <div class="vu"><svg viewBox="0 0 100 60">
+            <path d="M14 40 A40 40 0 0 1 86 40" fill="none" stroke="#3a2d20" stroke-width="0.8"/>
+            <path d="M68 22 A40 40 0 0 1 86 40" fill="none" stroke="#b83a2e" stroke-width="2.2"/>
+            <g stroke="#3a2d20" stroke-width="0.8"><line x1="18" y1="28" x2="21" y2="30"/><line x1="30" y1="18" x2="32" y2="21"/><line x1="50" y1="14" x2="50" y2="18"/><line x1="70" y1="18" x2="68" y2="21"/><line x1="82" y1="28" x2="79" y2="30"/></g>
+            <text x="50" y="34" font-size="6" text-anchor="middle" fill="#3a2d20" font-family="Libre Baskerville, serif">VU</text>
+            <line class="needle" x1="50" y1="58" x2="50" y2="12" stroke="#1d1712" stroke-width="1"/>
+            <circle cx="50" cy="58" r="4" fill="#2e241b"/></svg></div>
+          <div class="vu"><svg viewBox="0 0 100 60">
+            <path d="M14 40 A40 40 0 0 1 86 40" fill="none" stroke="#3a2d20" stroke-width="0.8"/>
+            <path d="M68 22 A40 40 0 0 1 86 40" fill="none" stroke="#b83a2e" stroke-width="2.2"/>
+            <g stroke="#3a2d20" stroke-width="0.8"><line x1="18" y1="28" x2="21" y2="30"/><line x1="30" y1="18" x2="32" y2="21"/><line x1="50" y1="14" x2="50" y2="18"/><line x1="70" y1="18" x2="68" y2="21"/><line x1="82" y1="28" x2="79" y2="30"/></g>
+            <text x="50" y="34" font-size="6" text-anchor="middle" fill="#3a2d20" font-family="Libre Baskerville, serif">VU</text>
+            <line class="needle" x1="50" y1="58" x2="50" y2="12" stroke="#1d1712" stroke-width="1"/>
+            <circle cx="50" cy="58" r="4" fill="#2e241b"/></svg></div>
+        </div>
+        <div class="track"><strong>Blue in Green</strong><span>Kind of Blue · side B, track 3</span></div>
+        <div class="controls">
+          <div class="transport">
+            <button class="sk-btn sk-btn--metal sk-btn--round" aria-label="Previous track">⏮</button>
+            <button class="sk-btn sk-btn--primary sk-btn--round" id="play" aria-label="Pause">❚❚</button>
+            <button class="sk-btn sk-btn--metal sk-btn--round" aria-label="Next track">⏭</button>
+          </div>
+          <div class="knobWrap">
+            <div class="knob" id="knob" role="slider" tabindex="0" aria-label="Volume" aria-valuemin="0" aria-valuemax="10" aria-valuenow="4"></div>
+            <output id="vol">VOL 4</output>
+          </div>
+        </div>
+      </section>
+
+      <section class="settings" aria-label="Playback settings">
+        <p class="sk-label" style="margin:0 0 var(--ds-space-2) var(--ds-space-3)">Playback</p>
+        <div class="sk-list">
+          <div class="sk-list__row"><span class="sk-list__label">Warm tape hiss</span><label class="sk-toggle"><input type="checkbox" class="sk-toggle__input" checked aria-label="Warm tape hiss" /><span class="sk-toggle__track"></span></label></div>
+          <div class="sk-list__row"><span class="sk-list__label">Repeat side</span><label class="sk-toggle"><input type="checkbox" class="sk-toggle__input" aria-label="Repeat side" /><span class="sk-toggle__track"></span></label></div>
+          <div class="sk-list__row"><span class="sk-list__label"><span class="sk-led sk-led--on"></span>Output</span><span class="sk-list__value">Studio monitors</span></div>
+        </div>
+      </section>
+
+      <div class="sk-alert sk-alert--warning"><span class="sk-led sk-led--warning"></span><div><p class="sk-alert__title">Stylus check</p><p class="sk-alert__body">About 40 hours left on the needle.</p></div></div>
+    </aside>
+  </main>
+</div>
+
+<script>
+  (function () {
+    // Volume knob: drag vertically, scroll, or use arrow keys. 0–10 maps to -135°…+135°.
+    var knob = document.getElementById('knob'), out = document.getElementById('vol'), v = 4;
+    function set(n) {
+      v = Math.max(0, Math.min(10, Math.round(n)));
+      knob.style.setProperty('--a', (-135 + v * 27) + 'deg');
+      knob.setAttribute('aria-valuenow', v);
+      out.textContent = 'VOL ' + v;
+    }
+    knob.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowUp' || e.key === 'ArrowRight') { set(v + 1); e.preventDefault(); }
+      if (e.key === 'ArrowDown' || e.key === 'ArrowLeft') { set(v - 1); e.preventDefault(); }
+    });
+    knob.addEventListener('wheel', function (e) { set(v + (e.deltaY < 0 ? 1 : -1)); e.preventDefault(); }, { passive: false });
+    knob.addEventListener('pointerdown', function (e) {
+      var y0 = e.clientY, v0 = v;
+      knob.setPointerCapture(e.pointerId);
+      function move(ev) { set(v0 + (y0 - ev.clientY) / 12); }
+      function up() { knob.removeEventListener('pointermove', move); knob.removeEventListener('pointerup', up); }
+      knob.addEventListener('pointermove', move);
+      knob.addEventListener('pointerup', up);
+    });
+    set(v);
+
+    // Play / pause.
+    var play = document.getElementById('play'), playing = true;
+    play.addEventListener('click', function () {
+      playing = !playing;
+      play.textContent = playing ? '❚❚' : '▶';
+      play.setAttribute('aria-label', playing ? 'Pause' : 'Play');
+      document.querySelectorAll('.vu .needle').forEach(function (n) { n.style.animationPlayState = playing ? 'running' : 'paused'; });
+    });
+
+    // Segmented view control.
+    document.querySelectorAll('.seg .sk-btn').forEach(function (b, _, all) {
+      b.addEventListener('click', function () { all.forEach(function (x) { x.setAttribute('aria-pressed', x === b); }); });
+    });
+  })();
+</script>
+<script src="../palette-setting.js"></script>
+</body>
+</html>

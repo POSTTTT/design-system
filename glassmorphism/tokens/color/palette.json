@@ -1,0 +1,27 @@
+{
+  "color": {
+    "palette": {
+      "$type": "color",
+      "_comment": "Glassmorphism: frosted white glass over a deep night canvas lit by three soft color orbs (violet, magenta, cyan). Primitives only.",
+
+      "night":     { "$value": "#0b1026", "$description": "Deep indigo night — page canvas behind the orbs" },
+      "violet":    { "$value": "#7c3aed", "$description": "Orb A + primary accent" },
+      "magenta":   { "$value": "#ec4899", "$description": "Orb B" },
+      "cyan":      { "$value": "#22d3ee", "$description": "Orb C + secondary accent" },
+      "white":     { "$value": "#ffffff" },
+
+      "frost":       { "$value": "rgba(255, 255, 255, 0.08)", "$description": "Default glass fill" },
+      "frostStrong": { "$value": "rgba(255, 255, 255, 0.14)", "$description": "Raised / hovered glass fill" },
+      "frostEdge":   { "$value": "rgba(255, 255, 255, 0.22)", "$description": "Hairline glass edge" },
+      "frostShine":  { "$value": "rgba(255, 255, 255, 0.45)", "$description": "Top-edge specular highlight" },
+
+      "text":      { "$value": "#f8fafc", "$description": "Primary text on glass" },
+      "textSoft":  { "$value": "rgba(248, 250, 252, 0.74)", "$description": "Secondary text" },
+      "textFaint": { "$value": "rgba(248, 250, 252, 0.52)", "$description": "Hints / placeholders" },
+
+      "mint":      { "$value": "#34d399" },
+      "amber":     { "$value": "#fbbf24" },
+      "rose":      { "$value": "#fb7185" }
+    }
+  }
+}

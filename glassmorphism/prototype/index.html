@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HALO — home, in a new light</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<!-- Styled by the glassmorphism design system: tokens + gl- components. -->
+<link rel="stylesheet" href="../glassmorphism-compo/components.css" />
+<style>
+  * { box-sizing: border-box; }
+  html { scrollbar-gutter: stable; }
+  body { margin: 0; line-height: var(--ds-font-line-height-normal); overflow-x: hidden; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 var(--ds-space-4); }
+  .muted { color: var(--ds-color-fg-muted); }
+  h1, h2, h3 { letter-spacing: var(--ds-font-letter-spacing-tight); }
+
+  /* nav — a sticky frosted bar */
+  .nav { position: sticky; top: var(--ds-space-3); z-index: 10; margin-top: var(--ds-space-3); display: flex; align-items: center; gap: var(--ds-space-4);
+    padding: var(--ds-space-2) var(--ds-space-2) var(--ds-space-2) var(--ds-space-5); border-radius: var(--ds-radius-full); }
+  .brand { display: inline-flex; align-items: center; gap: var(--ds-space-2); font-weight: var(--ds-font-weight-black); font-size: var(--ds-font-size-lg); letter-spacing: 0.08em; }
+  .brand .ring { width: 1.25rem; height: 1.25rem; border-radius: var(--ds-radius-full); border: 3px solid var(--ds-color-accent-secondary); box-shadow: 0 0 12px var(--ds-color-accent-secondary); }
+  .nav__links { display: flex; gap: var(--ds-space-1); margin-left: auto; }
+  .nav__links a { font-size: var(--ds-font-size-sm); font-weight: var(--ds-font-weight-semibold); color: var(--ds-color-fg-muted); padding: var(--ds-space-2) var(--ds-space-4); border-radius: var(--ds-radius-full); }
+  .nav__links a:hover { color: var(--ds-color-fg-default); background: var(--ds-color-bg-glass); }
+  .nav__links a[aria-current="page"] { color: var(--ds-color-fg-default); background: var(--ds-color-bg-glass-strong); }
+  .avatar { width: 2.5rem; height: 2.5rem; border-radius: var(--ds-radius-full); display: grid; place-items: center; font-weight: var(--ds-font-weight-bold); font-size: var(--ds-font-size-sm);
+    background: linear-gradient(135deg, var(--ds-color-bg-orb-a), var(--ds-color-bg-orb-b)); border: var(--ds-border-width-hairline) solid rgba(255,255,255,0.35); }
+  @media (max-width: 760px) { .nav__links { display: none; } .avatar { margin-left: auto; } }
+
+  /* hero */
+  .hero { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: var(--ds-space-5); padding: var(--ds-space-8) 0 var(--ds-space-6); }
+  .hero h1 { font-size: clamp(2.25rem, 6vw, 3.5rem); font-weight: var(--ds-font-weight-black); line-height: var(--ds-font-line-height-tight); margin: var(--ds-space-3) 0 var(--ds-space-3); max-width: 16ch; }
+  .hero p { margin: 0; max-width: 46ch; }
+  .hero .cta { display: flex; gap: var(--ds-space-3); flex-wrap: wrap; }
+
+  /* dashboard grid */
+  .board { display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--ds-space-4); padding-bottom: var(--ds-space-9); }
+  .span-5 { grid-column: span 5; } .span-7 { grid-column: span 7; } .span-4 { grid-column: span 4; } .span-8 { grid-column: span 8; }
+  @media (max-width: 900px) { .span-5, .span-7, .span-4, .span-8 { grid-column: 1 / -1; } }
+  .head { display: flex; align-items: center; justify-content: space-between; gap: var(--ds-space-3); margin-bottom: var(--ds-space-4); }
+  .head h2 { font-size: var(--ds-font-size-lg); margin: 0; }
+
+  /* climate */
+  .climate { display: flex; align-items: center; gap: var(--ds-space-5); flex-wrap: wrap; }
+  .dial { position: relative; width: 168px; height: 168px; flex-shrink: 0; }
+  .dial svg { width: 100%; height: 100%; transform: rotate(135deg); }
+  .dial .val { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; }
+  .dial .val strong { font-size: var(--ds-font-size-3xl); font-weight: var(--ds-font-weight-black); line-height: 1; letter-spacing: var(--ds-font-letter-spacing-tight); }
+  .dial .val span { font-size: var(--ds-font-size-xs); color: var(--ds-color-fg-muted); }
+  .climate .side { flex: 1; min-width: 160px; }
+  .stepper { display: flex; gap: var(--ds-space-2); margin-top: var(--ds-space-4); }
+
+  /* rooms */
+  .rooms { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--ds-space-3); }
+  .room { padding: var(--ds-space-4); border-radius: var(--ds-radius-lg); display: flex; flex-direction: column; gap: var(--ds-space-4); }
+  .room .ico { font-size: var(--ds-font-size-xl); line-height: 1; }
+  .room h3 { margin: 0; font-size: var(--ds-font-size-base); }
+  .room p { margin: 0; font-size: var(--ds-font-size-xs); color: var(--ds-color-fg-muted); }
+
+  /* energy chart */
+  .chart { display: flex; align-items: flex-end; gap: 6px; height: 120px; margin: var(--ds-space-2) 0 var(--ds-space-2); }
+  .chart i { flex: 1; border-radius: 6px 6px 3px 3px; background: linear-gradient(to top, color-mix(in srgb, var(--ds-color-accent-secondary) 25%, transparent), var(--ds-color-accent-secondary)); opacity: 0.85; }
+  .chart i.now { background: linear-gradient(to top, color-mix(in srgb, var(--ds-color-accent-primary) 40%, transparent), var(--ds-color-accent-primary)); box-shadow: 0 0 16px color-mix(in srgb, var(--ds-color-accent-primary) 60%, transparent); opacity: 1; }
+  .axis { display: flex; justify-content: space-between; font-size: var(--ds-font-size-xs); color: var(--ds-color-fg-faint); }
+  .big { font-size: var(--ds-font-size-3xl); font-weight: var(--ds-font-weight-black); letter-spacing: var(--ds-font-letter-spacing-tight); line-height: 1; }
+
+  /* scenes */
+  .scenes { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--ds-space-2); }
+  .scenes .gl-btn { justify-content: flex-start; border-radius: var(--ds-radius-md); padding: var(--ds-space-3) var(--ds-space-4); }
+
+  .alerts { display: flex; flex-direction: column; gap: var(--ds-space-3); }
+  footer { text-align: center; font-size: var(--ds-font-size-xs); color: var(--ds-color-fg-faint); padding: 0 0 var(--ds-space-7); }
+</style>
+</head>
+<body class="gl-backdrop">
+<div class="wrap">
+
+  <nav class="nav gl-card" aria-label="Main">
+    <a class="brand" href="#"><span class="ring"></span>HALO</a>
+    <div class="nav__links">
+      <a href="#" aria-current="page">Home</a>
+      <a href="#">Rooms</a>
+      <a href="#">Energy</a>
+      <a href="#">Automations</a>
+    </div>
+    <span class="avatar" aria-label="Signed in as Mika">MK</span>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <span class="gl-tag gl-tag--success"><span class="gl-dot gl-dot--success"></span>All 12 devices online</span>
+      <h1>Good evening. The house is settling in.</h1>
+      <p class="muted">Sunset in 18 minutes — “Evening” will warm the lights and close the blinds on the west side.</p>
+    </div>
+    <div class="cta">
+      <button class="gl-btn gl-btn--primary gl-btn--lg">Run “Evening” now</button>
+      <button class="gl-btn gl-btn--lg">Edit scene</button>
+    </div>
+  </header>
+
+  <main class="board">
+
+    <!-- climate -->
+    <section class="gl-card gl-card--tinted span-5" aria-labelledby="climate-h">
+      <div class="head"><h2 id="climate-h">Climate</h2><span class="gl-tag">Auto</span></div>
+      <div class="climate">
+        <div class="dial">
+          <svg viewBox="0 0 100 100" aria-hidden="true">
+            <defs><linearGradient id="arc" x1="0" x2="1"><stop offset="0" stop-color="var(--ds-color-accent-secondary)"/><stop offset="1" stop-color="var(--ds-color-bg-orb-b)"/></linearGradient></defs>
+            <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="7" stroke-linecap="round" stroke-dasharray="198 264" />
+            <circle cx="50" cy="50" r="42" fill="none" stroke="url(#arc)" stroke-width="7" stroke-linecap="round" stroke-dasharray="128 264" />
+          </svg>
+          <div class="val"><strong id="temp">21.5°</strong><span>target · heating</span></div>
+        </div>
+        <div class="side">
+          <div class="gl-list">
+            <div class="gl-list__row"><span class="gl-list__label">Indoor</span><span class="gl-list__value">20.8°</span></div>
+            <div class="gl-list__row"><span class="gl-list__label">Outdoor</span><span class="gl-list__value">11.2°</span></div>
+            <div class="gl-list__row"><span class="gl-list__label">Humidity</span><span class="gl-list__value gl-list__value--warning">64%</span></div>
+          </div>
+          <div class="stepper">
+            <button class="gl-btn gl-btn--icon" id="down" aria-label="Lower target temperature">−</button>
+            <button class="gl-btn gl-btn--icon" id="up" aria-label="Raise target temperature">+</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- rooms -->
+    <section class="gl-card span-7" aria-labelledby="rooms-h">
+      <div class="head"><h2 id="rooms-h">Rooms</h2><a class="gl-btn gl-btn--ghost gl-btn--sm" href="#">See all</a></div>
+      <div class="rooms">
+        <div class="gl-card gl-card--interactive room"><span class="ico">🛋️</span><div><h3>Living room</h3><p>3 lights · 40%</p></div><label class="gl-toggle"><input type="checkbox" class="gl-toggle__input" checked /><span class="gl-toggle__track"></span><span class="muted">On</span></label></div>
+        <div class="gl-card gl-card--interactive room"><span class="ico">🍳</span><div><h3>Kitchen</h3><p>2 lights · off</p></div><label class="gl-toggle"><input type="checkbox" class="gl-toggle__input" /><span class="gl-toggle__track"></span><span class="muted">Off</span></label></div>
+        <div class="gl-card gl-card--interactive room"><span class="ico">🛏️</span><div><h3>Bedroom</h3><p>Blinds closed</p></div><label class="gl-toggle"><input type="checkbox" class="gl-toggle__input" checked /><span class="gl-toggle__track"></span><span class="muted">On</span></label></div>
+        <div class="gl-card gl-card--interactive room"><span class="ico">🪴</span><div><h3>Balcony</h3><p>Sprinkler 07:00</p></div><label class="gl-toggle"><input type="checkbox" class="gl-toggle__input" /><span class="gl-toggle__track"></span><span class="muted">Off</span></label></div>
+      </div>
+    </section>
+
+    <!-- energy -->
+    <section class="gl-card span-8" aria-labelledby="energy-h">
+      <div class="head">
+        <div><h2 id="energy-h">Energy today</h2><span class="muted" style="font-size:var(--ds-font-size-sm)">Net from grid</span></div>
+        <div style="text-align:right"><div class="big">6.2<span style="font-size:var(--ds-font-size-base);font-weight:var(--ds-font-weight-semibold)"> kWh</span></div><span class="gl-list__value gl-list__value--success" style="font-size:var(--ds-font-size-xs)">−18% vs yesterday</span></div>
+      </div>
+      <div class="chart" role="img" aria-label="Hourly usage, peaking at 18:00">
+        <i style="height:22%"></i><i style="height:18%"></i><i style="height:15%"></i><i style="height:20%"></i><i style="height:38%"></i><i style="height:52%"></i>
+        <i style="height:34%"></i><i style="height:26%"></i><i style="height:24%"></i><i style="height:30%"></i><i style="height:44%"></i><i style="height:61%"></i>
+        <i style="height:78%"></i><i class="now" style="height:92%"></i><i style="height:12%;opacity:0.3"></i><i style="height:10%;opacity:0.3"></i>
+      </div>
+      <div class="axis"><span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>24:00</span></div>
+    </section>
+
+    <!-- scenes -->
+    <section class="gl-card span-4" aria-labelledby="scenes-h">
+      <div class="head"><h2 id="scenes-h">Scenes</h2></div>
+      <div class="scenes">
+        <button class="gl-btn"><span aria-hidden="true">🌅</span>Morning</button>
+        <button class="gl-btn"><span aria-hidden="true">🎬</span>Movie</button>
+        <button class="gl-btn"><span aria-hidden="true">🌙</span>Night</button>
+        <button class="gl-btn"><span aria-hidden="true">🚪</span>Away</button>
+      </div>
+      <label class="gl-field" style="margin-top:var(--ds-space-4)"><span class="gl-field__label">New scene</span><input class="gl-input" placeholder="Name it…" /></label>
+    </section>
+
+    <!-- activity -->
+    <section class="span-12" style="grid-column:1 / -1" aria-labelledby="act-h">
+      <h2 id="act-h" class="gl-label" style="margin:var(--ds-space-3) 0">Activity</h2>
+      <div class="alerts">
+        <div class="gl-alert gl-alert--warning"><div><p class="gl-alert__title">Air filter at 9%</p><p class="gl-alert__body">The purifier in the bedroom will need a new filter within a week.</p></div></div>
+        <div class="gl-alert gl-alert--success"><div><p class="gl-alert__title">Solar peak reached</p><p class="gl-alert__body">Panels produced 8.4 kWh today — the dishwasher ran on sunlight.</p></div></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>HALO · a glassmorphism design-system prototype</footer>
+</div>
+
+<script>
+  // Target-temperature stepper (0.5° steps, 16–28°).
+  (function () {
+    var t = 21.5, out = document.getElementById('temp');
+    function set(v) { t = Math.min(28, Math.max(16, v)); out.textContent = t.toFixed(1) + '°'; }
+    document.getElementById('up').addEventListener('click', function () { set(t + 0.5); });
+    document.getElementById('down').addEventListener('click', function () { set(t - 0.5); });
+    // Room toggles update their On/Off caption.
+    document.querySelectorAll('.room .gl-toggle__input').forEach(function (cb) {
+      cb.addEventListener('change', function () { cb.parentNode.lastElementChild.textContent = cb.checked ? 'On' : 'Off'; });
+    });
+  })();
+</script>
+<script src="../palette-setting.js"></script>
+</body>
+</html>
