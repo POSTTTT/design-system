@@ -18,6 +18,19 @@ Every style folder follows the same template:
 | `prototype/` | A full example page — the style in a real layout. |
 | `package.json` | The style's project manifest. |
 
+## Opening a catalog or prototype
+
+Just open the HTML file in a browser — `dist/` is committed, so the styles work
+straight from a clone with no build step.
+
+If you edit anything in `tokens/`, regenerate that style's `dist/`:
+
+```sh
+cd <style>
+npm install   # first time only
+npm run build
+```
+
 ## Styles
 
 ### `neo-brutalism/`

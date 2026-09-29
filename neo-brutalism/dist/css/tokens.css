@@ -1,0 +1,104 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --ds-border-width-thin: 1px;
+  --ds-border-width-base: 2px;
+  --ds-border-width-thick: 3px;
+  --ds-border-width-heavy: 4px;
+  --ds-color-palette-black: #000000;
+  --ds-color-palette-white: #ffffff;
+  --ds-color-palette-ink: #111111; /** Near-black for text, slightly softer than pure black */
+  --ds-color-palette-paper: #fdfbf3; /** Warm off-white canvas typical of neo-brutalist UIs */
+  --ds-color-palette-cloud: #f4f1e8; /** Slightly darker surface for layering on paper */
+  --ds-color-palette-yellow: #ffdb00;
+  --ds-color-palette-pink: #ff5cab;
+  --ds-color-palette-cyan: #4dd0e1;
+  --ds-color-palette-lime: #a3e635;
+  --ds-color-palette-violet: #9b5cff;
+  --ds-color-palette-orange: #ff7a1a;
+  --ds-color-palette-red: #ff3b30; /** Danger / destructive */
+  --ds-color-palette-green: #16c47f; /** Success / positive */
+  --ds-color-palette-blue: #2f6bff; /** Info / link */
+  --ds-color-palette-gray-100: #e7e4da;
+  --ds-color-palette-gray-300: #c4c0b4;
+  --ds-color-palette-gray-500: #8a8678;
+  --ds-color-palette-gray-700: #4d4a40;
+  --ds-radius-none: 0rem;
+  --ds-radius-sm: 0.25rem;
+  --ds-radius-md: 0.5rem;
+  --ds-radius-lg: 0.75rem;
+  --ds-radius-full: 9999px;
+  --ds-shadow-none: 0px 0px 0px 0px transparent;
+  --ds-space-0: 0rem;
+  --ds-space-1: 0.25rem;
+  --ds-space-2: 0.5rem;
+  --ds-space-3: 0.75rem;
+  --ds-space-4: 1rem;
+  --ds-space-5: 1.5rem;
+  --ds-space-6: 2rem;
+  --ds-space-7: 3rem;
+  --ds-space-8: 4rem;
+  --ds-space-9: 6rem;
+  --ds-font-family-sans: Archivo, Inter, 'Helvetica Neue', Arial, sans-serif; /** Strong grotesque for UI + headings */
+  --ds-font-family-mono: 'JetBrains Mono', 'Space Mono', ui-monospace, monospace; /** Labels, tags, code — adds the raw brutalist edge */
+  --ds-font-weight-regular: 400;
+  --ds-font-weight-medium: 600;
+  --ds-font-weight-bold: 800;
+  --ds-font-weight-black: 900; /** Display headings */
+  --ds-font-size-xs: 0.75rem;
+  --ds-font-size-sm: 0.875rem;
+  --ds-font-size-base: 1rem;
+  --ds-font-size-lg: 1.25rem;
+  --ds-font-size-xl: 1.5rem;
+  --ds-font-size-2xl: 2rem;
+  --ds-font-size-3xl: 2.75rem;
+  --ds-font-size-4xl: 3.75rem;
+  --ds-font-line-height-tight: 1.05; /** Big display headings */
+  --ds-font-line-height-snug: 1.25;
+  --ds-font-line-height-normal: 1.5;
+  --ds-font-letter-spacing-tight: -0.02em;
+  --ds-font-letter-spacing-normal: 0em;
+  --ds-font-letter-spacing-wide: 0.08em; /** Uppercase mono labels */
+  --ds-color-bg-canvas: var(--ds-color-palette-paper); /** App/page background */
+  --ds-color-bg-surface: var(--ds-color-palette-white); /** Cards, panels, raised content */
+  --ds-color-bg-sunken: var(--ds-color-palette-cloud); /** Inset / lower areas */
+  --ds-color-bg-inverse: var(--ds-color-palette-ink); /** Dark blocks on light pages */
+  --ds-color-fg-default: var(--ds-color-palette-ink);
+  --ds-color-fg-muted: var(--ds-color-palette-gray-700);
+  --ds-color-fg-subtle: var(--ds-color-palette-gray-500);
+  --ds-color-fg-inverse: var(--ds-color-palette-paper); /** Text on inverse/dark backgrounds */
+  --ds-color-fg-on-accent: var(--ds-color-palette-black); /** Text on accent fills — black for brutalist contrast */
+  --ds-color-accent-primary: var(--ds-color-palette-yellow);
+  --ds-color-accent-secondary: var(--ds-color-palette-pink);
+  --ds-color-accent-tertiary: var(--ds-color-palette-cyan);
+  --ds-color-border-default: var(--ds-color-palette-black); /** Signature thick black outline */
+  --ds-color-border-muted: var(--ds-color-palette-gray-300);
+  --ds-color-feedback-danger: var(--ds-color-palette-red);
+  --ds-color-feedback-success: var(--ds-color-palette-green);
+  --ds-color-feedback-info: var(--ds-color-palette-blue);
+  --ds-button-radius: var(--ds-radius-md);
+  --ds-button-border-width: var(--ds-border-width-thick);
+  --ds-button-shadow-press: var(--ds-shadow-none); /** Collapses flat when pressed (pair with translate) */
+  --ds-button-padding-x: var(--ds-space-5);
+  --ds-button-padding-y: var(--ds-space-3);
+  --ds-button-font-weight: var(--ds-font-weight-bold);
+  --ds-button-font-size: var(--ds-font-size-base);
+  --ds-card-radius: var(--ds-radius-lg);
+  --ds-card-border-width: var(--ds-border-width-thick);
+  --ds-card-padding: var(--ds-space-5);
+  --ds-shadow-xs: 2px 2px 0px 0px var(--ds-color-palette-black);
+  --ds-shadow-sm: 4px 4px 0px 0px var(--ds-color-palette-black);
+  --ds-shadow-md: 6px 6px 0px 0px var(--ds-color-palette-black);
+  --ds-shadow-lg: 8px 8px 0px 0px var(--ds-color-palette-black);
+  --ds-button-border-color: var(--ds-color-border-default);
+  --ds-button-shadow-rest: var(--ds-shadow-sm); /** Sits raised off the page */
+  --ds-button-shadow-hover: var(--ds-shadow-md); /** Lifts on hover */
+  --ds-button-fg: var(--ds-color-fg-on-accent);
+  --ds-button-bg: var(--ds-color-accent-primary);
+  --ds-card-bg: var(--ds-color-bg-surface);
+  --ds-card-fg: var(--ds-color-fg-default);
+  --ds-card-border-color: var(--ds-color-border-default);
+  --ds-card-shadow: var(--ds-shadow-md);
+}

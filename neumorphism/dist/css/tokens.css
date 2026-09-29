@@ -1,0 +1,95 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --ds-border-width-thin: 1px;
+  --ds-border-width-thick: 2px;
+  --ds-color-palette-base: #e0e5ec; /** The single surface color — canvas AND cards share it */
+  --ds-color-palette-base-raised: #e6ebf2; /** Very slightly lighter top of an extruded element */
+  --ds-color-palette-shadow-dark: #a3b1c6; /** Bottom-right drop shadow */
+  --ds-color-palette-shadow-light: #ffffff; /** Top-left highlight */
+  --ds-color-palette-line: #c8d0e7; /** Faint hairline when a border is needed at all */
+  --ds-color-palette-white: #ffffff;
+  --ds-color-palette-ink: #4d5b7c; /** Primary text — soft slate, never pure black */
+  --ds-color-palette-ink-muted: #6b7a99; /** Secondary text */
+  --ds-color-palette-ink-faint: #9aa7bf; /** Hints / disabled */
+  --ds-color-palette-indigo: #6d5dfc; /** Primary accent */
+  --ds-color-palette-indigo-bright: #8b7cff; /** Lighter accent highlight */
+  --ds-color-palette-green: #4caf94; /** Success */
+  --ds-color-palette-amber: #e0a955; /** Warning */
+  --ds-color-palette-red: #e76f6f; /** Danger */
+  --ds-button-padding-x: 1.5rem;
+  --ds-button-padding-y: 0.75rem;
+  --ds-radius-none: 0rem;
+  --ds-radius-sm: 0.5rem;
+  --ds-radius-md: 0.875rem;
+  --ds-radius-lg: 1.25rem;
+  --ds-radius-xl: 1.75rem;
+  --ds-radius-full: 9999px;
+  --ds-shadow-raised-sm: 4px 4px 8px #a3b1c6, -4px -4px 8px #ffffff;
+  --ds-shadow-raised: 7px 7px 14px #a3b1c6, -7px -7px 14px #ffffff;
+  --ds-shadow-raised-lg: 12px 12px 24px #a3b1c6, -12px -12px 24px #ffffff;
+  --ds-shadow-inset-sm: inset 2px 2px 5px #a3b1c6, inset -2px -2px 5px #ffffff;
+  --ds-shadow-inset: inset 5px 5px 10px #a3b1c6, inset -5px -5px 10px #ffffff;
+  --ds-shadow-accent: 6px 6px 12px #5648c9, -6px -6px 12px #9587ff; /** Colored dual shadow for a filled indigo button */
+  --ds-shadow-none: none;
+  --ds-space-0: 0rem;
+  --ds-space-1: 0.25rem;
+  --ds-space-2: 0.5rem;
+  --ds-space-3: 0.75rem;
+  --ds-space-4: 1rem;
+  --ds-space-5: 1.5rem;
+  --ds-space-6: 2rem;
+  --ds-space-7: 3rem;
+  --ds-space-8: 4rem;
+  --ds-space-9: 6rem;
+  --ds-font-family-sans: Poppins, Nunito, ui-rounded, -apple-system, 'Segoe UI', Roboto, sans-serif; /** Rounded geometric sans — soft like the surfaces */
+  --ds-font-weight-regular: 400;
+  --ds-font-weight-medium: 500;
+  --ds-font-weight-semibold: 600;
+  --ds-font-weight-bold: 700;
+  --ds-font-size-xs: 0.75rem;
+  --ds-font-size-sm: 0.875rem;
+  --ds-font-size-base: 1rem;
+  --ds-font-size-lg: 1.25rem;
+  --ds-font-size-xl: 1.75rem;
+  --ds-font-size-2xl: 2.25rem;
+  --ds-font-size-3xl: 3rem;
+  --ds-font-size-4xl: 3.75rem;
+  --ds-font-line-height-tight: 1.15;
+  --ds-font-line-height-snug: 1.35;
+  --ds-font-line-height-normal: 1.6;
+  --ds-font-letter-spacing-tight: -0.02em;
+  --ds-font-letter-spacing-normal: 0em;
+  --ds-font-letter-spacing-wide: 0.08em; /** Uppercase labels */
+  --ds-font-letter-spacing-wider: 0.15em; /** Section eyebrows */
+  --ds-color-bg-canvas: var(--ds-color-palette-base);
+  --ds-color-bg-surface: var(--ds-color-palette-base); /** Cards share the canvas color — depth comes from shadow, not fill */
+  --ds-color-bg-raised: var(--ds-color-palette-base-raised); /** Top of an extruded element */
+  --ds-color-shadow-dark: var(--ds-color-palette-shadow-dark);
+  --ds-color-shadow-light: var(--ds-color-palette-shadow-light);
+  --ds-color-fg-default: var(--ds-color-palette-ink);
+  --ds-color-fg-muted: var(--ds-color-palette-ink-muted);
+  --ds-color-fg-faint: var(--ds-color-palette-ink-faint);
+  --ds-color-fg-on-accent: var(--ds-color-palette-white); /** Text on a filled accent surface */
+  --ds-color-accent-primary: var(--ds-color-palette-indigo);
+  --ds-color-accent-bright: var(--ds-color-palette-indigo-bright);
+  --ds-color-border-default: var(--ds-color-palette-line);
+  --ds-color-border-strong: var(--ds-color-palette-indigo); /** Focus emphasis */
+  --ds-color-feedback-success: var(--ds-color-palette-green);
+  --ds-color-feedback-warning: var(--ds-color-palette-amber);
+  --ds-color-feedback-danger: var(--ds-color-palette-red);
+  --ds-button-radius: var(--ds-radius-lg);
+  --ds-button-shadow: var(--ds-shadow-raised); /** Resting extrusion */
+  --ds-button-shadow-active: var(--ds-shadow-inset); /** Pressed = pushed in */
+  --ds-button-font-weight: var(--ds-font-weight-semibold);
+  --ds-button-font-size: var(--ds-font-size-sm);
+  --ds-card-radius: var(--ds-radius-xl);
+  --ds-card-shadow: var(--ds-shadow-raised); /** Extruded panel */
+  --ds-card-padding: var(--ds-space-6);
+  --ds-button-bg: var(--ds-color-bg-surface); /** Default = raised neutral, same color as page */
+  --ds-button-fg: var(--ds-color-fg-default);
+  --ds-card-bg: var(--ds-color-bg-surface);
+  --ds-card-fg: var(--ds-color-fg-default);
+}

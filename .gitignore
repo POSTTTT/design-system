@@ -1,0 +1,25 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Dependencies (each style folder has its own package.json)
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Local environment
+.env
+.env.*
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Tool output (browser-test screenshots etc.)
+.playwright-mcp/
+
+# NOTE: each style's dist/ is intentionally COMMITTED so catalogs and
+# prototypes open straight from a clone. Don't add dist/ here.
