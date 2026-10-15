@@ -1,0 +1,40 @@
+{
+  "color": {
+    "bg": {
+      "$type": "color",
+      "canvas": { "$value": "{color.palette.paper}" },
+      "raised": { "$value": "{color.palette.paperHigh}" },
+      "sunken": { "$value": "{color.palette.paperLow}" },
+      "invert": { "$value": "{color.palette.ink}", "$description": "Primary button, active nav chip" }
+    },
+
+    "fg": {
+      "$type": "color",
+      "default":  { "$value": "{color.palette.ink}" },
+      "strong":   { "$value": "{color.palette.black}" },
+      "muted":    { "$value": "#1010149e", "$description": "Body copy under headings (62%)" },
+      "faint":    { "$value": "#1010146b", "$description": "Labels, indices, hints (42%)" },
+      "onInvert": { "$value": "{color.palette.paper}" }
+    },
+
+    "line": {
+      "$type": "color",
+      "_comment": "The grid. Every structure on the page is drawn with these two hairlines.",
+      "default": { "$value": "#10101429", "$description": "Cell + row hairlines (16%)" },
+      "strong":  { "$value": "#10101466", "$description": "Outline buttons, inputs (40%)" }
+    },
+
+    "accent": {
+      "$type": "color",
+      "primary": { "$value": "{color.palette.blue}" },
+      "ink":     { "$value": "{color.palette.blueInk}" }
+    },
+
+    "feedback": {
+      "$type": "color",
+      "danger": { "$value": "{color.palette.red}" }
+    },
+
+    "scanline": { "$type": "color", "$value": "#10101408", "$description": "Faint horizontal scanlines on media wells" }
+  }
+}

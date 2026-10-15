@@ -1,0 +1,14 @@
+/* Alert — a ruled note with a mono label and a 2px signal edge. */
+.atl-alert {
+  --atl-edge: var(--ds-color-accent-primary);
+  display: grid; gap: var(--ds-space-1);
+  padding: var(--ds-space-4) var(--ds-space-5);
+  background: var(--ds-color-bg-raised);
+  border: var(--ds-border-width-hairline) solid var(--ds-color-line-default);
+  box-shadow: inset 2px 0 0 var(--atl-edge);
+}
+.atl-alert > * { margin: 0; }
+.atl-alert__label { font-family: var(--ds-font-family-mono); font-size: var(--ds-font-size-label); letter-spacing: var(--ds-font-letter-spacing-label); text-transform: uppercase; color: var(--atl-edge); }
+.atl-alert--danger { --atl-edge: var(--ds-color-feedback-danger); }
+.atl-alert--neutral { --atl-edge: var(--ds-color-fg-default); }
+.atl-alert--neutral .atl-alert__label { color: var(--ds-color-fg-muted); }

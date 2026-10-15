@@ -1,0 +1,27 @@
+/*
+ * Atelier component library.
+ * Import THIS one file to get the tokens + every component class.
+ *
+ *   <link rel="stylesheet" href="atelier/atelier-compo/components.css" />
+ *
+ * Components are namespaced with `atl-` so multiple styles can coexist.
+ * Put `.atl-page` on <body>. Dark mode follows the OS, or force it with
+ * <html data-theme="dark"> / data-theme="light".
+ * Fonts (Google Fonts): Archivo (wdth+wght axes), Instrument Serif (italic),
+ * Inter, Geist Mono — see catalog/index.html for the exact <link>.
+ */
+@import url("../dist/css/tokens.css");
+
+@import url("./components/theme.css");
+@import url("./components/page.css");
+@import url("./components/type.css");
+@import url("./components/grid.css");
+@import url("./components/button.css");
+@import url("./components/nav.css");
+@import url("./components/tag.css");
+@import url("./components/input.css");
+@import url("./components/media.css");
+@import url("./components/ticker.css");
+@import url("./components/ruler.css");
+@import url("./components/alert.css");
+@import url("./components/footer.css");

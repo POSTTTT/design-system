@@ -1,0 +1,38 @@
+/* Theme — dark values for the semantic tokens. Follows the OS unless
+   <html data-theme="light|dark"> forces one. */
+:root[data-theme="dark"] {
+  --ds-color-bg-canvas: #121316;
+  --ds-color-bg-raised: #101014;
+  --ds-color-bg-sunken: #060607;
+  --ds-color-bg-invert: #ffffff;
+  --ds-color-fg-default: #f2f1ee;
+  --ds-color-fg-strong: #ffffff;
+  --ds-color-fg-muted: #f2f1ee99;
+  --ds-color-fg-faint: #f2f1ee61;
+  --ds-color-fg-on-invert: #0b0b0c;
+  --ds-color-line-default: #f2f1ee26;
+  --ds-color-line-strong: #f2f1ee66;
+  --ds-color-accent-ink: #74aaff;
+  --ds-color-feedback-danger: #ff6259;
+  --ds-color-scanline: #ffffff06;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ds-color-bg-canvas: #121316;
+    --ds-color-bg-raised: #101014;
+    --ds-color-bg-sunken: #060607;
+    --ds-color-bg-invert: #ffffff;
+    --ds-color-fg-default: #f2f1ee;
+    --ds-color-fg-strong: #ffffff;
+    --ds-color-fg-muted: #f2f1ee99;
+    --ds-color-fg-faint: #f2f1ee61;
+    --ds-color-fg-on-invert: #0b0b0c;
+    --ds-color-line-default: #f2f1ee26;
+    --ds-color-line-strong: #f2f1ee66;
+    --ds-color-accent-ink: #74aaff;
+    --ds-color-feedback-danger: #ff6259;
+    --ds-color-scanline: #ffffff06;
+    color-scheme: dark;
+  }
+}

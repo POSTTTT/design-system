@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kern — open-source type studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&amp;family=Geist+Mono:wght@400;500;700&amp;family=Instrument+Serif:ital@0;1&amp;family=Inter:wght@400;500&amp;display=swap">
+<!-- One import: generated tokens + every atl- component. -->
+<link rel="stylesheet" href="../atelier-compo/components.css">
+<style>
+  html { scroll-behavior: smooth; scroll-padding-top: var(--ds-layout-nav); }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  /* hero: type metric lines run behind the wordmark */
+  .hero { position: relative; overflow: hidden; text-align: center; display: flex; flex-direction: column; align-items: center; gap: var(--ds-space-5); padding: 7rem 2.5rem var(--ds-space-8); }
+  .metrics { position: absolute; inset: 0; pointer-events: none; }
+  .metrics div { position: absolute; left: 0; right: 0; border-top: 1px dashed var(--ds-color-line-default); }
+  .metrics span { position: absolute; left: var(--ds-space-4); top: 4px; }
+  .hero > :not(.metrics) { position: relative; }
+  .hero .atl-h2 { font-size: clamp(1.75rem, 4vw, 2.5rem); }
+  .ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--ds-space-3); }
+
+  .split { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: var(--ds-space-7); align-items: end; }
+  .split .atl-lead { max-width: 30em; }
+
+  /* specimen wells */
+  .spec { display: grid; place-items: center; color: var(--ds-color-fg-strong); line-height: 1; }
+  .spec--lines { background-image:
+      linear-gradient(to bottom, transparent calc(24% - 1px), var(--ds-color-accent-primary) calc(24% - 1px) 24%, transparent 24%),
+      linear-gradient(to bottom, transparent calc(44% - 1px), var(--ds-color-line-strong) calc(44% - 1px) 44%, transparent 44%),
+      linear-gradient(to bottom, transparent calc(76% - 1px), var(--ds-color-line-strong) calc(76% - 1px) 76%, transparent 76%),
+      repeating-linear-gradient(to bottom, var(--ds-color-scanline) 0 1px, transparent 1px 3px); }
+  .spec__g { font-family: var(--ds-font-family-serif); font-style: italic; font-size: clamp(9rem, 22vw, 15rem); }
+  .spec__r { font-family: var(--ds-font-family-display); font-weight: 800; font-stretch: 125%; font-size: clamp(7rem, 17vw, 12rem); }
+  .spec__pair { font-family: var(--ds-font-family-display); font-weight: 600; font-size: clamp(6rem, 14vw, 10rem); letter-spacing: -0.06em; }
+  .spec__pair i { font-style: normal; color: var(--ds-color-accent-primary); }
+  .spec__axes { display: flex; gap: var(--ds-space-4); align-items: baseline; font-family: var(--ds-font-family-display); font-size: clamp(3.5rem, 8vw, 6rem); }
+  .spec__axes span:nth-child(1) { font-weight: 200; font-stretch: 62%; }
+  .spec__axes span:nth-child(2) { font-weight: 500; font-stretch: 100%; }
+  .spec__axes span:nth-child(3) { font-weight: 900; font-stretch: 125%; }
+
+  /* playground */
+  .play { display: grid; grid-template-columns: minmax(0, 1fr) 20rem; gap: 1px; background: var(--ds-color-line-default); border-bottom: 1px solid var(--ds-color-line-default); }
+  .play > * { background: var(--ds-color-bg-canvas); }
+  .play__stage { min-height: 22rem; display: flex; align-items: center; padding: var(--ds-space-6) 2.5rem; overflow: hidden; }
+  .play__text { margin: 0; width: 100%; font-family: var(--ds-font-family-display); color: var(--ds-color-fg-strong); line-height: 1; overflow-wrap: anywhere; outline: none; }
+  .play__controls { padding: var(--ds-space-6); display: flex; flex-direction: column; gap: var(--ds-space-5); }
+  .play__css { margin: 0; padding: var(--ds-space-3) var(--ds-space-4); background: var(--ds-color-bg-sunken); font-family: var(--ds-font-family-mono); font-size: 0.75rem; line-height: 1.7; color: var(--ds-color-fg-muted); white-space: pre-wrap; }
+
+  /* fixed section index, only where the margin has room */
+  .side-index { position: fixed; right: 5rem; bottom: var(--ds-space-6); z-index: 30; display: none; }
+  @media (min-width: 1500px) { .side-index { display: block; } }
+
+  .closing { text-align: center; display: flex; flex-direction: column; align-items: center; gap: var(--ds-space-5); }
+
+  @media (max-width: 900px) {
+    .split { grid-template-columns: 1fr; gap: var(--ds-space-5); }
+    .play { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    .hero { padding: var(--ds-space-8) var(--ds-space-5) var(--ds-space-7); }
+    .play__stage { padding: var(--ds-space-5); min-height: 14rem; }
+  }
+</style>
+</head>
+<body class="atl-page">
+
+<nav class="atl-nav" aria-label="Main">
+  <a class="atl-nav__brand" href="#top" aria-label="Kern home">
+    <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M3 2h4v7l7-7h5l-8 8 8 10h-5l-5.6-7.2L7 15v5H3z" fill="currentColor"/></svg>
+  </a>
+  <div class="atl-nav__group">
+    <a class="atl-nav__item" href="#top" aria-current="page">Home</a>
+    <a class="atl-nav__item atl-nav__hide-sm" href="#tools">Tools</a>
+    <a class="atl-nav__item atl-nav__hide-sm" href="#playground">Playground</a>
+    <a class="atl-nav__item atl-nav__hide-sm" href="#ownership">Ownership</a>
+  </div>
+  <div class="atl-nav__group atl-nav__group--end atl-nav__hide-sm">
+    <a class="atl-nav__item" href="#start">Docs</a>
+  </div>
+  <button class="atl-nav__icon" id="themeBtn" aria-label="Switch light or dark mode">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M13.5 9.5A5.5 5.5 0 0 1 6.5 2.5a5.5 5.5 0 1 0 7 7z"/></svg>
+  </button>
+  <a class="atl-nav__cta" href="#start">Open editor</a>
+</nav>
+
+<ol class="atl-index side-index" aria-label="Sections">
+  <li><a href="#top">Kern</a></li>
+  <li><a href="#tools">Tools</a></li>
+  <li><a href="#playground">Playground</a></li>
+  <li><a href="#ownership">Ownership</a></li>
+  <li><a href="#start">Get started</a></li>
+</ol>
+
+<div class="atl-ruler" aria-hidden="true"><div class="atl-ruler__mark"><span class="atl-ruler__value">000 %</span></div></div>
+
+<main class="atl-frame">
+
+  <header id="top" class="hero atl-row">
+    <div class="metrics" aria-hidden="true">
+      <div style="top:22%"><span class="atl-micro">ASCENDER</span></div>
+      <div style="top:38%"><span class="atl-micro">CAP HEIGHT</span></div>
+      <div style="top:55%"><span class="atl-micro">X-HEIGHT</span></div>
+      <div style="top:72%"><span class="atl-micro">BASELINE</span></div>
+    </div>
+    <span class="atl-tag atl-tag--live">v1.4 · variable fonts</span>
+    <h1 class="atl-mark">KERN</h1>
+    <p class="atl-h2">Draw letters <em class="atl-serif">by hand.</em></p>
+    <p class="atl-lead">An open-source studio for designing typefaces. Outlines, spacing, kerning and variable axes in one quiet window, and the files stay yours.</p>
+    <div class="ctas">
+      <a class="atl-btn atl-btn--primary" href="#start">
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M7 1v8M3.5 5.5 7 9l3.5-3.5M2 12.5h10"/></svg>
+        Download free
+      </a>
+      <a class="atl-btn" href="#playground">Try it in the browser</a>
+    </div>
+    <ul class="atl-facts">
+      <li>Open source</li><li>macOS · Windows · Linux</li><li>Exports OTF · TTF · WOFF2</li>
+    </ul>
+  </header>
+
+  <div class="atl-ticker" aria-hidden="true">
+    <div class="atl-ticker__track">
+      <span class="atl-ticker__item">Bézier outlines</span><span class="atl-ticker__item">Kerning pairs</span><span class="atl-ticker__item">Variable axes</span><span class="atl-ticker__item">OpenType features</span><span class="atl-ticker__item">Spacing classes</span><span class="atl-ticker__item">Live specimens</span><span class="atl-ticker__item">UFO source files</span>
+      <span class="atl-ticker__item">Bézier outlines</span><span class="atl-ticker__item">Kerning pairs</span><span class="atl-ticker__item">Variable axes</span><span class="atl-ticker__item">OpenType features</span><span class="atl-ticker__item">Spacing classes</span><span class="atl-ticker__item">Live specimens</span><span class="atl-ticker__item">UFO source files</span>
+    </div>
+  </div>
+
+  <section id="tools" aria-labelledby="tools-h">
+    <div class="atl-bar"><span class="atl-label">01 / Tools</span><span class="atl-label atl-label--faint">Drawn in Kern</span></div>
+    <div class="atl-row atl-pad split">
+      <h2 class="atl-h1" id="tools-h">Every curve <em class="atl-serif">exactly</em> where you put it.</h2>
+      <p class="atl-lead">Autotrace is fine for a start, but type designers want the handles. Place every point yourself, then let Kern do the dull parts: spacing, interpolation, export.</p>
+    </div>
+    <div class="atl-cells">
+      <article class="atl-cell">
+        <div class="atl-cell__head"><span class="atl-label">Outlines</span><span class="atl-label atl-label--faint">01</span></div>
+        <div class="atl-media spec spec--lines atl-media--marks" aria-hidden="true"><span class="spec__g">g</span></div>
+        <div class="atl-cell__body"><h3 class="atl-h3">Curves with handles</h3><p class="atl-body">Cubic and quadratic Béziers, smooth and corner points, and a pen that snaps to extremes so curves stay clean at every size.</p></div>
+      </article>
+      <article class="atl-cell">
+        <div class="atl-cell__head"><span class="atl-label">Kerning</span><span class="atl-label atl-label--faint">02</span></div>
+        <div class="atl-media spec atl-media--marks" aria-hidden="true"><span class="spec__pair">A<i>V</i></span></div>
+        <div class="atl-cell__body"><h3 class="atl-h3">Pairs, classes, exceptions</h3><p class="atl-body">Kern by group, then fix the one pair that looks wrong. A live string shows every change in context.</p></div>
+      </article>
+      <article class="atl-cell">
+        <div class="atl-cell__head"><span class="atl-label">Variable axes</span><span class="atl-label atl-label--faint">03</span></div>
+        <div class="atl-media spec atl-media--marks" aria-hidden="true"><div class="spec__axes"><span>Rr</span><span>Rr</span><span>Rr</span></div></div>
+        <div class="atl-cell__body"><h3 class="atl-h3">One file, every weight</h3><p class="atl-body">Draw the masters, define weight and width axes, and scrub between them. Kern checks that every master is compatible.</p></div>
+      </article>
+      <article class="atl-cell">
+        <div class="atl-cell__head"><span class="atl-label">Specimens</span><span class="atl-label atl-label--faint">04</span></div>
+        <div class="atl-media spec spec--lines atl-media--marks" aria-hidden="true"><span class="spec__r">R</span></div>
+        <div class="atl-cell__body"><h3 class="atl-h3">Proof sheets that print</h3><p class="atl-body">Waterfalls, paragraphs and glyph grids, generated from the font as it is right now. Export to PDF for a red pen.</p></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="playground" aria-labelledby="play-h">
+    <div class="atl-bar"><span class="atl-label">02 / Playground</span><span class="atl-label atl-label--faint">Archivo · wght 100–900 · wdth 62–125</span></div>
+    <div class="atl-row atl-pad split">
+      <h2 class="atl-h1" id="play-h">Scrub the <em class="atl-serif">axes.</em></h2>
+      <p class="atl-lead">This is a real variable font running in your browser. Type over the sample, then drag weight and width the way you would in the editor.</p>
+    </div>
+    <div class="play">
+      <div class="play__stage">
+        <p class="play__text" id="sample" contenteditable="true" spellcheck="false" aria-label="Editable sample text">Quiet tools for loud letters</p>
+      </div>
+      <div class="play__controls">
+        <div class="atl-field">
+          <div class="atl-field__row"><label class="atl-label" for="wght">Weight</label><span class="atl-field__value" id="wghtOut">620</span></div>
+          <input class="atl-range" type="range" id="wght" min="100" max="900" value="620">
+        </div>
+        <div class="atl-field">
+          <div class="atl-field__row"><label class="atl-label" for="wdth">Width</label><span class="atl-field__value" id="wdthOut">100</span></div>
+          <input class="atl-range" type="range" id="wdth" min="62" max="125" value="100">
+        </div>
+        <div class="atl-field">
+          <div class="atl-field__row"><label class="atl-label" for="size">Size</label><span class="atl-field__value" id="sizeOut">72px</span></div>
+          <input class="atl-range" type="range" id="size" min="24" max="144" value="72">
+        </div>
+        <div class="atl-field">
+          <span class="atl-label" id="caseLbl">Case</span>
+          <div class="atl-segment" role="radiogroup" aria-labelledby="caseLbl">
+            <input type="radio" name="case" id="c-none" value="none" checked><label for="c-none">Aa</label>
+            <input type="radio" name="case" id="c-up" value="uppercase"><label for="c-up">AA</label>
+            <input type="radio" name="case" id="c-low" value="lowercase"><label for="c-low">aa</label>
+          </div>
+        </div>
+        <pre class="play__css" id="css" aria-label="Generated CSS"></pre>
+      </div>
+    </div>
+  </section>
+
+  <section id="ownership" aria-labelledby="own-h">
+    <div class="atl-bar"><span class="atl-label">03 / Ownership</span><span class="atl-label atl-label--faint">No account needed</span></div>
+    <div class="atl-row atl-pad split">
+      <h2 class="atl-h1" id="own-h">Your fonts are <em class="atl-serif">files,</em> not a subscription.</h2>
+      <p class="atl-lead">Kern saves plain UFO sources on your own disk. Open them in any other editor, put them in git, or hand them to a foundry.</p>
+    </div>
+    <div class="atl-cells atl-cells--3">
+      <div class="atl-cell"><div class="atl-cell__body">
+        <span class="atl-label atl-label--faint">A</span>
+        <h3 class="atl-h3">Open source</h3>
+        <p class="atl-body">The whole studio is public. Read it, fork it, send a patch.</p>
+        <div><a class="atl-btn atl-btn--sm" href="#start">View source</a></div>
+      </div></div>
+      <div class="atl-cell"><div class="atl-cell__body">
+        <span class="atl-label atl-label--faint">B</span>
+        <h3 class="atl-h3">Standard files</h3>
+        <p class="atl-body">UFO in, OTF, TTF and WOFF2 out. Nothing proprietary in between.</p>
+      </div></div>
+      <div class="atl-cell"><div class="atl-cell__body">
+        <span class="atl-label atl-label--faint">C</span>
+        <h3 class="atl-h3">Works offline</h3>
+        <p class="atl-body">No sign-in, no sync server. Your drafts never leave the machine.</p>
+      </div></div>
+    </div>
+  </section>
+
+  <section id="start" class="atl-row atl-pad--xl closing" aria-labelledby="start-h">
+    <span class="atl-label atl-label--faint">Free · open source · no account</span>
+    <h2 class="atl-xl" id="start-h">Start <em class="atl-serif">drawing.</em></h2>
+    <p class="atl-lead">Download the studio, or open the editor in your browser. Your first glyph is a minute away.</p>
+    <div class="ctas">
+      <a class="atl-btn atl-btn--primary" href="#top">Download for desktop</a>
+      <a class="atl-btn" href="#playground">Open in browser</a>
+    </div>
+    <div class="atl-alert" style="max-width:28rem;text-align:left;margin-top:var(--ds-space-4)">
+      <p class="atl-alert__label">Nightly build</p>
+      <p class="atl-body">Color fonts (COLRv1) are in the nightly channel. Expect rough edges.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="atl-footer">
+      <div>
+        <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M3 2h4v7l7-7h5l-8 8 8 10h-5l-5.6-7.2L7 15v5H3z" fill="currentColor"/></svg>
+        <p class="atl-body" style="margin:var(--ds-space-4) 0">The open-source studio for drawing typefaces.</p>
+        <span class="atl-label atl-label--faint">hello@kern.example</span>
+      </div>
+      <div><h4 class="atl-label atl-label--faint">Product</h4><ul><li><a href="#start">Download</a></li><li><a href="#playground">Playground</a></li><li><a href="#start">Changelog</a></li></ul></div>
+      <div><h4 class="atl-label atl-label--faint">Learn</h4><ul><li><a href="#tools">Drawing curves</a></li><li><a href="#tools">Spacing</a></li><li><a href="#tools">Variable fonts</a></li></ul></div>
+      <div><h4 class="atl-label atl-label--faint">Resources</h4><ul><li><a href="#start">Docs</a></li><li><a href="#start">FAQ</a></li><li><a href="#start">Press kit</a></li></ul></div>
+      <div><h4 class="atl-label atl-label--faint">Community</h4><ul><li><a href="#start">Forum</a></li><li><a href="#start">Source</a></li><li><a href="#start">Showcase</a></li></ul></div>
+    </div>
+    <div class="atl-legal"><span class="atl-label atl-label--faint">© 2026 Kern</span><span class="atl-label atl-label--faint">Made by type designers, for type designers</span></div>
+  </footer>
+</main>
+
+<script>
+  // Scroll ruler + section index
+  var ruler = document.querySelector('.atl-ruler');
+  var rulerVal = document.querySelector('.atl-ruler__value');
+  function onScroll() {
+    var max = document.documentElement.scrollHeight - innerHeight;
+    var p = max > 0 ? Math.min(1, scrollY / max) : 0;
+    ruler.style.setProperty('--atl-progress', p.toFixed(4));
+    rulerVal.textContent = String(Math.round(p * 100)).padStart(3, '0') + ' %';
+  }
+  addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  var indexLinks = document.querySelectorAll('.side-index a');
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      indexLinks.forEach(function (a) { a.setAttribute('aria-current', String(a.getAttribute('href') === '#' + e.target.id)); });
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  ['top', 'tools', 'playground', 'ownership', 'start'].forEach(function (id) { io.observe(document.getElementById(id)); });
+
+  // Theme toggle (palette-setting.js exposes atlTheme)
+  document.getElementById('themeBtn').addEventListener('click', function () { window.atlTheme && window.atlTheme.toggle(); });
+
+  // Variable-font playground
+  var sample = document.getElementById('sample');
+  var css = document.getElementById('css');
+  var ctl = { wght: document.getElementById('wght'), wdth: document.getElementById('wdth'), size: document.getElementById('size') };
+  function render() {
+    var c = document.querySelector('input[name="case"]:checked').value;
+    sample.style.fontWeight = ctl.wght.value;
+    sample.style.fontStretch = ctl.wdth.value + '%';
+    sample.style.fontSize = 'clamp(1.5rem, 9vw, ' + ctl.size.value + 'px)';
+    sample.style.letterSpacing = ctl.size.value > 60 ? '-0.03em' : '-0.01em';
+    sample.style.textTransform = c;
+    document.getElementById('wghtOut').textContent = ctl.wght.value;
+    document.getElementById('wdthOut').textContent = ctl.wdth.value;
+    document.getElementById('sizeOut').textContent = ctl.size.value + 'px';
+    css.textContent = 'font-family: Archivo;\nfont-weight: ' + ctl.wght.value + ';\nfont-stretch: ' + ctl.wdth.value + '%;\nfont-size: ' + ctl.size.value + 'px;' + (c !== 'none' ? '\ntext-transform: ' + c + ';' : '');
+  }
+  document.querySelector('.play__controls').addEventListener('input', render);
+  render();
+</script>
+<script src="../palette-setting.js"></script>
+</body>
+</html>

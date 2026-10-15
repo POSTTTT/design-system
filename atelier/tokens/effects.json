@@ -1,0 +1,30 @@
+{
+  "shadow": {
+    "_comment": "Flat. The only light in the system is the signal-blue glow on live markers.",
+    "none": { "$value": "none" },
+    "glow": { "$value": "0 0 6px var(--ds-color-accent-primary)", "$description": "Live marker / progress tick" }
+  },
+
+  "border": {
+    "width": {
+      "$type": "dimension",
+      "hairline": { "$value": "1px" },
+      "focus":    { "$value": "2px" }
+    }
+  },
+
+  "radius": {
+    "$type": "dimension",
+    "_comment": "Square. Everything is a cell in the grid.",
+    "none": { "$value": "0px" }
+  },
+
+  "motion": {
+    "duration": {
+      "$type": "duration",
+      "fast": { "$value": "120ms" },
+      "base": { "$value": "200ms" }
+    },
+    "ease": { "$type": "cubicBezier", "$value": [0.2, 0, 0, 1], "$description": "Quick out, settle in" }
+  }
+}

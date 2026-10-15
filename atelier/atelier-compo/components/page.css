@@ -1,0 +1,14 @@
+/* Page — warm paper, Inter body, blue links, blue focus ring. */
+.atl-page {
+  margin: 0;
+  background: var(--ds-color-bg-canvas);
+  color: var(--ds-color-fg-default);
+  font-family: var(--ds-font-family-sans);
+  font-size: var(--ds-font-size-base);
+  line-height: var(--ds-font-line-height-normal);
+  -webkit-font-smoothing: antialiased;
+}
+.atl-page *, .atl-page *::before, .atl-page *::after { box-sizing: border-box; }
+.atl-page a { color: inherit; }
+.atl-page :focus-visible { outline: var(--ds-border-width-focus) solid var(--ds-color-accent-primary); outline-offset: 2px; }
+.atl-link { color: var(--ds-color-accent-ink); text-underline-offset: 3px; }

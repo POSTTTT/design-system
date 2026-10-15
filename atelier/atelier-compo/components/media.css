@@ -1,0 +1,21 @@
+/* Media well — a sunken slot for images, video or specimens, with faint
+   scanlines and an optional overlay chip (e.g. a PLAY button). */
+.atl-media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: var(--ds-color-bg-sunken);
+  background-image: repeating-linear-gradient(to bottom, var(--ds-color-scanline) 0 1px, transparent 1px 3px);
+  border-bottom: var(--ds-border-width-hairline) solid var(--ds-color-line-default);
+}
+.atl-media > img, .atl-media > video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.atl-media__chip {
+  position: absolute; left: var(--ds-space-3); bottom: var(--ds-space-3);
+  display: inline-flex; align-items: center; gap: var(--ds-space-2); height: 1.75rem; padding: 0 var(--ds-space-3);
+  background: var(--ds-color-bg-invert); color: var(--ds-color-fg-on-invert);
+  font-family: var(--ds-font-family-mono); font-size: var(--ds-font-size-label); letter-spacing: var(--ds-font-letter-spacing-label); text-transform: uppercase;
+}
+/* crosshair corner marks, like a frame on a canvas */
+.atl-media--marks::before, .atl-media--marks::after { content: "+"; position: absolute; top: var(--ds-space-2); font-family: var(--ds-font-family-mono); color: var(--ds-color-fg-faint); line-height: 1; }
+.atl-media--marks::before { left: var(--ds-space-2); }
+.atl-media--marks::after { right: var(--ds-space-2); }

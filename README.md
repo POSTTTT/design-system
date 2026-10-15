@@ -112,3 +112,15 @@ size-filtered flash wall, pick a design, live price estimate, validated booking
 form). A second prototype, `prototype/plotter.html`, uses the `.ink-page--mono`
 Courier Prime variant: a pen-plotter page (PLOTBOT) that plots a drawing stroke
 by stroke, with a live serial log, queue table and changelog.
+
+### `atelier/`
+An editorial studio-instrument style. Warm paper `#f2f1ee` and near-black ink
+`#101014`, with the whole page drawn as one 1px hairline grid of rows and indexed
+cells, each topped by a Geist Mono uppercase label bar. Extended `Archivo` headlines
+(variable width + weight) with an `Instrument Serif` italic accent word, `Inter` body
+at 62% ink, square corners and no shadows. One signal blue `#2d81ff` marks anything
+live: a fixed scroll ruler, range values, focus rings. Includes a drifting ticker
+strip, sunken scanline media wells and a segmented control. Light and dark modes,
+following the OS or forced with `data-theme`. Its prototype is a landing page for
+an open-source type-design studio (KERN) with type-specimen cells and a working
+variable-font playground (weight, width, size, case).

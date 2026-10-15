@@ -1,0 +1,87 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --ds-color-palette-paper: #f2f1ee; /** Page canvas */
+  --ds-color-palette-paper-high: #faf9f7; /** Raised surface: inputs, popovers */
+  --ds-color-palette-paper-low: #e9e8e4; /** Sunken surface: media wells, footers */
+  --ds-color-palette-ink: #101014; /** Text, solid buttons, active chips */
+  --ds-color-palette-black: #000000;
+  --ds-color-palette-blue: #2d81ff; /** Signal blue — progress, focus, live values */
+  --ds-color-palette-blue-ink: #1659c4; /** Blue for text on paper (links) */
+  --ds-color-palette-red: #b3261e;
+  --ds-color-fg-muted: rgba(16, 16, 20, 0.62); /** Body copy under headings (62%) */
+  --ds-color-fg-faint: rgba(16, 16, 20, 0.42); /** Labels, indices, hints (42%) */
+  --ds-color-line-default: rgba(16, 16, 20, 0.16); /** Cell + row hairlines (16%) */
+  --ds-color-line-strong: rgba(16, 16, 20, 0.4); /** Outline buttons, inputs (40%) */
+  --ds-color-scanline: rgba(16, 16, 20, 0.03); /** Faint horizontal scanlines on media wells */
+  --ds-button-height: 3rem;
+  --ds-button-padding: 1.5rem;
+  --ds-shadow-none: none;
+  --ds-shadow-glow: 0 0 6px var(--ds-color-accent-primary); /** Live marker / progress tick */
+  --ds-border-width-hairline: 1px;
+  --ds-border-width-focus: 2px;
+  --ds-radius-none: 0px;
+  --ds-motion-duration-fast: 120ms;
+  --ds-motion-duration-base: 200ms;
+  --ds-motion-ease: cubic-bezier(0.2, 0, 0, 1); /** Quick out, settle in */
+  --ds-space-0: 0rem;
+  --ds-space-1: 0.25rem;
+  --ds-space-2: 0.5rem;
+  --ds-space-3: 0.75rem;
+  --ds-space-4: 1rem;
+  --ds-space-5: 1.5rem;
+  --ds-space-6: 2rem;
+  --ds-space-7: 3rem;
+  --ds-space-8: 4rem;
+  --ds-space-9: 6rem;
+  --ds-layout-frame: 75rem; /** Max width of the ruled frame, 1200px */
+  --ds-layout-nav: 3rem; /** Nav bar height, 48px */
+  --ds-layout-bar: 2.5rem; /** Section label bar height */
+  --ds-font-family-display: Archivo, 'Helvetica Neue', Arial, sans-serif; /** Headlines. Variable: wght 100-900, wdth 62-125 */
+  --ds-font-family-serif: 'Instrument Serif', Georgia, serif; /** Italic accent word inside headlines */
+  --ds-font-family-sans: Inter, ui-sans-serif, system-ui, sans-serif; /** Body copy */
+  --ds-font-family-mono: 'Geist Mono', ui-monospace, Menlo, monospace; /** Uppercase labels, indices, buttons */
+  --ds-font-weight-regular: 400;
+  --ds-font-weight-medium: 500;
+  --ds-font-weight-display: 620; /** Archivo headings */
+  --ds-font-weight-bold: 700;
+  --ds-font-weight-heavy: 750; /** Extended wordmark */
+  --ds-font-size-micro: 0.5625rem; /** Ruler numbers, 9px */
+  --ds-font-size-label: 0.6875rem; /** Mono caps labels + buttons, 11px */
+  --ds-font-size-sm: 0.875rem;
+  --ds-font-size-base: 1rem;
+  --ds-font-size-lead: 1.125rem; /** Intro paragraphs, 18px */
+  --ds-font-size-h3: 1.5rem; /** Cell title, 24px */
+  --ds-font-size-h2: 2.25rem; /** Sub-headline, 36px */
+  --ds-font-size-h1: 3.75rem; /** Section headline, 60px */
+  --ds-font-size-xl: 4.5rem; /** Closing headline, 72px */
+  --ds-font-size-mark: 6rem; /** Extended wordmark, 96px */
+  --ds-font-line-height-display: 1.02;
+  --ds-font-line-height-heading: 1.33;
+  --ds-font-line-height-normal: 1.5;
+  --ds-font-line-height-lead: 1.625;
+  --ds-font-letter-spacing-tight: -0.035em; /** Display headlines */
+  --ds-font-letter-spacing-snug: -0.02em; /** Cell titles */
+  --ds-font-letter-spacing-normal: 0em;
+  --ds-font-letter-spacing-micro: 0.08em; /** 9px ruler numbers */
+  --ds-font-letter-spacing-label: 0.15em; /** Mono uppercase labels */
+  --ds-font-letter-spacing-button: 0.12em; /** Mono uppercase buttons */
+  --ds-font-stretch-normal: 100%;
+  --ds-font-stretch-extended: 125%; /** Archivo wdth axis for the wordmark + section index */
+  --ds-color-bg-canvas: var(--ds-color-palette-paper);
+  --ds-color-bg-raised: var(--ds-color-palette-paper-high);
+  --ds-color-bg-sunken: var(--ds-color-palette-paper-low);
+  --ds-color-bg-invert: var(--ds-color-palette-ink); /** Primary button, active nav chip */
+  --ds-color-fg-default: var(--ds-color-palette-ink);
+  --ds-color-fg-strong: var(--ds-color-palette-black);
+  --ds-color-fg-on-invert: var(--ds-color-palette-paper);
+  --ds-color-accent-primary: var(--ds-color-palette-blue);
+  --ds-color-accent-ink: var(--ds-color-palette-blue-ink);
+  --ds-color-feedback-danger: var(--ds-color-palette-red);
+  --ds-button-font-size: var(--ds-font-size-label);
+  --ds-button-font-weight: var(--ds-font-weight-bold);
+  --ds-cell-padding: var(--ds-space-6);
+  --ds-cell-bg: var(--ds-color-bg-canvas);
+}

@@ -1,0 +1,17 @@
+/* Footer — a brand cell plus link columns, all hairline-ruled, with a
+   mono legal strip underneath. */
+.atl-footer { display: grid; grid-template-columns: 1.6fr repeat(4, 1fr); border-bottom: var(--ds-border-width-hairline) solid var(--ds-color-line-default); }
+.atl-footer > * { padding: var(--ds-space-6) var(--ds-space-5); min-width: 0; }
+.atl-footer > * + * { border-left: var(--ds-border-width-hairline) solid var(--ds-color-line-default); }
+.atl-footer h4 { margin: 0 0 var(--ds-space-4); }
+.atl-footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--ds-space-2); font-size: var(--ds-font-size-sm); }
+.atl-footer ul a { color: var(--ds-color-fg-muted); text-decoration: none; }
+.atl-footer ul a:hover { color: var(--ds-color-fg-default); }
+.atl-legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--ds-space-3); padding: var(--ds-space-4) var(--ds-space-5); }
+@media (max-width: 900px) {
+  .atl-footer { grid-template-columns: repeat(2, 1fr); }
+  .atl-footer > :first-child { grid-column: 1 / -1; }
+  .atl-footer > * + * { border-left: 0; }
+  .atl-footer > :nth-child(n+2) { border-top: var(--ds-border-width-hairline) solid var(--ds-color-line-default); }
+  .atl-footer > :nth-child(odd):not(:first-child) { border-left: var(--ds-border-width-hairline) solid var(--ds-color-line-default); }
+}

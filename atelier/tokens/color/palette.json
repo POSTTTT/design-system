@@ -1,0 +1,17 @@
+{
+  "color": {
+    "palette": {
+      "$type": "color",
+      "_comment": "Atelier: warm studio paper, near-black ink, and one signal blue used only for live readouts and links. Primitives only. Dark values live in atelier-compo/components/theme.css.",
+
+      "paper":     { "$value": "#f2f1ee", "$description": "Page canvas" },
+      "paperHigh": { "$value": "#faf9f7", "$description": "Raised surface: inputs, popovers" },
+      "paperLow":  { "$value": "#e9e8e4", "$description": "Sunken surface: media wells, footers" },
+      "ink":       { "$value": "#101014", "$description": "Text, solid buttons, active chips" },
+      "black":     { "$value": "#000000" },
+      "blue":      { "$value": "#2d81ff", "$description": "Signal blue — progress, focus, live values" },
+      "blueInk":   { "$value": "#1659c4", "$description": "Blue for text on paper (links)" },
+      "red":       { "$value": "#b3261e" }
+    }
+  }
+}

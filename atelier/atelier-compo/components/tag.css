@@ -1,0 +1,14 @@
+/* Tag — mono caps in a hairline box; --solid inverts; --live adds a blue dot. */
+.atl-tag {
+  display: inline-flex; align-items: center; gap: var(--ds-space-2);
+  height: 1.5rem; padding: 0 var(--ds-space-2);
+  font-family: var(--ds-font-family-mono); font-size: var(--ds-font-size-label); font-weight: var(--ds-font-weight-medium);
+  letter-spacing: var(--ds-font-letter-spacing-label); text-transform: uppercase; white-space: nowrap;
+  color: var(--ds-color-fg-default);
+  border: var(--ds-border-width-hairline) solid var(--ds-color-line-strong);
+}
+.atl-tag--solid { background: var(--ds-color-bg-invert); color: var(--ds-color-fg-on-invert); border-color: var(--ds-color-bg-invert); }
+.atl-tag--live::before { content: ""; width: 6px; height: 6px; background: var(--ds-color-accent-primary); box-shadow: var(--ds-shadow-glow); }
+/* inline list of facts separated by middots: "MACOS · WINDOWS · WEB" */
+.atl-facts { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--ds-space-2) var(--ds-space-5); margin: 0; padding: 0; list-style: none; }
+.atl-facts li { font-family: var(--ds-font-family-mono); font-size: var(--ds-font-size-label); letter-spacing: var(--ds-font-letter-spacing-label); text-transform: uppercase; color: var(--ds-color-fg-faint); }

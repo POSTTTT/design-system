@@ -1,0 +1,55 @@
+/* Grid — the page is one ruled frame. Rows and cells are separated by
+   hairlines; every cell can carry a mono label bar with an index. */
+.atl-frame {
+  max-width: var(--ds-layout-frame);
+  margin: 0 auto;
+  border-left: var(--ds-border-width-hairline) solid var(--ds-color-line-default);
+  border-right: var(--ds-border-width-hairline) solid var(--ds-color-line-default);
+}
+.atl-row { border-bottom: var(--ds-border-width-hairline) solid var(--ds-color-line-default); }
+.atl-pad { padding: var(--ds-space-8) 2.5rem; }
+.atl-pad--xl { padding: var(--ds-space-9) 2.5rem; }
+
+/* label bar: "01 / FEATURES ······· META" */
+.atl-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ds-space-4);
+  min-height: var(--ds-layout-bar);
+  padding: 0 2.5rem;
+  border-bottom: var(--ds-border-width-hairline) solid var(--ds-color-line-default);
+}
+
+/* cells — hairlines come from a 1px gap over a line-coloured background */
+.atl-cells {
+  --atl-cols: 2;
+  display: grid;
+  grid-template-columns: repeat(var(--atl-cols), minmax(0, 1fr));
+  gap: var(--ds-border-width-hairline);
+  background: var(--ds-color-line-default);
+  border-bottom: var(--ds-border-width-hairline) solid var(--ds-color-line-default);
+}
+.atl-cells--3 { --atl-cols: 3; }
+.atl-cells--4 { --atl-cols: 4; }
+.atl-cell { background: var(--ds-cell-bg); display: flex; flex-direction: column; min-width: 0; }
+.atl-cell__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ds-space-3);
+  min-height: var(--ds-layout-bar);
+  padding: 0 var(--ds-cell-padding);
+  border-bottom: var(--ds-border-width-hairline) solid var(--ds-color-line-default);
+}
+.atl-cell__body { padding: var(--ds-cell-padding); display: flex; flex-direction: column; gap: var(--ds-space-3); flex: 1; }
+.atl-cell__body > * { margin: 0; }
+
+@media (max-width: 900px) { .atl-cells--3, .atl-cells--4 { --atl-cols: 2; } }
+@media (max-width: 640px) {
+  .atl-cells, .atl-cells--3, .atl-cells--4 { --atl-cols: 1; }
+  .atl-pad, .atl-pad--xl { padding-left: var(--ds-space-5); padding-right: var(--ds-space-5); }
+  .atl-pad--xl { padding-top: var(--ds-space-8); padding-bottom: var(--ds-space-8); }
+  .atl-bar { padding: 0 var(--ds-space-5); }
+  .atl-cell { --ds-cell-padding: var(--ds-space-5); }
+}

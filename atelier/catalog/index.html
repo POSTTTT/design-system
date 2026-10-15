@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Atelier · Design System Catalog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Geist+Mono:wght@400;500;700&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+<!-- One import: generated tokens + every atl- component. -->
+<link rel="stylesheet" href="../atelier-compo/components.css" />
+<style>
+  .row { display: flex; flex-wrap: wrap; gap: var(--ds-space-3); align-items: center; }
+  .stack { display: flex; flex-direction: column; gap: var(--ds-space-4); }
+  .chip { height: 64px; border-bottom: 1px solid var(--ds-color-line-default); }
+  .scale { display: flex; align-items: center; gap: var(--ds-space-4); }
+  .scale .atl-label { width: 5rem; flex-shrink: 0; }
+  .bar { height: 1px; background: var(--ds-color-fg-default); }
+  code { font-family: var(--ds-font-family-mono); font-size: 0.8em; color: var(--ds-color-fg-muted); }
+</style>
+</head>
+<body class="atl-page">
+
+<nav class="atl-nav" aria-label="Catalog">
+  <a class="atl-nav__brand" href="#top" aria-label="Top"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><rect x="1" y="1" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M1 9h16M9 1v16" stroke="currentColor" stroke-width="1"/></svg></a>
+  <div class="atl-nav__group">
+    <a class="atl-nav__item" href="#top" aria-current="page">Catalog</a>
+    <a class="atl-nav__item atl-nav__hide-sm" href="#color">Color</a>
+    <a class="atl-nav__item atl-nav__hide-sm" href="#type">Type</a>
+    <a class="atl-nav__item atl-nav__hide-sm" href="#components">Components</a>
+  </div>
+  <button class="atl-nav__icon" onclick="window.atlTheme && atlTheme.toggle()" aria-label="Switch light or dark mode"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M13.5 9.5A5.5 5.5 0 0 1 6.5 2.5a5.5 5.5 0 1 0 7 7z"/></svg></button>
+  <a class="atl-nav__cta" href="../prototype/">Prototype</a>
+</nav>
+
+<main class="atl-frame" id="top">
+  <header class="atl-row atl-pad">
+    <div class="stack">
+      <span class="atl-tag atl-tag--live">design system · v0.1</span>
+      <h1 class="atl-mark">ATELIER</h1>
+      <p class="atl-lead">An editorial studio-instrument style: warm paper, near-black ink, a hairline grid of indexed cells, extended Archivo headlines with an <em class="atl-serif">italic serif</em> accent, Inter body, Geist Mono labels, square corners and one signal blue. Tokens from <code>dist/css/tokens.css</code>; components from <code>atelier-compo/</code>.</p>
+    </div>
+  </header>
+
+  <section id="color">
+    <div class="atl-bar"><span class="atl-label">01 / Color</span><span class="atl-label atl-label--faint">flip with the moon icon</span></div>
+    <div class="atl-cells atl-cells--4">
+      <div class="atl-cell"><div class="chip" style="background:var(--ds-color-bg-canvas)"></div><div class="atl-cell__body"><span class="atl-label">canvas</span><code>#f2f1ee / #121316</code></div></div>
+      <div class="atl-cell"><div class="chip" style="background:var(--ds-color-bg-raised)"></div><div class="atl-cell__body"><span class="atl-label">raised</span><code>#faf9f7 / #101014</code></div></div>
+      <div class="atl-cell"><div class="chip" style="background:var(--ds-color-bg-sunken)"></div><div class="atl-cell__body"><span class="atl-label">sunken</span><code>#e9e8e4 / #060607</code></div></div>
+      <div class="atl-cell"><div class="chip" style="background:var(--ds-color-bg-invert)"></div><div class="atl-cell__body"><span class="atl-label">ink / invert</span><code>#101014 / #ffffff</code></div></div>
+      <div class="atl-cell"><div class="chip" style="background:var(--ds-color-fg-muted)"></div><div class="atl-cell__body"><span class="atl-label">muted 62%</span><code>body under headings</code></div></div>
+      <div class="atl-cell"><div class="chip" style="background:var(--ds-color-fg-faint)"></div><div class="atl-cell__body"><span class="atl-label">faint 42%</span><code>labels, indices</code></div></div>
+      <div class="atl-cell"><div class="chip" style="background:var(--ds-color-accent-primary)"></div><div class="atl-cell__body"><span class="atl-label">signal blue</span><code>#2d81ff · ink #1659c4</code></div></div>
+      <div class="atl-cell"><div class="chip" style="background:var(--ds-color-feedback-danger)"></div><div class="atl-cell__body"><span class="atl-label">danger</span><code>#b3261e / #ff6259</code></div></div>
+    </div>
+  </section>
+
+  <section id="type">
+    <div class="atl-bar"><span class="atl-label">02 / Type</span><span class="atl-label atl-label--faint">Archivo · Instrument Serif · Inter · Geist Mono</span></div>
+    <div class="atl-row atl-pad stack">
+      <p class="atl-mark" style="font-size:clamp(2.5rem,8vw,4.5rem)">WORDMARK</p>
+      <p class="atl-h1">Headline with a <em class="atl-serif">serif</em> word.</p>
+      <p class="atl-h2">Sub-headline · Archivo 620</p>
+      <p class="atl-h3">Cell title · 24px, −0.02em</p>
+      <p class="atl-lead">Lead: Inter 18/29 at 62% ink. Calm enough to sit under a loud headline.</p>
+      <p class="atl-body">Body: Inter 16/26. <a class="atl-link" href="#type">Links are the only blue text.</a></p>
+      <div class="row"><span class="atl-label">Mono label · 11px · 0.15em</span><span class="atl-micro">MICRO 9PX · 0.08EM</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="atl-bar"><span class="atl-label">03 / Space · lines</span><span class="atl-label atl-label--faint">4px scale · 1px hairlines · 0 radius</span></div>
+    <div class="atl-cells">
+      <div class="atl-cell"><div class="atl-cell__body">
+        <div class="scale"><span class="atl-label">space-2</span><div class="bar" style="width:var(--ds-space-2)"></div></div>
+        <div class="scale"><span class="atl-label">space-4</span><div class="bar" style="width:var(--ds-space-4)"></div></div>
+        <div class="scale"><span class="atl-label">space-6</span><div class="bar" style="width:var(--ds-space-6)"></div></div>
+        <div class="scale"><span class="atl-label">space-8</span><div class="bar" style="width:var(--ds-space-8)"></div></div>
+        <div class="scale"><span class="atl-label">space-9</span><div class="bar" style="width:var(--ds-space-9)"></div></div>
+      </div></div>
+      <div class="atl-cell"><div class="atl-cell__body">
+        <div class="scale"><span class="atl-label">line</span><div style="flex:1;border-top:1px solid var(--ds-color-line-default)"></div></div>
+        <div class="scale"><span class="atl-label">strong</span><div style="flex:1;border-top:1px solid var(--ds-color-line-strong)"></div></div>
+        <div class="scale"><span class="atl-label">signal</span><div style="flex:1;border-top:1px solid var(--ds-color-accent-primary);box-shadow:var(--ds-shadow-glow)"></div></div>
+        <p class="atl-body">No shadows, no rounded corners. Structure comes from the grid; the only glow is a live marker.</p>
+      </div></div>
+    </div>
+  </section>
+
+  <section id="components">
+    <div class="atl-bar"><span class="atl-label">04 / Components</span><span class="atl-label atl-label--faint">atl-</span></div>
+    <div class="atl-cells">
+      <div class="atl-cell">
+        <div class="atl-cell__head"><span class="atl-label">Buttons</span><span class="atl-label atl-label--faint">01</span></div>
+        <div class="atl-cell__body">
+          <div class="row"><button class="atl-btn atl-btn--primary">Download free</button><button class="atl-btn">Use on web</button></div>
+          <div class="row"><button class="atl-btn atl-btn--sm">View source</button><button class="atl-btn atl-btn--ghost atl-btn--sm">Ghost</button><button class="atl-btn atl-btn--sm" disabled>Disabled</button></div>
+        </div>
+      </div>
+      <div class="atl-cell">
+        <div class="atl-cell__head"><span class="atl-label">Tags · facts</span><span class="atl-label atl-label--faint">02</span></div>
+        <div class="atl-cell__body">
+          <div class="row"><span class="atl-tag">Draft</span><span class="atl-tag atl-tag--solid">Home</span><span class="atl-tag atl-tag--live">Live</span></div>
+          <ul class="atl-facts" style="justify-content:flex-start"><li>Free to start</li><li>No subscription</li></ul>
+        </div>
+      </div>
+      <div class="atl-cell">
+        <div class="atl-cell__head"><span class="atl-label">Inputs</span><span class="atl-label atl-label--faint">03</span></div>
+        <div class="atl-cell__body">
+          <label class="atl-field"><span class="atl-label">Email</span><input class="atl-input" type="email" placeholder="you@studio.com" /></label>
+          <div class="atl-field">
+            <div class="atl-field__row"><label class="atl-label" for="r1">Weight</label><span class="atl-field__value" id="r1o">620</span></div>
+            <input class="atl-range" id="r1" type="range" min="100" max="900" value="620" oninput="r1o.textContent=this.value" />
+          </div>
+          <div class="atl-segment" role="radiogroup" aria-label="View">
+            <input type="radio" name="v" id="v1" checked /><label for="v1">Grid</label>
+            <input type="radio" name="v" id="v2" /><label for="v2">List</label>
+            <input type="radio" name="v" id="v3" /><label for="v3">Specimen</label>
+          </div>
+        </div>
+      </div>
+      <div class="atl-cell">
+        <div class="atl-cell__head"><span class="atl-label">Alerts</span><span class="atl-label atl-label--faint">04</span></div>
+        <div class="atl-cell__body">
+          <div class="atl-alert"><p class="atl-alert__label">Update</p><p class="atl-body">Version 1.4 is ready to install.</p></div>
+          <div class="atl-alert atl-alert--neutral"><p class="atl-alert__label">Note</p><p class="atl-body">Drafts save to your disk only.</p></div>
+          <div class="atl-alert atl-alert--danger" role="alert"><p class="atl-alert__label">Export failed</p><p class="atl-body">Two masters are incompatible.</p></div>
+        </div>
+      </div>
+      <div class="atl-cell">
+        <div class="atl-cell__head"><span class="atl-label">Media well</span><span class="atl-label atl-label--faint">05</span></div>
+        <div class="atl-media atl-media--marks"><span class="atl-media__chip">▷ Play</span></div>
+        <div class="atl-cell__body"><h3 class="atl-h3">Cell title</h3><p class="atl-body">Label bar, media well, then copy. The basic unit of every page.</p></div>
+      </div>
+      <div class="atl-cell">
+        <div class="atl-cell__head"><span class="atl-label">Section index</span><span class="atl-label atl-label--faint">06</span></div>
+        <div class="atl-cell__body">
+          <ol class="atl-index"><li><a href="#top">Overview</a></li><li><a href="#color" aria-current="true">Color</a></li><li><a href="#type">Type</a></li><li><a href="#components">Components</a></li></ol>
+          <p class="atl-body">Extended caps, the current section solid. The scroll ruler on the right edge is <code>.atl-ruler</code>.</p>
+        </div>
+      </div>
+    </div>
+    <div class="atl-ticker" aria-hidden="true"><div class="atl-ticker__track">
+      <span class="atl-ticker__item">Ticker strip</span><span class="atl-ticker__item">Mono caps</span><span class="atl-ticker__item">Square bullets</span><span class="atl-ticker__item">Pauses on hover</span><span class="atl-ticker__item">Still under reduced motion</span>
+      <span class="atl-ticker__item">Ticker strip</span><span class="atl-ticker__item">Mono caps</span><span class="atl-ticker__item">Square bullets</span><span class="atl-ticker__item">Pauses on hover</span><span class="atl-ticker__item">Still under reduced motion</span>
+    </div></div>
+  </section>
+
+  <footer>
+    <div class="atl-footer">
+      <div><p class="atl-h3">Atelier</p><p class="atl-body">Footer: a brand cell plus link columns.</p></div>
+      <div><h4 class="atl-label atl-label--faint">Product</h4><ul><li><a href="#top">Download</a></li><li><a href="#top">Pricing</a></li></ul></div>
+      <div><h4 class="atl-label atl-label--faint">Learn</h4><ul><li><a href="#top">Tutorials</a></li><li><a href="#top">Docs</a></li></ul></div>
+      <div><h4 class="atl-label atl-label--faint">Resources</h4><ul><li><a href="#top">FAQ</a></li><li><a href="#top">Press kit</a></li></ul></div>
+      <div><h4 class="atl-label atl-label--faint">Community</h4><ul><li><a href="#top">Forum</a></li><li><a href="#top">Source</a></li></ul></div>
+    </div>
+    <div class="atl-legal"><span class="atl-label atl-label--faint">Atelier design system</span><a class="atl-label atl-link" href="../prototype/">See the Kern prototype →</a></div>
+  </footer>
+</main>
+
+<div class="atl-ruler" aria-hidden="true"><div class="atl-ruler__mark"><span class="atl-ruler__value">000 %</span></div></div>
+<script>
+  var ruler = document.querySelector('.atl-ruler'), val = document.querySelector('.atl-ruler__value');
+  function onScroll() {
+    var max = document.documentElement.scrollHeight - innerHeight, p = max > 0 ? Math.min(1, scrollY / max) : 0;
+    ruler.style.setProperty('--atl-progress', p.toFixed(4));
+    val.textContent = String(Math.round(p * 100)).padStart(3, '0') + ' %';
+  }
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+</script>
+<script src="../palette-setting.js"></script>
+</body>
+</html>

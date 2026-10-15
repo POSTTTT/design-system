@@ -1,0 +1,33 @@
+/* Inputs — raised paper with a strong hairline; blue on focus. Range is a
+   hairline track with a square ink thumb. */
+.atl-field { display: flex; flex-direction: column; gap: var(--ds-space-2); }
+.atl-field__row { display: flex; justify-content: space-between; gap: var(--ds-space-3); }
+.atl-field__value { font-family: var(--ds-font-family-mono); font-size: var(--ds-font-size-label); color: var(--ds-color-accent-ink); font-variant-numeric: tabular-nums; }
+.atl-input {
+  width: 100%; min-height: var(--ds-button-height); padding: 0 var(--ds-space-4);
+  font: inherit; color: var(--ds-color-fg-default);
+  background: var(--ds-color-bg-raised);
+  border: var(--ds-border-width-hairline) solid var(--ds-color-line-strong);
+  border-radius: 0;
+}
+.atl-input::placeholder { color: var(--ds-color-fg-faint); }
+.atl-input:focus-visible { outline: none; border-color: var(--ds-color-accent-primary); box-shadow: 0 0 0 1px var(--ds-color-accent-primary); }
+.atl-input[aria-invalid="true"] { border-color: var(--ds-color-feedback-danger); }
+
+.atl-range { -webkit-appearance: none; appearance: none; width: 100%; height: 20px; margin: 0; background: transparent; cursor: pointer; }
+.atl-range::-webkit-slider-runnable-track { height: 1px; background: var(--ds-color-line-strong); }
+.atl-range::-moz-range-track { height: 1px; background: var(--ds-color-line-strong); }
+.atl-range::-moz-range-progress { height: 1px; background: var(--ds-color-accent-primary); }
+.atl-range::-webkit-slider-thumb { -webkit-appearance: none; width: 12px; height: 12px; margin-top: -6px; background: var(--ds-color-bg-invert); border: 0; border-radius: 0; }
+.atl-range::-moz-range-thumb { width: 12px; height: 12px; background: var(--ds-color-bg-invert); border: 0; border-radius: 0; }
+.atl-range:focus-visible { outline: none; }
+.atl-range:focus-visible::-webkit-slider-thumb { background: var(--ds-color-accent-primary); box-shadow: var(--ds-shadow-glow); }
+.atl-range:focus-visible::-moz-range-thumb { background: var(--ds-color-accent-primary); box-shadow: var(--ds-shadow-glow); }
+
+/* segmented choice built from radio buttons */
+.atl-segment { display: inline-flex; border: var(--ds-border-width-hairline) solid var(--ds-color-line-strong); }
+.atl-segment input { position: absolute; opacity: 0; pointer-events: none; }
+.atl-segment label { padding: 0 var(--ds-space-3); line-height: 2rem; font-family: var(--ds-font-family-mono); font-size: var(--ds-font-size-label); letter-spacing: var(--ds-font-letter-spacing-label); text-transform: uppercase; color: var(--ds-color-fg-muted); cursor: pointer; }
+.atl-segment label ~ label { border-left: var(--ds-border-width-hairline) solid var(--ds-color-line-default); }
+.atl-segment input:checked + label { background: var(--ds-color-bg-invert); color: var(--ds-color-fg-on-invert); }
+.atl-segment input:focus-visible + label { outline: var(--ds-border-width-focus) solid var(--ds-color-accent-primary); outline-offset: -2px; }

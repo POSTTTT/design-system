@@ -1,0 +1,51 @@
+/* Type — Archivo headlines, an Instrument Serif italic accent word,
+   Inter body, Geist Mono uppercase labels. */
+.atl-mark, .atl-h1, .atl-h2, .atl-h3, .atl-xl {
+  margin: 0;
+  font-family: var(--ds-font-family-display);
+  font-weight: var(--ds-font-weight-display);
+  color: var(--ds-color-fg-strong);
+}
+.atl-mark {
+  font-size: clamp(3rem, 11vw, var(--ds-font-size-mark));
+  font-weight: var(--ds-font-weight-heavy);
+  font-stretch: var(--ds-font-stretch-extended);
+  line-height: 1;
+  letter-spacing: 0;
+}
+.atl-xl { font-size: clamp(2.75rem, 8vw, var(--ds-font-size-xl)); line-height: 0.98; letter-spacing: -0.04em; }
+.atl-h1 { font-size: clamp(2.5rem, 6.5vw, var(--ds-font-size-h1)); line-height: var(--ds-font-line-height-display); letter-spacing: var(--ds-font-letter-spacing-tight); }
+.atl-h2 { font-size: clamp(1.75rem, 4.5vw, var(--ds-font-size-h2)); line-height: 1.05; letter-spacing: -0.03em; }
+.atl-h3 { font-size: var(--ds-font-size-h3); line-height: var(--ds-font-line-height-heading); letter-spacing: var(--ds-font-letter-spacing-snug); }
+
+/* italic serif accent inside a headline: <h1 class="atl-h1">The <em class="atl-serif">quiet</em> part.</h1> */
+.atl-serif {
+  font-family: var(--ds-font-family-serif);
+  font-style: italic;
+  font-weight: var(--ds-font-weight-regular);
+  letter-spacing: -0.02em;
+}
+
+.atl-lead { margin: 0; font-size: var(--ds-font-size-lead); line-height: var(--ds-font-line-height-lead); color: var(--ds-color-fg-muted); max-width: 36em; }
+.atl-body { margin: 0; color: var(--ds-color-fg-muted); line-height: var(--ds-font-line-height-lead); }
+
+.atl-label {
+  font-family: var(--ds-font-family-mono);
+  font-size: var(--ds-font-size-label);
+  font-weight: var(--ds-font-weight-medium);
+  letter-spacing: var(--ds-font-letter-spacing-label);
+  text-transform: uppercase;
+  line-height: 1.5;
+  color: var(--ds-color-fg-muted);
+}
+.atl-label--faint { color: var(--ds-color-fg-faint); }
+.atl-micro {
+  font-family: var(--ds-font-family-mono);
+  font-size: var(--ds-font-size-micro);
+  letter-spacing: var(--ds-font-letter-spacing-micro);
+  color: var(--ds-color-fg-faint);
+}
+/* stacked section index — extended caps, active one solid */
+.atl-index { margin: 0; padding: 0; list-style: none; text-align: right; font-family: var(--ds-font-family-display); font-stretch: var(--ds-font-stretch-extended); font-weight: var(--ds-font-weight-display); font-size: 1.125rem; line-height: 1.1; text-transform: uppercase; }
+.atl-index a { color: var(--ds-color-fg-faint); text-decoration: none; transition: color var(--ds-motion-duration-base) var(--ds-motion-ease); }
+.atl-index a:hover, .atl-index a[aria-current="true"] { color: var(--ds-color-fg-strong); }

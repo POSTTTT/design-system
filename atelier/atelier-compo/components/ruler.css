@@ -1,0 +1,30 @@
+/* Ruler — a fixed scroll gauge on the right edge. Minor ticks every 2%,
+   major ticks every 10%. Set --atl-progress (0-1) and the readout text
+   from JS; the blue marker slides down. */
+.atl-ruler {
+  --atl-progress: 0;
+  position: fixed;
+  top: var(--ds-layout-nav);
+  right: 0;
+  bottom: 0;
+  width: 3.75rem;
+  z-index: 40;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(to bottom, var(--ds-color-fg-faint) 0 1px, transparent 1px 10%) right top / 22px 100% no-repeat,
+    repeating-linear-gradient(to bottom, var(--ds-color-line-strong) 0 1px, transparent 1px 2%) right top / 10px 100% no-repeat;
+}
+.atl-ruler__mark {
+  position: absolute;
+  right: 0;
+  top: calc(var(--atl-progress) * 100%);
+  width: 100%;
+  border-top: var(--ds-border-width-hairline) solid var(--ds-color-accent-primary);
+  box-shadow: var(--ds-shadow-glow);
+}
+.atl-ruler__value {
+  position: absolute; right: var(--ds-space-2); top: 3px;
+  font-family: var(--ds-font-family-mono); font-size: var(--ds-font-size-micro); letter-spacing: var(--ds-font-letter-spacing-micro);
+  color: var(--ds-color-accent-ink); font-variant-numeric: tabular-nums;
+}
+@media (max-width: 900px) { .atl-ruler { display: none; } }

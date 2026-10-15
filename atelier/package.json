@@ -1,0 +1,15 @@
+{
+  "name": "atelier-design-system",
+  "version": "0.1.0",
+  "description": "Atelier: an editorial studio-instrument style — warm paper, near-black ink, a 1px hairline grid of indexed cells, extended Archivo headlines with an Instrument Serif italic accent, Inter body, Geist Mono uppercase labels, square corners and a single signal blue. Light and dark. Tokens are the single source of truth.",
+  "type": "module",
+  "scripts": {
+    "build": "node build/build.js",
+    "catalog": "npm run build && node build/serve-catalog.js"
+  },
+  "keywords": ["design-system", "design-tokens", "editorial", "grid", "minimal", "style-dictionary"],
+  "license": "MIT",
+  "devDependencies": {
+    "style-dictionary": "^4.3.0"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "button": {
+    "height":  { "$type": "dimension", "$value": "3rem" },
+    "padding": { "$type": "dimension", "$value": "1.5rem" },
+    "font": {
+      "size":   { "$type": "dimension",  "$value": "{font.size.label}" },
+      "weight": { "$type": "fontWeight", "$value": "{font.weight.bold}" }
+    }
+  }
+}

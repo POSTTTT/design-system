@@ -1,0 +1,6 @@
+{
+  "cell": {
+    "padding": { "$type": "dimension", "$value": "{space.6}" },
+    "bg":      { "$type": "color",     "$value": "{color.bg.canvas}" }
+  }
+}

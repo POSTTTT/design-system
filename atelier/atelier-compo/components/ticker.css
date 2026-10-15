@@ -1,0 +1,18 @@
+/* Ticker — a ruled strip of mono labels that drifts sideways. Duplicate the
+   items once inside .atl-ticker__track so the loop is seamless. */
+.atl-ticker {
+  overflow: hidden;
+  border-top: var(--ds-border-width-hairline) solid var(--ds-color-line-default);
+  border-bottom: var(--ds-border-width-hairline) solid var(--ds-color-line-default);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+}
+.atl-ticker__track { display: flex; width: max-content; animation: atl-ticker 40s linear infinite; }
+.atl-ticker:hover .atl-ticker__track { animation-play-state: paused; }
+.atl-ticker__item {
+  display: flex; align-items: center; gap: var(--ds-space-7); padding: 0 var(--ds-space-7) 0 0; height: var(--ds-layout-bar);
+  font-family: var(--ds-font-family-mono); font-size: var(--ds-font-size-label); letter-spacing: var(--ds-font-letter-spacing-label); text-transform: uppercase; white-space: nowrap;
+}
+.atl-ticker__item::after { content: ""; width: 5px; height: 5px; background: var(--ds-color-fg-default); }
+@keyframes atl-ticker { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .atl-ticker__track { animation: none; } }
