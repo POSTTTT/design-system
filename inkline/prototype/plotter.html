@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plotbot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangers&amp;family=Courier+Prime:ital,wght@0,400;0,700;1,400&amp;display=swap">
+<!-- One import: generated tokens + every ink- component. -->
+<link rel="stylesheet" href="../inkline-compo/components.css">
+<style>
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  .head { max-width: 1200px; margin: 0 auto; padding: var(--ds-space-5); display: flex; flex-wrap: wrap; gap: var(--ds-space-4); align-items: center; justify-content: space-between; }
+  .head__brand { display: flex; align-items: center; gap: var(--ds-space-3); text-decoration: none; }
+  .head nav { display: flex; flex-wrap: wrap; gap: var(--ds-space-5); font-weight: var(--ds-font-weight-bold); }
+
+  .hero { display: flex; flex-wrap: wrap; gap: var(--ds-space-7); align-items: center; }
+  .hero > .ink-panel:first-child { flex: 1 1 360px; padding: 2.5rem; }
+  .bed { flex: 1.3 1 440px; min-width: 0; }
+  .bed__paper { border: var(--ds-border-width-ink) solid var(--ds-color-ink-line); background: var(--ds-color-bg-sheet); padding: var(--ds-space-3); }
+  .bed__status { display: flex; flex-wrap: wrap; gap: var(--ds-space-3); align-items: center; justify-content: space-between; font-weight: var(--ds-font-weight-bold); }
+  .bed__controls { display: flex; flex-wrap: wrap; gap: var(--ds-space-4); align-items: center; justify-content: space-between; }
+  .bed fieldset { border: 0; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0 var(--ds-space-4); }
+  .bed legend { padding: 0; font-weight: var(--ds-font-weight-bold); font-size: 0.875rem; text-transform: uppercase; letter-spacing: var(--ds-font-letter-spacing-wide); }
+  .ctas { display: flex; flex-wrap: wrap; gap: var(--ds-space-4); }
+
+  .plot { --pen: 2.5; }
+  .plot .stroke { fill: none; stroke-width: var(--pen); stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 0; }
+
+  .sec { max-width: 1200px; margin: 0 auto; padding: var(--ds-space-9) var(--ds-space-5); }
+  .sec__lead { margin: var(--ds-space-3) 0 var(--ds-space-7); max-width: 640px; }
+  .split { display: grid; gap: var(--ds-space-6); grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); }
+
+  .log { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--ds-space-5); }
+  .log li { display: grid; grid-template-columns: 7.5rem 1fr; gap: var(--ds-space-4); border-top: var(--ds-border-width-thin) dashed var(--ds-color-ink-line); padding-top: var(--ds-space-4); }
+  .log li > div { display: flex; flex-direction: column; gap: var(--ds-space-2); align-items: flex-start; }
+  .log p { margin: 0; }
+
+  .foot { max-width: 1200px; margin: 0 auto; padding: 2.5rem var(--ds-space-5); display: flex; flex-wrap: wrap; gap: var(--ds-space-4); justify-content: space-between; align-items: center; }
+  @media (max-width: 480px) {
+    .hero > .ink-panel:first-child { padding: var(--ds-space-5); }
+    .log li { grid-template-columns: 1fr; gap: var(--ds-space-2); }
+  }
+</style>
+</head>
+<body class="ink-page ink-page--mono">
+
+<header class="head">
+  <a href="#top" class="head__brand">
+    <svg class="ink-art" style="width:44px" width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><rect x="3" y="10" width="38" height="28" fill="#fff" stroke="#111" stroke-width="3"/><rect x="18" y="3" width="8" height="18" fill="#111"/><path d="M22 21 L22 27" stroke="#111" stroke-width="3"/><path d="M8 32 C14 26 20 34 26 28 S34 30 38 26" fill="none" stroke="#111" stroke-width="2"/></svg>
+    <span class="ink-logo">PLOTBOT</span>
+  </a>
+  <nav aria-label="Main">
+    <a href="#plot">Plot</a>
+    <a href="#code">Code</a>
+    <a href="#queue">Queue</a>
+    <a href="#log">Changelog</a>
+  </nav>
+</header>
+
+<section id="top" class="ink-band ink-band--tight">
+  <div class="ink-wrap hero">
+    <div class="ink-panel ink-panel--tilt-l">
+      <p class="ink-eyebrow">Pen plotter · firmware 2.3</p>
+      <h1 class="ink-display">Your code, drawn in real ink.</h1>
+      <p>Write a sketch in twelve lines of JavaScript. Plotbot turns every path into pen moves and draws it on paper, one stroke at a time.</p>
+      <div class="ctas">
+        <a href="#plot" class="ink-btn ink-btn--solid">Run a plot</a>
+        <a href="#code" class="ink-btn">Read the code</a>
+      </div>
+    </div>
+
+    <div id="plot" class="ink-panel bed">
+      <div class="bed__status">
+        <span class="ink-tag"><span class="ink-dot ink-dot--success" id="led"></span><span id="state">Idle</span></span>
+        <span id="progress" aria-live="polite">14 / 14 strokes</span>
+      </div>
+      <div class="bed__paper">
+        <svg class="ink-art plot" id="plotSvg" viewBox="0 0 300 200" role="img" aria-label="Plotted landscape: sun over two mountains">
+          <circle class="stroke" data-name="sun" cx="222" cy="58" r="24" stroke="#111" pathLength="1"/>
+          <path class="stroke" data-name="sun hatch" d="M206 66 L230 42 M210 74 L240 44 M218 80 L244 54" stroke="#111" pathLength="1"/>
+          <path class="stroke" data-name="ridge" d="M12 168 L84 78 L122 124 L172 58 L244 150 L290 112" stroke="#111" pathLength="1"/>
+          <path class="stroke" data-name="hatch 1" d="M84 78 L66 120 M84 78 L52 136 M84 78 L38 154" stroke="#111" pathLength="1"/>
+          <path class="stroke" data-name="hatch 2" d="M172 58 L158 92 M172 58 L146 110 M172 58 L134 128" stroke="#111" pathLength="1"/>
+          <path class="stroke" data-name="hatch 3" d="M244 150 L262 136 M252 160 L276 140" stroke="#111" pathLength="1"/>
+          <path class="stroke" data-name="snow" d="M74 92 L84 78 L94 90 L88 88 L84 94 L80 88 Z" stroke="#111" pathLength="1"/>
+          <path class="stroke" data-name="snow" d="M160 74 L172 58 L184 74 L177 71 L172 78 L167 71 Z" stroke="#111" pathLength="1"/>
+          <path class="stroke" data-name="ground" d="M10 176 H290" stroke="#111" pathLength="1"/>
+          <path class="stroke" data-name="ground" d="M28 184 H272" stroke="#111" pathLength="1"/>
+          <path class="stroke" data-name="ground" d="M60 192 H240" stroke="#111" pathLength="1"/>
+          <path class="stroke" data-name="bird" d="M40 50 Q48 42 56 50 Q64 42 72 50" stroke="#111" pathLength="1"/>
+          <path class="stroke" data-name="bird" d="M92 34 Q98 28 104 34 Q110 28 116 34" stroke="#111" pathLength="1"/>
+          <path class="stroke" data-name="signature" d="M250 192 C254 184 258 196 262 188 S270 194 274 186 L282 192" stroke="#111" pathLength="1"/>
+        </svg>
+      </div>
+      <div class="bed__controls">
+        <fieldset>
+          <legend>Pen</legend>
+          <label class="ink-check"><input type="radio" name="pen" value="1.4"> 0.3 mm</label>
+          <label class="ink-check"><input type="radio" name="pen" value="2.5" checked> 0.5 mm</label>
+          <label class="ink-check"><input type="radio" name="pen" value="4"> 0.8 mm</label>
+        </fieldset>
+        <div class="ctas">
+          <button class="ink-btn ink-btn--sm ink-btn--solid" id="run">Plot</button>
+          <button class="ink-btn ink-btn--sm" id="clear">New sheet</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="code" class="sec">
+  <h2 class="ink-h2">Twelve lines, one landscape</h2>
+  <p class="sec__lead">Paths go in, pen moves come out. The log below fills as the plotter works, the same lines you'd see on its serial port.</p>
+  <div class="split">
+    <figure class="ink-code">
+      <figcaption class="ink-code__bar"><span>landscape.js</span><span>12 lines</span></figcaption>
+<pre tabindex="0"><span class="k">import</span> { sheet, pen } <span class="k">from</span> <span class="s">'plotbot'</span>;
+
+<span class="k">const</span> s = sheet(<span class="s">'A5'</span>, { margin: 10 });
+<span class="c">// sun, then three hatch strokes</span>
+s.circle(222, 58, 24);
+s.hatch(<span class="s">'sun'</span>, { angle: 45, gap: 6 });
+<span class="c">// one ridge line, shaded on the left faces</span>
+s.line([12,168], [84,78], [122,124], [172,58], [244,150]);
+s.hatch(<span class="s">'ridge'</span>, { side: <span class="s">'left'</span> });
+s.rules(3, { y: 176, step: 8 });
+
+<span class="k">await</span> pen(<span class="s">'0.5mm'</span>).plot(s);</pre>
+    </figure>
+    <figure class="ink-code ink-code--log">
+      <figcaption class="ink-code__bar"><span>/dev/plotbot · serial</span><span id="baud">115200 baud</span></figcaption>
+      <pre id="serial" tabindex="0" aria-live="polite" aria-label="Plotter log">plotbot 2.3 ready
+paper: A5 · margin 10mm
+press Plot to start</pre>
+    </figure>
+  </div>
+</section>
+
+<section id="queue" class="ink-band ink-hatch">
+  <div class="ink-wrap">
+    <h2 class="ink-h2 ink-h2--boxed" style="margin-bottom:var(--ds-space-7)">Plot queue</h2>
+    <div class="ink-table">
+      <table>
+        <thead><tr><th scope="col">Job</th><th scope="col">Pen</th><th scope="col" class="num">Strokes</th><th scope="col" class="num">Time</th><th scope="col">Status</th></tr></thead>
+        <tbody>
+          <tr><td>landscape.js</td><td id="jobPen">0.5 mm</td><td class="num">14</td><td class="num">0:05</td><td><span class="ink-tag" id="jobTag"><span class="ink-dot"></span><span>Ready</span></span></td></tr>
+          <tr><td>spirograph.js</td><td>0.3 mm</td><td class="num">1,240</td><td class="num">18:40</td><td><span class="ink-tag"><span class="ink-dot ink-dot--warning"></span>Waiting for pen</span></td></tr>
+          <tr><td>contour-map.svg</td><td>0.5 mm</td><td class="num">3,812</td><td class="num">52:10</td><td><span class="ink-tag"><span class="ink-dot"></span>Queued</span></td></tr>
+          <tr><td>flowfield.js</td><td>0.8 mm</td><td class="num">906</td><td class="num">11:02</td><td><span class="ink-tag"><span class="ink-dot ink-dot--danger"></span>Paper jam</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <h2 class="ink-h2" style="margin-bottom:var(--ds-space-7)">From file to paper</h2>
+  <ol class="ink-steps">
+    <li class="ink-steps__item"><span class="ink-steps__num">01</span><strong class="ink-steps__title">Write paths</strong><span>Lines, circles and hatches in plain JavaScript or any SVG.</span></li>
+    <li class="ink-steps__item"><span class="ink-steps__num">02</span><strong class="ink-steps__title">Sort strokes</strong><span>Plotbot reorders them so the pen travels as little as possible.</span></li>
+    <li class="ink-steps__item"><span class="ink-steps__num">03</span><strong class="ink-steps__title">Pick a pen</strong><span>Fineliners from 0.3 to 0.8 mm. Swap mid-plot for a second weight.</span></li>
+    <li class="ink-steps__item"><span class="ink-steps__num">04</span><strong class="ink-steps__title">Plot</strong><span>Head down, ink on. A postcard takes about five minutes.</span></li>
+  </ol>
+</section>
+
+<section id="log" class="ink-band">
+  <div class="ink-wrap">
+    <h2 class="ink-h2" style="margin-bottom:var(--ds-space-7)">Changelog</h2>
+    <ul class="log">
+      <li><strong>v2.3.0</strong><div><span class="ink-tag ink-tag--solid">New</span><p><span class="ink-kbd">s.hatch()</span> takes a <span class="ink-kbd">side</span> option, so only faces turned from the light get shaded.</p></div></li>
+      <li><strong>v2.2.4</strong><div><span class="ink-tag">Fix</span><p>Pen no longer drags a hairline when lifting between strokes shorter than 1 mm.</p></div></li>
+      <li><strong>v2.2.0</strong><div><span class="ink-tag ink-tag--solid">New</span><p>Stroke sorting cuts pen travel on dense hatching by about 40%.</p></div></li>
+      <li><strong>v2.1.1</strong><div><span class="ink-tag ink-tag--hatch"><span>Note</span></span><p>Paper-jam detection now pauses the job instead of cancelling it.</p></div></li>
+    </ul>
+  </div>
+</section>
+
+<footer class="foot">
+  <span class="ink-logo" style="font-size:1.75rem">PLOTBOT</span>
+  <span>Every line drawn by a machine with a pen in its hand.</span>
+</footer>
+
+<script>
+  var svg = document.getElementById('plotSvg');
+  var strokes = Array.prototype.slice.call(svg.querySelectorAll('.stroke'));
+  var serial = document.getElementById('serial');
+  var runBtn = document.getElementById('run');
+  var clearBtn = document.getElementById('clear');
+  var progress = document.getElementById('progress');
+  var state = document.getElementById('state');
+  var led = document.getElementById('led');
+  var jobTag = document.getElementById('jobTag');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var STEP = 360; // ms per stroke
+  var timers = [];
+
+  function log(line) {
+    var t = new Date().toTimeString().slice(0, 8);
+    serial.textContent += '\n[' + t + '] ' + line;
+    serial.scrollTop = serial.scrollHeight;
+  }
+  function setStatus(text, dot) {
+    state.textContent = text;
+    led.className = 'ink-dot ink-dot--' + dot;
+    jobTag.innerHTML = '<span class="ink-dot ink-dot--' + dot + '"></span><span>' + text + '</span>';
+  }
+  function blank() {
+    timers.forEach(clearTimeout); timers = [];
+    strokes.forEach(function (s) { s.style.transition = 'none'; s.style.strokeDashoffset = 1; });
+    svg.getBoundingClientRect(); // flush so the next transition starts from blank
+    progress.textContent = '0 / ' + strokes.length + ' strokes';
+  }
+
+  document.querySelectorAll('input[name="pen"]').forEach(function (r) {
+    r.addEventListener('change', function () {
+      svg.style.setProperty('--pen', r.value);
+      var label = r.parentNode.textContent.trim();
+      document.getElementById('jobPen').textContent = label;
+      log('M6 ; pen change -> ' + label);
+    });
+  });
+
+  clearBtn.addEventListener('click', function () {
+    blank();
+    runBtn.disabled = false;
+    setStatus('Ready', 'on');
+    log('sheet loaded · A5');
+  });
+
+  runBtn.addEventListener('click', function () {
+    blank();
+    runBtn.disabled = true;
+    setStatus('Plotting', 'warning');
+    log('G28 ; home');
+    var step = reduce ? 0 : STEP;
+    strokes.forEach(function (s, i) {
+      s.style.transition = reduce ? 'none' : 'stroke-dashoffset ' + step + 'ms linear ' + (i * step) + 'ms';
+      s.style.strokeDashoffset = 0;
+      timers.push(setTimeout(function () {
+        log('G1 stroke ' + (i + 1) + '/' + strokes.length + ' · ' + s.dataset.name);
+        progress.textContent = (i + 1) + ' / ' + strokes.length + ' strokes';
+      }, i * step));
+    });
+    timers.push(setTimeout(function () {
+      log('M5 ; pen up · done in ' + (strokes.length * step / 1000).toFixed(1) + 's');
+      setStatus('Done', 'success');
+      runBtn.disabled = false;
+    }, strokes.length * step));
+  });
+</script>
+<script src="../palette-setting.js"></script>
+</body>
+</html>

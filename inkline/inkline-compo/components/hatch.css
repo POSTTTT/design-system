@@ -1,0 +1,18 @@
+/* Hatching — shading drawn with lines, never gradients. Works on any element;
+   set background-color separately so the paper shows between strokes. */
+.ink-hatch {
+  background-image: repeating-linear-gradient(-45deg,
+    var(--ds-color-ink-line) 0 var(--ds-hatch-line),
+    transparent var(--ds-hatch-line) var(--ds-hatch-gap));
+}
+.ink-xhatch {
+  background-image:
+    repeating-linear-gradient(-45deg, var(--ds-color-ink-line) 0 1.2px, transparent 1.2px var(--ds-hatch-cross)),
+    repeating-linear-gradient(45deg,  var(--ds-color-ink-line) 0 1.2px, transparent 1.2px var(--ds-hatch-cross));
+}
+/* light hatch — wider pitch for big areas behind content */
+.ink-hatch--light {
+  background-image: repeating-linear-gradient(-45deg,
+    var(--ds-color-ink-line) 0 1px,
+    transparent 1px 14px);
+}

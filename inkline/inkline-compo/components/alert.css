@@ -1,0 +1,21 @@
+/* Alert — an inked note with a marker-coloured hatched stripe. */
+.ink-alert {
+  --ink-mark: var(--ds-color-ink-line);
+  display: grid;
+  grid-template-columns: 1.25rem 1fr;
+  gap: var(--ds-space-4);
+  padding: var(--ds-space-4) var(--ds-space-5) var(--ds-space-4) var(--ds-space-4);
+  background: var(--ds-color-bg-sheet);
+  border: var(--ds-border-width-ink) solid var(--ds-color-ink-line);
+  box-shadow: var(--ds-shadow-small);
+}
+.ink-alert::before {
+  content: "";
+  border: var(--ds-border-width-thin) solid var(--ds-color-ink-line);
+  background-image: repeating-linear-gradient(-45deg, var(--ink-mark) 0 3px, transparent 3px 6px);
+}
+.ink-alert__title { margin: 0; font-family: var(--ds-font-family-display); font-weight: var(--ds-font-weight-regular); font-size: 1.5rem; letter-spacing: var(--ds-font-letter-spacing-wide); line-height: 1.1; }
+.ink-alert__body  { margin: var(--ds-space-1) 0 0; }
+.ink-alert--success { --ink-mark: var(--ds-color-feedback-success); }
+.ink-alert--warning { --ink-mark: var(--ds-color-feedback-warning); }
+.ink-alert--danger  { --ink-mark: var(--ds-color-feedback-danger); }

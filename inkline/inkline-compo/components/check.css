@@ -1,0 +1,34 @@
+/* Check — a hand-drawn box that gets an X scrawled in it.
+   <label class="ink-check"><input type="checkbox"> Label</label> */
+.ink-check {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-space-3);
+  min-height: 44px;
+  cursor: pointer;
+}
+.ink-check input {
+  appearance: none;
+  margin: 0;
+  width: 1.625rem; height: 1.625rem; flex-shrink: 0;
+  border: var(--ds-border-width-ink) solid var(--ds-color-ink-line);
+  background: var(--ds-color-bg-sheet);
+  box-shadow: var(--ds-shadow-small);
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+}
+.ink-check input::before {
+  content: "";
+  width: 1rem; height: 1rem;
+  background:
+    linear-gradient(45deg,  transparent 42%, var(--ds-color-ink-line) 42% 58%, transparent 58%),
+    linear-gradient(-45deg, transparent 42%, var(--ds-color-ink-line) 42% 58%, transparent 58%);
+  transform: scale(0);
+  transition: transform 0.12s ease;
+}
+.ink-check input:checked::before { transform: scale(1); }
+.ink-check input[type="radio"] { border-radius: var(--ds-radius-full); }
+.ink-check input[type="radio"]::before { width: 0.625rem; height: 0.625rem; border-radius: var(--ds-radius-full); background: var(--ds-color-ink-line); }
+.ink-check input:focus-visible { outline: var(--ds-border-width-focus) dashed var(--ds-color-ink-line); outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) { .ink-check input::before { transition: none; } }

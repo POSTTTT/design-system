@@ -1,0 +1,31 @@
+{
+  "color": {
+    "bg": {
+      "$type": "color",
+      "canvas": { "$value": "{color.palette.paper}" },
+      "sheet":  { "$value": "{color.palette.sheet}", "$description": "Panel / card surface" },
+      "field":  { "$value": "{color.palette.paper}", "$description": "Input fill — one step back from the sheet" }
+    },
+
+    "fg": {
+      "$type": "color",
+      "default": { "$value": "{color.palette.ink}" },
+      "muted":   { "$value": "{color.palette.inkSoft}" },
+      "faint":   { "$value": "{color.palette.inkFaint}" },
+      "onInk":   { "$value": "{color.palette.sheet}", "$description": "Text on a solid ink fill" }
+    },
+
+    "ink": {
+      "$type": "color",
+      "_comment": "The single line colour: borders, offset shadows, hatching. Themes flip this for chalk-on-board.",
+      "line": { "$value": "{color.palette.ink}" }
+    },
+
+    "feedback": {
+      "$type": "color",
+      "success": { "$value": "{color.palette.green}" },
+      "warning": { "$value": "{color.palette.amber}" },
+      "danger":  { "$value": "{color.palette.red}" }
+    }
+  }
+}

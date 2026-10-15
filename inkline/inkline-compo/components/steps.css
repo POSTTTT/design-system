@@ -1,0 +1,22 @@
+/* Steps — a numbered process, each step hanging from a heavy rule. */
+.ink-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+  gap: 1.75rem;
+}
+.ink-steps__item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  border-top: var(--ds-border-width-rule) solid var(--ds-color-ink-line);
+  padding-top: var(--ds-space-4);
+}
+.ink-steps__num {
+  font-family: var(--ds-font-family-display);
+  font-size: var(--ds-font-size-4xl);
+  line-height: 1;
+}
+.ink-steps__title { font-weight: var(--ds-font-weight-bold); font-size: 1.4375rem; }

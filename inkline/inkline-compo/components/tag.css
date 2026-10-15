@@ -1,0 +1,33 @@
+/* Tag — a small boxed label stamped with a short shadow. */
+.ink-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-space-2);
+  padding: 0.125rem var(--ds-space-3);
+  background: var(--ds-color-bg-sheet);
+  color: var(--ds-color-fg-default);
+  border: var(--ds-border-width-thin) solid var(--ds-color-ink-line);
+  box-shadow: var(--ds-shadow-small);
+  font-weight: var(--ds-font-weight-bold);
+  font-size: var(--ds-font-size-xs);
+  letter-spacing: var(--ds-font-letter-spacing-wide);
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+.ink-tag--solid { background: var(--ds-color-ink-line); color: var(--ds-color-fg-on-ink); }
+.ink-tag--hatch {
+  background-color: var(--ds-color-bg-sheet);
+  background-image: repeating-linear-gradient(-45deg, var(--ds-color-ink-line) 0 1px, transparent 1px 5px);
+}
+.ink-tag--hatch > span { background: var(--ds-color-bg-sheet); padding: 0 0.25rem; }
+/* marker dot */
+.ink-dot {
+  width: 0.625rem; height: 0.625rem; flex-shrink: 0;
+  border-radius: var(--ds-radius-full);
+  border: var(--ds-border-width-thin) solid var(--ds-color-ink-line);
+  background: var(--ds-color-bg-sheet);
+}
+.ink-dot--on      { background: var(--ds-color-ink-line); }
+.ink-dot--success { background: var(--ds-color-feedback-success); }
+.ink-dot--warning { background: var(--ds-color-feedback-warning); }
+.ink-dot--danger  { background: var(--ds-color-feedback-danger); }

@@ -1,0 +1,47 @@
+/* Code — a typed sheet clipped into an inked frame. Highlighting stays in ink:
+   .c comment (muted italic), .k keyword (bold), .s string (underlined). */
+.ink-code {
+  margin: 0;
+  background: var(--ds-color-bg-sheet);
+  border: var(--ds-border-width-ink) solid var(--ds-color-ink-line);
+  box-shadow: var(--ds-shadow-ink);
+  min-width: 0;
+}
+.ink-code__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ds-space-3);
+  padding: var(--ds-space-2) var(--ds-space-4);
+  border-bottom: var(--ds-border-width-ink) solid var(--ds-color-ink-line);
+  font-family: var(--ds-font-family-mono);
+  font-weight: var(--ds-font-weight-bold);
+  font-size: 0.875rem;
+  background-color: var(--ds-color-bg-sheet);
+  background-image: repeating-linear-gradient(-45deg, var(--ds-color-ink-line) 0 1px, transparent 1px 7px);
+}
+.ink-code__bar > * { background: var(--ds-color-bg-sheet); padding: 0 var(--ds-space-2); }
+.ink-code pre {
+  margin: 0;
+  padding: var(--ds-space-4) var(--ds-space-5);
+  overflow-x: auto;
+  font-family: var(--ds-font-family-mono);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  tab-size: 2;
+}
+.ink-code pre:focus-visible { outline: var(--ds-border-width-focus) dashed var(--ds-color-ink-line); outline-offset: -6px; }
+.ink-code .c { color: var(--ds-color-fg-muted); font-style: italic; }
+.ink-code .k { font-weight: var(--ds-font-weight-bold); }
+.ink-code .s { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+/* log — fixed height, scrolls as lines are appended */
+.ink-code--log pre { height: 15rem; overflow-y: auto; }
+
+/* inline code / keys */
+.ink-kbd {
+  font-family: var(--ds-font-family-mono);
+  font-size: 0.9em;
+  padding: 0 0.3em;
+  border: var(--ds-border-width-thin) solid var(--ds-color-ink-line);
+  background: var(--ds-color-bg-sheet);
+}

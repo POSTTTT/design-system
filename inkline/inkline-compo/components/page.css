@@ -1,0 +1,22 @@
+/* Page — the sketchbook: paper canvas, ink text, handwriting body. */
+.ink-page {
+  margin: 0;
+  background: var(--ds-color-bg-canvas);
+  color: var(--ds-color-fg-default);
+  font-family: var(--ds-font-family-hand);
+  font-size: var(--ds-font-size-base);
+  line-height: var(--ds-font-line-height-normal);
+}
+.ink-page a { color: var(--ds-color-fg-default); }
+.ink-page a:hover { color: var(--ds-color-fg-muted); }
+.ink-page :focus-visible {
+  outline: var(--ds-border-width-focus) dashed var(--ds-color-ink-line);
+  outline-offset: 4px;
+}
+
+/* Mono variant — typewritten body instead of handwriting. Headings keep Bangers. */
+.ink-page--mono {
+  font-family: var(--ds-font-family-mono);
+  font-size: var(--ds-font-size-xs);
+  line-height: 1.6;
+}

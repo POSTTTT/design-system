@@ -1,0 +1,18 @@
+{
+  "color": {
+    "palette": {
+      "$type": "color",
+      "_comment": "Inkline: one black ink on paper. Everything is drawn with the same pen; colour only appears as marker for status. Primitives only.",
+
+      "paper":   { "$value": "#fbfaf6", "$description": "Sketchbook page — canvas" },
+      "sheet":   { "$value": "#ffffff", "$description": "Paper-white base: panels, cards, bodies" },
+      "ink":     { "$value": "#111111", "$description": "The pen. Outlines, shadows, text, solid buttons" },
+      "inkSoft": { "$value": "#444444", "$description": "Link hover / secondary text" },
+      "inkFaint":{ "$value": "#6b6b6b", "$description": "Placeholders, hints (4.5:1 on paper)" },
+
+      "red":     { "$value": "#c4291c", "$description": "Red marker" },
+      "green":   { "$value": "#1d7a3e", "$description": "Green marker" },
+      "amber":   { "$value": "#9a6200", "$description": "Amber marker" }
+    }
+  }
+}

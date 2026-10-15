@@ -1,0 +1,80 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --ds-color-palette-paper: #fbfaf6; /** Sketchbook page — canvas */
+  --ds-color-palette-sheet: #ffffff; /** Paper-white base: panels, cards, bodies */
+  --ds-color-palette-ink: #111111; /** The pen. Outlines, shadows, text, solid buttons */
+  --ds-color-palette-ink-soft: #444444; /** Link hover / secondary text */
+  --ds-color-palette-ink-faint: #6b6b6b; /** Placeholders, hints (4.5:1 on paper) */
+  --ds-color-palette-red: #c4291c; /** Red marker */
+  --ds-color-palette-green: #1d7a3e; /** Green marker */
+  --ds-color-palette-amber: #9a6200; /** Amber marker */
+  --ds-button-padding-x: 1.75rem;
+  --ds-button-padding-y: 0.875rem;
+  --ds-panel-padding: 1.75rem;
+  --ds-shadow-none: none;
+  --ds-shadow-ink: 6px 6px 0 var(--ds-color-ink-line); /** Default inked object */
+  --ds-shadow-lift: 8px 8px 0 var(--ds-color-ink-line); /** Hovered — object lifts off the page */
+  --ds-shadow-small: 3px 3px 0 var(--ds-color-ink-line); /** Tags, small controls */
+  --ds-border-width-thin: 2px; /** Inner detail lines */
+  --ds-border-width-ink: 3px; /** Every outline */
+  --ds-border-width-rule: 4px; /** Section rules, step rules */
+  --ds-border-width-focus: 3px; /** Dashed focus ring */
+  --ds-radius-none: 0px;
+  --ds-radius-full: 9999px;
+  --ds-tilt-left: -1.5deg;
+  --ds-tilt-right: 1deg;
+  --ds-hatch-line: 1.5px; /** Single hatch stroke */
+  --ds-hatch-gap: 8px; /** Single hatch pitch */
+  --ds-hatch-cross: 9px; /** Crosshatch pitch */
+  --ds-space-0: 0rem;
+  --ds-space-1: 0.25rem;
+  --ds-space-2: 0.5rem;
+  --ds-space-3: 0.75rem;
+  --ds-space-4: 1rem;
+  --ds-space-5: 1.5rem;
+  --ds-space-6: 2rem;
+  --ds-space-7: 3rem;
+  --ds-space-8: 4rem;
+  --ds-space-9: 6rem;
+  --ds-font-family-display: Bangers, Impact, sans-serif; /** Comic-book headline caps */
+  --ds-font-family-hand: Kalam, 'Comic Neue', cursive; /** Handwritten body text */
+  --ds-font-family-mono: 'Courier Prime', 'Courier New', ui-monospace, monospace; /** Typewriter mono — code, logs, the .ink-page--mono variant */
+  --ds-font-weight-regular: 400;
+  --ds-font-weight-bold: 700;
+  --ds-font-size-xs: 1rem;
+  --ds-font-size-sm: 1.125rem; /** Eyebrows, 18px */
+  --ds-font-size-base: 1.1875rem; /** Body, 19px */
+  --ds-font-size-lg: 1.3125rem; /** Lead paragraph, 21px */
+  --ds-font-size-xl: 1.625rem; /** Button labels, 26px */
+  --ds-font-size-2xl: 2rem; /** Card heading, 32px */
+  --ds-font-size-3xl: 2.25rem; /** Model heading, 36px */
+  --ds-font-size-4xl: 3.5rem; /** Step numbers, 56px */
+  --ds-font-size-5xl: 4rem; /** Section heading, 64px */
+  --ds-font-size-6xl: 5.75rem; /** Hero, 92px */
+  --ds-font-line-height-tight: 0.95;
+  --ds-font-line-height-snug: 1;
+  --ds-font-line-height-normal: 1.5;
+  --ds-font-letter-spacing-normal: 0px;
+  --ds-font-letter-spacing-wide: 1px; /** Card headings, eyebrows */
+  --ds-font-letter-spacing-wider: 1.5px; /** Button labels */
+  --ds-font-letter-spacing-widest: 2px; /** Display + section headings */
+  --ds-color-bg-canvas: var(--ds-color-palette-paper);
+  --ds-color-bg-sheet: var(--ds-color-palette-sheet); /** Panel / card surface */
+  --ds-color-bg-field: var(--ds-color-palette-paper); /** Input fill — one step back from the sheet */
+  --ds-color-fg-default: var(--ds-color-palette-ink);
+  --ds-color-fg-muted: var(--ds-color-palette-ink-soft);
+  --ds-color-fg-faint: var(--ds-color-palette-ink-faint);
+  --ds-color-fg-on-ink: var(--ds-color-palette-sheet); /** Text on a solid ink fill */
+  --ds-color-ink-line: var(--ds-color-palette-ink);
+  --ds-color-feedback-success: var(--ds-color-palette-green);
+  --ds-color-feedback-warning: var(--ds-color-palette-amber);
+  --ds-color-feedback-danger: var(--ds-color-palette-red);
+  --ds-button-font-size: var(--ds-font-size-xl);
+  --ds-button-bg: var(--ds-color-bg-sheet); /** Default = white; --solid fills with ink */
+  --ds-button-fg: var(--ds-color-fg-default);
+  --ds-panel-bg: var(--ds-color-bg-sheet);
+  --ds-panel-fg: var(--ds-color-fg-default);
+}

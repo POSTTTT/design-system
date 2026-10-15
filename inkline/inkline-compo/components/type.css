@@ -1,0 +1,46 @@
+/* Type — Bangers caps for anything shouted, Kalam for everything said. */
+.ink-display, .ink-h2, .ink-h3, .ink-num {
+  margin: 0;
+  font-family: var(--ds-font-family-display);
+  font-weight: var(--ds-font-weight-regular);
+}
+.ink-display {
+  font-size: clamp(3.25rem, 9vw, var(--ds-font-size-6xl));
+  line-height: var(--ds-font-line-height-tight);
+  letter-spacing: var(--ds-font-letter-spacing-widest);
+}
+.ink-h2 {
+  font-size: clamp(2.75rem, 6vw, var(--ds-font-size-5xl));
+  line-height: var(--ds-font-line-height-snug);
+  letter-spacing: var(--ds-font-letter-spacing-widest);
+}
+.ink-h3 {
+  font-size: var(--ds-font-size-2xl);
+  line-height: var(--ds-font-line-height-snug);
+  letter-spacing: var(--ds-font-letter-spacing-wide);
+}
+.ink-h3--lg { font-size: var(--ds-font-size-3xl); }
+.ink-num { font-size: var(--ds-font-size-4xl); line-height: 1; }
+
+/* boxed heading — a white label pasted over hatching */
+.ink-h2--boxed {
+  display: inline-block;
+  padding: var(--ds-space-2) var(--ds-space-5);
+  background: var(--ds-color-bg-sheet);
+  border: var(--ds-border-width-ink) solid var(--ds-color-ink-line);
+}
+
+.ink-eyebrow {
+  margin: 0;
+  font-weight: var(--ds-font-weight-bold);
+  font-size: var(--ds-font-size-sm);
+  letter-spacing: var(--ds-font-letter-spacing-wide);
+  text-transform: uppercase;
+}
+.ink-lead { font-size: var(--ds-font-size-lg); }
+.ink-logo {
+  font-family: var(--ds-font-family-display);
+  font-size: 2.125rem;
+  letter-spacing: var(--ds-font-letter-spacing-widest);
+  text-decoration: none;
+}

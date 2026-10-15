@@ -1,0 +1,45 @@
+{
+  "font": {
+    "family": {
+      "$type": "fontFamily",
+      "display": { "$value": ["Bangers", "Impact", "sans-serif"], "$description": "Comic-book headline caps" },
+      "hand":    { "$value": ["Kalam", "Comic Neue", "cursive"],  "$description": "Handwritten body text" },
+      "mono":    { "$value": ["Courier Prime", "Courier New", "ui-monospace", "monospace"], "$description": "Typewriter mono — code, logs, the .ink-page--mono variant" }
+    },
+
+    "weight": {
+      "$type": "fontWeight",
+      "regular": { "$value": 400 },
+      "bold":    { "$value": 700 }
+    },
+
+    "size": {
+      "$type": "dimension",
+      "xs":   { "$value": "1rem" },
+      "sm":   { "$value": "1.125rem",  "$description": "Eyebrows, 18px" },
+      "base": { "$value": "1.1875rem", "$description": "Body, 19px" },
+      "lg":   { "$value": "1.3125rem", "$description": "Lead paragraph, 21px" },
+      "xl":   { "$value": "1.625rem",  "$description": "Button labels, 26px" },
+      "2xl":  { "$value": "2rem",      "$description": "Card heading, 32px" },
+      "3xl":  { "$value": "2.25rem",   "$description": "Model heading, 36px" },
+      "4xl":  { "$value": "3.5rem",    "$description": "Step numbers, 56px" },
+      "5xl":  { "$value": "4rem",      "$description": "Section heading, 64px" },
+      "6xl":  { "$value": "5.75rem",   "$description": "Hero, 92px" }
+    },
+
+    "lineHeight": {
+      "$type": "number",
+      "tight":  { "$value": 0.95 },
+      "snug":   { "$value": 1 },
+      "normal": { "$value": 1.5 }
+    },
+
+    "letterSpacing": {
+      "$type": "dimension",
+      "normal": { "$value": "0px" },
+      "wide":   { "$value": "1px",   "$description": "Card headings, eyebrows" },
+      "wider":  { "$value": "1.5px", "$description": "Button labels" },
+      "widest": { "$value": "2px",   "$description": "Display + section headings" }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+/* Band — a full-width section ruled top and bottom with the pen.
+   Combine with .ink-hatch for a shaded band. */
+.ink-band {
+  background-color: var(--ds-color-bg-canvas);
+  border-top: var(--ds-border-width-rule) solid var(--ds-color-ink-line);
+  border-bottom: var(--ds-border-width-rule) solid var(--ds-color-ink-line);
+  padding: var(--ds-space-9) var(--ds-space-5);
+}
+.ink-band--tight { padding: var(--ds-space-8) var(--ds-space-5) 5rem; }
+.ink-wrap { max-width: 1200px; margin: 0 auto; }
+.ink-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: var(--ds-space-6);
+}

@@ -1,0 +1,14 @@
+{
+  "button": {
+    "bg":      { "$type": "color",     "$value": "{color.bg.sheet}", "$description": "Default = white; --solid fills with ink" },
+    "fg":      { "$type": "color",     "$value": "{color.fg.default}" },
+    "padding": {
+      "$type": "dimension",
+      "x": { "$value": "1.75rem" },
+      "y": { "$value": "0.875rem" }
+    },
+    "font": {
+      "size": { "$type": "dimension", "$value": "{font.size.xl}" }
+    }
+  }
+}

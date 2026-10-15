@@ -1,0 +1,26 @@
+/*
+ * Inkline component library.
+ * Import THIS one file to get the tokens + every component class.
+ *
+ *   <link rel="stylesheet" href="inkline/inkline-compo/components.css" />
+ *
+ * Components are namespaced with `ink-` so multiple styles can coexist.
+ * Put `.ink-page` on <body> for the sketchbook page + handwriting.
+ * Fonts: Bangers + Kalam from Google Fonts (load them in the page <head>).
+ */
+@import url("../dist/css/tokens.css");
+
+@import url("./components/page.css");
+@import url("./components/type.css");
+@import url("./components/hatch.css");
+@import url("./components/panel.css");
+@import url("./components/button.css");
+@import url("./components/band.css");
+@import url("./components/steps.css");
+@import url("./components/tag.css");
+@import url("./components/input.css");
+@import url("./components/check.css");
+@import url("./components/alert.css");
+@import url("./components/code.css");
+@import url("./components/table.css");
+@import url("./components/art.css");

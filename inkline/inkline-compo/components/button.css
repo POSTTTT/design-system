@@ -1,0 +1,44 @@
+/* Button — an inked box that lifts on hover and stamps down when pressed.
+   White by default; --solid fills it with ink. */
+.ink-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ds-space-2);
+  min-height: 44px;
+  box-sizing: border-box;
+  padding: var(--ds-button-padding-y) var(--ds-button-padding-x);
+  background: var(--ds-button-bg);
+  color: var(--ds-button-fg);
+  border: var(--ds-border-width-ink) solid var(--ds-color-ink-line);
+  border-radius: 0;
+  box-shadow: var(--ds-shadow-ink);
+  font-family: var(--ds-font-family-display);
+  font-weight: var(--ds-font-weight-regular);
+  font-size: var(--ds-button-font-size);
+  letter-spacing: var(--ds-font-letter-spacing-wider);
+  line-height: 1.1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.ink-page a.ink-btn { color: var(--ds-button-fg); }
+.ink-btn:hover { transform: translate(-2px, -2px); box-shadow: var(--ds-shadow-lift); }
+.ink-btn:active { transform: translate(6px, 6px); box-shadow: none; transition-duration: 0.04s; }
+.ink-btn:focus-visible { outline: var(--ds-border-width-focus) dashed var(--ds-color-ink-line); outline-offset: 4px; }
+.ink-btn:disabled,
+.ink-btn[aria-disabled="true"] { opacity: 0.45; cursor: not-allowed; transform: none; box-shadow: var(--ds-shadow-small); }
+
+.ink-btn--solid,
+.ink-page a.ink-btn--solid { background: var(--ds-color-ink-line); color: var(--ds-color-fg-on-ink); }
+.ink-btn--sm { min-height: 36px; font-size: var(--ds-font-size-base); padding: var(--ds-space-1) var(--ds-space-4); box-shadow: var(--ds-shadow-small); }
+.ink-btn--sm:hover { box-shadow: var(--ds-shadow-ink); }
+.ink-btn--sm:active { transform: translate(3px, 3px); box-shadow: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ink-btn { transition: none; }
+  .ink-btn:hover { transform: none; }
+}
+
+/* toggle button (filters, segmented choices): pressed = filled with ink */
+.ink-btn[aria-pressed="true"] { background: var(--ds-color-ink-line); color: var(--ds-color-fg-on-ink); }

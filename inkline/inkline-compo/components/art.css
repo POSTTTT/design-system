@@ -1,0 +1,6 @@
+/* Art — makes inline SVG line art follow the theme. Draw with plain
+   #111 (ink) and #fff (paper-white); these rules repaint them live. */
+.ink-art { display: block; width: 100%; height: auto; }
+.ink-art [stroke="#111"] { stroke: var(--ds-color-ink-line); }
+.ink-art [fill="#111"]   { fill: var(--ds-color-ink-line); }
+.ink-art [fill="#fff"]   { fill: var(--ds-color-bg-sheet); }

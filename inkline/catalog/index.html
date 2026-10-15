@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Inkline · Design System Catalog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Kalam:wght@400;700&display=swap" rel="stylesheet" />
+<!-- One import: generated tokens + every ink- component. -->
+<link rel="stylesheet" href="../inkline-compo/components.css" />
+<style>
+  * { box-sizing: border-box; }
+  body { overflow-x: hidden; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: var(--ds-space-7) var(--ds-space-4); }
+  code { font-family: ui-monospace, Menlo, monospace; font-size: 0.8em; color: var(--ds-color-fg-muted); }
+
+  .masthead { margin-bottom: var(--ds-space-8); }
+  .masthead .ink-display { margin: var(--ds-space-4) 0; }
+  .masthead p { margin: 0; max-width: 62ch; }
+
+  section { margin-bottom: var(--ds-space-8); }
+  section > .ink-h3 { margin-bottom: var(--ds-space-5); font-size: var(--ds-font-size-3xl); }
+  .grid { display: grid; gap: var(--ds-space-5); grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  .row { display: flex; flex-wrap: wrap; gap: var(--ds-space-5); align-items: center; }
+  .two { display: grid; gap: var(--ds-space-6); grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
+
+  .swatch { padding: var(--ds-space-3); gap: var(--ds-space-2); }
+  .swatch .chip { height: 56px; border: var(--ds-border-width-thin) solid var(--ds-color-ink-line); }
+  .swatch .name { font-weight: var(--ds-font-weight-bold); line-height: 1.2; }
+
+  .scaleRow { display: flex; align-items: center; gap: var(--ds-space-4); margin-bottom: var(--ds-space-2); }
+  .scaleRow code { width: 4.5rem; flex-shrink: 0; }
+  .bar { height: 12px; border: var(--ds-border-width-thin) solid var(--ds-color-ink-line); }
+  .fx { display: grid; gap: var(--ds-space-6); grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  .fx figure { margin: 0; display: flex; flex-direction: column; gap: var(--ds-space-3); }
+  .fx .box { height: 90px; background-color: var(--ds-color-bg-sheet); border: var(--ds-border-width-ink) solid var(--ds-color-ink-line); }
+</style>
+</head>
+<body class="ink-page">
+<div class="wrap">
+
+  <header class="masthead">
+    <span class="ink-tag ink-tag--solid">design system · v0.1</span>
+    <h1 class="ink-display">Inkline</h1>
+    <p class="ink-lead">A hand-inked sketchbook: paper-white surfaces, heavy black outlines, hard offset ink shadows, and shading drawn with hatch lines. Tokens from <code>dist/css/tokens.css</code>; components from <code>inkline-compo/</code>.</p>
+  </header>
+
+  <section>
+    <h2 class="ink-h3">Colors</h2>
+    <div class="grid">
+      <div class="ink-panel swatch"><div class="chip" style="background:var(--ds-color-bg-canvas)"></div><div class="name">paper</div><code>#fbfaf6</code></div>
+      <div class="ink-panel swatch"><div class="chip" style="background:var(--ds-color-bg-sheet)"></div><div class="name">paper-white</div><code>#ffffff</code></div>
+      <div class="ink-panel swatch"><div class="chip" style="background:var(--ds-color-ink-line)"></div><div class="name">ink</div><code>#111111</code></div>
+      <div class="ink-panel swatch"><div class="chip" style="background:var(--ds-color-fg-muted)"></div><div class="name">ink soft</div><code>#444444</code></div>
+      <div class="ink-panel swatch"><div class="chip ink-hatch" style="background-color:var(--ds-color-bg-sheet)"></div><div class="name">hatch</div><code>1.5 / 8px</code></div>
+      <div class="ink-panel swatch"><div class="chip ink-xhatch" style="background-color:var(--ds-color-bg-sheet)"></div><div class="name">crosshatch</div><code>1.2 / 9px</code></div>
+      <div class="ink-panel swatch"><div class="chip" style="background:var(--ds-color-feedback-success)"></div><div class="name">green marker</div><code>#1d7a3e</code></div>
+      <div class="ink-panel swatch"><div class="chip" style="background:var(--ds-color-feedback-warning)"></div><div class="name">amber marker</div><code>#9a6200</code></div>
+      <div class="ink-panel swatch"><div class="chip" style="background:var(--ds-color-feedback-danger)"></div><div class="name">red marker</div><code>#c4291c</code></div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="ink-h3">Typography</h2>
+    <div class="ink-panel">
+      <p class="ink-display">Drawn by hand.</p>
+      <p class="ink-h2">Section heading · Bangers</p>
+      <p class="ink-h3">Card heading · Bangers 32</p>
+      <p class="ink-eyebrow">Eyebrow · Kalam 700 caps</p>
+      <p class="ink-lead">Lead: Kalam 400 at 21px. Reads like notes in the margin.</p>
+      <p>Body: Kalam 400 at 19px, line height 1.5. <a href="#">Links stay ink</a> and soften on hover.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="ink-h3">Spacing · lines · shadows</h2>
+    <div class="two">
+      <div class="ink-panel">
+        <div class="scaleRow"><code>space-2</code><div class="bar" style="width:var(--ds-space-2)"></div></div>
+        <div class="scaleRow"><code>space-4</code><div class="bar" style="width:var(--ds-space-4)"></div></div>
+        <div class="scaleRow"><code>space-5</code><div class="bar" style="width:var(--ds-space-5)"></div></div>
+        <div class="scaleRow"><code>space-6</code><div class="bar" style="width:var(--ds-space-6)"></div></div>
+        <div class="scaleRow"><code>space-7</code><div class="bar" style="width:var(--ds-space-7)"></div></div>
+        <div class="scaleRow"><code>space-8</code><div class="bar" style="width:var(--ds-space-8)"></div></div>
+        <div class="scaleRow"><code>space-9</code><div class="bar" style="width:var(--ds-space-9)"></div></div>
+      </div>
+      <div class="ink-panel">
+        <div class="scaleRow"><code>thin 2</code><div style="flex:1;border-top:var(--ds-border-width-thin) solid var(--ds-color-ink-line)"></div></div>
+        <div class="scaleRow"><code>ink 3</code><div style="flex:1;border-top:var(--ds-border-width-ink) solid var(--ds-color-ink-line)"></div></div>
+        <div class="scaleRow"><code>rule 4</code><div style="flex:1;border-top:var(--ds-border-width-rule) solid var(--ds-color-ink-line)"></div></div>
+        <div class="scaleRow"><code>focus</code><div style="flex:1;border-top:var(--ds-border-width-focus) dashed var(--ds-color-ink-line)"></div></div>
+        <p style="color:var(--ds-color-fg-muted)">Corners are always square. Radius exists only for round marks (dots, radios).</p>
+      </div>
+    </div>
+    <div class="fx" style="margin-top:var(--ds-space-6)">
+      <figure><div class="box" style="box-shadow:var(--ds-shadow-small)"></div><code>shadow-small 3px</code></figure>
+      <figure><div class="box" style="box-shadow:var(--ds-shadow-ink)"></div><code>shadow-ink 6px</code></figure>
+      <figure><div class="box" style="box-shadow:var(--ds-shadow-lift)"></div><code>shadow-lift 8px</code></figure>
+      <figure><div class="box" style="box-shadow:var(--ds-shadow-ink);transform:rotate(var(--ds-tilt-left))"></div><code>tilt-left -1.5°</code></figure>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="ink-h3">Buttons</h2>
+    <div class="row">
+      <button class="ink-btn ink-btn--solid">See the models</button>
+      <button class="ink-btn">How it's made</button>
+      <button class="ink-btn ink-btn--sm">Small</button>
+      <button class="ink-btn ink-btn--sm ink-btn--solid">Small solid</button>
+      <button class="ink-btn" disabled>Disabled</button>
+    </div>
+    <p style="color:var(--ds-color-fg-muted)">Hover lifts it 2px off the page; pressing stamps it flat onto its shadow.</p>
+  </section>
+
+  <section>
+    <h2 class="ink-h3">Panels</h2>
+    <div class="two">
+      <div class="ink-panel">
+        <div class="ink-panel__art ink-xhatch"></div>
+        <h3 class="ink-h3">Crosshatch shadows</h3>
+        <p>Default panel with an art frame. Doubles as a card.</p>
+      </div>
+      <div class="ink-panel ink-panel--tilt-l">
+        <p class="ink-eyebrow">Tilted</p>
+        <h3 class="ink-h3">Pasted on the page</h3>
+        <p><code>.ink-panel--tilt-l</code> rotates −1.5°, <code>--tilt-r</code> rotates 1°.</p>
+      </div>
+      <div class="ink-panel ink-panel--flat">
+        <h3 class="ink-h3">Flat</h3>
+        <p>No offset shadow, for panels inside panels.</p>
+      </div>
+      <article class="ink-panel" style="gap:var(--ds-space-3)">
+        <h3 class="ink-h3 ink-h3--lg">The Doodle</h3>
+        <p>Short scale, one pickup, light hatching.</p>
+        <p class="ink-panel__price">$1,240</p>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="ink-h3">Band · boxed heading</h2>
+    <div class="ink-band ink-hatch" style="padding:var(--ds-space-7) var(--ds-space-5)">
+      <h3 class="ink-h2 ink-h2--boxed">The models</h3>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="ink-h3">Steps</h2>
+    <ol class="ink-steps">
+      <li class="ink-steps__item"><span class="ink-steps__num">01</span><strong class="ink-steps__title">Prime it white</strong><span>The blank page.</span></li>
+      <li class="ink-steps__item"><span class="ink-steps__num">02</span><strong class="ink-steps__title">Ink the outlines</strong><span>Thick black paint pen.</span></li>
+      <li class="ink-steps__item"><span class="ink-steps__num">03</span><strong class="ink-steps__title">Hatch the shadows</strong><span>Line by line.</span></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2 class="ink-h3">Tags · dots</h2>
+    <div class="row">
+      <span class="ink-tag">In stock</span>
+      <span class="ink-tag ink-tag--solid">New</span>
+      <span class="ink-tag ink-tag--hatch"><span>Limited</span></span>
+      <span class="ink-tag"><span class="ink-dot ink-dot--success"></span>Ready</span>
+      <span class="ink-tag"><span class="ink-dot ink-dot--warning"></span>Drying</span>
+      <span class="ink-tag"><span class="ink-dot ink-dot--danger"></span>Sold out</span>
+      <span class="ink-tag"><span class="ink-dot ink-dot--on"></span>Inked</span>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="ink-h3">Forms</h2>
+    <div class="two">
+      <div class="ink-panel">
+        <label class="ink-field">Email address
+          <input class="ink-input" type="email" placeholder="you@example.com" />
+        </label>
+        <label class="ink-field">Which body?
+          <input class="ink-input" type="text" aria-invalid="true" value="Telecaster" />
+          <span class="ink-field__hint">Pick one of The Draft, The Margin or The Doodle.</span>
+        </label>
+        <label class="ink-field">Notes for the artist
+          <textarea class="ink-input" placeholder="Extra hatching on the horn…"></textarea>
+        </label>
+      </div>
+      <div class="ink-panel">
+        <p class="ink-eyebrow">Options</p>
+        <label class="ink-check"><input type="checkbox" checked /> Crosshatched body</label>
+        <label class="ink-check"><input type="checkbox" /> Inked pickguard</label>
+        <p class="ink-eyebrow" style="margin-top:var(--ds-space-3)">Scale</p>
+        <label class="ink-check"><input type="radio" name="scale" checked /> Full scale</label>
+        <label class="ink-check"><input type="radio" name="scale" /> Short scale</label>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="ink-h3">Alerts</h2>
+    <div style="display:grid;gap:var(--ds-space-4)">
+      <div class="ink-alert" role="status"><div><p class="ink-alert__title">Heads up</p><p class="ink-alert__body">Build slots open on the first of each month.</p></div></div>
+      <div class="ink-alert ink-alert--success" role="status"><div><p class="ink-alert__title">You're on the list</p><p class="ink-alert__body">We'll email pricing within two days.</p></div></div>
+      <div class="ink-alert ink-alert--warning" role="status"><div><p class="ink-alert__title">Ink still drying</p><p class="ink-alert__body">Clear coat goes on after 48 hours.</p></div></div>
+      <div class="ink-alert ink-alert--danger" role="alert"><div><p class="ink-alert__title">That email didn't look right</p><p class="ink-alert__body">Check for a missing @.</p></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="ink-h3">Line art</h2>
+    <div class="ink-panel">
+      <svg class="ink-art" viewBox="0 0 240 130" style="max-width:360px" aria-hidden="true"><rect x="10" y="58" width="120" height="14" fill="#fff" stroke="#111" stroke-width="3"/><path d="M130 40 C150 10 190 10 200 30 C230 30 236 70 222 95 C205 125 160 120 140 105 C120 95 118 80 130 70 Z" fill="#fff" stroke="#111" stroke-width="4"/><rect x="160" y="45" width="8" height="34" rx="4" fill="#fff" stroke="#111" stroke-width="2"/><rect x="176" y="44" width="8" height="34" rx="4" fill="#fff" stroke="#111" stroke-width="2"/><rect x="192" y="43" width="8" height="34" rx="4" fill="#fff" stroke="#111" stroke-width="2"/></svg>
+      <p>Draw SVGs with plain <code>#111</code> and <code>#fff</code>, add <code>.ink-art</code>, and they follow the theme. Try Chalkboard in the Pen &amp; paper switcher.</p>
+    </div>
+  </section>
+
+  <p><a href="../prototype/">See it in a real page: Hatchwork Tattoo →</a><br><a href="../prototype/plotter.html">Mono variant: Plotbot pen plotter →</a></p>
+</div>
+<script src="../palette-setting.js"></script>
+</body>
+</html>

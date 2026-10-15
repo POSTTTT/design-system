@@ -1,0 +1,7 @@
+{
+  "panel": {
+    "bg":      { "$type": "color",     "$value": "{color.bg.sheet}" },
+    "fg":      { "$type": "color",     "$value": "{color.fg.default}" },
+    "padding": { "$type": "dimension", "$value": "1.75rem" }
+  }
+}

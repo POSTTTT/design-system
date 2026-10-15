@@ -1,0 +1,40 @@
+{
+  "shadow": {
+    "_comment": "Hard, 0-blur offset in the ink colour — a second pen stroke, not a light source. Strings read the live --ds-color-ink-line so themes stay correct.",
+    "none":  { "$value": "none" },
+    "ink":   { "$value": "6px 6px 0 var(--ds-color-ink-line)", "$description": "Default inked object" },
+    "lift":  { "$value": "8px 8px 0 var(--ds-color-ink-line)", "$description": "Hovered — object lifts off the page" },
+    "small": { "$value": "3px 3px 0 var(--ds-color-ink-line)", "$description": "Tags, small controls" }
+  },
+
+  "border": {
+    "width": {
+      "$type": "dimension",
+      "thin":  { "$value": "2px", "$description": "Inner detail lines" },
+      "ink":   { "$value": "3px", "$description": "Every outline" },
+      "rule":  { "$value": "4px", "$description": "Section rules, step rules" },
+      "focus": { "$value": "3px", "$description": "Dashed focus ring" }
+    }
+  },
+
+  "radius": {
+    "$type": "dimension",
+    "_comment": "Pen corners are square. Only `full` exists, for round marks like checks and dots.",
+    "none": { "$value": "0px" },
+    "full": { "$value": "9999px" }
+  },
+
+  "tilt": {
+    "$type": "dimension",
+    "_comment": "Hand-placed rotation for panels pasted onto the page.",
+    "left":  { "$value": "-1.5deg" },
+    "right": { "$value": "1deg" }
+  },
+
+  "hatch": {
+    "$type": "dimension",
+    "line":  { "$value": "1.5px", "$description": "Single hatch stroke" },
+    "gap":   { "$value": "8px",   "$description": "Single hatch pitch" },
+    "cross": { "$value": "9px",   "$description": "Crosshatch pitch" }
+  }
+}

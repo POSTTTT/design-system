@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hatchwork Tattoo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bangers&amp;family=Kalam:wght@400;700&amp;display=swap">
+<!-- One import: generated tokens + every ink- component. -->
+<link rel="stylesheet" href="../inkline-compo/components.css">
+<style>
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  .head { max-width: 1200px; margin: 0 auto; padding: var(--ds-space-5); display: flex; flex-wrap: wrap; gap: var(--ds-space-4); align-items: center; justify-content: space-between; }
+  .head__brand { display: flex; align-items: center; gap: var(--ds-space-3); text-decoration: none; }
+  .head nav { display: flex; flex-wrap: wrap; gap: var(--ds-space-5); font-weight: var(--ds-font-weight-bold); font-size: 1.25rem; }
+
+  .hero { display: flex; flex-wrap: wrap; gap: var(--ds-space-7); align-items: center; }
+  .hero > .ink-panel { flex: 1 1 380px; padding: 2.5rem; }
+  .sheet { flex: 1 1 400px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--ds-space-6); padding: var(--ds-space-3); }
+  .sheet .ink-panel { padding: var(--ds-space-4); }
+  .sheet .ink-panel:nth-child(1) { transform: rotate(-3deg); }
+  .sheet .ink-panel:nth-child(2) { transform: rotate(2deg) translateY(12px); }
+  .sheet .ink-panel:nth-child(3) { transform: rotate(1.5deg); }
+  .sheet .ink-panel:nth-child(4) { transform: rotate(-2deg) translateY(-8px); }
+  .ctas { display: flex; flex-wrap: wrap; gap: var(--ds-space-4); }
+
+  .sec { max-width: 1200px; margin: 0 auto; padding: var(--ds-space-9) var(--ds-space-5); }
+  .sec__lead { margin: var(--ds-space-3) 0 var(--ds-space-7); max-width: 640px; }
+
+  .flash-head { display: flex; flex-wrap: wrap; gap: var(--ds-space-5); align-items: center; justify-content: space-between; margin-bottom: var(--ds-space-7); }
+  .filters { display: flex; flex-wrap: wrap; gap: var(--ds-space-3); }
+  .flash { gap: var(--ds-space-3); }
+  .flash[hidden] { display: none; }
+  .flash .ink-panel__art { height: 170px; }
+  .flash .ink-panel__art svg { width: 130px; }
+  .flash__meta { display: flex; flex-wrap: wrap; gap: var(--ds-space-3); align-items: center; justify-content: space-between; }
+  .flash.is-picked { box-shadow: var(--ds-shadow-lift); outline: var(--ds-border-width-ink) solid var(--ds-color-ink-line); outline-offset: 5px; }
+
+  .book { display: grid; gap: var(--ds-space-7); grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); align-items: start; }
+  .book form { gap: var(--ds-space-5); }
+  .book fieldset { border: 0; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0 var(--ds-space-5); }
+  .book legend { padding: 0; margin-bottom: var(--ds-space-1); font-weight: var(--ds-font-weight-bold); }
+  .summary .ink-panel__art { height: 200px; }
+  .summary .ink-panel__art svg { width: 150px; }
+  .summary__total { font-family: var(--ds-font-family-display); font-size: var(--ds-font-size-4xl); line-height: 1; letter-spacing: var(--ds-font-letter-spacing-wide); }
+  .summary dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: var(--ds-space-1) var(--ds-space-4); }
+  .summary dt { font-weight: var(--ds-font-weight-bold); }
+  .summary dd { margin: 0; }
+
+  .foot { max-width: 1200px; margin: 0 auto; padding: 2.5rem var(--ds-space-5); display: flex; flex-wrap: wrap; gap: var(--ds-space-4); justify-content: space-between; align-items: center; }
+  @media (max-width: 480px) {
+    .hero > .ink-panel { padding: var(--ds-space-5); }
+    .sheet { gap: var(--ds-space-4); }
+  }
+</style>
+</head>
+<body class="ink-page">
+
+<!-- Shared hatch fills for every drawing on the page. -->
+<svg class="ink-art" style="position:absolute;width:0;height:0" aria-hidden="true" focusable="false">
+  <defs>
+    <pattern id="hA" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#111" stroke-width="1.6"/></pattern>
+    <pattern id="hX" patternUnits="userSpaceOnUse" width="7" height="7" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#111" stroke-width="1.4"/><line x1="0" y1="0" x2="7" y2="0" stroke="#111" stroke-width="1.4"/></pattern>
+  </defs>
+</svg>
+
+<!-- Flash drawings, written once and reused with <use>. -->
+<svg class="ink-art" style="display:none" aria-hidden="true">
+  <symbol id="art-anchor" viewBox="0 0 120 120">
+    <path d="M24 70 C28 92 44 102 60 102 C76 102 92 92 96 70" fill="none" stroke="#111" stroke-width="6"/>
+    <path d="M14 78 L24 62 L34 78 Z" fill="#111"/><path d="M86 78 L96 62 L106 78 Z" fill="#111"/>
+    <rect x="55" y="30" width="10" height="70" fill="url(#hX)" stroke="#111" stroke-width="3"/>
+    <rect x="38" y="42" width="44" height="9" fill="#fff" stroke="#111" stroke-width="3"/>
+    <circle cx="60" cy="21" r="9" fill="#fff" stroke="#111" stroke-width="4"/>
+  </symbol>
+  <symbol id="art-rose" viewBox="0 0 120 120">
+    <path d="M60 86 C58 98 56 106 54 116" stroke="#111" stroke-width="4" fill="none"/>
+    <path d="M57 102 C44 94 32 98 24 108 C38 114 50 110 57 102 Z" fill="url(#hA)" stroke="#111" stroke-width="3"/>
+    <path d="M58 96 C70 90 84 94 94 104 C80 110 66 106 58 96 Z" fill="#fff" stroke="#111" stroke-width="3"/>
+    <circle cx="60" cy="50" r="36" fill="#fff" stroke="#111" stroke-width="4"/>
+    <path d="M60 86 C40 86 26 72 25 54 C38 64 50 70 60 86 Z" fill="url(#hA)"/>
+    <path d="M60 40 C70 36 76 48 68 54 C58 60 48 50 54 42 C62 30 82 36 82 52 C82 70 60 76 46 66 C34 56 38 36 50 28" fill="none" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="art-dagger" viewBox="0 0 120 120">
+    <path d="M60 6 L69 72 H51 Z" fill="#fff" stroke="#111" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M60 6 L60 72 H51 Z" fill="url(#hA)"/>
+    <rect x="36" y="72" width="48" height="9" fill="#fff" stroke="#111" stroke-width="4"/>
+    <rect x="54" y="81" width="12" height="24" fill="url(#hX)" stroke="#111" stroke-width="3"/>
+    <circle cx="60" cy="110" r="6" fill="#fff" stroke="#111" stroke-width="3"/>
+  </symbol>
+  <symbol id="art-heart" viewBox="0 0 120 120">
+    <path d="M60 104 C20 78 12 50 28 36 C42 24 56 32 60 44 C64 32 78 24 92 36 C108 50 100 78 60 104 Z" fill="#fff" stroke="#111" stroke-width="4"/>
+    <path d="M60 104 C20 78 12 50 28 36 C24 56 36 80 60 104 Z" fill="url(#hA)"/>
+    <path d="M10 56 H110 L102 65 L110 74 H10 L18 65 Z" fill="#fff" stroke="#111" stroke-width="3"/>
+    <text x="60" y="70.5" text-anchor="middle" font-family="Bangers, Impact, sans-serif" font-size="14" letter-spacing="1" fill="#111">TRUE INK</text>
+  </symbol>
+  <symbol id="art-star" viewBox="0 0 120 120">
+    <polygon points="60,12 71.8,43.8 105.6,45.2 79,66.2 88.2,98.8 60,80 31.8,98.8 41,66.2 14.4,45.2 48.2,43.8" fill="#fff" stroke="#111" stroke-width="4" stroke-linejoin="round"/>
+    <g fill="url(#hA)"><polygon points="60,60 60,12 48.2,43.8"/><polygon points="60,60 105.6,45.2 71.8,43.8"/><polygon points="60,60 88.2,98.8 79,66.2"/><polygon points="60,60 31.8,98.8 60,80"/><polygon points="60,60 14.4,45.2 41,66.2"/></g>
+    <g stroke="#111" stroke-width="2"><line x1="60" y1="60" x2="60" y2="12"/><line x1="60" y1="60" x2="105.6" y2="45.2"/><line x1="60" y1="60" x2="88.2" y2="98.8"/><line x1="60" y1="60" x2="31.8" y2="98.8"/><line x1="60" y1="60" x2="14.4" y2="45.2"/></g>
+  </symbol>
+  <symbol id="art-eye" viewBox="0 0 120 120">
+    <g stroke="#111" stroke-width="3" stroke-linecap="round"><line x1="60" y1="18" x2="60" y2="32"/><line x1="34" y1="24" x2="40" y2="37"/><line x1="86" y1="24" x2="80" y2="37"/><line x1="14" y1="36" x2="24" y2="46"/><line x1="106" y1="36" x2="96" y2="46"/></g>
+    <path d="M10 64 C34 30 86 30 110 64 C86 98 34 98 10 64 Z" fill="#fff" stroke="#111" stroke-width="4"/>
+    <circle cx="60" cy="64" r="20" fill="url(#hX)" stroke="#111" stroke-width="3"/>
+    <circle cx="60" cy="64" r="8" fill="#111"/>
+    <circle cx="65" cy="59" r="3" fill="#fff"/>
+  </symbol>
+</svg>
+
+<header class="head">
+  <a href="#top" class="head__brand">
+    <svg class="ink-art" style="width:44px" width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><rect x="4" y="4" width="36" height="36" fill="#fff" stroke="#111" stroke-width="3"/><path d="M4 30 L30 4 M4 40 L40 4 M14 40 L40 14" stroke="#111" stroke-width="2"/></svg>
+    <span class="ink-logo">HATCHWORK TATTOO</span>
+  </a>
+  <nav aria-label="Main">
+    <a href="#flash">Flash</a>
+    <a href="#how">How it works</a>
+    <a href="#book">Book</a>
+  </nav>
+</header>
+
+<section id="top" class="ink-band ink-band--tight">
+  <div class="ink-wrap hero">
+    <div class="ink-panel ink-panel--tilt-l">
+      <p class="ink-eyebrow">Black-ink flash · fine linework</p>
+      <h1 class="ink-display">Pick a drawing. Wear it forever.</h1>
+      <p class="ink-lead">Every design on the wall is drawn once, tattooed once, then retired. Hatching only, no colour, no gradients.</p>
+      <div class="ctas">
+        <a href="#flash" class="ink-btn ink-btn--solid">See today's flash</a>
+        <a href="#book" class="ink-btn">Book a slot</a>
+      </div>
+    </div>
+    <div class="sheet" aria-hidden="true">
+      <div class="ink-panel"><svg class="ink-art" viewBox="0 0 120 120"><use href="#art-rose"/></svg></div>
+      <div class="ink-panel"><svg class="ink-art" viewBox="0 0 120 120"><use href="#art-dagger"/></svg></div>
+      <div class="ink-panel"><svg class="ink-art" viewBox="0 0 120 120"><use href="#art-eye"/></svg></div>
+      <div class="ink-panel"><svg class="ink-art" viewBox="0 0 120 120"><use href="#art-anchor"/></svg></div>
+    </div>
+  </div>
+</section>
+
+<section id="flash" class="ink-band ink-hatch">
+  <div class="ink-wrap">
+    <div class="flash-head">
+      <h2 class="ink-h2 ink-h2--boxed">Today's flash</h2>
+      <div class="filters" role="group" aria-label="Filter by size">
+        <button class="ink-btn ink-btn--sm" data-filter="all" aria-pressed="true">All</button>
+        <button class="ink-btn ink-btn--sm" data-filter="S" aria-pressed="false">Small</button>
+        <button class="ink-btn ink-btn--sm" data-filter="M" aria-pressed="false">Medium</button>
+        <button class="ink-btn ink-btn--sm" data-filter="L" aria-pressed="false">Large</button>
+      </div>
+    </div>
+    <div class="ink-grid">
+      <article class="ink-panel flash" data-art="anchor" data-size="S" data-price="90">
+        <div class="ink-panel__art"><svg class="ink-art" viewBox="0 0 120 120" aria-hidden="true"><use href="#art-anchor"/></svg></div>
+        <h3 class="ink-h3">Heavy anchor</h3>
+        <p>Crosshatched shaft, solid flukes. Sits well on a forearm.</p>
+        <div class="flash__meta"><span class="ink-tag"><span class="ink-dot ink-dot--success"></span>Available</span><span class="ink-panel__price">from $90</span></div>
+        <button class="ink-btn ink-btn--sm ink-btn--solid pick">Pick this</button>
+      </article>
+      <article class="ink-panel flash" data-art="rose" data-size="M" data-price="160">
+        <div class="ink-panel__art"><svg class="ink-art" viewBox="0 0 120 120" aria-hidden="true"><use href="#art-rose"/></svg></div>
+        <h3 class="ink-h3">Margin rose</h3>
+        <p>One continuous spiral with a hatched shadow under the bloom.</p>
+        <div class="flash__meta"><span class="ink-tag"><span class="ink-dot ink-dot--success"></span>Available</span><span class="ink-panel__price">from $160</span></div>
+        <button class="ink-btn ink-btn--sm ink-btn--solid pick">Pick this</button>
+      </article>
+      <article class="ink-panel flash" data-art="dagger" data-size="M" data-price="140">
+        <div class="ink-panel__art"><svg class="ink-art" viewBox="0 0 120 120" aria-hidden="true"><use href="#art-dagger"/></svg></div>
+        <h3 class="ink-h3">Paper knife</h3>
+        <p>Half-hatched blade so it reads sharp from across the room.</p>
+        <div class="flash__meta"><span class="ink-tag"><span class="ink-dot ink-dot--success"></span>Available</span><span class="ink-panel__price">from $140</span></div>
+        <button class="ink-btn ink-btn--sm ink-btn--solid pick">Pick this</button>
+      </article>
+      <article class="ink-panel flash" data-art="heart" data-size="S" data-price="110">
+        <div class="ink-panel__art"><svg class="ink-art" viewBox="0 0 120 120" aria-hidden="true"><use href="#art-heart"/></svg></div>
+        <h3 class="ink-h3">True ink heart</h3>
+        <p>The classic banner heart. We can swap the lettering for yours.</p>
+        <div class="flash__meta"><span class="ink-tag"><span class="ink-dot ink-dot--success"></span>Available</span><span class="ink-panel__price">from $110</span></div>
+        <button class="ink-btn ink-btn--sm ink-btn--solid pick">Pick this</button>
+      </article>
+      <article class="ink-panel flash" data-art="star" data-size="S" data-price="80">
+        <div class="ink-panel__art"><svg class="ink-art" viewBox="0 0 120 120" aria-hidden="true"><use href="#art-star"/></svg></div>
+        <h3 class="ink-h3">Nautical star</h3>
+        <p>Five points, alternate faces hatched. Already on someone's ankle.</p>
+        <div class="flash__meta"><span class="ink-tag"><span class="ink-dot ink-dot--danger"></span>Claimed</span><span class="ink-panel__price">from $80</span></div>
+        <button class="ink-btn ink-btn--sm pick" disabled>Claimed</button>
+      </article>
+      <article class="ink-panel flash" data-art="eye" data-size="L" data-price="220">
+        <div class="ink-panel__art"><svg class="ink-art" viewBox="0 0 120 120" aria-hidden="true"><use href="#art-eye"/></svg></div>
+        <h3 class="ink-h3">Watcher</h3>
+        <p>Crosshatched iris and radiating lashes. Best on a back or thigh.</p>
+        <div class="flash__meta"><span class="ink-tag"><span class="ink-dot ink-dot--success"></span>Available</span><span class="ink-panel__price">from $220</span></div>
+        <button class="ink-btn ink-btn--sm ink-btn--solid pick">Pick this</button>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="how" class="sec">
+  <h2 class="ink-h2" style="margin-bottom:var(--ds-space-7)">How a flash piece happens</h2>
+  <ol class="ink-steps">
+    <li class="ink-steps__item"><span class="ink-steps__num">01</span><strong class="ink-steps__title">Pick off the wall</strong><span>Choose a drawing above. Once it's booked, it comes down for good.</span></li>
+    <li class="ink-steps__item"><span class="ink-steps__num">02</span><strong class="ink-steps__title">Size and spot</strong><span>Tell us how big and where. We'll redraw the hatching to suit the scale.</span></li>
+    <li class="ink-steps__item"><span class="ink-steps__num">03</span><strong class="ink-steps__title">Stencil check</strong><span>The stencil goes on first so you can see it in the mirror before any ink.</span></li>
+    <li class="ink-steps__item"><span class="ink-steps__num">04</span><strong class="ink-steps__title">Ink and heal</strong><span>Lines, then shading. You leave with aftercare notes and a wrapped arm.</span></li>
+  </ol>
+</section>
+
+<section id="book" class="ink-band">
+  <div class="ink-wrap">
+    <h2 class="ink-h2" style="margin-bottom:var(--ds-space-7)">Book your slot</h2>
+    <div class="book">
+      <form class="ink-panel booking" novalidate>
+        <div class="ink-alert" role="note"><div><p class="ink-alert__title">Walk-ins Thu to Sat</p><p class="ink-alert__body">Booking holds a design for 48 hours and guarantees a chair.</p></div></div>
+        <fieldset>
+          <legend>Size</legend>
+          <label class="ink-check"><input type="radio" name="size" value="S"> Small, palm</label>
+          <label class="ink-check"><input type="radio" name="size" value="M" checked> Medium, hand</label>
+          <label class="ink-check"><input type="radio" name="size" value="L"> Large, forearm</label>
+        </fieldset>
+        <label class="ink-field">Placement
+          <select class="ink-input" name="placement">
+            <option>Forearm</option><option>Upper arm</option><option>Calf</option><option>Ankle</option><option>Back</option><option>Thigh</option>
+          </select>
+        </label>
+        <label class="ink-check"><input type="checkbox" name="shade"> Extra crosshatch shading (+$40)</label>
+        <label class="ink-field">Email address
+          <input class="ink-input" type="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+          <span class="ink-field__hint">We'll send the stencil preview here.</span>
+        </label>
+        <label class="ink-check"><input type="checkbox" name="age" required> I'm 18 or older</label>
+        <button type="submit" class="ink-btn ink-btn--solid">Hold my design</button>
+        <div class="form-msg" aria-live="polite"></div>
+      </form>
+
+      <aside class="ink-panel ink-panel--tilt-r summary" aria-live="polite">
+        <p class="ink-eyebrow">Your piece</p>
+        <div class="ink-panel__art summary__art ink-hatch--light" style="background-color:var(--ds-color-bg-sheet)"><p style="margin:0;padding:var(--ds-space-2);background:var(--ds-color-bg-sheet)">Nothing picked yet</p></div>
+        <h3 class="ink-h3 summary__name">Choose a flash</h3>
+        <dl>
+          <dt>Size</dt><dd class="summary__size">Medium</dd>
+          <dt>Spot</dt><dd class="summary__spot">Forearm</dd>
+          <dt>Shading</dt><dd class="summary__shade">Standard</dd>
+        </dl>
+        <p class="summary__total">$—</p>
+        <p style="color:var(--ds-color-fg-muted)">Estimate. Final price is set at the stencil check.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <span class="ink-logo" style="font-size:1.75rem">HATCHWORK TATTOO</span>
+  <span>One drawing, one person, one time.</span>
+</footer>
+
+<script>
+  var SIZES = { S: ['Small', 1], M: ['Medium', 1.5], L: ['Large', 2.2] };
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.flash'));
+  var form = document.querySelector('.booking');
+  var picked = null;
+
+  // Size filters
+  document.querySelectorAll('[data-filter]').forEach(function (btn, _, all) {
+    btn.addEventListener('click', function () {
+      all.forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); });
+      cards.forEach(function (c) { c.hidden = btn.dataset.filter !== 'all' && c.dataset.size !== btn.dataset.filter; });
+    });
+  });
+
+  // Picking a flash fills the summary and preselects its size
+  cards.forEach(function (card) {
+    var btn = card.querySelector('.pick');
+    if (btn.disabled) return;
+    btn.addEventListener('click', function () {
+      cards.forEach(function (c) {
+        c.classList.remove('is-picked');
+        var b = c.querySelector('.pick');
+        if (!b.disabled) b.textContent = 'Pick this';
+      });
+      card.classList.add('is-picked');
+      btn.textContent = 'Picked ✓';
+      picked = { name: card.querySelector('h3').textContent, art: card.dataset.art, price: +card.dataset.price };
+      form.elements.size.value = card.dataset.size;
+      document.querySelector('.summary__art').innerHTML =
+        '<svg class="ink-art" viewBox="0 0 120 120" aria-hidden="true"><use href="#art-' + picked.art + '"/></svg>';
+      form.querySelector('.form-msg').innerHTML = '';
+      update();
+      document.getElementById('book').scrollIntoView();
+    });
+  });
+
+  function update() {
+    var size = SIZES[form.elements.size.value];
+    var shade = form.elements.shade.checked;
+    document.querySelector('.summary__name').textContent = picked ? picked.name : 'Choose a flash';
+    document.querySelector('.summary__size').textContent = size[0];
+    document.querySelector('.summary__spot').textContent = form.elements.placement.value;
+    document.querySelector('.summary__shade').textContent = shade ? 'Extra crosshatch' : 'Standard';
+    document.querySelector('.summary__total').textContent =
+      picked ? '$' + Math.round(picked.price * size[1] + (shade ? 40 : 0)) : '$—';
+  }
+  form.addEventListener('change', update);
+
+  function msg(kind, title, body) {
+    form.querySelector('.form-msg').innerHTML =
+      '<div class="ink-alert ink-alert--' + kind + '" role="' + (kind === 'danger' ? 'alert' : 'status') + '"><div>' +
+      '<p class="ink-alert__title">' + title + '</p><p class="ink-alert__body">' + body + '</p></div></div>';
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = form.elements.email;
+    email.setAttribute('aria-invalid', String(!email.validity.valid));
+    if (!picked) return msg('danger', 'Pick a design first', 'Choose one of the available flash pieces above.');
+    if (!email.validity.valid) { email.focus(); return msg('danger', "That email didn't look right", 'We need it to send your stencil preview.'); }
+    if (!form.elements.age.checked) return msg('danger', 'Age check', 'We only tattoo people who are 18 or older.');
+    msg('success', picked.name + ' is held for you', 'Stencil preview is on its way to ' + email.value.replace(/[<>&"]/g, '') + '.');
+  });
+</script>
+<script src="../palette-setting.js"></script>
+</body>
+</html>

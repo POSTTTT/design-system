@@ -98,3 +98,17 @@ A dark glass display glows with an amber readout and faint scanlines, and pinhol
 LEDs show status. `Geist` + `Geist Mono`. Light and dark colorways flip the edge
 lighting. Its prototype is a product page for a desktop radio (FIELD 01) whose
 tuning dial, presets, volume, band selector and EQ all work.
+
+### `inkline/`
+A hand-inked sketchbook, extracted from the Inkline Guitars page. Paper `#fbfaf6`
+and paper-white panels drawn with one black ink `#111`: heavy 3px outlines, hard
+0-blur offset shadows in the same ink, square corners, and shading drawn as hatch
+and crosshatch lines instead of gradients. Panels can be pasted on at a slight
+tilt; buttons lift on hover and stamp flat when pressed. `Bangers` display caps,
+`Kalam` handwriting body. Colour appears only as status markers. Inline SVG line
+art follows the theme via `.ink-art`. Presets include Sepia, Blueprint, Red pen
+and a dark Chalkboard. Its prototype is a flash-tattoo studio (HATCHWORK:
+size-filtered flash wall, pick a design, live price estimate, validated booking
+form). A second prototype, `prototype/plotter.html`, uses the `.ink-page--mono`
+Courier Prime variant: a pen-plotter page (PLOTBOT) that plots a drawing stroke
+by stroke, with a live serial log, queue table and changelog.
