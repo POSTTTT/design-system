@@ -16,6 +16,7 @@ Every style folder follows the same template:
 | `<style>-compo/` | The component styles — button, card, tag, input, alert… as CSS classes. |
 | `catalog/` | A page previewing every token and component live. |
 | `prototype/` | A full example page — the style in a real layout. |
+| `palette-setting.js` | A drop-in theme switcher with color presets, used by the catalog and prototypes. |
 | `package.json` | The style's project manifest. |
 
 ## Opening a catalog or prototype
@@ -31,96 +32,135 @@ npm install   # first time only
 npm run build
 ```
 
+`npm run catalog` rebuilds and serves the catalog and prototype on the style's
+port (see the table below).
+
 ## Styles
 
-### `neo-brutalism/`
-Loud and physical. Thick solid-black borders, hard `0`-blur offset shadows that
-make every element look like a sticker peeled onto the page, and vivid
-yellow / pink / cyan accents over a warm off-white paper canvas. Heavy black
-display type, sharp corners, and a playful, in-your-face attitude.
+### At a glance
 
-### `monospace/`
-Quiet and technical — a dark terminal aesthetic inspired by Atom One Dark. A
-charcoal `#282c34` canvas with cyan text, teal hairline borders, and a coral→pink
-gradient as the single accent. Soft, deep, blurred shadows, gently rounded corners,
-and `Fira Code` monospace throughout, with bracketed `[ LABEL ]` tags and
-terminal-window chrome.
+| Style | Look | Key colors | Fonts | Prefix | Port |
+|---|---|---|---|---|---|
+| [`neo-brutalism`](neo-brutalism/) | Loud stickers: thick black borders, hard offset shadows | `#000` · yellow / pink / cyan on off-white | Archivo, JetBrains Mono | `nb-` | 4321 |
+| [`monospace`](monospace/) | Quiet dark terminal, Atom One Dark | `#282c34` · cyan · coral→pink gradient | Fira Code | `ms-` | 4322 |
+| [`developer-brutalism`](developer-brutalism/) | Raw black console, flat and high-contrast | `#0a0a0a` · amber · terminal green / red | JetBrains Mono | `db-` | 4323 |
+| [`neumorphism`](neumorphism/) | Soft extruded surfaces, depth from dual shadows | `#e0e5ec` · slate · soft indigo | Poppins | `nm-` | 4324 |
+| [`graph-paper`](graph-paper/) | Pen-drawn engineering schematic on grid paper | cobalt `#1f3a93` · cream `#f7f4e4` · orange | Georgia | `gp-` | 4325 |
+| [`glassmorphism`](glassmorphism/) | Frosted glass panes over glowing orbs | night `#0b1026` · violet / magenta / cyan | Manrope | `gl-` | 4326 |
+| [`skeuomorphism`](skeuomorphism/) | Real materials: linen, paper, leather, aluminium | linen `#e6ddcc` · tan leather · candy glass | Source Sans 3, Libre Baskerville, Caveat | `sk-` | 4327 |
+| [`skeuomorphism-modern`](skeuomorphism-modern/) | Modern hardware: matte plastic, keys, knobs | plastic `#f5f4f0` · graphite · orange `#ff5a1f` | Geist, Geist Mono | `skm-` | 4328 |
+| [`inkline`](inkline/) | Hand-inked sketchbook with hatch shading | paper `#fbfaf6` · one ink `#111` | Bangers, Kalam, Courier Prime | `ink-` | 4329 |
+| [`atelier`](atelier/) | Editorial hairline grid, studio instrument | paper `#f2f1ee` · ink `#101014` · blue `#2d81ff` | Archivo, Instrument Serif, Inter, Geist Mono | `atl-` | 4330 |
 
-### `developer-brutalism/`
-Raw and high-contrast — a pure-black `#0a0a0a` terminal console. Off-white text
-with an amber primary accent, plus terminal green and red, and solid-white CTAs.
-Flat surfaces with hairline borders and a subtle dot-grid texture, barely-rounded
-corners, uppercase wide-tracked mono labels, and `JetBrains Mono` throughout. Its
-prototype is a multi-agent orchestration console (status sidebar · chat · consensus).
+### Prototypes
 
-### `neumorphism/`
-Soft and tactile. A single light `#e0e5ec` surface where everything — cards, buttons,
-inputs — is the *same* color as the page, with depth carved purely by **dual shadows**:
-a dark drop at the bottom-right and a white highlight at the top-left. Elements look
-extruded, and press *into* the surface when active. Pillowy large radii, low-contrast
-slate text, a soft indigo accent, and rounded `Poppins` type. Includes a signature soft
-toggle. Its prototype is a calm wellness dashboard (AURA — player · stats · preferences).
+| Style | Page | What it shows |
+|---|---|---|
+| `neo-brutalism` | [CONCRETE](neo-brutalism/prototype/index.html) | A loud project tracker |
+| `monospace` | [MERIDIAN](monospace/prototype/index.html) | A self-hosted AI workspace for the terminal |
+| `developer-brutalism` | [QUORUM](developer-brutalism/prototype/index.html) | Multi-agent console: status sidebar, chat, consensus |
+| | [ANVIL](developer-brutalism/prototype/landing.html) | Landing page for a build / test / ship CLI |
+| `neumorphism` | [AURA](neumorphism/prototype/index.html) | Calm wellness dashboard: player, stats, preferences |
+| `graph-paper` | [FIELD NOTES](graph-paper/prototype/index.html) | Tabbed rainwater-harvesting schematic with a pen-style SVG diagram |
+| | [DRAFTBOARD](graph-paper/prototype/landing.html) | Landing page for a diagramming tool |
+| `glassmorphism` | [HALO](glassmorphism/prototype/index.html) | Smart-home dashboard: climate dial, rooms, energy, scenes |
+| `skeuomorphism` | [FOLIO](skeuomorphism/prototype/index.html) | Notes-and-records desk: notebook, notepad, hi-fi deck with VU meters |
+| `skeuomorphism-modern` | [FIELD 01](skeuomorphism-modern/prototype/index.html) | Desktop radio with working tuning, presets, volume, band and EQ |
+| `inkline` | [HATCHWORK](inkline/prototype/index.html) | Flash-tattoo studio: size filters, pick a design, live estimate, booking form |
+| | [PLOTBOT](inkline/prototype/plotter.html) | Mono variant: pen plotter that draws stroke by stroke, serial log, queue |
+| `atelier` | [KERN](atelier/prototype/index.html) | Type-design studio: specimen cells and a variable-font playground |
 
-### `graph-paper/`
-Pen-on-graph-paper engineering aesthetic. Cobalt ink `#1f3a93` ruled on a cream
-`#f7f4e4` paper canvas with a faint green grid, an orange `#e8730c` control accent,
-and rust / green markers — like a hand-drawn 3GPP or circuit schematic. Georgia serif
-throughout, thick inked borders, small radii, uppercase letter-spaced eyebrows, dashed
-divider rules, and white node-boxes. Includes a filled-ink tab control. Its prototype
-is a tabbed rainwater-harvesting schematic with an inline pen-style SVG diagram that
-recolors with the theme (flow plane vs. dashed control plane).
+### Signature details
 
-### `glassmorphism/`
-Frosted glass floating over light. A deep night `#0b1026` canvas lit by three soft
-color orbs (violet / magenta / cyan), with every surface a translucent pane:
-white-alpha fills, `backdrop-filter` blur, hairline light-catching edges and an
-inset top shine. Pill buttons with an accent glow, generous radii, and `Manrope`
-throughout. Falls back to near-opaque panes without blur support or under
-*reduce transparency*. Includes a glossy glass toggle. Its prototype is a smart-home
-dashboard (HALO — climate dial · rooms · energy · scenes).
+<details>
+<summary><b><code>neo-brutalism/</code></b> — loud and physical</summary>
 
-### `skeuomorphism/`
-Interfaces made of things. A linen tablecloth `#e6ddcc` canvas holding cream grained
-paper cards, tan leather panels with dashed cream stitching, brushed-aluminium
-plates, and glossy candy-glass keys with a split highlight. Everything is lit from
-above: top-edge highlights, soft drop shadows, inset wells, letterpress text, and
-domed LED lamps. Textures are pure CSS / inline SVG noise. Source Sans 3 UI,
-Libre Baskerville titles, Caveat handwriting. Includes a recessed ON/OFF toggle.
-Its prototype is a notes-and-records desk (FOLIO: leather notebook cover, ruled
-notepad, hi-fi deck with VU meters and a draggable volume knob).
+- Thick solid-black borders and hard `0`-blur offset shadows, so every element looks like a sticker on the page.
+- Vivid yellow / pink / cyan accents over a warm off-white paper canvas.
+- Heavy black display type, sharp corners, playful attitude.
+</details>
 
-### `skeuomorphism-modern/`
-Skeuomorphism rebuilt from modern consumer hardware instead of leather and linen.
-Matte off-white `#f5f4f0` moulded plastic under soft studio light, graphite keys,
-and one signal-orange `#ff5a1f` accent. Keys have real travel and latch down,
-aluminium knobs turn, faders sit in grooves, and slide switches have ribbed caps.
-A dark glass display glows with an amber readout and faint scanlines, and pinhole
-LEDs show status. `Geist` + `Geist Mono`. Light and dark colorways flip the edge
-lighting. Its prototype is a product page for a desktop radio (FIELD 01) whose
-tuning dial, presets, volume, band selector and EQ all work.
+<details>
+<summary><b><code>monospace/</code></b> — quiet terminal</summary>
 
-### `inkline/`
-A hand-inked sketchbook, extracted from the Inkline Guitars page. Paper `#fbfaf6`
-and paper-white panels drawn with one black ink `#111`: heavy 3px outlines, hard
-0-blur offset shadows in the same ink, square corners, and shading drawn as hatch
-and crosshatch lines instead of gradients. Panels can be pasted on at a slight
-tilt; buttons lift on hover and stamp flat when pressed. `Bangers` display caps,
-`Kalam` handwriting body. Colour appears only as status markers. Inline SVG line
-art follows the theme via `.ink-art`. Presets include Sepia, Blueprint, Red pen
-and a dark Chalkboard. Its prototype is a flash-tattoo studio (HATCHWORK:
-size-filtered flash wall, pick a design, live price estimate, validated booking
-form). A second prototype, `prototype/plotter.html`, uses the `.ink-page--mono`
-Courier Prime variant: a pen-plotter page (PLOTBOT) that plots a drawing stroke
-by stroke, with a live serial log, queue table and changelog.
+- Charcoal `#282c34` canvas, cyan text, teal hairline borders.
+- A coral→pink gradient as the single accent.
+- Soft, deep, blurred shadows and gently rounded corners.
+- `Fira Code` throughout, bracketed `[ LABEL ]` tags, terminal-window chrome.
+</details>
 
-### `atelier/`
-An editorial studio-instrument style. Warm paper `#f2f1ee` and near-black ink
-`#101014`, with the whole page drawn as one 1px hairline grid of rows and indexed
-cells, each topped by a Geist Mono uppercase label bar. Extended `Archivo` headlines
-(variable width + weight) with an `Instrument Serif` italic accent word, `Inter` body
-at 62% ink, square corners and no shadows. One signal blue `#2d81ff` marks anything
-live: a fixed scroll ruler, range values, focus rings. Includes a drifting ticker
-strip, sunken scanline media wells and a segmented control. Light and dark modes,
-following the OS or forced with `data-theme`. Its prototype is a landing page for
-an open-source type-design studio (KERN) with type-specimen cells and a working
-variable-font playground (weight, width, size, case).
+<details>
+<summary><b><code>developer-brutalism/</code></b> — raw black console</summary>
+
+- Pure-black `#0a0a0a` canvas, off-white text, amber primary, terminal green and red, solid-white CTAs.
+- Flat surfaces, hairline borders, a subtle dot-grid texture, barely-rounded corners.
+- Uppercase wide-tracked mono labels, `JetBrains Mono` throughout.
+</details>
+
+<details>
+<summary><b><code>neumorphism/</code></b> — soft and tactile</summary>
+
+- One light `#e0e5ec` surface: cards, buttons and inputs are the same color as the page.
+- Depth comes only from **dual shadows**: dark bottom-right, white top-left. Pressed elements sink in.
+- Pillowy radii, low-contrast slate text, soft indigo accent, rounded `Poppins`.
+- Signature soft toggle.
+</details>
+
+<details>
+<summary><b><code>graph-paper/</code></b> — pen-on-graph-paper schematic</summary>
+
+- Cobalt ink `#1f3a93` on cream `#f7f4e4` paper with a faint green grid.
+- Orange `#e8730c` control accent, rust / green markers.
+- Georgia serif, thick inked borders, small radii, letter-spaced eyebrows, dashed dividers, white node boxes.
+- Filled-ink tab control; SVG diagrams recolor with the theme.
+</details>
+
+<details>
+<summary><b><code>glassmorphism/</code></b> — frosted glass over light</summary>
+
+- Deep night `#0b1026` canvas lit by violet / magenta / cyan orbs.
+- Translucent panes: white-alpha fills, `backdrop-filter` blur, light-catching hairline edges, inset top shine.
+- Pill buttons with accent glow, generous radii, `Manrope`.
+- Falls back to near-opaque panes without blur support or under *reduce transparency*.
+</details>
+
+<details>
+<summary><b><code>skeuomorphism/</code></b> — interfaces made of things</summary>
+
+- Linen `#e6ddcc` canvas, cream grained paper cards, tan leather with stitching, brushed aluminium, candy-glass keys.
+- Lit from above: top-edge highlights, soft drop shadows, inset wells, letterpress text, domed LED lamps.
+- Textures are pure CSS / inline SVG noise.
+- Source Sans 3 UI, Libre Baskerville titles, Caveat handwriting. Recessed ON/OFF toggle.
+</details>
+
+<details>
+<summary><b><code>skeuomorphism-modern/</code></b> — modern consumer hardware</summary>
+
+- Matte off-white `#f5f4f0` plastic under soft studio light, graphite keys, one signal-orange `#ff5a1f` accent.
+- Keys with real travel that latch, turning aluminium knobs, faders in grooves, ribbed slide switches.
+- Dark glass display with amber readout and scanlines; pinhole status LEDs.
+- `Geist` + `Geist Mono`. Light and dark colorways flip the edge lighting.
+</details>
+
+<details>
+<summary><b><code>inkline/</code></b> — hand-inked sketchbook</summary>
+
+- Paper `#fbfaf6` and paper-white panels drawn in one black ink `#111`.
+- 3px outlines, hard 0-blur offset ink shadows, square corners.
+- Shading drawn as hatch / crosshatch lines, never gradients. Panels can sit at a slight tilt.
+- Buttons lift on hover and stamp flat when pressed.
+- `Bangers` display caps, `Kalam` handwriting; `.ink-page--mono` swaps the body to `Courier Prime`.
+- Color only for status markers. Inline SVG drawn in `#111` / `#fff` follows the theme via `.ink-art`.
+- Presets: Sketchbook, Sepia, Blueprint, Red pen, dark Chalkboard.
+</details>
+
+<details>
+<summary><b><code>atelier/</code></b> — editorial studio instrument</summary>
+
+- Warm paper `#f2f1ee`, near-black ink `#101014`, body copy at 62% ink.
+- The page is one 1px hairline grid of rows and indexed cells, each with a mono label bar.
+- Extended `Archivo` headlines (variable width + weight) with an `Instrument Serif` italic accent word; `Inter` body; `Geist Mono` caps labels.
+- Square corners, no shadows. Signal blue `#2d81ff` only on live things: scroll ruler, slider values, focus rings, links.
+- Drifting ticker strip, scanline media wells, segmented control.
+- Light and dark, following the OS or forced with `data-theme`.
+</details>
